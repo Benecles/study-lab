@@ -9,23 +9,26 @@
 <style>
 /* ==========================================================
    STUDY LAB — página-índice
-   Mundo visual: MESA DE CATALOGAÇÃO. Papel envelhecido, tinta
-   grafite — a mesma família material das quatro peças, não um
-   produto de software separado colado na frente delas. Cada
-   peça ainda fornece sua própria cor dentro da janela da ficha.
+   Mundo visual: GABINETE DE CURIOSIDADES, à noite. Madeira de
+   nogueira escura, latão, veludo — um móvel real, não uma tela
+   "dark mode". Cada experimento é um espécime sob vidro, brilhando
+   na cor da própria peça, com uma etiqueta de latão gravada embaixo.
+   Escuro, mas skeuomórfico: imita um objeto físico, não papel.
    ========================================================== */
 
 :root{
-  --paper:#efe8d8;
-  --paper-2:#e8dfc9;
-  --card:#f6f1e4;
-  --ink:#2b271f;
-  --ink-soft:#5f5847;
-  --ink-faint:#8a8271;
-  --rule:rgba(43,39,31,.14);
-  --rule-soft:rgba(43,39,31,.08);
+  --wood:#1a1512;
+  --wood-2:#221b16;
+  --felt:#2a211a;
+  --brass:#b8935a;
+  --brass-dim:#7d6640;
+  --ivory:#e9dfc7;
+  --ivory-soft:#a89878;
+  --ivory-faint:#786a52;
+  --rule:rgba(184,147,90,.22);
+  --rule-soft:rgba(184,147,90,.12);
 
-  /* paletas emprestadas de cada peça, para as chapas */
+  /* paletas emprestadas de cada peça, para os espécimes */
   --p-dossie:#ece1c8;   --a-dossie:#a3392a;
   --p-terra:#e6ded4;    --a-terra:#2f6b58;
   --p-gloss:#efe9da;    --a-gloss:#7a4a30;
@@ -38,8 +41,8 @@
 html{ scroll-behavior:smooth; }
 html,body{ margin:0; padding:0; }
 body{
-  background:var(--paper);
-  color:var(--ink);
+  background:var(--wood);
+  color:var(--ivory);
   font-family:'Literata', Georgia, serif;
   font-size:16.5px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
@@ -47,14 +50,17 @@ body{
   position:relative;
 }
 
-/* papel + granulado — mesma textura das quatro peças, não uma grade técnica */
+/* veio de madeira + luz baixa de vitrine — não uma grade técnica */
 .bench{
   position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
-  background:radial-gradient(120% 70% at 50% -10%, rgba(255,255,255,.5), transparent 60%);
+  background:
+    radial-gradient(65% 45% at 50% 0%, rgba(184,147,90,.10), transparent 65%),
+    repeating-linear-gradient(178deg, rgba(0,0,0,.16) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(4deg, rgba(255,220,170,.025) 0 3px, transparent 3px 90px);
 }
 .grain{
   position:fixed; inset:0; width:100%; height:100%; z-index:60;
-  pointer-events:none; opacity:.3; mix-blend-mode:multiply;
+  pointer-events:none; opacity:.35; mix-blend-mode:overlay;
 }
 
 .page{ position:relative; z-index:1; max-width:1140px; margin:0 auto; padding:0 var(--pad); }
@@ -78,13 +84,13 @@ h2{
 
 /* ---------- masthead ---------- */
 .masthead{ padding:clamp(40px,8vh,88px) 0 clamp(26px,4.5vh,44px); }
-.stamp{ color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:6px 18px; margin-bottom:clamp(26px,5vh,48px); }
-.stamp b{ color:var(--ink-soft); font-weight:500; }
+.stamp{ color:var(--ivory-faint); display:flex; flex-wrap:wrap; gap:6px 18px; margin-bottom:clamp(26px,5vh,48px); }
+.stamp b{ color:var(--ivory-soft); font-weight:500; }
 .lede{
-  max-width:52ch; color:var(--ink-soft); font-size:clamp(15.5px,1.7vw,18px);
+  max-width:52ch; color:var(--ivory-soft); font-size:clamp(15.5px,1.7vw,18px);
   line-height:1.66; margin:clamp(22px,3vh,30px) 0 0;
 }
-.lede em{ color:var(--ink); font-style:italic; }
+.lede em{ color:var(--ivory); font-style:italic; }
 
 /* ---------- faixa de seção ---------- */
 .band{
@@ -92,8 +98,8 @@ h2{
   padding:22px 0 clamp(22px,3.4vh,34px); border-top:1px solid var(--rule);
 }
 .band .n{ color:var(--a-bifu); }
-.band .t{ color:var(--ink-soft); }
-.band .c{ margin-left:auto; color:var(--ink-faint); }
+.band .t{ color:var(--ivory-soft); }
+.band .c{ margin-left:auto; color:var(--ivory-faint); }
 
 /* ---------- grade de chapas ---------- */
 .plates{
@@ -104,16 +110,16 @@ h2{
 
 .plate{
   position:relative; display:flex; flex-direction:column; overflow:hidden;
-  border-radius:5px; text-decoration:none; color:inherit; isolation:isolate;
-  background:var(--card);
-  box-shadow:0 0 0 1px var(--rule), 0 14px 28px -22px rgba(43,39,31,.45);
+  border-radius:2px; text-decoration:none; color:inherit; isolation:isolate;
+  background:var(--felt);
+  box-shadow:0 0 0 1px var(--rule), 0 1px 0 rgba(255,235,200,.06) inset, 0 22px 34px -20px #000;
   transition:transform .32s cubic-bezier(.2,.7,.3,1), box-shadow .32s ease;
 }
 .plate:hover, .plate:focus-visible{
   transform:translateY(-3px);
-  box-shadow:0 0 0 1px rgba(43,39,31,.28), 0 20px 38px -22px rgba(43,39,31,.5);
+  box-shadow:0 0 0 1px var(--brass-dim), 0 1px 0 rgba(255,235,200,.09) inset, 0 30px 44px -20px #000;
 }
-.plate:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+.plate:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 
 /* a janela luminosa: o mundo visual da peça, na paleta da peça */
 .window{
@@ -129,17 +135,24 @@ h2{
 }
 
 .meta{ padding:clamp(15px,1.7vw,20px) clamp(16px,1.9vw,22px) clamp(16px,2vw,22px); display:flex; flex-direction:column; gap:9px; flex:1; }
-.meta .top{ display:flex; align-items:center; gap:9px; }
-.chip{ width:8px; height:8px; border-radius:50%; background:var(--pa); flex:none; }
-.meta .sub{ color:var(--ink-faint); font-size:9.5px; letter-spacing:.03em; line-height:1.5; }
+.meta .top{ display:flex; align-items:center; gap:10px; }
+.chip{
+  width:9px; height:9px; border-radius:50%; background:var(--pa); flex:none;
+  box-shadow:0 0 0 2px var(--felt), 0 0 0 3px var(--brass-dim), 0 0 6px 1px var(--pa);
+}
+.meta .sub{ color:var(--ivory-faint); font-size:9.5px; letter-spacing:.03em; line-height:1.5; }
+.meta .tag-no{
+  font-family:'Martian Mono', ui-monospace, monospace; font-size:9.5px; letter-spacing:.1em;
+  color:var(--brass); text-transform:uppercase; margin:0 0 1px;
+}
 .meta p{
-  margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.52; max-width:46ch;
+  margin:0; color:var(--ivory-soft); font-size:14.5px; line-height:1.52; max-width:46ch;
 }
 .tags{ margin-top:auto; padding-top:4px; display:flex; flex-wrap:wrap; gap:5px; }
 .tags span{
   font-family:'Martian Mono', ui-monospace, monospace;
   font-size:9px; letter-spacing:.04em; text-transform:uppercase;
-  color:var(--ink-faint); border:1px solid var(--rule);
+  color:var(--ivory-faint); border:1px solid var(--rule);
   padding:3px 7px; border-radius:99px; white-space:nowrap;
 }
 
@@ -150,11 +163,11 @@ h2{
 }
 @media (min-width:760px){ .colophon{ grid-template-columns:1fr 1fr; } }
 .colophon h3{ font-family:'Martian Mono',monospace; font-size:10.5px; letter-spacing:.06em;
-  text-transform:uppercase; font-weight:400; color:var(--ink-faint); margin:0 0 10px; }
-.colophon p{ margin:0 0 10px; color:var(--ink-soft); font-size:14.5px; line-height:1.6; max-width:48ch; }
-.colophon a{ color:var(--ink); text-decoration-color:var(--rule); text-underline-offset:3px; }
+  text-transform:uppercase; font-weight:400; color:var(--ivory-faint); margin:0 0 10px; }
+.colophon p{ margin:0 0 10px; color:var(--ivory-soft); font-size:14.5px; line-height:1.6; max-width:48ch; }
+.colophon a{ color:var(--ivory); text-decoration-color:var(--rule); text-underline-offset:3px; }
 .colophon a:hover{ text-decoration-color:currentColor; }
-.colophon code{ font-family:'Martian Mono',monospace; font-size:11.5px; color:var(--ink); }
+.colophon code{ font-family:'Martian Mono',monospace; font-size:11.5px; color:var(--ivory); }
 
 /* ---------- movimento (scroll-driven, com recuo honesto) ---------- */
 @media (prefers-reduced-motion: no-preference){
@@ -238,6 +251,7 @@ h2{
         </svg>
       </div>
       <div class="meta">
+        <p class="tag-no">ESPÉCIME 01</p>
         <div class="top"><span class="chip"></span><h2>Dossiê do Delito</h2></div>
         <p class="mono sub">Teoria do delito · arquivo criminal</p>
         <p>Seis fichas, cada uma um filtro que o fato precisa atravessar. Selo de cera em três chapas fora de registro, fita adesiva, linha vermelha desenhada pelo scroll.</p>
@@ -270,6 +284,7 @@ h2{
         </svg>
       </div>
       <div class="meta">
+        <p class="tag-no">ESPÉCIME 02</p>
         <div class="top"><span class="chip"></span><h2>A Terra Muda de Dono</h2></div>
         <p class="mono sub">Usucapião · caderno de agrimensor</p>
         <p>Cada requisito abre em sua própria “dimensão de bolso”, com motivo próprio. Rosa dos ventos, curvas de nível, e uma videira que se desenha conforme o prazo corre.</p>
@@ -302,6 +317,7 @@ h2{
         </svg>
       </div>
       <div class="meta">
+        <p class="tag-no">ESPÉCIME 03</p>
         <div class="top"><span class="chip"></span><h2>Glossário Ancorado</h2></div>
         <p class="mono sub">Direito contratual · profundidade sob demanda</p>
         <p>Prosa contínua em que o termo em latim abre uma definição presa exatamente à palavra — CSS Anchor Positioning e Popover API nativos, sem uma linha de JS posicionando nada.</p>
@@ -339,6 +355,7 @@ h2{
         </svg>
       </div>
       <div class="meta">
+        <p class="tag-no">ESPÉCIME 04</p>
         <div class="top"><span class="chip"></span><h2>Bifurcação Constitucional</h2></div>
         <p class="mono sub">Controle de constitucionalidade · prancheta</p>
         <p>Um diagrama de corte fixo que se monta peça a peça conforme o texto rola, e uma trilha que bifurca de verdade — difuso ou concentrado. Nenhum <code>&lt;script&gt;</code> no arquivo.</p>
