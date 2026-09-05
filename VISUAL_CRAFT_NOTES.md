@@ -1206,3 +1206,180 @@ Não são regras fechadas, são o que este passe sustenta:
 7. **Verificação visual é uma segunda checagem, separada da funcional.** "Funciona" e
    "não parece genérico" são perguntas diferentes, e passar na primeira não diz nada
    sobre a segunda.
+
+## 2026-09-05 — homepage, rodada 4: TRÊS alternativas em paralelo (diário, ao vivo)
+
+Pedido do dono, literal: *"try fucking around... I don't want to give specific criticism
+because I don't want to give you a specific direction yet."* Ou seja: **não convergir**.
+Saída = três páginas completas e genuinamente divergentes (`index-alt-a/b/c.html`), com a
+`index.html` atual **intocada**. Este bloco é escrito durante o trabalho, na ordem.
+
+### Passo 0 — capturar a versão viva e ler friamente
+
+Servi local + CDP headless (`document.hidden === false` confirmado) e capturei a
+`index.html` atual em 1440×900 antes de escrever qualquer linha.
+
+Leitura fria, e é o achado que define esta rodada: **a tentativa 3 é a tentativa 1 com
+outra roupa.** O esqueleto é idêntico — um bloco-herói grande e centrado no topo, uma
+faixa de seção, e uma grade 2×2 de cartões claros embaixo. Trocar "hero escuro + grade"
+por "folha de papel + grade" mudou o material e **não mudou a composição**. É provável
+que seja exatamente isso que o dono não consegue nomear: ele já viu essa página três
+vezes, sempre com a mesma planta baixa.
+
+Segunda observação da captura: a "fibra" da prancha, em tamanho real, ainda lê como uma
+trama de pontinhos regular sobre azul-ardósia liso. O passo 5 do diário anterior melhorou,
+mas não resolveu — de longe continua sendo *padrão*, não *matéria*.
+
+**Regra autoimposta para as três alternativas:** nenhuma delas pode ter a silhueta
+"bloco de título no topo + grade de cards embaixo". Se a planta baixa não muda, o
+material novo não vale nada.
+
+### As três apostas (escolhidas para divergirem entre si, não para agradarem)
+
+- **A — mural de cartazes rasgados.** Colagem sangrando na tela inteira, quatro cartazes
+  grandes em tinta chapada saturada, sobrepostos e tortos, papel colado sobre papel.
+  Máximo de barulho, sem grade.
+- **B — livro de índice aberto.** Página dupla de papel vergê com calha central, pauta,
+  filetes vermelhos. As quatro peças viram **linhas de uma tabela manuscrita**, não
+  cards. Quieto, arquivístico, quase sem cor.
+- **C — papel recortado chapado.** A resposta ao item em aberto do diário anterior
+  (*"menos simulação e mais forma gráfica chapada"*): formas grandes de papel cortado,
+  sombra dura sem blur, retícula grossa como única textura, muito vazio.
+
+### A — mural de cartazes: o que a captura pegou (três defeitos, todos invisíveis no código)
+
+1. **O misregistro da manchete duplicou o texto.** A técnica é uma cópia da manchete em
+   vermelhão, 3px fora, em `multiply`. A cópia é `position:absolute` — e o `h1` **não era**
+   `position:relative`, então o bloco de contenção virou o `.title`, que é muito mais largo:
+   a cópia não quebrou nas mesmas linhas do original e a página exibiu *"Material denso vira
+   interface. / vira interface."*, em preto e vermelho. Uma linha de CSS (`h1{position:relative}`)
+   e um erro que **só existe na tela** — o HTML está correto e o CSS "parece" certo.
+   Regra: sobre-impressão fora de registro exige que a cópia herde a **mesma caixa**, não só
+   a mesma string.
+2. **Vão morto de ~200px entre a manchete e os cartazes.** Estava lendo como dois blocos
+   empilhados, ou seja, exatamente a planta baixa que esta alternativa existe para evitar.
+   Correção: `margin-top` negativo na lauda no desktop, para ela **encavalar** a metade
+   vazia da faixa do título. Colagem é sobreposição; se nada se sobrepõe, é grade.
+3. **Cartaz vizinho comendo o título do outro.** Com sobreposição de uma coluna inteira
+   (~107px) e padding de 26px, dava para ler *"erra Muda de / o"* na peça 02. Duas correções
+   combinadas: reduzir a sobreposição para ~70px **e** dar `padding-left` de 88px a quem
+   fica por baixo. Anotação transferível: **numa colagem, sobreposição e padding são a mesma
+   variável** — quem aumenta uma tem que aumentar a outra, ou perde texto.
+
+**Textura, verificada em recorte 3×:** o chão de jornal passou. O que resolveu foi a mesma
+regra do diário anterior aplicada na direção oposta ao instinto — os campos de pontinhos
+foram de passos 43/67/89px para 13/19/23/31px com alfa **caído pela metade**, e o
+`feTurbulence` subiu de .34 para .5 em `multiply`. Pontinho grande e forte = bolinha; ponto
+pequeno e fraco + ruído forte = fibra.
+
+A **retícula do cartaz** (4.5px, `screen`, sobre tinta chapada) aparece sem esforço em
+1440px e é o que impede a tinta de ler como `background-color`. É a técnica mais barata da
+página inteira e provavelmente vale para qualquer peça futura com campo de cor chapado.
+
+Verificado também: 390×844 (cartazes empilhados com inclinações menores, sem sobreposição)
+e `prefers-reduced-motion: reduce` (estado final estático, inclinações mantidas).
+
+### B — livro de registro: a textura que finalmente não é grade, e a única correção estrutural
+
+Esta foi a mais fácil de acertar de primeira, e vale entender por quê: **quando a
+composição já é a metáfora, a textura tem menos trabalho a fazer.** A calha da
+encadernação com sombra, o filete vermelho de margem, o cabeçalho de duas réguas e as
+abas de polegar na borda direita já dizem "livro" antes de qualquer fibra aparecer. Nas
+tentativas anteriores a textura carregava sozinha a promessa de material — e era por isso
+que ela tinha que ser tão forte, e por isso brigava tanto.
+
+**A correção de textura, mesmo assim, foi a de sempre e na mesma direção.** A primeira
+captura mostrava as vergaturas (3px) cruzando com os pontusais (27px) e fechando numa
+**trama xadrez visível** — de novo a grade, pela terceira vez neste caderno, por um
+terceiro caminho. Correção: vergaturas de `.075` → `.038`, pontusais de `.13` → `.06`,
+`feTurbulence` de `.4` → `.56`. **Terceira confirmação independente da regra do passo 5
+do diário anterior:** quando lê como grade, rebaixe o padrão e promova o ruído.
+
+**O que salvou o papel foi o foxing, não a fibra.** As manchas ferruginosas estavam em
+8–18px e alfa .1–.16, ou seja, invisíveis em 1440px. Dobradas de tamanho (15–32px) e
+subidas para .18–.26, viraram o elemento mais legível da página — e são o que faz o papel
+ler como **envelhecido** em vez de bege. Anotação para a bíblia de estilo: numa peça de
+papel, uma mancha grande e irregular vale mais que qualquer trama regular, e é mais barata.
+
+**Único defeito real de composição, e só apareceu em 390px:** a linha do registro é uma
+grade `108px 1fr 168px` e, no celular, virava `76px 1fr` — o que deixava o parágrafo com
+~28ch numa tira estreita ao lado do espécime. Corrigido para bloco (espécime vira selo de
+96px acima do texto). Junto com isso, **um bug de cascata que a captura pegou e o código
+não denunciava**: a regra `@media (max-width:639px){ .specimen{ width:96px } }` estava
+escrita ANTES da regra genérica `.specimen{ width:100% }` no arquivo, e perdia o empate
+de especificidade. Resolvido subindo o seletor para `.entry .specimen`. Vale a nota geral:
+**bloco de media query escrito antes da regra base não vence por ser media query** —
+media query não adiciona especificidade nenhuma.
+
+**Detalhe que funcionou melhor do que eu esperava:** o hover. Não levanta cartão (livro
+não levanta) — passa marca-texto na linha inteira e acende um "bico de pena" na margem
+esquerda, na cor da peça. O gesto certo para o objeto certo, e é mais barato que o
+`translateY` + sombra que todo card faz.
+
+### C — papel recortado / sanfona: cobrando a promessa deixada em aberto
+
+Esta alternativa não é uma ideia nova, é uma **dívida do diário anterior sendo paga**. A
+seção "em aberto, honestamente" da tentativa 3 diz, com todas as letras, que a fibra da
+prancha era a parte mais "simulação" da página, que foi justamente a que mais brigou, e
+que numa próxima vez o certo seria *menos simulação e mais forma gráfica chapada*. Então
+esta página tem uma regra única e severa: **nenhuma textura de fibra, nenhuma sombra com
+blur, nenhum gradiente de iluminação.** Papel aqui é recorte: silhueta, cor chapada, e
+sombra dura de deslocamento sólido.
+
+**O que confirma a hipótese:** custou muito menos. O arquivo tem ~14 KB contra ~22 KB das
+outras duas, o CSS não tem uma única pilha de sete `radial-gradient`, e a primeira captura
+já estava 80% certa — enquanto A e B precisaram de três rodadas de ajuste de textura cada.
+Forma chapada é mais barata *e* mais robusta, exatamente como o diário suspeitava.
+
+**Duas decisões que só apareceram na hora de executar:**
+
+- **O marca-texto teve que mudar de espécie.** As outras duas páginas usam o traço de
+  caneta em `mix-blend-mode: multiply`, que é a técnica de casa. Aqui ela estaria errada:
+  numa página em que nada é translúcido, um traço translúcido é um corpo estranho. Virou
+  uma **tira de papel amarelo chapada por baixo da palavra** (`::before` com `z-index:-1`).
+  Anotação: *a técnica de casa é subordinada ao material da peça, não o contrário.*
+- **O furo é vazado de verdade, com `mask-image`, não pintado com a cor do fundo.** Parece
+  preciosismo, e não é: se o painel se move no hover, um círculo pintado se move junto e
+  denuncia a farsa; um furo de máscara continua mostrando o fundo, que fica parado. Custo
+  idêntico, honestidade diferente.
+
+**Correções que a captura pegou:**
+1. **A diagonal do segundo papel não lia como corte.** `--ground-2` estava a 5% do
+   `--ground` e a "sombra" era um `::after` com `clip-path` próprio — invisível. Duas
+   correções: contraste maior entre os dois papéis, e a sombra passou a ser
+   `filter: drop-shadow(0 9px 0 …)` **com blur zero**, no próprio elemento recortado
+   (`clip-path` anula `box-shadow` — nota já registrada neste caderno, agora usada em vez
+   de redescoberta).
+2. **Em 390px o disco vermelho sangrava por cima do kicker**, deixando texto escuro sobre
+   vermelho. Disco empurrado para fora do canto e a cauda do kicker escondida abaixo de
+   719px.
+
+**Ressalva honesta desta alternativa, que o dono deve saber ao olhar:** a retícula de 6px
+é, num recorte 3×, um **reticulado perfeitamente regular** — ou seja, contraria a regra
+nº 3 da casa ("ruído verdadeiro domina padrão regular"). Aqui isso é deliberado: uma
+retícula de impressão *é* regular, e a peça inteira assume forma gráfica em vez de
+simulação. Mas é exatamente o tipo de decisão que pode ser lida como "de novo a grade".
+Fica registrado como escolha consciente, não como descuido — e se o dono reagir a isso,
+a correção é meia linha de `feTurbulence`, não um redesenho.
+
+### Fechamento da rodada 4
+
+Três arquivos entregues, todos completos e funcionais, `index.html` **intocada**:
+
+| | composição | humor | material |
+|---|---|---|---|
+| **A** `index-alt-a.html` | colagem sobreposta, sem grade | barulhento, de rua | jornal + cartaz de tinta chapada |
+| **B** `index-alt-b.html` | página dupla, tabela de registro | quieto, arquivístico | papel vergê com foxing |
+| **C** `index-alt-c.html` | sanfona de quatro painéis | seco, gráfico, muito vazio | papel recortado chapado |
+
+Verificação em todas as três: CDP headless com `document.hidden === false`, capturas em
+1440×900 e 390×844, recorte 3× da textura, e `prefers-reduced-motion: reduce` emulado
+(estado final estático em todas).
+
+**O que esta rodada ensinou, independente de qual delas o dono escolher (ou nenhuma):**
+a variável que estava travada nas três tentativas anteriores não era o material — era a
+**planta baixa**. As três primeiras homepages tinham a mesma silhueta com roupas
+diferentes, e trocar a roupa nunca resolveu. Assim que a composição mudou de verdade
+(colagem, página dupla, sanfona), o material passou a ter onde se apoiar e cada escolha de
+textura ficou mais fácil, não mais difícil. Se houver uma quarta rodada, começar pela
+composição, não pela paleta.

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Lab — mural</title>
+<meta name="description" content="Laboratório de apresentação: material jurídico denso virando páginas web animadas, uma linguagem visual por tema.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* ==========================================================
+   ALTERNATIVA A — MURAL DE CARTAZES RASGADOS
+
+   Aposta: a página não é uma folha com cards; é uma parede de
+   papel de jornal em que quatro cartazes foram COLADOS, tortos,
+   sobrepostos, cada um numa tinta chapada saturada.
+
+   Por que existe: a index viva (e as duas rejeitadas antes dela)
+   têm todas a MESMA planta baixa — bloco de título no topo,
+   grade de cartões claros embaixo. Aqui não há grade e não há
+   hero: há uma colagem que sangra nas quatro bordas.
+
+   Material: papel sobre papel. Jornal barato como chão, cartaz
+   de tinta chapada por cima. Nada de madeira, cortiça ou vidro.
+
+   Textura obrigatoriamente VISÍVEL (lição nº 2 do caderno):
+   · chão = malha de fibrinha em passos primos + salpico de
+     tinta + grão feTurbulence forte;
+   · cartaz = RETÍCULA de meio-tom grossa (4.5px) em multiply,
+     que é o que faz tinta chapada parecer impressa e não CSS.
+   ========================================================== */
+
+:root{
+  --news:#d7cdb4;         /* jornal barato */
+  --news-2:#c7bb9e;
+  --paste:#efe7d3;        /* papel creme das tiras coladas */
+  --ink:#241f19;
+  --ink-soft:#574e40;
+  --ink-faint:#8b8071;
+
+  --i-dossie:#b23a28;
+  --i-terra:#2c6a56;
+  --i-gloss:#8a5233;
+  --i-bifu:#2c5b84;
+
+  --tape:rgba(226,212,170,.72);
+  --hl:rgba(238,206,60,.7);
+  --pad:clamp(16px,3.4vw,54px);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--news);
+  color:var(--ink);
+  font-family:'Crimson Pro', Georgia, serif;
+  font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ---------- chão: jornal ----------
+   Passos primos entre si para nunca fecharem em grade (a
+   armadilha já anotada no caderno), mais salpicos maiores e
+   irregulares que leem como fibra grosseira de papel reciclado. */
+.ground{
+  position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(130% 90% at 12% 0%, rgba(255,250,236,.42), transparent 58%),
+    radial-gradient(90% 70% at 96% 22%, rgba(150,136,106,.34), transparent 62%),
+    radial-gradient(120% 80% at 40% 108%, rgba(126,112,86,.4), transparent 66%),
+    radial-gradient(circle at 23% 41%, rgba(70,58,40,.085) 0 1.1px, transparent 1.6px),
+    radial-gradient(circle at 71% 17%, rgba(70,58,40,.07) 0 .95px, transparent 1.45px),
+    radial-gradient(circle at 47% 83%, rgba(255,252,240,.34) 0 1.15px, transparent 1.7px),
+    radial-gradient(circle at 9% 66%, rgba(70,58,40,.06) 0 .8px, transparent 1.25px);
+  background-size:
+    100% 100%, 100% 100%, 100% 100%,
+    19px 17px, 23px 29px, 31px 27px, 13px 11px;
+}
+.grain{
+  position:fixed; inset:0; width:100%; height:100%; z-index:60;
+  pointer-events:none; opacity:.5; mix-blend-mode:multiply;
+}
+
+.wrap{ position:relative; z-index:2; padding:0 var(--pad) clamp(50px,9vh,110px); max-width:1340px; margin:0 auto; }
+
+.mono{ font-family:'Courier Prime', ui-monospace, monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
+
+/* ---------- fita ---------- */
+.tape{
+  position:absolute; z-index:8; height:28px; width:118px;
+  background:linear-gradient(180deg, rgba(255,255,255,.2), rgba(0,0,0,.08)), var(--tape);
+  box-shadow:0 2px 5px rgba(60,48,30,.28);
+  clip-path:polygon(4% 0, 26% 5%, 49% 0, 72% 6%, 93% 1%, 100% 7%,
+                    96% 100%, 74% 94%, 52% 100%, 28% 93%, 7% 99%, 0 92%);
+}
+
+/* ---------- cabeçalho: três tiras coladas, não um bloco ----------
+   O título é uma FAIXA colada atravessada, com sobra para fora da
+   coluna. Nada de caixa centralizada. */
+.head{ position:relative; padding:clamp(26px,4.6vh,52px) 0 clamp(12px,2.4vh,26px); }
+
+.strip{
+  position:relative; display:inline-block; background:var(--paste);
+  padding:9px clamp(16px,2.2vw,30px) 11px; color:var(--ink);
+  box-shadow:0 8px 16px -10px rgba(50,38,22,.8);
+}
+.strip::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.13) 1px, transparent 1.5px);
+  background-size:6px 6px;
+}
+.strip > *{ position:relative; z-index:2; }
+
+.strip-slug{ transform:rotate(-1.1deg); margin-left:clamp(0px,2vw,26px); color:var(--ink-faint); }
+.strip-slug b{ color:var(--ink-soft); }
+
+/* a manchete: tinta chapada, sobre-impressa fora de registro */
+.title{
+  position:relative; display:block; margin:14px 0 0 -6px;
+  transform:rotate(-1.6deg); transform-origin:left center;
+}
+.title h1{
+  font-family:'Fraunces', Georgia, serif; font-weight:900;
+  position:relative;
+  font-size:clamp(38px,7.6vw,96px); line-height:.87; letter-spacing:-.03em;
+  margin:0; color:var(--ink); max-width:11ch;
+  font-variation-settings:'SOFT' 22, 'WONK' 1;
+}
+/* misregistro: a mesma manchete em vermelhão, 3px fora, multiply.
+   Isso é riso de verdade — duas chapas que não batem. */
+.title h1 .over{
+  position:absolute; left:3px; top:4px; color:var(--i-dossie);
+  mix-blend-mode:multiply; opacity:.5; pointer-events:none;
+  -webkit-user-select:none; user-select:none;
+}
+.title .sheet-bg{
+  position:absolute; inset:-16px -26px -20px -20px; background:var(--paste); z-index:-1;
+  box-shadow:0 14px 24px -14px rgba(50,38,22,.85);
+  clip-path:polygon(0 3px, 100% 0, 100% calc(100% - 10px), 96% 100%, 91% calc(100% - 7px),
+    86% 100%, 80% calc(100% - 9px), 74% calc(100% - 2px), 68% calc(100% - 11px),
+    61% calc(100% - 3px), 55% 100%, 48% calc(100% - 8px), 41% calc(100% - 1px),
+    34% calc(100% - 10px), 27% calc(100% - 4px), 20% 100%, 13% calc(100% - 7px),
+    6% calc(100% - 2px), 0 calc(100% - 9px));
+}
+.title .tape{ top:-15px; left:64px; transform:rotate(-6deg); }
+
+.lede{
+  position:relative; z-index:9;
+  max-width:42ch; margin:clamp(16px,2.4vh,26px) 0 0 auto;
+  transform:rotate(.7deg); font-size:clamp(16px,1.5vw,18.5px); color:var(--ink-soft);
+}
+/* No desktop a lauda encaixa POR CIMA da metade vazia da faixa do
+   título — é o que transforma "dois blocos empilhados" em colagem.
+   Verificado em captura: sem isso sobrava um vão morto de ~200px. */
+@media (min-width:1000px){ .lede{ margin-top:clamp(-118px,-8vw,-70px); margin-right:clamp(0px,3vw,40px); } }
+.lede .strip{ padding:14px 20px 16px; }
+.hl{
+  background:linear-gradient(93deg, rgba(238,206,60,0) 0, var(--hl) 4%,
+    rgba(232,198,44,.78) 46%, var(--hl) 80%, rgba(238,206,60,0) 100%);
+  mix-blend-mode:multiply; white-space:nowrap; padding:2px 5px 3px; margin:0 -2px;
+}
+
+/* ---------- a faixa de seção vira um carimbo na parede ---------- */
+.band{ display:flex; align-items:center; gap:12px; color:var(--ink-faint); margin:clamp(18px,3vh,34px) 0 clamp(4px,1.4vh,14px); }
+.band .fill{ flex:1; height:2px; background:repeating-linear-gradient(90deg, rgba(60,50,34,.3) 0 7px, transparent 7px 13px); }
+
+/* ---------- os cartazes ----------
+   Sem grade regular: 12 colunas com posicionamento explícito e
+   sobreposição real de uma coluna entre vizinhos. */
+.mural{ position:relative; display:grid; grid-template-columns:repeat(12,1fr); gap:0; }
+
+.poster{
+  position:relative; text-decoration:none; display:block;
+  filter:drop-shadow(0 18px 22px rgba(46,34,18,.42));
+  transition:transform .32s cubic-bezier(.2,.7,.3,1), filter .32s ease;
+  will-change:transform;
+}
+.poster:focus-visible{ outline:3px solid var(--ink); outline-offset:6px; }
+.poster:hover, .poster:focus-visible{ z-index:20 !important; }
+
+@media (min-width:1000px){
+  .mural{ row-gap:96px; }
+  .p1{ grid-column:1 / span 6;  grid-row:1; z-index:4; transform:rotate(-1.7deg); }
+  .p2{ grid-column:7 / span 6;  grid-row:1; z-index:3; transform:rotate(1.3deg) translate(-74px,58px); }
+  .p3{ grid-column:1 / span 6;  grid-row:2; z-index:6; transform:rotate(1deg) translate(44px,6px); }
+  .p4{ grid-column:7 / span 6;  grid-row:2; z-index:5; transform:rotate(-1.15deg) translate(-62px,78px); }
+  /* quem fica por baixo à esquerda ganha recuo de texto: sem isso o
+     cartaz vizinho come a primeira palavra do título. Visto em captura
+     — "erra Muda de ...o" era o que dava para ler da peça 02. */
+  .p2 .face, .p4 .face{ padding-left:88px; }
+  .p1:hover,.p1:focus-visible{ transform:rotate(-1.7deg) translateY(-8px); }
+  .p2:hover,.p2:focus-visible{ transform:rotate(1.3deg) translate(-74px,50px); }
+  .p3:hover,.p3:focus-visible{ transform:rotate(1deg) translate(44px,-2px); }
+  .p4:hover,.p4:focus-visible{ transform:rotate(-1.15deg) translate(-62px,70px); }
+  .poster:hover, .poster:focus-visible{ filter:drop-shadow(0 30px 34px rgba(46,34,18,.5)); }
+}
+@media (max-width:999px){
+  .mural{ display:flex; flex-direction:column; gap:clamp(22px,4vw,38px); }
+  .p1{ transform:rotate(-1.1deg); } .p2{ transform:rotate(.9deg); }
+  .p3{ transform:rotate(.7deg); }  .p4{ transform:rotate(-.8deg); }
+}
+
+/* a folha do cartaz: tinta chapada, borda de baixo rasgada.
+   clip-path anula box-shadow — por isso a sombra mora no <a>
+   via filter:drop-shadow, que segue a silhueta rasgada. */
+.face{
+  position:relative; color:var(--paste); overflow:hidden;
+  padding:clamp(18px,2vw,26px) clamp(18px,2.2vw,30px) clamp(30px,3.4vw,46px);
+  clip-path:polygon(0 0, 100% 0,
+    100% calc(100% - 11px), 95% 100%, 90% calc(100% - 8px), 85% calc(100% - 1px),
+    80% calc(100% - 12px), 74% calc(100% - 4px), 69% 100%, 63% calc(100% - 9px),
+    58% calc(100% - 2px), 52% calc(100% - 11px), 46% calc(100% - 5px), 40% 100%,
+    35% calc(100% - 8px), 29% calc(100% - 13px), 23% calc(100% - 3px), 17% 100%,
+    12% calc(100% - 9px), 7% calc(100% - 2px), 0 calc(100% - 10px));
+}
+/* RETÍCULA: o item que faz a tinta chapada ler como impressa.
+   4.5px é grosso de propósito — tem que aparecer numa captura em
+   tamanho real, não sobreviver só no CSS. */
+.face::after{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:6;
+  background-image:radial-gradient(circle at 1.4px 1.4px, rgba(255,248,228,.2) 1.15px, transparent 1.7px);
+  background-size:4.5px 4.5px;
+  mix-blend-mode:screen;
+}
+.face > *{ position:relative; z-index:3; }
+
+.p1 .face{ background:var(--i-dossie); }
+.p2 .face{ background:var(--i-terra); }
+.p3 .face{ background:var(--i-gloss); }
+.p4 .face{ background:var(--i-bifu); }
+
+/* arte grande impressa DENTRO do cartaz, na cor do papel,
+   estourando pela direita — é o motivo da peça em escala de
+   cartaz, não uma miniatura de preview. */
+.art{
+  position:absolute; right:-8%; top:-6%; width:56%; height:118%;
+  opacity:.3; z-index:1; pointer-events:none;
+}
+.art svg{ width:100%; height:100%; display:block; }
+
+.no{
+  font-family:'Fraunces',serif; font-weight:900; font-size:clamp(30px,3.4vw,46px);
+  line-height:1; letter-spacing:-.02em; opacity:.62; margin:0 0 4px;
+}
+.poster h2{
+  font-family:'Fraunces', Georgia, serif; font-weight:700;
+  font-size:clamp(25px,3.1vw,40px); line-height:1.02; letter-spacing:-.02em;
+  margin:0; max-width:15ch;
+}
+.sub{ margin:9px 0 0; opacity:.78; }
+.desc{ margin:12px 0 0; max-width:38ch; font-size:clamp(15px,1.25vw,17px); line-height:1.48; opacity:.94; }
+.tags{ margin:16px 0 0; display:flex; flex-wrap:wrap; gap:6px; }
+.tags span{
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:.05em;
+  text-transform:uppercase; border:1px solid rgba(255,246,226,.42);
+  padding:2px 7px; white-space:nowrap;
+}
+.poster .tape{ width:96px; height:24px; top:-11px; }
+.p1 .tape{ left:34px; transform:rotate(-7deg); }
+.p2 .tape{ right:44px; transform:rotate(6deg); }
+.p3 .tape{ left:56px; transform:rotate(5deg); }
+.p4 .tape{ right:30px; transform:rotate(-5deg); }
+
+/* ---------- rodapé: mais uma tira colada, torta ---------- */
+.colophon{ position:relative; margin:clamp(56px,10vh,120px) 0 0; max-width:860px; transform:rotate(-.6deg); }
+.colophon .tape{ width:112px; top:-12px; left:40px; transform:rotate(-4deg); }
+.colophon .inner{
+  position:relative; background:var(--paste); padding:clamp(22px,3vw,36px) clamp(20px,3vw,38px);
+  box-shadow:0 16px 26px -16px rgba(50,38,22,.8);
+  display:grid; gap:clamp(14px,3vw,40px); grid-template-columns:1fr;
+}
+@media (min-width:780px){ .colophon .inner{ grid-template-columns:1fr 1fr; } }
+.colophon .inner::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.14) 1.05px, transparent 1.5px);
+  background-size:6px 6px;
+}
+.colophon h3{ font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; color:var(--ink-faint); margin:0 0 9px; position:relative; z-index:2; }
+.colophon p{ margin:0 0 9px; color:var(--ink-soft); font-size:15.5px; max-width:44ch; position:relative; z-index:2; }
+.colophon em{ color:var(--ink); font-style:italic; }
+.colophon a{ color:var(--ink); text-decoration-color:rgba(36,31,25,.35); text-underline-offset:3px; }
+.colophon a:hover{ text-decoration-color:currentColor; }
+.colophon code{ font-family:'Courier Prime',monospace; font-size:13px; }
+
+/* ---------- movimento ----------
+   Só um assentamento curto na entrada. `translate` como
+   propriedade própria para não sobrescrever o transform:rotate
+   de cada cartaz (armadilha já anotada no caderno). */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .poster{ animation:paste-in linear both; animation-timeline:view(); animation-range:entry 0% entry 34%; }
+    @keyframes paste-in{ from{ opacity:0; translate:0 26px; } to{ opacity:1; translate:0 0; } }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .poster{ transition:none; }
+  .poster:hover, .poster:focus-visible{ transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="ground" aria-hidden="true"></div>
+<svg class="grain" aria-hidden="true" preserveAspectRatio="none">
+  <filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/>
+  <feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#g)" opacity=".6"/>
+</svg>
+
+<div class="wrap">
+
+  <header class="head">
+    <p class="strip strip-slug mono">
+      Study&nbsp;Lab &nbsp;·&nbsp; <b>P&amp;D</b> de apresentação &nbsp;·&nbsp; <b>04</b> peças &nbsp;·&nbsp; HTML de arquivo único
+    </p>
+
+    <div class="title">
+      <span class="sheet-bg" aria-hidden="true"></span>
+      <span class="tape" aria-hidden="true"></span>
+      <h1><span class="over" aria-hidden="true">Material denso vira interface.</span>Material denso vira interface.</h1>
+    </div>
+
+    <div class="lede">
+      <p class="strip">
+        Cada peça pega um tema jurídico e o trata como <mark class="hl">veículo descartável</mark>
+        — o que está sendo testado é a apresentação, não o conteúdo. Uma técnica de web
+        moderna por peça, um mundo de papel próprio por peça, e um caderno de bordo que
+        anota honestamente o que funcionou e o que não.
+      </p>
+    </div>
+  </header>
+
+  <p class="band mono">
+    <span>01 — Experimentos</span>
+    <span class="fill"></span>
+    <span>04 peças · 2026</span>
+  </p>
+
+  <nav class="mural">
+
+    <a class="poster p1" href="dossie-do-delito.html">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="face">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="3">
+            <rect x="18" y="46" width="112" height="150" stroke-width="3"/>
+            <rect x="34" y="30" width="112" height="150" stroke-width="3"/>
+            <g stroke-width="2.4" stroke-linecap="round" opacity=".8">
+              <path d="M50 62h80M50 82h64M50 102h80M50 122h44"/>
+            </g>
+            <circle cx="132" cy="176" r="40" stroke-width="4"/>
+            <circle cx="132" cy="176" r="24" stroke-width="2.4"/>
+            <path d="M120 176l9 11 20-23" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M146 30C186 58 150 90 182 118" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="no">01</p>
+        <h2>Dossiê do Delito</h2>
+        <p class="sub mono">Teoria do delito · arquivo criminal</p>
+        <p class="desc">Seis fichas, cada uma um filtro que o fato precisa atravessar. Selo de cera em três chapas fora de registro, fita adesiva, linha vermelha desenhada pelo scroll.</p>
+        <div class="tags"><span>scroll-timeline</span><span>view transitions</span><span>riso</span></div>
+      </div>
+    </a>
+
+    <a class="poster p2" href="a-terra-muda-de-dono.html">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="face">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="2.4">
+            <g opacity=".85">
+              <path d="M-10 200C40 176 74 212 124 190S196 162 214 178"/>
+              <path d="M-10 172C42 146 76 184 126 160S198 132 214 150"/>
+              <path d="M-10 144C44 116 78 156 128 130S200 102 214 122"/>
+            </g>
+            <path d="M28 214L104 172l70 16-52 44z" stroke-width="3" stroke-dasharray="9 7"/>
+            <circle cx="140" cy="66" r="38" stroke-width="3"/>
+            <circle cx="140" cy="66" r="23" stroke-width="1.8" stroke-dasharray="3 5"/>
+            <path d="M140 20l9 46-9 46-9-46z" fill="currentColor" stroke="none" opacity=".9"/>
+            <path d="M40 250C24 202 58 180 42 132S70 74 56 30" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="no">02</p>
+        <h2>A Terra Muda de Dono</h2>
+        <p class="sub mono">Usucapião · caderno de agrimensor</p>
+        <p class="desc">Cada requisito abre em sua própria “dimensão de bolso”, com motivo próprio. Rosa dos ventos, curvas de nível, e uma videira que se desenha conforme o prazo corre.</p>
+        <div class="tags"><span>pocket dimensions</span><span>view transitions</span><span>scroll-timeline</span></div>
+      </div>
+    </a>
+
+    <a class="poster p3" href="glossario-ancorado.html">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="face">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 200 260" fill="none" stroke="currentColor">
+            <g stroke-width="4" stroke-linecap="round" opacity=".7">
+              <path d="M22 34h150M22 58h170M22 82h104M96 106h78M22 190h56M22 214h150M22 238h96"/>
+            </g>
+            <path d="M22 106h60" stroke-width="6" stroke-linecap="round"/>
+            <path d="M22 118h60" stroke-width="2.4" stroke-dasharray="3 5"/>
+            <rect x="22" y="134" width="132" height="44" stroke-width="3"/>
+            <rect x="22" y="134" width="7" height="44" fill="currentColor" stroke="none"/>
+            <path d="M44 152h84" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="no">03</p>
+        <h2>Glossário Ancorado</h2>
+        <p class="sub mono">Direito contratual · profundidade sob demanda</p>
+        <p class="desc">Prosa contínua em que o termo em latim abre uma definição presa exatamente à palavra — CSS Anchor Positioning e Popover API nativos, sem uma linha de JS posicionando nada.</p>
+        <div class="tags"><span>anchor positioning</span><span>popover api</span><span>zero JS</span></div>
+      </div>
+    </a>
+
+    <a class="poster p4" href="bifurcacao-constitucional.html">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="face">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="3">
+            <rect x="14" y="196" width="172" height="26"/>
+            <g stroke-width="2" opacity=".8">
+              <path d="M14 222l-9 14M40 222l-9 14M66 222l-9 14M92 222l-9 14M118 222l-9 14M144 222l-9 14M170 222l-9 14M186 222l-9 14"/>
+            </g>
+            <rect x="52" y="140" width="18" height="56"/><rect x="130" y="140" width="18" height="56"/>
+            <rect x="36" y="112" width="128" height="26"/>
+            <path d="M116 112l-8 12 9 9-5 12" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M84 138C46 156 34 172 34 196" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round"/>
+            <path d="M120 138C160 156 172 172 172 196" stroke-width="5" stroke-linecap="round"/>
+            <g stroke-width="2" opacity=".75">
+              <path d="M36 46h128M36 46v40M164 46v40M36 76h128M60 76l80-30M60 46l80 30" stroke-dasharray="5 6"/>
+            </g>
+          </svg>
+        </div>
+        <p class="no">04</p>
+        <h2>Bifurcação Constitucional</h2>
+        <p class="sub mono">Controle de constitucionalidade · prancheta</p>
+        <p class="desc">Um diagrama de corte fixo que se monta peça a peça conforme o texto rola, e uma trilha que bifurca de verdade — difuso ou concentrado. Nenhum <code>&lt;script&gt;</code> no arquivo.</p>
+        <div class="tags"><span>sticky stepper</span><span>view-timeline</span><span>:has()</span><span>zero JS</span></div>
+      </div>
+    </a>
+
+  </nav>
+
+  <footer class="colophon">
+    <span class="tape" aria-hidden="true"></span>
+    <div class="inner">
+      <div>
+        <h3>O que isto é</h3>
+        <p>Um laboratório de <em>apresentação</em>. A pergunta em teste é se material de estudo denso fica mais legível quando cada conceito ganha uma linguagem visual própria — e quanto isso custa para produzir.</p>
+        <p>O conteúdo jurídico de cada peça é deliberadamente descartável: serve de maquete para o texto real, não substitui material de estudo.</p>
+      </div>
+      <div>
+        <h3>Caderno de bordo</h3>
+        <p>Cada decisão, bug e ideia em aberto fica registrada em <a href="https://github.com/Benecles/study-lab/blob/main/VISUAL_CRAFT_NOTES.md"><code>VISUAL_CRAFT_NOTES.md</code></a>, incluindo o que deu errado — que costuma ser a parte útil.</p>
+        <p><a href="https://github.com/Benecles/study-lab">Código no GitHub</a></p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

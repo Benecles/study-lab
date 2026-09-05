@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Lab — livro de registro</title>
+<meta name="description" content="Laboratório de apresentação: material jurídico denso virando páginas web animadas, uma linguagem visual por tema.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* ==========================================================
+   ALTERNATIVA B — LIVRO DE REGISTRO ABERTO
+
+   Aposta oposta à A: nada de cartaz, nada de cor chapada, nada
+   de colagem. A tela INTEIRA é uma página dupla de um livro de
+   registro encadernado — calha central com sombra, pauta, filete
+   vermelho de margem, manchas de foxing, e índice de polegar na
+   borda direita.
+
+   As quatro peças NÃO são cards. São LINHAS DE UMA TABELA
+   manuscrita, com um "espécime" colado (papel sobre papel) na
+   coluna da esquerda de cada linha. Essa é a diferença estrutural
+   que importa: a index viva apresenta quatro objetos lado a lado;
+   aqui elas são entradas de um registro, lidas de cima para baixo.
+
+   Textura VISÍVEL, e é papel vergê, não papel liso:
+   · linhas de forma (vergaturas) a cada 3px;
+   · pontusais (as linhas grossas do molde) a cada ~27px;
+   · foxing: manchas ferruginosas irregulares, grandes o bastante
+     para aparecerem numa captura em tamanho real;
+   · grão feTurbulence por cima.
+   ========================================================== */
+
+:root{
+  --leaf:#ece3ce;          /* papel vergê marfim */
+  --leaf-edge:#ded2b6;
+  --rule:rgba(74,96,116,.19);   /* pauta azul desbotada */
+  --rule-strong:rgba(74,96,116,.34);
+  --redline:rgba(163,63,42,.5); /* filete de margem */
+  --ink:#2a251d;
+  --ink-soft:#584e3f;
+  --ink-faint:#8d8371;
+
+  --a-dossie:#a3392a;
+  --a-terra:#2f6b58;
+  --a-gloss:#7a4a30;
+  --a-bifu:#2f6088;
+  --p-dossie:#e7dbbe;
+  --p-terra:#e2dacd;
+  --p-gloss:#e9e2d1;
+  --p-bifu:#d9d7cd;
+
+  --hl:rgba(238,206,60,.55);
+  --lead:27px;             /* entrelinha da pauta */
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--leaf); color:var(--ink);
+  font-family:'Crimson Pro', Georgia, serif;
+  font-size:17px; line-height:1.58;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; position:relative;
+}
+
+/* ---------- o papel ----------
+   fixo, cobre a viewport toda: o site É a folha, não tem "mesa"
+   por baixo (mesa não é papel, e a regra da casa é papel). */
+.leaf{
+  position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
+  background-image:
+    /* foxing — manchas ferruginosas, o item mais "visível a olho nu" */
+    radial-gradient(26px 18px at 12% 18%, rgba(146,102,54,.26), transparent 70%),
+    radial-gradient(17px 22px at 21% 63%, rgba(146,102,54,.22), transparent 70%),
+    radial-gradient(32px 20px at 68% 8%,  rgba(146,102,54,.2), transparent 72%),
+    radial-gradient(20px 16px at 83% 47%, rgba(146,102,54,.24), transparent 70%),
+    radial-gradient(24px 28px at 44% 88%, rgba(146,102,54,.19), transparent 72%),
+    radial-gradient(15px 14px at 57% 34%, rgba(146,102,54,.22), transparent 70%),
+    radial-gradient(29px 18px at 92% 76%, rgba(146,102,54,.18),  transparent 72%),
+    /* sombreado das bordas do livro */
+    radial-gradient(120% 90% at 50% -12%, rgba(255,252,240,.5), transparent 60%),
+    radial-gradient(90% 70% at 2% 50%,  rgba(120,102,72,.28), transparent 60%),
+    radial-gradient(90% 70% at 98% 50%, rgba(120,102,72,.28), transparent 60%),
+    radial-gradient(120% 60% at 50% 112%, rgba(120,102,72,.3), transparent 66%),
+    /* pontusais: linhas do molde, verticais, espaçadas */
+    repeating-linear-gradient(90deg, rgba(126,108,76,.06) 0 1px, transparent 1px 26px),
+    /* vergaturas: a trama fina do papel vergê */
+    repeating-linear-gradient(0deg, rgba(126,108,76,.038) 0 1px, transparent 1px 3px),
+    /* salpico de fibra */
+    radial-gradient(circle at 33% 61%, rgba(88,72,46,.05) 0 .9px, transparent 1.35px);
+  background-size:
+    100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,
+    100% 100%,100% 100%,100% 100%,100% 100%,
+    auto, auto, 17px 19px;
+}
+.grain{
+  position:fixed; inset:0; width:100%; height:100%; z-index:60;
+  pointer-events:none; opacity:.56; mix-blend-mode:multiply;
+}
+
+/* ---------- a calha da encadernação ----------
+   Só existe no desktop, porque só no desktop há página dupla. */
+.gutter{
+  position:fixed; top:0; bottom:0; left:38%; width:64px; z-index:1; pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(88,68,38,0) 0%, rgba(88,68,38,.1) 26%, rgba(70,52,28,.3) 46%,
+    rgba(56,42,22,.38) 50%, rgba(70,52,28,.26) 55%, rgba(88,68,38,.08) 78%,
+    rgba(88,68,38,0) 100%);
+  transform:translateX(-32px);
+}
+@media (max-width:899px){ .gutter{ display:none; } }
+
+.spread{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:38% 62%;
+  max-width:1440px; margin:0 auto; min-height:100vh;
+}
+@media (max-width:899px){ .spread{ grid-template-columns:1fr; } }
+
+.folio{ position:relative; padding:clamp(26px,4.4vh,54px) clamp(20px,3vw,46px) clamp(40px,7vh,80px); }
+@media (max-width:899px){ .folio-l{ padding-bottom:18px; } .folio-r{ padding-top:8px; } }
+/* filete vermelho de margem — a marca mais reconhecível de um
+   livro de registro, e a única cor saturada da página fora dos
+   espécimes e das abas. */
+.folio-l{ padding-right:clamp(30px,4vw,64px); }
+.folio-r{ border-left:0; }
+.folio-r::before{
+  content:""; position:absolute; top:0; bottom:0; left:clamp(28px,3.4vw,58px);
+  border-left:1px solid var(--redline); border-right:1px solid rgba(163,63,42,.22);
+  width:4px; pointer-events:none;
+}
+@media (max-width:899px){ .folio-r::before{ display:none; } }
+
+.mono{ font-family:'Courier Prime', ui-monospace, monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+
+/* ---------- cabeçalho: cabeçalho de livro, não hero ---------- */
+.masthead{ border-bottom:2px solid var(--ink); padding-bottom:9px; margin-bottom:4px; }
+.masthead::after{ content:""; display:block; height:1px; background:var(--ink); margin-top:3px; opacity:.55; }
+.masthead .kicker{ color:var(--ink-faint); margin:0 0 10px; display:block; }
+.masthead h1{
+  font-family:'Fraunces', Georgia, serif; font-weight:700;
+  font-size:clamp(29px,3.5vw,44px); line-height:1.02; letter-spacing:-.018em;
+  margin:0; font-variation-settings:'SOFT' 40, 'WONK' 1; max-width:13ch;
+}
+.masthead h1 em{ font-style:italic; font-weight:600; }
+
+.leadin{ margin:20px 0 0; color:var(--ink-soft); max-width:40ch; }
+.hl{
+  background:linear-gradient(93deg, rgba(238,206,60,0) 0, var(--hl) 5%,
+    rgba(232,198,44,.66) 48%, var(--hl) 82%, rgba(238,206,60,0) 100%);
+  mix-blend-mode:multiply; white-space:nowrap; padding:1px 5px 2px; margin:0 -2px;
+}
+
+.note{ margin:clamp(26px,4vh,44px) 0 0; max-width:40ch; }
+.note h3{
+  font-family:'Courier Prime',monospace; font-size:10.5px; letter-spacing:.15em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-faint);
+  margin:0 0 7px; padding-bottom:5px; border-bottom:1px solid var(--rule-strong);
+}
+.note p{ margin:0 0 9px; color:var(--ink-soft); font-size:15.5px; line-height:1.55; }
+.note em{ color:var(--ink); font-style:italic; }
+.note a{ color:var(--ink); text-decoration-color:rgba(42,37,29,.35); text-underline-offset:3px; }
+.note a:hover{ text-decoration-color:currentColor; }
+.note code{ font-family:'Courier Prime',monospace; font-size:13px; }
+
+/* carimbo de arquivo, discreto, no pé da página esquerda */
+.filed{
+  margin-top:clamp(28px,5vh,58px); display:inline-block; transform:rotate(-2.2deg);
+  border:2px solid var(--a-dossie); color:var(--a-dossie); opacity:.62;
+  mix-blend-mode:multiply; padding:5px 11px 6px; border-radius:2px;
+}
+.filed b{ display:block; font-family:'Fraunces',serif; font-weight:900; font-size:15px; letter-spacing:.12em; line-height:1; }
+.filed span{ display:block; font-family:'Courier Prime',monospace; font-size:8px; letter-spacing:.09em; margin-top:3px; }
+
+/* ---------- a tabela do registro ---------- */
+.reg-head{
+  display:flex; align-items:baseline; gap:12px; color:var(--ink-faint);
+  padding-bottom:8px; border-bottom:2px solid var(--ink); margin:0 0 2px;
+}
+.reg-head .fill{ flex:1; height:1px; background:var(--rule-strong); }
+@media (max-width:639px){ .reg-head .opt{ display:none; } }
+
+.entries{ display:block; }
+
+/* cada peça é UMA LINHA do registro, não um cartão */
+.entry{
+  position:relative; display:grid; align-items:start;
+  grid-template-columns:108px 1fr 168px;
+  gap:clamp(14px,1.8vw,26px);
+  padding:clamp(16px,2.2vh,24px) 0 clamp(18px,2.4vh,26px);
+  border-bottom:1px solid var(--rule);
+  text-decoration:none; color:var(--ink);
+  transition:background-color .22s ease;
+}
+.entry:last-child{ border-bottom:2px solid var(--rule-strong); }
+/* No celular não há duas colunas de página nem margem para a
+   tabela: a linha vira bloco, e o espécime encolhe para selo.
+   Verificado em 390px — com 76px+1fr a coluna de texto ficava
+   com ~28ch e o "desc" virava uma tira estreita. */
+@media (max-width:639px){
+  .entry{ grid-template-columns:1fr; gap:12px; }
+  /* especificidade de propósito: a regra genérica .specimen{width:100%}
+     vem DEPOIS deste bloco no arquivo e ganharia no empate. */
+  .entry .specimen{ width:96px; }
+}
+/* passar o mouse = passar marca-texto na linha, e a pena marcar
+   a margem. Nada de card levantando: livro não levanta. */
+.entry::before{
+  content:""; position:absolute; left:-22px; top:calc(50% - 7px);
+  width:0; height:0; border-style:solid; border-width:6px 0 6px 8px;
+  border-color:transparent transparent transparent var(--acc);
+  opacity:0; transition:opacity .2s ease;
+}
+.entry:hover, .entry:focus-visible{ background:rgba(238,206,60,.16); }
+.entry:hover::before, .entry:focus-visible::before{ opacity:.9; }
+.entry:focus-visible{ outline:2px solid var(--acc); outline-offset:3px; }
+
+/* o espécime: um pedacinho de papel da peça, COLADO na linha,
+   torto, com sombra própria. Papel sobre papel — a única
+   profundidade física da página. */
+.specimen{
+  position:relative; width:100%; aspect-ratio:1/.82; background:var(--pw);
+  transform:rotate(var(--tilt));
+  box-shadow:0 0 0 1px rgba(42,37,29,.3), 0 6px 10px -6px rgba(50,38,20,.75);
+  transition:transform .25s cubic-bezier(.2,.7,.3,1);
+}
+.entry:hover .specimen, .entry:focus-visible .specimen{ transform:rotate(0deg) scale(1.035); }
+.specimen svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+.specimen::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.14) 1px, transparent 1.5px);
+  background-size:5px 5px;
+}
+/* etiqueta de canto, como espécime de herbário */
+.specimen b{
+  position:absolute; right:-6px; bottom:-8px; z-index:3;
+  font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:.1em;
+  background:var(--acc); color:var(--leaf); padding:2px 5px 3px;
+}
+
+.entry h2{
+  font-family:'Fraunces', Georgia, serif; font-weight:700;
+  font-size:clamp(20px,2.1vw,26px); line-height:1.1; letter-spacing:-.014em; margin:0;
+}
+.entry .sub{ margin:5px 0 0; color:var(--ink-faint); }
+.entry .desc{ margin:8px 0 0; color:var(--ink-soft); font-size:15px; line-height:1.5; max-width:52ch; }
+
+.tech{ display:flex; flex-direction:column; gap:4px; padding-top:3px; }
+.tech span{
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:.05em;
+  text-transform:uppercase; color:var(--ink-soft);
+  border-bottom:1px dotted rgba(42,37,29,.3); padding-bottom:3px;
+}
+@media (max-width:639px){ .tech{ flex-direction:row; flex-wrap:wrap; gap:5px 12px; } .tech span{ border:0; } }
+
+/* ---------- índice de polegar na borda direita ----------
+   Abas de papel tingido saindo da margem, uma por entrada.
+   É o que faz a página ler como "livro consultável" em vez de
+   "lista num site". Some no mobile, onde não há margem. */
+.thumbs{ position:fixed; right:0; top:26vh; z-index:5; display:grid; gap:6px; }
+.thumbs a{
+  display:block; width:clamp(22px,2vw,30px); padding:16px 0; text-align:center;
+  background:var(--acc); color:var(--leaf); text-decoration:none;
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:.1em;
+  writing-mode:vertical-rl; border-radius:3px 0 0 3px;
+  box-shadow:-2px 2px 6px -2px rgba(50,38,20,.6);
+  opacity:.86; transition:width .2s ease, opacity .2s ease;
+}
+.thumbs a:hover, .thumbs a:focus-visible{ width:clamp(30px,2.6vw,40px); opacity:1; }
+@media (max-width:1099px){ .thumbs{ display:none; } }
+
+/* ---------- movimento: mínimo, é um livro ----------
+   Só um assentamento das linhas conforme entram. */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .entry{ animation:line-in linear both; animation-timeline:view(); animation-range:entry 0% entry 30%; }
+    @keyframes line-in{ from{ opacity:0; translate:0 12px; } to{ opacity:1; translate:0 0; } }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .entry, .specimen, .thumbs a{ transition:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="leaf" aria-hidden="true"></div>
+<div class="gutter" aria-hidden="true"></div>
+<svg class="grain" aria-hidden="true" preserveAspectRatio="none">
+  <filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="3" stitchTiles="stitch"/>
+  <feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#g)" opacity=".5"/>
+</svg>
+
+<nav class="thumbs" aria-label="Índice de polegar">
+  <a href="#e1" style="--acc:var(--a-dossie)">01 Dossiê</a>
+  <a href="#e2" style="--acc:var(--a-terra)">02 Terra</a>
+  <a href="#e3" style="--acc:var(--a-gloss)">03 Glossário</a>
+  <a href="#e4" style="--acc:var(--a-bifu)">04 Bifurcação</a>
+</nav>
+
+<div class="spread">
+
+  <!-- ---------- fólio esquerdo: quem escreve o registro ---------- -->
+  <section class="folio folio-l">
+    <header class="masthead">
+      <span class="kicker mono">Study Lab · P&amp;D de apresentação · 2026</span>
+      <h1>Registro de <em>experimentos</em> de apresentação</h1>
+    </header>
+
+    <p class="leadin">
+      Cada peça pega um tema jurídico e o trata como <mark class="hl">veículo descartável</mark>
+      — o que está sendo testado é a apresentação, não o conteúdo. Uma técnica de web moderna
+      por peça, um mundo de papel próprio por peça.
+    </p>
+
+    <div class="note">
+      <h3>O que isto é</h3>
+      <p>Um laboratório de <em>apresentação</em>. A pergunta em teste é se material de estudo
+      denso fica mais legível quando cada conceito ganha uma linguagem visual própria — e
+      quanto isso custa para produzir.</p>
+      <p>O conteúdo jurídico de cada peça é deliberadamente descartável: serve de maquete
+      para o texto real, não substitui material de estudo.</p>
+    </div>
+
+    <div class="note">
+      <h3>Caderno de bordo</h3>
+      <p>Cada decisão, bug e ideia em aberto fica registrada em
+      <a href="https://github.com/Benecles/study-lab/blob/main/VISUAL_CRAFT_NOTES.md"><code>VISUAL_CRAFT_NOTES.md</code></a>,
+      incluindo o que deu errado — que costuma ser a parte útil.</p>
+      <p><a href="https://github.com/Benecles/study-lab">Código no GitHub</a></p>
+    </div>
+
+    <div class="filed" aria-hidden="true">
+      <b>PROVA</b>
+      <span>não é material de estudo</span>
+    </div>
+  </section>
+
+  <!-- ---------- fólio direito: o registro em si ---------- -->
+  <section class="folio folio-r">
+    <p class="reg-head mono">
+      <span>Fólio 02</span><span class="opt">Entradas 01–04</span>
+      <span class="fill"></span>
+      <span class="opt">HTML de arquivo único</span>
+    </p>
+
+    <div class="entries">
+
+      <a class="entry" id="e1" href="dossie-do-delito.html"
+         style="--acc:var(--a-dossie); --pw:var(--p-dossie); --tilt:-2.4deg;">
+        <div class="specimen">
+          <b>01</b>
+          <svg viewBox="0 0 130 106" aria-hidden="true">
+            <g opacity=".55">
+              <rect x="8" y="22" width="62" height="74" fill="#e2d4b3" stroke="#c1ae84"/>
+              <rect x="16" y="16" width="62" height="78" fill="#dccca6" stroke="#c1ae84"/>
+            </g>
+            <rect x="24" y="10" width="64" height="84" fill="#f2e9d6" stroke="#c1ae84"/>
+            <g stroke="#5a4d3a" stroke-width="1.4" opacity=".42" stroke-linecap="round">
+              <path d="M32 26h44M32 38h48M32 50h30M32 62h42"/>
+            </g>
+            <g style="mix-blend-mode:multiply">
+              <circle cx="98" cy="70" r="17" fill="#c98a2e" opacity=".4"/>
+              <circle cx="93" cy="75" r="17" fill="#3f7d84" opacity=".28"/>
+              <circle cx="96" cy="72" r="17" fill="#d4462f" opacity=".8"/>
+            </g>
+            <circle cx="96" cy="72" r="10" fill="none" stroke="#f4ead4" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Dossiê do Delito</h2>
+          <p class="sub mono">Teoria do delito · arquivo criminal</p>
+          <p class="desc">Seis fichas, cada uma um filtro que o fato precisa atravessar. Selo de cera em três chapas fora de registro, fita adesiva, linha vermelha desenhada pelo scroll.</p>
+        </div>
+        <div class="tech">
+          <span>scroll-timeline</span><span>view transitions</span><span>riso</span>
+        </div>
+      </a>
+
+      <a class="entry" id="e2" href="a-terra-muda-de-dono.html"
+         style="--acc:var(--a-terra); --pw:var(--p-terra); --tilt:1.9deg;">
+        <div class="specimen">
+          <b>02</b>
+          <svg viewBox="0 0 130 106" aria-hidden="true">
+            <g fill="none" stroke="#5c5348" stroke-width=".9" opacity=".3">
+              <path d="M-4 78C22 66 42 84 68 72S110 58 134 68"/>
+              <path d="M-4 64C24 50 44 70 70 56S112 42 134 54"/>
+              <path d="M-4 50C26 34 46 56 72 40S114 26 134 40"/>
+            </g>
+            <path d="M16 82L54 62l36 8-24 20z" fill="#cfc3b4" stroke="#a6473c" stroke-width="1.1" stroke-dasharray="4 3"/>
+            <path d="M24 104C17 84 32 74 25 54S37 26 31 8" fill="none" stroke="#2f6b58" stroke-width="1.9" stroke-linecap="round"/>
+            <g transform="translate(102 32)">
+              <circle r="16" fill="none" stroke="#a8703f" stroke-width="1"/>
+              <path d="M0-19l4 19-4 19-4-19z" fill="#a8703f" opacity=".9"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h2>A Terra Muda de Dono</h2>
+          <p class="sub mono">Usucapião · caderno de agrimensor</p>
+          <p class="desc">Cada requisito abre em sua própria “dimensão de bolso”, com motivo próprio. Rosa dos ventos, curvas de nível, e uma videira que se desenha conforme o prazo corre.</p>
+        </div>
+        <div class="tech">
+          <span>pocket dimensions</span><span>view transitions</span><span>scroll-timeline</span>
+        </div>
+      </a>
+
+      <a class="entry" id="e3" href="glossario-ancorado.html"
+         style="--acc:var(--a-gloss); --pw:var(--p-gloss); --tilt:-1.5deg;">
+        <div class="specimen">
+          <b>03</b>
+          <svg viewBox="0 0 130 106" aria-hidden="true">
+            <g stroke="#5c584a" stroke-width="2" opacity=".26" stroke-linecap="round">
+              <path d="M14 16h96M14 28h104M14 40h62M54 52h56"/>
+            </g>
+            <path d="M14 52h34" stroke="#7a4a30" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M14 58h34" stroke="#7a4a30" stroke-width="1.1" stroke-dasharray="2 3"/>
+            <rect x="14" y="66" width="72" height="32" rx="5" fill="#fbf7ec" stroke="#7a4a30" stroke-opacity=".28"/>
+            <rect x="14" y="66" width="3.4" height="32" rx="1.7" fill="#7a4a30" opacity=".85"/>
+            <path d="M24 78h38" stroke="#7a4a30" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M24 88h50" stroke="#5c584a" stroke-width="1.6" opacity=".3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Glossário Ancorado</h2>
+          <p class="sub mono">Direito contratual · profundidade sob demanda</p>
+          <p class="desc">Prosa contínua em que o termo em latim abre uma definição presa exatamente à palavra — CSS Anchor Positioning e Popover API nativos, sem uma linha de JS posicionando nada.</p>
+        </div>
+        <div class="tech">
+          <span>anchor positioning</span><span>popover api</span><span>zero JS</span>
+        </div>
+      </a>
+
+      <a class="entry" id="e4" href="bifurcacao-constitucional.html"
+         style="--acc:var(--a-bifu); --pw:var(--p-bifu); --tilt:2.2deg;">
+        <div class="specimen">
+          <b>04</b>
+          <svg viewBox="0 0 130 106" aria-hidden="true">
+            <g stroke="rgba(29,32,35,.08)" stroke-width="1">
+              <path d="M0 20h130M0 44h130M0 68h130M26 0v106M65 0v106M104 0v106"/>
+            </g>
+            <rect x="16" y="76" width="98" height="14" fill="#e8e6de" stroke="#1d2023" stroke-width="1.1"/>
+            <g stroke="#8b8d84" stroke-width=".8">
+              <path d="M16 90l-5 7M34 90l-5 7M52 90l-5 7M70 90l-5 7M88 90l-5 7M106 90l-5 7"/>
+              <path d="M11 97h100"/>
+            </g>
+            <rect x="36" y="52" width="9" height="24" fill="#e8e6de" stroke="#1d2023" stroke-width="1.1"/>
+            <rect x="86" y="52" width="9" height="24" fill="#e8e6de" stroke="#1d2023" stroke-width="1.1"/>
+            <rect x="28" y="38" width="74" height="14" fill="#e8e6de" stroke="#1d2023" stroke-width="1.1"/>
+            <path d="M74 38l-4 6 5 4-3 6" fill="none" stroke="#8e3a26" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M56 52C34 60 26 66 26 76" fill="none" stroke="#2f6088" stroke-width="1.2" stroke-dasharray="3 4"/>
+            <path d="M76 52C100 60 106 66 106 76" fill="none" stroke="#8e3a26" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Bifurcação Constitucional</h2>
+          <p class="sub mono">Controle de constitucionalidade · prancheta</p>
+          <p class="desc">Um diagrama de corte fixo que se monta peça a peça conforme o texto rola, e uma trilha que bifurca de verdade — difuso ou concentrado. Nenhum <code>&lt;script&gt;</code> no arquivo.</p>
+        </div>
+        <div class="tech">
+          <span>sticky stepper</span><span>view-timeline</span><span>:has()</span><span>zero JS</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Lab — sanfona</title>
+<meta name="description" content="Laboratório de apresentação: material jurídico denso virando páginas web animadas, uma linguagem visual por tema.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* ==========================================================
+   ALTERNATIVA C — PAPEL RECORTADO / SANFONA
+
+   Esta existe para responder a um item deixado EM ABERTO no
+   diário da tentativa 3, escrito lá com todas as letras:
+   "se algum dia essa página for reaberta, esse é o primeiro
+   lugar onde eu tentaria MENOS SIMULAÇÃO E MAIS FORMA GRÁFICA
+   CHAPADA, e provavelmente ficaria melhor e mais barato."
+
+   Então: zero fibra simulada, zero sombra difusa, zero gradiente
+   de iluminação. Papel aqui é RECORTE — silhueta, cor chapada e
+   sombra dura sem blur (o deslocamento sólido que papel recortado
+   faz numa mesa de scanner). Uma única textura no arquivo inteiro:
+   uma RETÍCULA grossa de 6px, forte o bastante para aparecer numa
+   captura em tamanho real, e nada além dela.
+
+   Composição: as quatro peças são os quatro painéis de uma
+   SANFONA (leporello) aberta — encostados um no outro, alturas
+   diferentes, sem grade e sem cartão. E o furo de encadernação
+   é vazado de verdade: mostra o papel do fundo através do painel.
+   ========================================================== */
+
+:root{
+  --ground:#ded9cb;        /* papel do fundo, chapado */
+  --ground-2:#c3baa1;      /* o segundo papel, recortado na diagonal */
+  --ink:#22201a;
+  --ink-soft:#524b3e;
+  --ink-faint:#847b6a;
+  --cream:#f2ecdc;
+
+  --i-dossie:#a83426;
+  --i-terra:#2a6752;
+  --i-gloss:#8a5030;
+  --i-bifu:#2a577e;
+
+  --hard:rgba(52,46,32,.22);   /* a sombra dura, sem blur */
+  --hl:#efd247;
+  --pad:clamp(18px,4vw,64px);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:'Crimson Pro', Georgia, serif;
+  font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; position:relative;
+}
+
+/* ---------- a ÚNICA textura do arquivo ----------
+   6px, alfa .16. Grosso de propósito: em captura de 1440px ela
+   tem que ser vista, não deduzida. É retícula de impressão, não
+   fibra de papel — o objeto aqui é forma gráfica, não simulação. */
+.screen{
+  position:fixed; inset:0; width:100%; height:100%; z-index:40; pointer-events:none;
+  background-image:radial-gradient(circle at 1.5px 1.5px, rgba(46,40,26,.16) 1.3px, transparent 1.8px);
+  background-size:6px 6px;
+  mix-blend-mode:multiply;
+}
+
+/* ---------- o segundo papel, recortado na diagonal ----------
+   Um recorte reto atravessando o topo. Sem gradiente: é uma
+   silhueta, e a profundidade vem SÓ do deslocamento sólido. */
+.cut{
+  position:absolute; z-index:0; top:0; left:0; right:0; height:clamp(320px,52vh,560px);
+  background:var(--ground-2);
+  clip-path:polygon(0 0, 100% 0, 100% 58%, 0 100%);
+  /* sombra dura seguindo a silhueta recortada. clip-path anula
+     box-shadow (nota já registrada neste caderno), então tem que
+     ser filter:drop-shadow — e com blur ZERO, senão vira a sombra
+     macia de cartão que esta alternativa existe para não ter. */
+  filter:drop-shadow(0 9px 0 rgba(52,46,32,.2));
+}
+
+.page{ position:relative; z-index:2; max-width:1280px; margin:0 auto; padding:0 var(--pad); }
+
+.mono{ font-family:'Courier Prime', ui-monospace, monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
+
+/* ---------- cabeçalho: quase nada, e um círculo recortado ---------- */
+.head{ position:relative; padding:clamp(34px,7vh,78px) 0 clamp(30px,6vh,64px); }
+
+/* o disco: uma peça de papel redonda, recortada, com sombra dura.
+   É o único "ornamento" da página, e é forma pura. */
+.disc{
+  position:absolute; z-index:-1; right:clamp(-40px,2vw,60px); top:clamp(10px,3vh,42px);
+  width:clamp(150px,20vw,268px); aspect-ratio:1; border-radius:50%;
+  background:var(--i-dossie);
+  box-shadow:11px 11px 0 var(--hard);
+}
+.disc::after{
+  content:""; position:absolute; inset:22%; border-radius:50%; background:var(--ground-2);
+}
+/* No celular o disco encostava no kicker e a linha ficava
+   escura sobre vermelho. Sobe e sai pela borda. */
+@media (max-width:719px){ .disc{ width:132px; right:-46px; top:-52px; } }
+
+.kicker{ display:block; color:var(--ink-soft); margin:0 0 clamp(16px,3vh,30px); }
+/* o disco sangra pelo canto no celular; o rabicho do kicker
+   caía em cima dele e ficava escuro sobre vermelho. */
+@media (max-width:719px){ .kicker .opt{ display:none; } }
+
+h1{
+  font-family:'Fraunces', Georgia, serif; font-weight:900;
+  font-size:clamp(40px,7.4vw,104px); line-height:.9; letter-spacing:-.032em;
+  margin:0; max-width:10ch; color:var(--ink);
+  font-variation-settings:'SOFT' 12, 'WONK' 0;
+}
+/* marca-texto como TIRA CHAPADA, não como caneta: nesta página
+   nada é translúcido, então o realce é um retângulo de papel
+   amarelo por baixo da palavra. Coerência do material acima do
+   hábito — a caneta marca-texto pertence às outras duas. */
+.hl{ position:relative; display:inline-block; }
+.hl::before{
+  content:""; position:absolute; left:-6px; right:-6px; bottom:1px; height:.62em;
+  background:var(--hl); z-index:-1;
+}
+
+.lede{
+  margin:clamp(24px,4vh,40px) 0 0; max-width:52ch; color:var(--ink-soft);
+  font-size:clamp(16px,1.45vw,18.5px);
+}
+
+.band{ display:flex; align-items:center; gap:14px; color:var(--ink-faint); margin:0 0 clamp(12px,2vh,20px); }
+.band .fill{ flex:1; height:3px; background:var(--ink); opacity:.16; }
+
+/* ---------- a sanfona ----------
+   Quatro painéis ENCOSTADOS, alturas diferentes, alinhados pela
+   base. Sem gap, sem borda arredondada, sem cartão. A sombra é
+   uma só, do bloco inteiro, e é dura. */
+.leporello{
+  position:relative; display:grid; grid-template-columns:repeat(4,1fr);
+  align-items:end; margin:0 0 clamp(52px,10vh,104px);
+  filter:drop-shadow(14px 14px 0 var(--hard));
+}
+@media (max-width:899px){
+  .leporello{ grid-template-columns:1fr; filter:drop-shadow(10px 10px 0 var(--hard)); }
+}
+
+.panel{
+  position:relative; display:flex; flex-direction:column;
+  text-decoration:none; color:var(--cream);
+  padding:clamp(20px,1.9vw,30px) clamp(16px,1.5vw,24px) clamp(24px,2.4vw,34px);
+  min-height:var(--h);
+  transition:translate .26s cubic-bezier(.2,.7,.3,1);
+}
+@media (max-width:899px){ .panel{ min-height:0; padding-top:clamp(22px,4vw,32px); } }
+
+/* o vinco entre painéis: uma linha, não um degradê.
+   Sanfona dobra; a dobra é uma aresta, não uma sombra macia. */
+.panel + .panel{ box-shadow:inset 2px 0 0 rgba(255,247,228,.34); }
+@media (max-width:899px){ .panel + .panel{ box-shadow:inset 0 2px 0 rgba(255,247,228,.34); } }
+
+.p1{ background:var(--i-dossie); --h:clamp(340px,44vh,470px); }
+.p2{ background:var(--i-terra);  --h:clamp(384px,50vh,530px); }
+.p3{ background:var(--i-gloss);  --h:clamp(356px,46vh,494px); }
+.p4{ background:var(--i-bifu);   --h:clamp(404px,53vh,560px); }
+
+.panel:hover, .panel:focus-visible{ translate:0 -10px; }
+.panel:focus-visible{ outline:3px solid var(--ink); outline-offset:-3px; }
+
+/* FURO VAZADO de verdade: o papel do fundo aparece através do
+   painel. Feito com mask, não com um círculo pintado por cima —
+   é a diferença entre "furo" e "bolinha da cor do fundo". */
+.panel{
+  -webkit-mask-image:radial-gradient(circle at 50% 46px, transparent 0 13px, #000 13.6px);
+  mask-image:radial-gradient(circle at 50% 46px, transparent 0 13px, #000 13.6px);
+}
+@media (max-width:899px){
+  .panel{
+    -webkit-mask-image:radial-gradient(circle at 34px 34px, transparent 0 11px, #000 11.6px);
+    mask-image:radial-gradient(circle at 34px 34px, transparent 0 11px, #000 11.6px);
+  }
+}
+
+.no{
+  font-family:'Fraunces',serif; font-weight:900; font-size:clamp(46px,4.6vw,68px);
+  line-height:.86; letter-spacing:-.03em; margin:clamp(30px,3vw,44px) 0 0; opacity:.55;
+}
+@media (max-width:899px){ .no{ margin-top:0; padding-left:56px; } }
+
+.panel h2{
+  font-family:'Fraunces', Georgia, serif; font-weight:700;
+  font-size:clamp(21px,1.95vw,27px); line-height:1.06; letter-spacing:-.018em;
+  margin:10px 0 0;
+}
+.panel .sub{ margin:8px 0 0; opacity:.76; font-size:10px; letter-spacing:.12em; }
+.panel .desc{ margin:12px 0 0; font-size:14.5px; line-height:1.46; opacity:.94; }
+.panel .tags{ margin-top:auto; padding-top:18px; display:flex; flex-wrap:wrap; gap:5px; }
+.panel .tags span{
+  font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:.05em;
+  text-transform:uppercase; background:rgba(255,247,228,.17); padding:3px 6px; white-space:nowrap;
+}
+
+/* ---------- colofão: duas colunas de papel recortado ---------- */
+.colophon{
+  position:relative; display:grid; gap:clamp(18px,3vw,40px); grid-template-columns:1fr;
+  background:var(--cream); color:var(--ink);
+  padding:clamp(24px,3vw,40px) clamp(22px,3vw,42px) clamp(26px,3vw,44px);
+  box-shadow:12px 12px 0 var(--hard);
+  margin:0 0 clamp(34px,6vh,64px);
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 26px 100%, 0 calc(100% - 26px));
+}
+@media (min-width:760px){ .colophon{ grid-template-columns:1fr 1fr; } }
+.colophon h3{
+  font-family:'Courier Prime',monospace; font-size:10.5px; letter-spacing:.15em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-faint); margin:0 0 10px;
+}
+.colophon p{ margin:0 0 10px; color:var(--ink-soft); font-size:15.5px; max-width:44ch; }
+.colophon em{ color:var(--ink); font-style:italic; }
+.colophon a{ color:var(--ink); text-decoration-color:rgba(34,32,26,.35); text-underline-offset:3px; }
+.colophon a:hover{ text-decoration-color:currentColor; }
+.colophon code{ font-family:'Courier Prime',monospace; font-size:13px; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .panel{ transition:none; }
+  .panel:hover, .panel:focus-visible{ translate:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cut" aria-hidden="true"></div>
+<div class="screen" aria-hidden="true"></div>
+
+<div class="page">
+
+  <header class="head">
+    <div class="disc" aria-hidden="true"></div>
+    <span class="kicker mono">Study Lab · P&amp;D de apresentação<span class="opt"> · 04 peças · HTML de arquivo único</span></span>
+    <h1>Material denso vira <span class="hl">interface</span>.</h1>
+    <p class="lede">
+      Cada peça pega um tema jurídico e o trata como veículo descartável — o que está
+      sendo testado é a apresentação, não o conteúdo. Uma técnica de web moderna por peça,
+      um mundo de papel próprio por peça, e um caderno de bordo que anota honestamente o
+      que funcionou e o que não.
+    </p>
+  </header>
+
+  <p class="band mono">
+    <span>01 — Experimentos</span>
+    <span class="fill"></span>
+    <span>2026</span>
+  </p>
+
+  <nav class="leporello">
+
+    <a class="panel p1" href="dossie-do-delito.html">
+      <p class="no">01</p>
+      <h2>Dossiê do Delito</h2>
+      <p class="sub mono">Teoria do delito</p>
+      <p class="desc">Seis fichas, cada uma um filtro que o fato precisa atravessar. Selo de cera em três chapas fora de registro, fita adesiva, linha vermelha desenhada pelo scroll.</p>
+      <div class="tags"><span>scroll-timeline</span><span>view transitions</span><span>riso</span></div>
+    </a>
+
+    <a class="panel p2" href="a-terra-muda-de-dono.html">
+      <p class="no">02</p>
+      <h2>A Terra Muda de Dono</h2>
+      <p class="sub mono">Usucapião</p>
+      <p class="desc">Cada requisito abre em sua própria “dimensão de bolso”, com motivo próprio. Rosa dos ventos, curvas de nível, e uma videira que se desenha conforme o prazo corre.</p>
+      <div class="tags"><span>pocket dimensions</span><span>view transitions</span><span>scroll-timeline</span></div>
+    </a>
+
+    <a class="panel p3" href="glossario-ancorado.html">
+      <p class="no">03</p>
+      <h2>Glossário Ancorado</h2>
+      <p class="sub mono">Direito contratual</p>
+      <p class="desc">Prosa contínua em que o termo em latim abre uma definição presa exatamente à palavra — CSS Anchor Positioning e Popover API nativos, sem uma linha de JS posicionando nada.</p>
+      <div class="tags"><span>anchor positioning</span><span>popover api</span><span>zero JS</span></div>
+    </a>
+
+    <a class="panel p4" href="bifurcacao-constitucional.html">
+      <p class="no">04</p>
+      <h2>Bifurcação Constitucional</h2>
+      <p class="sub mono">Controle de constitucionalidade</p>
+      <p class="desc">Um diagrama de corte fixo que se monta peça a peça conforme o texto rola, e uma trilha que bifurca de verdade — difuso ou concentrado. Nenhum <code>&lt;script&gt;</code> no arquivo.</p>
+      <div class="tags"><span>sticky stepper</span><span>view-timeline</span><span>:has()</span><span>zero JS</span></div>
+    </a>
+
+  </nav>
+
+  <footer class="colophon">
+    <div>
+      <h3>O que isto é</h3>
+      <p>Um laboratório de <em>apresentação</em>. A pergunta em teste é se material de estudo denso fica mais legível quando cada conceito ganha uma linguagem visual própria — e quanto isso custa para produzir.</p>
+      <p>O conteúdo jurídico de cada peça é deliberadamente descartável: serve de maquete para o texto real, não substitui material de estudo.</p>
+    </div>
+    <div>
+      <h3>Caderno de bordo</h3>
+      <p>Cada decisão, bug e ideia em aberto fica registrada em <a href="https://github.com/Benecles/study-lab/blob/main/VISUAL_CRAFT_NOTES.md"><code>VISUAL_CRAFT_NOTES.md</code></a>, incluindo o que deu errado — que costuma ser a parte útil.</p>
+      <p><a href="https://github.com/Benecles/study-lab">Código no GitHub</a></p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
