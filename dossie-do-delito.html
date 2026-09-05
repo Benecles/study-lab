@@ -341,7 +341,25 @@ body{
   .file::after{ transition:opacity .3s ease; transform:scale(1); }
   html{ scroll-behavior:auto; }
 }
+
+/* voltar ao study lab */
+.lab-home{
+  position:fixed; top:16px; left:16px; z-index:90;
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:'Special Elite', monospace; font-size:10.5px;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-soft); text-decoration:none;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(3px);
+  padding:6px 10px; border-radius:2px;
+  opacity:.62; transition:opacity .2s ease, transform .2s ease;
+}
+.lab-home:hover, .lab-home:focus-visible{ opacity:1; transform:translateX(-1px); }
+body.pocket-open .lab-home{ display:none; }
+@media print{ .lab-home{ display:none; } }
 </style>
+<a href="./" class="lab-home">&larr; study lab</a>
+
 
 <div class="bg" aria-hidden="true">
   <div class="bg-layer folder f1"></div>
