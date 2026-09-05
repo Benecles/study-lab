@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Study Lab</title>
 <meta name="description" content="Laboratório de apresentação: material jurídico denso virando páginas web animadas, uma linguagem visual por tema.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Literata:opsz,wght@7..72,400;7..72,500&family=Martian+Mono:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Literata:opsz,wght@7..72,400;7..72,500&family=Martian+Mono:wght@300;400;500&display=swap">
 <style>
 /* ==========================================================
    STUDY LAB — página-índice
-   Mundo visual: MESA DE LUZ. Fundo de ardósia fria e neutra;
-   cada experimento é uma "chapa" luminosa pintada na paleta
-   do próprio experimento. O hub não escolhe um estilo — ele é
-   a moldura, e as quatro peças fornecem a cor.
+   Mundo visual: MESA DE CATALOGAÇÃO. Papel envelhecido, tinta
+   grafite — a mesma família material das quatro peças, não um
+   produto de software separado colado na frente delas. Cada
+   peça ainda fornece sua própria cor dentro da janela da ficha.
    ========================================================== */
 
 :root{
-  --slate:#15171b;        /* ardósia da mesa */
-  --slate-2:#1c1f24;
-  --slate-3:#252932;
-  --chalk:#e8e6e1;
-  --chalk-soft:#a2a6ad;
-  --chalk-faint:#6d727b;
-  --rule:rgba(232,230,225,.13);
-  --rule-soft:rgba(232,230,225,.07);
-  --glow:rgba(232,230,225,.06);
+  --paper:#efe8d8;
+  --paper-2:#e8dfc9;
+  --card:#f6f1e4;
+  --ink:#2b271f;
+  --ink-soft:#5f5847;
+  --ink-faint:#8a8271;
+  --rule:rgba(43,39,31,.14);
+  --rule-soft:rgba(43,39,31,.08);
 
   /* paletas emprestadas de cada peça, para as chapas */
   --p-dossie:#ece1c8;   --a-dossie:#a3392a;
@@ -39,8 +38,8 @@
 html{ scroll-behavior:smooth; }
 html,body{ margin:0; padding:0; }
 body{
-  background:var(--slate);
-  color:var(--chalk);
+  background:var(--paper);
+  color:var(--ink);
   font-family:'Literata', Georgia, serif;
   font-size:16.5px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
@@ -48,16 +47,14 @@ body{
   position:relative;
 }
 
-/* granulado + brilho difuso da mesa de luz */
+/* papel + granulado — mesma textura das quatro peças, não uma grade técnica */
 .bench{
   position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(120% 70% at 50% -10%, var(--glow), transparent 62%),
-    repeating-linear-gradient(90deg, var(--rule-soft) 0 1px, transparent 1px 96px);
+  background:radial-gradient(120% 70% at 50% -10%, rgba(255,255,255,.5), transparent 60%);
 }
 .grain{
   position:fixed; inset:0; width:100%; height:100%; z-index:60;
-  pointer-events:none; opacity:.4; mix-blend-mode:overlay;
+  pointer-events:none; opacity:.3; mix-blend-mode:multiply;
 }
 
 .page{ position:relative; z-index:1; max-width:1140px; margin:0 auto; padding:0 var(--pad); }
@@ -68,26 +65,26 @@ body{
   font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:400;
 }
 h1{
-  font-family:'Bricolage Grotesque', system-ui, sans-serif;
-  font-weight:800; font-variation-settings:'opsz' 96;
-  font-size:clamp(38px,8.4vw,92px); line-height:.92; letter-spacing:-.035em;
+  font-family:'Newsreader', Georgia, serif;
+  font-weight:600; font-style:italic;
+  font-size:clamp(32px,5.2vw,54px); line-height:1.08; letter-spacing:-.01em;
   margin:0; text-wrap:balance;
 }
 h2{
-  font-family:'Bricolage Grotesque', system-ui, sans-serif;
-  font-weight:700; font-size:clamp(19px,2.4vw,23px); line-height:1.15;
-  letter-spacing:-.02em; margin:0;
+  font-family:'Newsreader', Georgia, serif;
+  font-weight:600; font-size:clamp(18px,2.1vw,21px); line-height:1.2;
+  letter-spacing:-.005em; margin:0;
 }
 
 /* ---------- masthead ---------- */
 .masthead{ padding:clamp(40px,8vh,88px) 0 clamp(26px,4.5vh,44px); }
-.stamp{ color:var(--chalk-faint); display:flex; flex-wrap:wrap; gap:6px 18px; margin-bottom:clamp(26px,5vh,48px); }
-.stamp b{ color:var(--chalk-soft); font-weight:500; }
+.stamp{ color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:6px 18px; margin-bottom:clamp(26px,5vh,48px); }
+.stamp b{ color:var(--ink-soft); font-weight:500; }
 .lede{
-  max-width:52ch; color:var(--chalk-soft); font-size:clamp(15.5px,1.7vw,18px);
+  max-width:52ch; color:var(--ink-soft); font-size:clamp(15.5px,1.7vw,18px);
   line-height:1.66; margin:clamp(22px,3vh,30px) 0 0;
 }
-.lede em{ color:var(--chalk); font-style:italic; }
+.lede em{ color:var(--ink); font-style:italic; }
 
 /* ---------- faixa de seção ---------- */
 .band{
@@ -95,8 +92,8 @@ h2{
   padding:22px 0 clamp(22px,3.4vh,34px); border-top:1px solid var(--rule);
 }
 .band .n{ color:var(--a-bifu); }
-.band .t{ color:var(--chalk-soft); }
-.band .c{ margin-left:auto; color:var(--chalk-faint); }
+.band .t{ color:var(--ink-soft); }
+.band .c{ margin-left:auto; color:var(--ink-faint); }
 
 /* ---------- grade de chapas ---------- */
 .plates{
@@ -108,15 +105,15 @@ h2{
 .plate{
   position:relative; display:flex; flex-direction:column; overflow:hidden;
   border-radius:5px; text-decoration:none; color:inherit; isolation:isolate;
-  background:var(--slate-2);
-  box-shadow:0 0 0 1px var(--rule), 0 18px 34px -26px #000;
+  background:var(--card);
+  box-shadow:0 0 0 1px var(--rule), 0 14px 28px -22px rgba(43,39,31,.45);
   transition:transform .32s cubic-bezier(.2,.7,.3,1), box-shadow .32s ease;
 }
 .plate:hover, .plate:focus-visible{
   transform:translateY(-3px);
-  box-shadow:0 0 0 1px rgba(232,230,225,.26), 0 26px 46px -26px #000;
+  box-shadow:0 0 0 1px rgba(43,39,31,.28), 0 20px 38px -22px rgba(43,39,31,.5);
 }
-.plate:focus-visible{ outline:2px solid var(--chalk); outline-offset:3px; }
+.plate:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
 
 /* a janela luminosa: o mundo visual da peça, na paleta da peça */
 .window{
@@ -134,15 +131,15 @@ h2{
 .meta{ padding:clamp(15px,1.7vw,20px) clamp(16px,1.9vw,22px) clamp(16px,2vw,22px); display:flex; flex-direction:column; gap:9px; flex:1; }
 .meta .top{ display:flex; align-items:center; gap:9px; }
 .chip{ width:8px; height:8px; border-radius:50%; background:var(--pa); flex:none; }
-.meta .sub{ color:var(--chalk-faint); font-size:9.5px; letter-spacing:.03em; line-height:1.5; }
+.meta .sub{ color:var(--ink-faint); font-size:9.5px; letter-spacing:.03em; line-height:1.5; }
 .meta p{
-  margin:0; color:var(--chalk-soft); font-size:14.5px; line-height:1.52; max-width:46ch;
+  margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.52; max-width:46ch;
 }
 .tags{ margin-top:auto; padding-top:4px; display:flex; flex-wrap:wrap; gap:5px; }
 .tags span{
   font-family:'Martian Mono', ui-monospace, monospace;
   font-size:9px; letter-spacing:.04em; text-transform:uppercase;
-  color:var(--chalk-faint); border:1px solid var(--rule);
+  color:var(--ink-faint); border:1px solid var(--rule);
   padding:3px 7px; border-radius:99px; white-space:nowrap;
 }
 
@@ -153,11 +150,11 @@ h2{
 }
 @media (min-width:760px){ .colophon{ grid-template-columns:1fr 1fr; } }
 .colophon h3{ font-family:'Martian Mono',monospace; font-size:10.5px; letter-spacing:.06em;
-  text-transform:uppercase; font-weight:400; color:var(--chalk-faint); margin:0 0 10px; }
-.colophon p{ margin:0 0 10px; color:var(--chalk-soft); font-size:14.5px; line-height:1.6; max-width:48ch; }
-.colophon a{ color:var(--chalk); text-decoration-color:var(--rule); text-underline-offset:3px; }
+  text-transform:uppercase; font-weight:400; color:var(--ink-faint); margin:0 0 10px; }
+.colophon p{ margin:0 0 10px; color:var(--ink-soft); font-size:14.5px; line-height:1.6; max-width:48ch; }
+.colophon a{ color:var(--ink); text-decoration-color:var(--rule); text-underline-offset:3px; }
 .colophon a:hover{ text-decoration-color:currentColor; }
-.colophon code{ font-family:'Martian Mono',monospace; font-size:11.5px; color:var(--chalk); }
+.colophon code{ font-family:'Martian Mono',monospace; font-size:11.5px; color:var(--ink); }
 
 /* ---------- movimento (scroll-driven, com recuo honesto) ---------- */
 @media (prefers-reduced-motion: no-preference){
