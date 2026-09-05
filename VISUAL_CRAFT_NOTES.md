@@ -1383,3 +1383,46 @@ diferentes, e trocar a roupa nunca resolveu. Assim que a composição mudou de v
 (colagem, página dupla, sanfona), o material passou a ter onde se apoiar e cada escolha de
 textura ficou mais fácil, não mais difícil. Se houver uma quarta rodada, começar pela
 composição, não pela paleta.
+
+## 2026-09-05 — owner's live reaction to alt-A (mural), before seeing B or C
+
+Real-time critique from the owner looking at `index-alt-a.html`, worth keeping close to
+verbatim since the shape of the feedback matters as much as the content.
+
+**Real bug, flagged precisely**: the highlighter mark over "veículo descartável" doesn't
+fully cover the last word — ends short. Same shape of mistake as an earlier highlighter
+bug in this project (a mark sized to a wrapping box instead of the actual text run it's
+meant to cover) — check that pattern specifically whenever a highlight/underline element
+is involved, it's recurred more than once now.
+
+**A real physical-behavior note, offered as observation not demand**: the current
+highlighter renders with soft/blurred edges left-right but hard/straight edges top-bottom.
+A real highlighter mark does the opposite — soft rounded caps at both ends (where the felt
+tip lifts off the page), comparatively crisp top/bottom (the tip has a fixed width). Worth
+fixing generally: whenever imitating a physical marking tool, work out which edges of the
+real object are soft vs. hard before choosing where to blur.
+
+**The important one — a new, named failure mode, distinct from the previous two**:
+every individual technique in alt-A was praised specifically and by name — paper glued on
+paper (layered torn sheets), tape, a dotted ruler-drawn line ("makes me think someone went
+with a ruler"), textured numerals, reusing each piece's *own* diagram as its tile's
+illustration, the underline treatment. All confirmed as real, on-brand wins worth keeping
+in the permanent toolkit regardless of what happens to alt-A as a whole. **But the owner's
+read of the composition as a whole was "pastiche," "collage," "eclectic," and — the most
+useful single image — "university campus bulletin board, pamphlets stacked on pamphlets."**
+
+This is a *third*, different failure mode from the first two homepage rounds:
+- Round 1 (dark hero): wrong register entirely — generic, no material at all.
+- Round 2 (wood cabinet): right *ambition*, wrong *material* — skeuomorphic effort spent
+  on something outside the project's medium.
+- Alt-A: right material, right individual techniques, **but no unifying restraint** —
+  a page can execute every technique correctly and still fail because it reads as a
+  demo reel of ideas rather than one considered gesture. Craft at the atomic level does
+  not add up to coherence at the composition level automatically; something else (a
+  dominant single idea, a hierarchy among the techniques, restraint about how many
+  "voices" appear on one page) has to hold the individual wins together on purpose.
+
+Not yet resolved: whether alt-B or alt-C avoid this, and whether the fix for a future
+attempt is "use fewer of these techniques per page" or "find the one organizing idea that
+lets several of them coexist without reading as a pile." Owner explicitly paused feedback
+here to look at B and C before drawing conclusions — entry to be continued.
