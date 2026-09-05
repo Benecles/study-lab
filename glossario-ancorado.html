@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glossário Ancorado</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Courier+Prime&display=swap');
@@ -9,6 +13,8 @@
   --accent:#7a4a30;
   --accent-2:#3f5d52;
   --card:#e4ddc9;
+  /* a ficha é mais clara que o papel, não mais escura: ela está *sobre* a página */
+  --slip:#fbf7ec;
 }
 *{box-sizing:border-box;}
 body{
@@ -28,17 +34,45 @@ h1{
 p{ font-size:18px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
 .hint{ font-family:'Courier Prime',monospace; font-size:12px; color:var(--ink-soft); margin-top:40px; }
 
-/* termo com âncora */
+/* ------------------------------------------------------------------
+   TERMO + FICHA DE VERBETE
+   Tratamento revisto (2026-09-05). O anterior era um retângulo de
+   cantos vivos com borda de 1px — lia como "tooltip de aplicativo",
+   não como aparato editorial. Referências consultadas: Page Previews
+   da Wikipédia (sem borda; sombra em camadas; o gatilho é destacado
+   enquanto o cartão está aberto) e a tradição de sidenotes
+   Tufte/gwern (a nota pertence à margem do texto, não flutua sobre
+   ele). O que ficou: sem contorno, forma assimétrica, e uma "aba"
+   de dicionário na borda de ataque no lugar de um bico — a aba é
+   indiferente à direção, então continua correta quando o
+   position-try vira o cartão de lado.
+   ------------------------------------------------------------------ */
 .term{
   anchor-name:none;
   color:var(--accent);
   border:none;
-  border-bottom:1.5px dotted var(--accent);
-  border-radius:0;
-  cursor:pointer; font-style:normal; background:none; padding:0;
-  font:inherit; text-decoration:none; display:inline;
+  border-radius:2px;
+  cursor:pointer; font-style:normal; background:none;
+  padding:.05em .12em; margin:0 -.12em;
+  font:inherit; display:inline;
+  text-decoration:underline;
+  text-decoration-style:dotted;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+  text-decoration-color:color-mix(in srgb, var(--accent) 55%, transparent);
+  transition:background-color .15s ease, color .15s ease;
 }
-.term:hover, .term:focus-visible{ background:rgba(122,74,48,.12); }
+.term:hover{ background:rgba(122,74,48,.1); }
+.term:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+
+/* o gatilho fica aceso enquanto a sua própria ficha está aberta — puro CSS,
+   via :has() no ancestral comum; nenhum JS sabe que isto existe */
+body:has(#g-pacta:popover-open)   [popovertarget="g-pacta"],
+body:has(#g-boafe:popover-open)   [popovertarget="g-boafe"],
+body:has(#g-fsocial:popover-open) [popovertarget="g-fsocial"]{
+  background:var(--accent); color:var(--ground);
+  text-decoration-color:transparent;
+}
 
 /* popover ancorado — CSS puro, sem JS de posicionamento */
 [popover]{
@@ -49,36 +83,54 @@ p{ font-size:18px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
   position:fixed;
   position-area: bottom span-right;
   position-try-fallbacks: flip-block, flip-inline;
-  margin-top:8px;
-  width:min(300px,80vw);
-  background:var(--card);
-  border:1px solid rgba(43,42,36,.18);
-  border-radius:3px;
-  padding:14px 16px;
-  box-shadow:0 14px 28px -16px rgba(43,42,36,.5);
-  opacity:0; transform:translateY(4px);
-  transition:opacity .18s ease, transform .18s ease, overlay .18s ease allow-discrete, display .18s ease allow-discrete;
+  margin-top:10px;
+  width:min(322px,84vw);
+  background:var(--slip);
+  border:none;
+  /* forma assimétrica: canto de ataque quase vivo, o resto arredondado —
+     lê como uma ficha destacada de um fichário, não como uma caixa de diálogo */
+  border-radius:3px 14px 14px 14px;
+  padding:15px 18px 16px 21px;
+  color:var(--ink);
+  /* sombra em camadas (curta e de contato + longa e difusa) em vez de contorno */
+  box-shadow:
+    0 1px 1px rgba(43,42,36,.09),
+    0 3px 6px -3px rgba(43,42,36,.18),
+    0 20px 34px -20px rgba(43,42,36,.42);
+  opacity:0; transform:translateY(5px) scale(.985); transform-origin:top left;
+  transition:opacity .19s ease, transform .19s cubic-bezier(.2,.8,.3,1),
+             overlay .19s ease allow-discrete, display .19s ease allow-discrete;
 }
-.gloss:popover-open{ opacity:1; transform:translateY(0); }
-@starting-style{ .gloss:popover-open{ opacity:0; transform:translateY(4px); } }
+/* a aba de dicionário: barra de cor na borda de ataque */
+.gloss::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+  border-radius:3px 0 0 3px; background:var(--accent);
+}
+.gloss:popover-open{ opacity:1; transform:translateY(0) scale(1); }
+@starting-style{ .gloss:popover-open{ opacity:0; transform:translateY(5px) scale(.985); } }
 .gloss .lat{
-  font-family:'Newsreader', serif; font-style:italic; font-weight:600; font-size:16px;
-  color:var(--accent); margin:0 0 6px;
+  font-family:'Newsreader', serif; font-style:italic; font-weight:600; font-size:16.5px;
+  color:var(--accent); margin:0 0 7px; letter-spacing:.005em;
 }
-.gloss p{ font-size:14.5px; line-height:1.5; color:var(--ink-soft); margin:0; }
+.gloss p{ font-size:14.5px; line-height:1.55; color:var(--ink-soft); margin:0; }
 .gloss .src{
-  display:block; margin-top:8px; font-family:'Courier Prime',monospace; font-size:10.5px;
-  color:var(--accent-2); letter-spacing:.04em; text-transform:uppercase;
+  display:block; margin-top:11px; padding-top:9px;
+  border-top:1px solid rgba(43,42,36,.1);
+  font-family:'Courier Prime',monospace; font-size:10px;
+  color:var(--accent-2); letter-spacing:.07em; text-transform:uppercase;
 }
 
 @supports not (position-area: bottom span-right){
   /* navegador sem anchor positioning: o popover ainda abre, só sem tether — cai centralizado */
-  .gloss{ position:fixed; inset:auto; top:50%; left:50%; transform:translate(-50%,-50%); margin:0; }
+  .gloss{ position:fixed; inset:auto; top:50%; left:50%; transform:translate(-50%,-50%); margin:0;
+          border-radius:14px; }
   .gloss:popover-open{ transform:translate(-50%,-50%); }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .gloss{ transition:none; }
+  .gloss{ transition:none; transform:none; }
+  .gloss:popover-open{ transform:none; }
+  .term{ transition:none; }
 }
 
 /* voltar ao study lab */
@@ -96,6 +148,12 @@ p{ font-size:18px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
 .lab-home:hover, .lab-home:focus-visible{ opacity:1; transform:translateX(-1px); }
 body.pocket-open .lab-home{ display:none; }
 @media print{ .lab-home{ display:none; } }
+/* mobile: o link fixo colidia com o conteúdo no topo da página (a coluna
+   passa a ocupar toda a largura, e não sobra margem para ele flutuar).
+   Em telas estreitas ele deixa de ser fixo e rola junto com a página. */
+@media (max-width:720px){
+  .lab-home{ position:absolute; top:10px; left:10px; opacity:1; }
+}
 </style>
 <a href="./" class="lab-home">&larr; study lab</a>
 

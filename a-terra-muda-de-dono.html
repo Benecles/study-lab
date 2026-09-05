@@ -1,15 +1,19 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Terra Muda de Dono</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Kalam:wght@400;700&family=Courier+Prime&display=swap');
 
 :root{
-  --ground:#d9dcc3;
-  --ground-2:#cdd1b3;
-  --ground-3:#c0c6a3;
-  --ink:#2c3122;
-  --ink-soft:#565b45;
+  --ground:#e6ded4;
+  --ground-2:#dbd1c5;
+  --ground-3:#cfc3b4;
+  --ink:#2b2723;
+  --ink-soft:#5c5348;
   --copper:#a8703f;
-  --verdigris:#4f7d63;
+  --verdigris:#2f6b58;
   --boundary:#a6473c;
 }
 *{box-sizing:border-box;}
@@ -66,7 +70,7 @@ body{
 
 .vine{ position:absolute; top:-2vh; bottom:8vh; left:-6.4vw; width:6vw; min-width:30px; overflow:visible; pointer-events:none; z-index:1; }
 .vine path{ stroke:var(--verdigris); stroke-width:2.4; fill:none; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:1; }
-.vine .shadow{ stroke:rgba(44,49,34,.18); transform:translate(1.5px,2px); }
+.vine .shadow{ stroke:rgba(43,39,35,.18); transform:translate(1.5px,2px); }
 @supports (animation-timeline: scroll()){
   .stages{ view-timeline-name:--usuc; view-timeline-axis:block; }
   .vine path{ animation:draw-vine linear both; animation-timeline:--usuc; animation-range:entry 90% exit 40%; }
@@ -82,20 +86,20 @@ body{
 .stage::after{
   content:""; position:absolute; top:36px; left:-6.4vw; width:11px; height:11px;
   margin-left:calc(3vw - 5.5px); border-radius:50%; background:var(--verdigris);
-  box-shadow:0 0 0 2px rgba(217,220,195,.9), 1px 2px 3px rgba(44,49,34,.35);
+  box-shadow:0 0 0 2px rgba(230,222,212,.9), 1px 2px 3px rgba(43,39,35,.35);
   opacity:0; transform:scale(.2);
   transition:opacity .45s ease .2s, transform .5s cubic-bezier(.2,.9,.3,1.6) .2s;
   z-index:3;
 }
 .stage.visible::after{ opacity:1; transform:scale(1); }
 
-.backing{ position:absolute; background:var(--ground-3); border-radius:2px; z-index:0; box-shadow:0 10px 22px -18px rgba(44,49,34,.75); opacity:0; transition:opacity .8s ease, transform .8s cubic-bezier(.16,.8,.3,1); }
+.backing{ position:absolute; background:var(--ground-3); border-radius:2px; z-index:0; box-shadow:0 10px 22px -18px rgba(43,39,35,.75); opacity:0; transition:opacity .8s ease, transform .8s cubic-bezier(.16,.8,.3,1); }
 .b1{ inset:14px -14px -16px 8px; transform:rotate(1.3deg) translateY(10px); }
 .stage.visible .b1{ opacity:.7; transform:rotate(1.3deg) translateY(0); }
 
 .card{
   background:var(--ground-2); border-radius:2px; padding:28px 28px 24px; position:relative; z-index:2;
-  box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 4px 10px -6px rgba(44,49,34,.5);
+  box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 4px 10px -6px rgba(43,39,35,.5);
   opacity:0; transform:translateY(30px);
   transition:opacity .75s cubic-bezier(.16,.8,.3,1), transform .75s cubic-bezier(.16,.8,.3,1);
 }
@@ -125,7 +129,7 @@ body{
   opacity:0; transform:translateY(4px) rotate(-1.5deg); transition:opacity .3s ease, transform .3s ease; pointer-events:none; z-index:4;
 }
 .card:hover::before, .card:focus-visible::before{ opacity:1; transform:translateY(0) rotate(-1.5deg); }
-.card:hover{ box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 10px 22px -12px rgba(44,49,34,.6); }
+.card:hover{ box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 10px 22px -12px rgba(43,39,35,.6); }
 
 /* ---------- dimensões de bolso ---------- */
 body.pocket-open #shell{ display:none; }
@@ -150,7 +154,7 @@ body.pocket-open{ overflow:hidden; }
   font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
   color:var(--ink); background:var(--ground-2); border:1.5px solid var(--copper);
   border-radius:3px; padding:8px 12px; cursor:pointer;
-  box-shadow:0 4px 10px -6px rgba(44,49,34,.6); transition:background .2s ease, transform .2s ease;
+  box-shadow:0 4px 10px -6px rgba(43,39,35,.6); transition:background .2s ease, transform .2s ease;
 }
 .pocket-close:hover{ background:var(--ground-3); transform:translateY(-1px); }
 .pocket-close:focus-visible{ outline:2px solid var(--boundary); outline-offset:3px; }
@@ -163,7 +167,7 @@ body.pocket-open{ overflow:hidden; }
 .motif{
   position:relative; background:var(--ground-2); border:1px dashed rgba(166,71,60,.55);
   border-radius:3px; padding:14px; margin:0 0 34px;
-  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 14px 26px -22px rgba(44,49,34,.8);
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 14px 26px -22px rgba(43,39,35,.8);
 }
 .motif svg{ display:block; width:100%; height:auto; }
 .motif figcaption{ font-family:'Courier Prime',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:10px; text-align:right; }
@@ -214,9 +218,18 @@ body.pocket-open{ overflow:hidden; }
 }
 
 @media (max-width:640px){
-  .vine, .stage::after{ display:none; }
+  /* Antes a videira e os marcadores eram simplesmente escondidos no celular
+     (ficavam em left:-6.4vw, ou seja, fora da tela, já que a coluna passa a
+     ocupar toda a largura). Resultado: o motivo central da peça — o tempo que
+     corre — desaparecia justo no aparelho em que ela mais é lida. Em vez de
+     esconder, a videira é trazida para dentro: um vão de 34px à esquerda da
+     coluna, com os cartões recuados. */
+  .stages{ padding-left:34px; gap:56px; }
+  .vine{ left:0; width:24px; min-width:24px; }
+  .stage::after{ left:-34px; margin-left:6px; }
   .b1{ display:none; }
   .card::before{ display:none; }
+  .card{ padding:22px 20px 20px; }
   .pocket-close{ top:12px; right:12px; }
   .pocket-inner{ padding-top:64px; }
 }
@@ -247,6 +260,12 @@ body.pocket-open{ overflow:hidden; }
 .lab-home:hover, .lab-home:focus-visible{ opacity:1; transform:translateX(-1px); }
 body.pocket-open .lab-home{ display:none; }
 @media print{ .lab-home{ display:none; } }
+/* mobile: o link fixo colidia com o conteúdo no topo da página (a coluna
+   passa a ocupar toda a largura, e não sobra margem para ele flutuar).
+   Em telas estreitas ele deixa de ser fixo e rola junto com a página. */
+@media (max-width:720px){
+  .lab-home{ position:absolute; top:10px; left:10px; opacity:1; }
+}
 </style>
 <a href="./" class="lab-home">&larr; study lab</a>
 
@@ -260,7 +279,7 @@ body.pocket-open .lab-home{ display:none; }
 </svg>
 
 <svg class="contours" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 400 1600">
-  <g fill="none" stroke="#4f7d63" stroke-width="1">
+  <g fill="none" stroke="#2f6b58" stroke-width="1">
     <path d="M-20 120 Q120 80 220 140 T460 110" />
     <path d="M-30 190 Q140 150 240 210 T470 175" />
     <path d="M-10 640 Q150 590 260 660 T480 610" />
@@ -381,22 +400,22 @@ body.pocket-open .lab-home{ display:none; }
 
     <figure class="motif">
       <svg viewBox="0 0 560 230" role="img" aria-label="Uma bandeira fincada no centro de um lote demarcado por estacas.">
-        <g stroke="#4f7d63" stroke-width="1" fill="none" opacity=".45">
+        <g stroke="#2f6b58" stroke-width="1" fill="none" opacity=".45">
           <path d="M-10 60 Q140 34 280 62 T580 44"/><path d="M-10 96 Q150 70 290 98 T580 80"/>
         </g>
-        <path d="M60 190 L200 118 L500 132 L400 206 Z" fill="#c0c6a3" stroke="#a6473c" stroke-width="1.6" stroke-dasharray="7 5"/>
+        <path d="M60 190 L200 118 L500 132 L400 206 Z" fill="#cfc3b4" stroke="#a6473c" stroke-width="1.6" stroke-dasharray="7 5"/>
         <g stroke="#a8703f" stroke-width="1" opacity=".5">
           <path d="M110 172 L245 122"/><path d="M170 186 L320 126"/><path d="M240 198 L390 130"/><path d="M310 204 L448 134"/>
         </g>
-        <g stroke="#2c3122" stroke-width="2.4" stroke-linecap="round">
+        <g stroke="#2b2723" stroke-width="2.4" stroke-linecap="round">
           <path d="M60 190v-12"/><path d="M200 118v-12"/><path d="M500 132v-12"/><path d="M400 206v-12"/>
         </g>
-        <path d="M276 168 L276 44" stroke="#2c3122" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M276 168 L276 44" stroke="#2b2723" stroke-width="3.4" stroke-linecap="round"/>
         <ellipse cx="276" cy="170" rx="26" ry="8" fill="#a6473c" opacity=".18"/>
         <g class="m-flag">
           <path d="M279 48 L392 62 L370 82 L392 102 L279 92 Z" fill="#a6473c" opacity=".9"/>
         </g>
-        <text x="300" y="132" font-family="Kalam, cursive" font-size="17" fill="#565b45">como se dono fosse</text>
+        <text x="300" y="132" font-family="Kalam, cursive" font-size="17" fill="#5c5348">como se dono fosse</text>
       </svg>
       <figcaption>fig. 1 — marco de posse própria</figcaption>
     </figure>
@@ -424,22 +443,22 @@ body.pocket-open .lab-home{ display:none; }
 
     <figure class="motif">
       <svg viewBox="0 0 560 230" role="img" aria-label="Um martelo de juiz suspenso sobre a base, numa sala vazia, sem nunca bater.">
-        <g fill="none" stroke="#565b45" stroke-width="1.4" opacity=".38">
+        <g fill="none" stroke="#5c5348" stroke-width="1.4" opacity=".38">
           <rect x="34" y="150" width="120" height="16" rx="2"/><rect x="34" y="178" width="120" height="16" rx="2"/>
           <rect x="406" y="150" width="120" height="16" rx="2"/><rect x="406" y="178" width="120" height="16" rx="2"/>
           <path d="M34 150v-18M94 150v-18M154 150v-18M406 150v-18M466 150v-18M526 150v-18"/>
         </g>
-        <path d="M196 120 h168 v78 h-168 z" fill="#c0c6a3" stroke="#565b45" stroke-width="1.4"/>
+        <path d="M196 120 h168 v78 h-168 z" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.4"/>
         <rect x="230" y="150" width="100" height="14" rx="3" fill="#a8703f" opacity=".75"/>
         <path d="M280 148 C 300 118, 344 104, 372 78" fill="none" stroke="#a6473c" stroke-width="1.5" stroke-dasharray="5 6"/>
         <g class="m-gavel">
           <rect x="352" y="46" width="72" height="26" rx="6" fill="#a8703f"/>
-          <path d="M388 70 L420 112" stroke="#2c3122" stroke-width="7" stroke-linecap="round"/>
+          <path d="M388 70 L420 112" stroke="#2b2723" stroke-width="7" stroke-linecap="round"/>
         </g>
         <g stroke="#a6473c" stroke-width="2.4" stroke-linecap="round" opacity=".85">
           <path d="M112 74 l22 22"/><path d="M134 74 l-22 22"/>
         </g>
-        <text x="60" y="60" font-family="Kalam, cursive" font-size="17" fill="#565b45">nenhuma ação ajuizada</text>
+        <text x="60" y="60" font-family="Kalam, cursive" font-size="17" fill="#5c5348">nenhuma ação ajuizada</text>
       </svg>
       <figcaption>fig. 2 — audiência que não houve</figcaption>
     </figure>
@@ -468,18 +487,18 @@ body.pocket-open .lab-home{ display:none; }
 
     <figure class="motif">
       <svg viewBox="0 0 560 230" role="img" aria-label="Cinco folhas de calendário unidas por um fio contínuo; as duas primeiras pertencem ao antecessor e as três seguintes ao possuidor atual.">
-        <path class="m-thread" d="M30 96 H530" stroke="#4f7d63" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <path class="m-thread" d="M30 96 H530" stroke="#2f6b58" stroke-width="2.6" fill="none" stroke-linecap="round"/>
         <g>
-          <g transform="translate(38,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#a8703f" opacity=".8"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
-          <g transform="translate(138,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#a8703f" opacity=".8"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
-          <g transform="translate(238,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#4f7d63" opacity=".85"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
-          <g transform="translate(338,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#4f7d63" opacity=".85"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
-          <g transform="translate(438,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#4f7d63" opacity=".85"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(38,60)"><rect width="82" height="72" rx="3" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#a8703f" opacity=".8"/><g stroke="#5c5348" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(138,60)"><rect width="82" height="72" rx="3" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#a8703f" opacity=".8"/><g stroke="#5c5348" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(238,60)"><rect width="82" height="72" rx="3" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#2f6b58" opacity=".85"/><g stroke="#5c5348" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(338,60)"><rect width="82" height="72" rx="3" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#2f6b58" opacity=".85"/><g stroke="#5c5348" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(438,60)"><rect width="82" height="72" rx="3" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#2f6b58" opacity=".85"/><g stroke="#5c5348" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
         </g>
         <path d="M38 152 v10 H220 v-10" fill="none" stroke="#a8703f" stroke-width="1.5"/>
-        <path d="M238 152 v10 H520 v-10" fill="none" stroke="#4f7d63" stroke-width="1.5"/>
-        <text x="129" y="182" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#565b45">ANTECESSOR</text>
-        <text x="379" y="182" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#565b45">SUCESSOR</text>
+        <path d="M238 152 v10 H520 v-10" fill="none" stroke="#2f6b58" stroke-width="1.5"/>
+        <text x="129" y="182" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#5c5348">ANTECESSOR</text>
+        <text x="379" y="182" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#5c5348">SUCESSOR</text>
         <text x="280" y="212" text-anchor="middle" font-family="Kalam, cursive" font-size="18" fill="#a6473c">accessio possessionis</text>
       </svg>
       <figcaption>fig. 3 — soma de posses sucessivas</figcaption>
@@ -510,8 +529,8 @@ body.pocket-open .lab-home{ display:none; }
     <figure class="motif">
       <svg viewBox="0 0 560 250" role="img" aria-label="Corte de tronco com quinze anéis: os dez internos destacados correspondem ao prazo reduzido; os cinco externos completam os quinze anos da regra geral.">
         <g transform="translate(180,125)">
-          <circle r="112" fill="#c0c6a3" opacity=".55"/>
-          <g fill="none" stroke="#4f7d63" stroke-width="1.3" stroke-dasharray="4 4" opacity=".8">
+          <circle r="112" fill="#cfc3b4" opacity=".55"/>
+          <g fill="none" stroke="#2f6b58" stroke-width="1.3" stroke-dasharray="4 4" opacity=".8">
             <circle r="112"/><circle r="103"/><circle r="94"/><circle r="85"/><circle r="76"/>
           </g>
           <g class="m-inner-rings" fill="none" stroke="#a8703f" stroke-width="2">
@@ -522,11 +541,11 @@ body.pocket-open .lab-home{ display:none; }
         <path d="M180 13 H400" stroke="#a8703f" stroke-width="1.2" stroke-dasharray="4 4"/>
         <path d="M180 57 H400" stroke="#a8703f" stroke-width="1.2" stroke-dasharray="4 4"/>
         <text x="410" y="18" font-family="Newsreader, serif" font-size="26" font-weight="700" fill="#a8703f">10 anos</text>
-        <text x="410" y="40" font-family="Crimson Pro, serif" font-size="15" fill="#565b45">moradia habitual ou obras</text>
-        <text x="410" y="58" font-family="Crimson Pro, serif" font-size="15" fill="#565b45">e serviços produtivos</text>
-        <path d="M292 210 H400" stroke="#4f7d63" stroke-width="1.2" stroke-dasharray="4 4"/>
-        <text x="410" y="200" font-family="Newsreader, serif" font-size="26" font-weight="700" fill="#4f7d63">15 anos</text>
-        <text x="410" y="220" font-family="Crimson Pro, serif" font-size="15" fill="#565b45">regra geral do caput</text>
+        <text x="410" y="40" font-family="Crimson Pro, serif" font-size="15" fill="#5c5348">moradia habitual ou obras</text>
+        <text x="410" y="58" font-family="Crimson Pro, serif" font-size="15" fill="#5c5348">e serviços produtivos</text>
+        <path d="M292 210 H400" stroke="#2f6b58" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="410" y="200" font-family="Newsreader, serif" font-size="26" font-weight="700" fill="#2f6b58">15 anos</text>
+        <text x="410" y="220" font-family="Crimson Pro, serif" font-size="15" fill="#5c5348">regra geral do caput</text>
       </svg>
       <figcaption>fig. 4 — contagem por anéis</figcaption>
     </figure>
@@ -555,10 +574,10 @@ body.pocket-open .lab-home{ display:none; }
 
     <figure class="motif">
       <svg viewBox="0 0 560 230" role="img" aria-label="Um selo descendo sobre a folha de matrícula de um livro de registro de imóveis.">
-        <path d="M60 44 h300 v168 h-300 z" fill="#c0c6a3" stroke="#565b45" stroke-width="1.4"/>
-        <path d="M60 44 l-18 12 v168 l18 -12 z" fill="#a8703f" opacity=".35" stroke="#565b45" stroke-width="1.2"/>
-        <text x="82" y="74" font-family="Courier Prime, monospace" font-size="12" fill="#565b45">MATRÍCULA N.º ______</text>
-        <g stroke="#565b45" stroke-width="1" opacity=".5">
+        <path d="M60 44 h300 v168 h-300 z" fill="#cfc3b4" stroke="#5c5348" stroke-width="1.4"/>
+        <path d="M60 44 l-18 12 v168 l18 -12 z" fill="#a8703f" opacity=".35" stroke="#5c5348" stroke-width="1.2"/>
+        <text x="82" y="74" font-family="Courier Prime, monospace" font-size="12" fill="#5c5348">MATRÍCULA N.º ______</text>
+        <g stroke="#5c5348" stroke-width="1" opacity=".5">
           <path d="M82 96h256M82 116h256M82 136h200M82 156h256M82 176h150"/>
         </g>
         <path d="M392 42 C 424 60, 430 84, 412 104" fill="none" stroke="#a6473c" stroke-width="1.4" stroke-dasharray="5 6"/>

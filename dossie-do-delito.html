@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dossiê do Delito</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Caveat:wght@600;700&family=Special+Elite&display=swap');
@@ -357,6 +361,12 @@ body{
 .lab-home:hover, .lab-home:focus-visible{ opacity:1; transform:translateX(-1px); }
 body.pocket-open .lab-home{ display:none; }
 @media print{ .lab-home{ display:none; } }
+/* mobile: o link fixo colidia com o conteúdo no topo da página (a coluna
+   passa a ocupar toda a largura, e não sobra margem para ele flutuar).
+   Em telas estreitas ele deixa de ser fixo e rola junto com a página. */
+@media (max-width:720px){
+  .lab-home{ position:absolute; top:10px; left:10px; opacity:1; }
+}
 </style>
 <a href="./" class="lab-home">&larr; study lab</a>
 

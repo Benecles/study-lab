@@ -681,3 +681,279 @@ Primary documentation collected by Luna:
 one visual identity. We do not yet know whether it improves retention, whether a whole
 course feels coherent, or what it costs to author at scale. Those are the next meaningful
 questions, not whether another entrance animation is possible.
+
+---
+
+# Claude R&D — retomada 2026-09-05 (homepage, glossário, paleta, e dois bugs reais)
+
+**Fronteira de autoria.** Volta ao caderno original liderado por Claude. As entradas
+do Codex acima ficam preservadas. Esta rodada foi um passe de design/polimento pedido
+pelo dono, com quatro frentes declaradas e duas que apareceram no meio do caminho.
+
+## O bug do diagrama fixo: a causa real, e por que a teoria "óbvia" estava errada
+
+O dono relatou que o diagrama estrutural de `bifurcacao-constitucional.html` **"já
+aparece pronto"** no Safari, em vez de se montar conforme o scroll. Antes de mexer,
+vale registrar **tudo o que foi descartado com medição, não com palpite** — porque
+cada um desses era um candidato plausível e três deles são a resposta errada:
+
+1. **"Safari não suporta `animation-timeline: view()`."** Falso, e o dono já tinha
+   confirmado. Medido de novo neste Mac: Safari 26.6 responde `true` para
+   `CSS.supports` em `animation-timeline: view()`, `animation-timeline: scroll()`,
+   `view-timeline-name`, `animation-range: contain …` e `animation-range: cover …`.
+2. **"A `@media (prefers-reduced-motion: no-preference)` está barrando o bloco."**
+   Falso: `matchMedia('(prefers-reduced-motion: reduce)').matches` é `false` aqui.
+3. **"A view-timeline está inativa."** Falso *na máquina real* — mas esta foi a
+   armadilha da rodada, ver a seção sobre o painel do navegador abaixo.
+4. **"Os `animation-range` completam nos primeiros %."** Falso: instrumentando a
+   página real no Safari, as seis `.stage` vão de `opacity 0.00` a `1.00`
+   escalonadas ao longo de todo o pin (`s1` em ~20%, `s4` em ~50%, `s6` em ~86%).
+   **A montagem em seis estágios sempre funcionou.**
+
+**A causa real: o "desenho" das duas rotas nunca foi um desenho.** O que o leitor
+percebe como "já está pronto" não é a montagem dos estágios — é a bifurcação, que
+aparece inteira de uma vez. O CSS fazia:
+
+```css
+.drawing .route-d, .drawing .route-c{ stroke-dashoffset:220; animation:draw …; }
+@keyframes draw{ to{ stroke-dashoffset:0; } }
+```
+
+e isso é **visualmente inerte nas duas rotas, por dois motivos diferentes**:
+
+- `.route-c` (concentrado, traço sólido) **não tem `stroke-dasharray` nenhum**. Sem
+  padrão de tracejado, `stroke-dashoffset` não tem o que deslocar: é um no-op
+  absoluto. A rota sólida esteve 100% desenhada desde o primeiro quadro em que o
+  grupo `s6` ficou visível.
+- `.route-d` (difuso) tem `stroke-dasharray: 5 7` — mas isso é o **pontilhado
+  decorativo** da via difusa ("disperso, pontilhado"), um padrão que se repete a
+  cada 12 unidades. Animar o offset de 220 a 0 num padrão repetido apenas
+  **desliza os pontos ao longo do caminho**; nunca revela o caminho.
+
+A técnica clássica de line-drawing exige que o dash seja *do tamanho do traço
+inteiro* (`pathLength="1"` + `stroke-dasharray:1` + offset 1→0 — que é exatamente,
+e corretamente, o que a videira do usucapião faz). Aqui a mesma propriedade estava
+sendo pedida para fazer dois trabalhos incompatíveis ao mesmo tempo: **ser o
+pontilhado e ser a máscara de revelação**. Não dá.
+
+Confirmado visualmente, não só numericamente: capturas em `contain 92%` mostravam
+as duas curvas completas, com os nós já pousados na fundação, enquanto o
+`strokeDashoffset` computado ainda marcava `90px`. O valor mudava; os pixels não.
+
+**A correção.** Trocar a revelação por um **clip retangular que cresce em Y**
+(`<clipPath>` com um `<rect class="reveal-wipe">`, `transform-box:fill-box;
+transform-origin:top`, animado de `scaleY(0)` a `scaleY(1)` na mesma
+`animation-range: contain 84% contain 97%`). Vantagens sobre voltar ao dashoffset:
+
+- funciona igual para o traço sólido e para o pontilhado, **sem tirar o pontilhado**
+  da rota difusa — que é semântico nessa peça, não decoração;
+- as duas rotas descem da viga para a fundação, então uma varredura de cima para
+  baixo *lê como a carga descendo*, que é o próprio assunto do desenho;
+- o estado-base (`transform:none`) é "revelado", então o recuo de
+  `prefers-reduced-motion` e de navegador sem suporte continua correto de graça.
+
+Os dois rótulos (`difuso` / `concentrado`) ficaram **fora** do grupo clipado, senão
+sumiriam até o final da varredura.
+
+**Verificado nos dois motores, não deduzido.** Safari 26.6 nesta máquina, na página
+real: `scaleY` progride `0 → 0.305 → 0.687 → 1.0` e a altura renderizada do rect de
+clip vai de `0px` a `137px` ao longo da faixa. Chromium headless: idem, com
+capturas mostrando as curvas cortadas no meio em 90% e completas em 100%.
+
+**Lição transferível:** `stroke-dashoffset` só existe se `stroke-dasharray` existir,
+e só *revela* se o dash cobrir o traço inteiro. Um `stroke-dasharray` decorativo e
+uma animação de revelação são usos mutuamente exclusivos da mesma propriedade. Se a
+peça precisa das duas coisas, a revelação tem que sair da propriedade de traço e ir
+para um clip/máscara.
+
+## Modo quirks em todas as quatro peças — o bug de portabilidade que ninguém viu
+
+Achado no caminho, e provavelmente **a explicação do "no celular fica estranho"**.
+
+As quatro páginas de experimento começavam direto em `<title>`: **sem `<!doctype
+html>`, sem `<meta charset>`, sem `<meta name="viewport">`.** Isso é resíduo de
+terem nascido como Artifacts do claude.ai — o host embrulha o conteúdo num
+esqueleto `<!doctype html>…<head>` na hora de publicar. Ao exportar os arquivos
+crus para um repositório servido pelo GitHub Pages, o embrulho não veio junto.
+
+Consequências medidas (`document.compatMode === "BackCompat"`,
+`document.characterSet === "windows-1252"`, `document.scrollingElement === BODY`):
+
+1. **Sem `viewport`** o celular renderiza a 980px e reduz tudo — que é exatamente o
+   sintoma "roda bem no Mac, no telefone parece errado". Este era o item mais caro.
+2. **Sem `charset`**, qualquer servidor que não mande `charset=utf-8` no cabeçalho
+   produz mojibake (o Codex já tinha anotado isto na Round 1 dele; estava certo, e
+   a causa é esta). O GitHub Pages manda, então a acentuação escapava na produção
+   — mas quebrava em qualquer servidor local.
+3. **Modo quirks** em si: aqui ele **não** quebrou as scroll-timelines (medido nos
+   dois modos no Chromium: idênticos), mas é dívida técnica gratuita.
+
+Corrigido nas quatro com um preâmbulo mínimo (doctype + `<html lang="pt-BR">` +
+charset + viewport); `<head>` fica implícito, já que `<title>`/`<style>` vêm antes
+de qualquer conteúdo de corpo. **Se outra peça nascer como Artifact e for exportada,
+esse preâmbulo é obrigatório na exportação.**
+
+## O painel de navegador mente sobre scroll-timelines quando está escondido
+
+Custou muito tempo e vale ficar registrado em destaque, porque **produziu um
+diagnóstico falso e quase produziu uma "correção" para um bug inexistente**.
+
+No painel Browser desta sessão, `document.hidden === true`. Com o documento não
+sendo renderizado, **toda `ViewTimeline` reporta `currentTime === null`** — ou seja,
+inativa — e as animações ligadas a ela não aplicam nada. O que se vê então é o
+**estilo-base** da regra, o que gera duas leituras enganosas opostas:
+
+- em `.stage{opacity:0; animation:…}` → parece "o desenho nunca aparece";
+- num elemento sem opacidade base → parece "já está tudo pronto".
+
+Foi exatamente esse o falso positivo do relato paralelo sobre a videira do
+usucapião (`strokeDashoffset` travado em `1px`, `.stages` com `width === 0`).
+**A videira não tem bug**: medida com renderização real, ela vai de `1` a `0` e
+completa por volta de 75% do scroll do documento. O `width: 0` era leitura de um
+`<svg>` cujo `getBoundingClientRect` não é comparável ao do elemento HTML pai.
+
+**Receita de verificação que funcionou** (sucessora da receita "sirva local, não
+confie em `file://`" da entrada de 2026-09-04, que continua válida e agora ganha
+uma camada):
+
+1. `python3 -m http.server` para servir os arquivos;
+2. **Chrome headless real via CDP** (`--headless=new --remote-debugging-port`),
+   dirigido por um script Node de ~20 linhas usando o `WebSocket` global do Node —
+   sem puppeteer, sem dependência nenhuma. `Emulation.setDeviceMetricsOverride`
+   dá viewports de celular de verdade e `Page.captureScreenshot` dá as imagens.
+   **Aqui `document.hidden` é `false` e as scroll-timelines funcionam.**
+3. Para o Safari real, sem poder digitar dentro dele: abrir com `open -a Safari` uma
+   **cópia instrumentada** da página que roda o diagnóstico sozinha e devolve o
+   resultado com `fetch('/REPORT/'+encodeURIComponent(json))` — o caminho aparece no
+   log do próprio `http.server`, que é só ler. Truque barato e sem permissões.
+
+Regra prática: **nunca conclua "a scroll-timeline não está rodando" sem antes
+checar `document.hidden`.**
+
+## Homepage: mesa de luz, não mesa de trabalho
+
+A `index.html` era um catálogo funcional (título + quatro linhas com bolinha
+colorida). Virou peça desenhada. Pesquisa consultada: convenções de Page Previews
+da Wikipédia, Tufte CSS / sidenotes do gwern, e — mais útil que qualquer referência
+externa — **o próprio caderno**: a ideia da "mesa física" da seção de tangentes,
+somada ao aviso do Codex de que *"navegação precisa merecer suas metáforas: uma
+pasta bonita que adiciona atrito em toda visita pode ser a porta de entrada errada"*.
+Esse aviso foi acatado: **não** virou uma escrivaninha skeuomórfica.
+
+O que ficou: **ardósia escura e neutra, e cada experimento é uma "chapa" luminosa
+pintada na paleta da própria peça.** O hub não escolhe um estilo — ele é a moldura,
+e as quatro peças fornecem a cor. Isso resolve o pedido do dono ("não precisamos
+escolher um estilo pro conjunto") de forma literal, e entrega o efeito que a
+tangente da mesa queria: **dá pra distinguir o arquivo criminal do caderno de
+agrimensor de longe, antes de abrir**. Cada chapa é um SVG desenhado à mão com os
+motivos reais da peça (selo de cera em três chapas riso; rosa dos ventos + curvas de
+nível + videira; prosa com termo aceso e ficha ancorada; corte estrutural com as
+duas rotas divergindo), nos hexadecimais reais de cada arquivo.
+
+Tipografia deliberadamente inédita no conjunto: **Bricolage Grotesque** (display),
+**Literata** (corpo), **Martian Mono** (rótulos). Nenhuma das três aparece nas
+quatro peças.
+
+**Arquitetura que pode crescer, sem conteúdo falso.** O dono cogitou seções futuras
+de "study packs" e de "aulas do semestre", e explicitamente pediu para **não**
+construir isso agora. O único gesto feito foi dar aos experimentos uma **faixa de
+seção numerada** (`01 — Experimentos`), de modo que um `02` posterior seja adição
+óbvia em vez de reforma. Zero placeholders, zero "em breve".
+
+## Glossário: o cartão perdeu o contorno e o termo ganhou memória
+
+O dono gosta do mecanismo (anchor positioning + Popover, zero JS) e desconfiava do
+tratamento visual — forma retangular, borda. Estava certo: era um retângulo de
+cantos vivos com borda de 1px sobre um fundo *mais escuro* que a página, ou seja,
+lia como caixa de diálogo de aplicativo, não como aparato editorial.
+
+O que a pesquisa deu de aproveitável:
+- **Page Previews da Wikipédia**: sem contorno; sombra em camadas fazendo o trabalho
+  de separação; e — o detalhe mais valioso — **o gatilho é destacado enquanto o
+  cartão está aberto**, o que ancora visualmente sem depender de um bico.
+- **Tufte / sidenotes do gwern**: a nota pertence à margem, não flutua sobre o texto.
+  Não adotado literalmente (perderia a demonstração do tether, que é o objeto do
+  experimento), mas informou a decisão de deixar o cartão **mais claro que o papel**
+  — ele está *sobre* a página, então tem que receber luz, não sombra.
+
+O que ficou: fundo `#fbf7ec` (mais claro que o papel), **sem borda**, sombra em três
+camadas (contato curta + difusa longa), raio **assimétrico** (`3px 14px 14px 14px`),
+e uma **aba de dicionário** — barra de 4px na cor do verbete na borda de ataque.
+
+**Por que aba e não bico.** Um bico é o que a literatura de popover recomenda, e foi
+a primeira tentativa. Mas com `position-try-fallbacks: flip-block, flip-inline`, o
+cartão pode nascer acima ou ao lado do termo, e **não existe forma em CSS de saber
+que um fallback de posição foi aplicado** para mover o bico junto — `@position-try`
+só aceita propriedades de inset/margem/tamanho, não custom properties. Um bico
+apontando para o lado errado é pior que nenhum bico. A aba é indiferente à direção,
+e tem uma referência editorial melhor (o thumb-index de dicionário impresso) que um
+balão de tooltip.
+
+O destaque do gatilho foi feito com **`:has()` puro**:
+`body:has(#g-boafe:popover-open) [popovertarget="g-boafe"]{ … }`. A peça continua com
+zero JS. Confirmado funcionando por captura de tela e por `getComputedStyle`.
+Nota de método: `getComputedStyle` lido no **mesmo tick** do `.click()` ainda devolve
+o estado antigo do `:has()` — leia depois de um `setTimeout`, ou você "descobre" que
+a regra não funciona quando ela funciona.
+
+## Usucapião: o verde saiu do chão e virou tinta
+
+O dono não odiava a paleta sage/verde-oliva, mas não estava convencido. A releitura:
+**o verde estava no lugar errado**. Como campo de fundo (`--ground:#d9dcc3`), ele
+lia como "paisagem" e ficava opaco — e, pior, não dizia nada sobre o assunto. Mas
+"posse que se converte em domínio pelo tempo" **é oxidação**: o verdete é literalmente
+cobre reagindo com o tempo. Então o verde tem lugar; só não é o chão.
+
+Mudou para: **chão de calcário claro** (`#e6ded4`, quente-neutro), com o **verdete
+mais escuro e mais frio** (`#4f7d63` → `#2f6b58`) promovido a tinta — é a cor da
+videira, dos marcadores de estágio, dos anéis de ano. Cobre e vermelhão de limite
+ficaram como estavam. Tinta neutralizada (`#2c3122` → `#2b2723`: o preto era
+esverdeado também).
+
+Checagem de vizinhança, que foi o que mais restringiu a escolha: chão quente + acento
+frio separa a peça do dossiê (chão quente + acentos quentes) e da bifurcação (chão
+frio + acentos mistos). Uma direção de "linho + vermelhão de registro cadastral" foi
+descartada justamente por colidir de frente com o mundo do dossiê, e "creme +
+terracota" está proibido pela própria entrada de 2026-09-05 acima.
+
+## Passe de celular — o que estava de fato quebrado
+
+Além do `viewport` ausente (a causa maior, acima), com viewport de 390×844 real:
+
+- **`.lab-home` colidia com o conteúdo** nas quatro peças. Ele é `position:fixed` em
+  `top:16px; left:16px`, e no celular a coluna de texto passa a ocupar toda a largura
+  — não sobra margem para ele flutuar. Ficava por cima do h1 e dos rótulos de passo.
+  Corrigido nas quatro: abaixo de 720px ele vira `position:absolute` e rola junto.
+- **A tabela comparativa da bifurcação era inutilizável.** Tinha `min-width:620px`
+  dentro de um `.tbl-wrap{overflow-x:auto}` — tecnicamente não estourava o layout,
+  mas em 390px o leitor via a coluna de critério e metade do "difuso", sem nenhuma
+  pista de que dava para arrastar. Abaixo de 720px virou lista empilhada, com cada
+  via ganhando rótulo próprio; continua sendo uma `<table>` real na árvore de
+  acessibilidade (o `thead` é escondido visualmente, não removido).
+- **O usucapião escondia a videira no celular** (`@media (max-width:640px){ .vine,
+  .stage::after{ display:none } }`). Era uma decisão defensável — os elementos
+  estavam em `left:-6.4vw`, fora da tela — mas o efeito era que **o motivo central da
+  peça sumia justamente no aparelho em que ela mais é lida**. Em vez de esconder, a
+  videira foi trazida para dentro: vão de 34px à esquerda, cartões recuados.
+- **Auditoria do padrão**: a resposta à pergunta "isso está aplicado de forma
+  consistente?" é **não**. O dossiê tinha um `@media (max-width:640px)`, o usucapião
+  também, o glossário e a bifurcação praticamente nada. Não havia um passe de
+  celular; havia remendos pontuais por peça.
+
+## Em aberto depois desta rodada
+
+- **A bifurcação ganhou um ramo `prefers-color-scheme: dark`** em algum momento, o
+  que contraria a regra declarada de que cada peça se compromete com **um** mundo
+  visual. Não foi mexido nesta rodada (não estava no escopo e o modo escuro está
+  bem-resolvido), mas ou a regra muda ou a peça muda — hoje as duas coisas estão
+  escritas e se contradizem.
+- **O `--card` do glossário virou variável morta** depois da troca para `--slip`.
+  Deixado no arquivo de propósito, para o caso de o dono querer comparar; se ficar,
+  vira sujeira.
+- **Bico direcional em popover ancorado continua sem solução limpa** enquanto
+  `@position-try` não puder setar custom properties. Vale reconferir quando a
+  especificação de anchor positioning andar.
+- **A `contain` range depende do sujeito ser mais alto que a viewport.** Nesta peça
+  a `.struct` é alta porque os passos usam `svh`, então escala junto com a janela.
+  Numa peça com passos de altura fixa, uma janela muito alta poderia degenerar a
+  faixa. Não testado; anotado antes de virar bug.
