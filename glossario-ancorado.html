@@ -1,0 +1,124 @@
+<title>Glossário Ancorado</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Courier+Prime&display=swap');
+
+:root{
+  --ground:#efe9da;
+  --ink:#2b2a24;
+  --ink-soft:#5c584a;
+  --accent:#7a4a30;
+  --accent-2:#3f5d52;
+  --card:#e4ddc9;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:'Crimson Pro', Georgia, serif;
+  padding:12vh 8vw 30vh;
+}
+.wrap{ max-width:640px; margin:0 auto; }
+.eyebrow{
+  font-family:'Courier Prime', monospace; font-size:12px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 16px;
+}
+h1{
+  font-family:'Newsreader', serif; font-weight:600; font-size:clamp(28px,4.4vw,42px);
+  line-height:1.12; margin:0 0 28px; text-wrap:balance;
+}
+p{ font-size:18px; line-height:1.75; color:var(--ink); margin:0 0 22px; }
+.hint{ font-family:'Courier Prime',monospace; font-size:12px; color:var(--ink-soft); margin-top:40px; }
+
+/* termo com âncora */
+.term{
+  anchor-name:none;
+  color:var(--accent);
+  border:none;
+  border-bottom:1.5px dotted var(--accent);
+  border-radius:0;
+  cursor:pointer; font-style:normal; background:none; padding:0;
+  font:inherit; text-decoration:none; display:inline;
+}
+.term:hover, .term:focus-visible{ background:rgba(122,74,48,.12); }
+
+/* popover ancorado — CSS puro, sem JS de posicionamento */
+[popover]{
+  margin:0; border:none; padding:0; background:none;
+}
+.gloss{
+  position-anchor: var(--anchor);
+  position:fixed;
+  position-area: bottom span-right;
+  position-try-fallbacks: flip-block, flip-inline;
+  margin-top:8px;
+  width:min(300px,80vw);
+  background:var(--card);
+  border:1px solid rgba(43,42,36,.18);
+  border-radius:3px;
+  padding:14px 16px;
+  box-shadow:0 14px 28px -16px rgba(43,42,36,.5);
+  opacity:0; transform:translateY(4px);
+  transition:opacity .18s ease, transform .18s ease, overlay .18s ease allow-discrete, display .18s ease allow-discrete;
+}
+.gloss:popover-open{ opacity:1; transform:translateY(0); }
+@starting-style{ .gloss:popover-open{ opacity:0; transform:translateY(4px); } }
+.gloss .lat{
+  font-family:'Newsreader', serif; font-style:italic; font-weight:600; font-size:16px;
+  color:var(--accent); margin:0 0 6px;
+}
+.gloss p{ font-size:14.5px; line-height:1.5; color:var(--ink-soft); margin:0; }
+.gloss .src{
+  display:block; margin-top:8px; font-family:'Courier Prime',monospace; font-size:10.5px;
+  color:var(--accent-2); letter-spacing:.04em; text-transform:uppercase;
+}
+
+@supports not (position-area: bottom span-right){
+  /* navegador sem anchor positioning: o popover ainda abre, só sem tether — cai centralizado */
+  .gloss{ position:fixed; inset:auto; top:50%; left:50%; transform:translate(-50%,-50%); margin:0; }
+  .gloss:popover-open{ transform:translate(-50%,-50%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .gloss{ transition:none; }
+}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Direito Contratual — experimento de glossário</p>
+  <h1>Um contrato não obriga só pelo que diz — obriga pelo que a boa-fé exige.</h1>
+
+  <p>
+    O princípio de que os contratos fazem lei entre as partes —
+    <button class="term" popovertarget="g-pacta" style="anchor-name:--a-pacta">pacta sunt servanda</button> —
+    já não é lido de forma isolada. Toda relação contratual é temperada pela
+    <button class="term" popovertarget="g-boafe" style="anchor-name:--a-boafe">boa-fé objetiva</button>,
+    que impõe deveres que nenhuma cláusula escreveu: informar, cooperar, não frustrar
+    a expectativa legítima da outra parte.
+  </p>
+  <p>
+    É essa mesma boa-fé que fundamenta a
+    <button class="term" popovertarget="g-fsocial" style="anchor-name:--a-fsocial">função social do contrato</button> —
+    a ideia de que um ajuste válido entre duas partes ainda pode ser limitado quando
+    seus efeitos extrapolam esse círculo e atingem terceiros ou o interesse coletivo.
+    O contrato deixa de ser um assunto só de quem assina.
+  </p>
+
+  <p class="hint">passe o mouse ou clique nos termos sublinhados — cada um usa CSS Anchor Positioning + Popover API nativos, sem uma linha de JS para posicionar nada</p>
+</div>
+
+<div popover id="g-pacta" class="gloss" style="position-anchor:--a-pacta">
+  <p class="lat">pacta sunt servanda</p>
+  <p>Os contratos devem ser cumpridos tal como pactuados — a força obrigatória do que foi livremente ajustado entre as partes.</p>
+  <span class="src">princípio geral · direito das obrigações</span>
+</div>
+
+<div popover id="g-boafe" class="gloss" style="position-anchor:--a-boafe">
+  <p class="lat">boa-fé objetiva</p>
+  <p>Padrão de conduta leal e cooperativa exigido das partes, independente de suas intenções — impõe deveres de informação, cuidado e lealdade não escritos no contrato.</p>
+  <span class="src">art. 422, Código Civil</span>
+</div>
+
+<div popover id="g-fsocial" class="gloss" style="position-anchor:--a-fsocial">
+  <p class="lat">função social do contrato</p>
+  <p>Limita a autonomia da vontade quando o contrato produz efeitos que extrapolam as partes, condicionando-o ao interesse coletivo e a terceiros afetados.</p>
+  <span class="src">art. 421, Código Civil</span>
+</div>

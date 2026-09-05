@@ -1,0 +1,681 @@
+<title>A Terra Muda de Dono</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Kalam:wght@400;700&family=Courier+Prime&display=swap');
+
+:root{
+  --ground:#d9dcc3;
+  --ground-2:#cdd1b3;
+  --ground-3:#c0c6a3;
+  --ink:#2c3122;
+  --ink-soft:#565b45;
+  --copper:#a8703f;
+  --verdigris:#4f7d63;
+  --boundary:#a6473c;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Crimson Pro', Georgia, serif;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ---------- textura ---------- */
+.grain{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:60; opacity:.3; mix-blend-mode:multiply; }
+.contours{
+  position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; opacity:.35;
+}
+.vignette{
+  position:fixed; inset:0; pointer-events:none; z-index:2;
+  background:radial-gradient(120% 90% at 50% 20%, transparent 40%, rgba(80,84,54,.22) 100%);
+}
+
+.bg{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.ghost{
+  position:absolute; font-family:'Newsreader', serif; font-weight:700; color:transparent;
+  -webkit-text-stroke:1px rgba(80,84,54,.28); font-size:clamp(60px,14vw,180px);
+  line-height:.88; letter-spacing:-.02em; white-space:nowrap;
+}
+.g1{ top:22vh; left:-8vw; transform:rotate(-90deg); transform-origin:left top; }
+.g2{ top:110vh; right:-6vw; transform:rotate(90deg); transform-origin:right top; opacity:.8; }
+.plot{ position:absolute; opacity:.5; }
+.p1{ top:10vh; right:4vw; width:180px; }
+.p2{ top:150vh; left:2vw; width:220px; opacity:.4; }
+
+.wrap{ max-width:740px; margin:0 auto; padding:0 6vw 18vh; position:relative; z-index:3; }
+
+/* ---------- capa ---------- */
+.cover{ min-height:90vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding-top:6vh; }
+.compass{ width:104px; height:104px; margin-bottom:26px; animation:spin-in 1.3s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes spin-in{
+  0%{ transform:rotate(-70deg) scale(.5); opacity:0; }
+  100%{ transform:rotate(0deg) scale(1); opacity:1; }
+}
+.case-no{ font-family:'Courier Prime', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 16px; }
+.cover h1{ font-family:'Newsreader', serif; font-weight:700; font-size:clamp(32px,5.6vw,54px); line-height:1.06; margin:0 0 18px; text-wrap:balance; }
+.cover .sub{ font-family:'Kalam', cursive; font-size:22px; color:var(--boundary); transform:rotate(-1.6deg); margin:0 0 28px; }
+.cover p.lede{ max-width:48ch; color:var(--ink-soft); font-size:17px; line-height:1.65; margin:0; }
+.scroll-hint{ margin-top:46px; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.12em; color:var(--copper); text-transform:uppercase; animation:bob 1.8s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);} }
+
+/* ---------- linha do tempo / videira ---------- */
+.stages{ display:flex; flex-direction:column; gap:78px; padding-top:8vh; position:relative; }
+
+.vine{ position:absolute; top:-2vh; bottom:8vh; left:-6.4vw; width:6vw; min-width:30px; overflow:visible; pointer-events:none; z-index:1; }
+.vine path{ stroke:var(--verdigris); stroke-width:2.4; fill:none; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:1; }
+.vine .shadow{ stroke:rgba(44,49,34,.18); transform:translate(1.5px,2px); }
+@supports (animation-timeline: scroll()){
+  .stages{ view-timeline-name:--usuc; view-timeline-axis:block; }
+  .vine path{ animation:draw-vine linear both; animation-timeline:--usuc; animation-range:entry 90% exit 40%; }
+  @keyframes draw-vine{ to{ stroke-dashoffset:0; } }
+  .bg-layer{ animation:parallax linear; animation-timeline:scroll(root block); }
+  @keyframes parallax{ from{ translate:0 -4%; } to{ translate:0 6%; } }
+}
+@supports not (animation-timeline: scroll()){
+  .vine path{ stroke-dashoffset:0; }
+}
+
+.stage{ position:relative; }
+.stage::after{
+  content:""; position:absolute; top:36px; left:-6.4vw; width:11px; height:11px;
+  margin-left:calc(3vw - 5.5px); border-radius:50%; background:var(--verdigris);
+  box-shadow:0 0 0 2px rgba(217,220,195,.9), 1px 2px 3px rgba(44,49,34,.35);
+  opacity:0; transform:scale(.2);
+  transition:opacity .45s ease .2s, transform .5s cubic-bezier(.2,.9,.3,1.6) .2s;
+  z-index:3;
+}
+.stage.visible::after{ opacity:1; transform:scale(1); }
+
+.backing{ position:absolute; background:var(--ground-3); border-radius:2px; z-index:0; box-shadow:0 10px 22px -18px rgba(44,49,34,.75); opacity:0; transition:opacity .8s ease, transform .8s cubic-bezier(.16,.8,.3,1); }
+.b1{ inset:14px -14px -16px 8px; transform:rotate(1.3deg) translateY(10px); }
+.stage.visible .b1{ opacity:.7; transform:rotate(1.3deg) translateY(0); }
+
+.card{
+  background:var(--ground-2); border-radius:2px; padding:28px 28px 24px; position:relative; z-index:2;
+  box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 4px 10px -6px rgba(44,49,34,.5);
+  opacity:0; transform:translateY(30px);
+  transition:opacity .75s cubic-bezier(.16,.8,.3,1), transform .75s cubic-bezier(.16,.8,.3,1);
+}
+.stage.visible .card{ opacity:1; transform:translateY(0); }
+
+.card-head{ display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+.icon{ width:44px; height:44px; flex-shrink:0; color:var(--copper); }
+.icon svg{ width:100%; height:100%; }
+.idx{ font-family:'Courier Prime', monospace; font-size:11px; color:var(--ink-soft); letter-spacing:.1em; margin:0 0 4px; }
+.card h2{ font-family:'Newsreader', serif; font-weight:600; font-size:21px; margin:0; }
+.card p{ font-size:16px; line-height:1.62; color:var(--ink-soft); margin:0 0 8px; max-width:52ch; }
+.card .note{ font-family:'Kalam', cursive; font-size:19px; color:var(--boundary); transform:rotate(-1deg); display:inline-block; margin-top:4px; }
+
+/* mini-mapa: o lote crescendo a cada estágio */
+.plotmap{ position:absolute; top:22px; right:22px; width:64px; height:64px; opacity:.85; }
+.plotmap svg{ width:100%; height:100%; }
+
+.stamp-mark{ position:absolute; bottom:14px; right:22px; font-family:'Courier Prime', monospace; font-size:11px; color:var(--ink-soft); border:2px solid var(--copper); padding:3px 8px; border-radius:3px; transform:rotate(5deg); letter-spacing:.06em; text-transform:uppercase; opacity:.85; }
+
+/* ---------- cartão clicável ---------- */
+.card{ cursor:pointer; }
+.card:focus-visible{ outline:2px solid var(--boundary); outline-offset:4px; }
+.card::before{
+  content:"abrir ↗"; position:absolute; top:-9px; right:14px;
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ground-2); background:var(--verdigris); padding:2px 7px; border-radius:2px;
+  opacity:0; transform:translateY(4px) rotate(-1.5deg); transition:opacity .3s ease, transform .3s ease; pointer-events:none; z-index:4;
+}
+.card:hover::before, .card:focus-visible::before{ opacity:1; transform:translateY(0) rotate(-1.5deg); }
+.card:hover{ box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 10px 22px -12px rgba(44,49,34,.6); }
+
+/* ---------- dimensões de bolso ---------- */
+body.pocket-open #shell{ display:none; }
+body.pocket-open{ overflow:hidden; }
+
+.pocket{
+  position:fixed; inset:0; z-index:50; overflow-y:auto; overscroll-behavior:contain;
+  background:var(--ground);
+  background-image:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.30), transparent 60%),
+    radial-gradient(100% 70% at 50% 100%, rgba(80,84,54,.20), transparent 60%);
+}
+.pocket[hidden]{ display:none; }
+.pocket:focus{ outline:none; }
+.pocket-inner{ max-width:760px; margin:0 auto; padding:min(9vh,84px) 7vw 16vh; position:relative; }
+
+.pocket-rules{ position:absolute; inset:0; pointer-events:none; opacity:.4; }
+.pocket-rules svg{ width:100%; height:100%; }
+
+.pocket-close{
+  position:fixed; top:18px; right:18px; z-index:52;
+  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink); background:var(--ground-2); border:1.5px solid var(--copper);
+  border-radius:3px; padding:8px 12px; cursor:pointer;
+  box-shadow:0 4px 10px -6px rgba(44,49,34,.6); transition:background .2s ease, transform .2s ease;
+}
+.pocket-close:hover{ background:var(--ground-3); transform:translateY(-1px); }
+.pocket-close:focus-visible{ outline:2px solid var(--boundary); outline-offset:3px; }
+
+.pocket-eyebrow{ font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 12px; display:flex; align-items:center; gap:12px; }
+.pocket-eyebrow::after{ content:""; flex:1; height:1px; background:linear-gradient(90deg, rgba(168,112,63,.7), transparent); }
+.pocket h2{ font-family:'Newsreader',serif; font-weight:700; font-size:clamp(30px,5.2vw,46px); line-height:1.05; margin:0 0 10px; text-wrap:balance; }
+.pocket .kicker{ font-family:'Kalam',cursive; font-size:20px; color:var(--boundary); transform:rotate(-1.2deg); display:inline-block; margin:0 0 30px; }
+
+.motif{
+  position:relative; background:var(--ground-2); border:1px dashed rgba(166,71,60,.55);
+  border-radius:3px; padding:14px; margin:0 0 34px;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 14px 26px -22px rgba(44,49,34,.8);
+}
+.motif svg{ display:block; width:100%; height:auto; }
+.motif figcaption{ font-family:'Courier Prime',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:10px; text-align:right; }
+
+.pocket-body p{ font-size:17px; line-height:1.68; color:var(--ink-soft); margin:0 0 18px; max-width:60ch; }
+.pocket-body p strong{ color:var(--ink); font-weight:600; }
+.pocket-body em{ color:var(--ink); }
+
+.lex{
+  font-family:'Courier Prime',monospace; font-size:13.5px; line-height:1.62; color:var(--ink);
+  background:var(--ground-3); border-left:3px solid var(--verdigris);
+  padding:16px 18px; margin:26px 0; border-radius:0 2px 2px 0;
+}
+.lex .src{ display:block; margin-top:8px; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); }
+
+.field-note{
+  font-family:'Kalam',cursive; font-size:19px; color:var(--boundary);
+  border-top:1px solid rgba(166,71,60,.35); padding-top:16px; margin-top:30px; transform:rotate(-.5deg);
+}
+
+.pocket-nav{ display:flex; justify-content:space-between; gap:14px; margin-top:46px; padding-top:18px; border-top:1px dashed rgba(80,84,54,.4); }
+.pocket-nav button{
+  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  background:none; border:none; color:var(--verdigris); cursor:pointer; padding:6px 2px; border-bottom:1px solid transparent;
+}
+.pocket-nav button:hover{ border-bottom-color:var(--verdigris); }
+.pocket-nav button:focus-visible{ outline:2px solid var(--boundary); outline-offset:3px; }
+
+/* movimento dos motivos */
+@keyframes flag-wave{ 0%,100%{ transform:skewY(0deg); } 50%{ transform:skewY(-3deg); } }
+@keyframes gavel-hover{ 0%,100%{ transform:translateY(0) rotate(-16deg); } 50%{ transform:translateY(-5px) rotate(-22deg); } }
+@keyframes thread-run{ to{ stroke-dashoffset:0; } }
+@keyframes ring-glow{ 0%,100%{ opacity:.55; } 50%{ opacity:1; } }
+@keyframes seal-drop{ 0%,100%{ transform:translate(0,0) rotate(-8deg); } 55%{ transform:translate(0,10px) rotate(-8deg); } }
+.m-flag{ transform-origin:left center; animation:flag-wave 3.4s ease-in-out infinite; }
+.m-gavel{ transform-origin:78% 22%; animation:gavel-hover 3s ease-in-out infinite; }
+.m-thread{ stroke-dasharray:520; stroke-dashoffset:520; animation:thread-run 2.2s ease-out .2s forwards; }
+.m-inner-rings{ animation:ring-glow 3.2s ease-in-out infinite; }
+.m-seal{ animation:seal-drop 3.6s ease-in-out infinite; }
+
+/* transição de vista */
+@media (prefers-reduced-motion: no-preference){
+  ::view-transition-group(pocket-morph){ animation-duration:.52s; animation-timing-function:cubic-bezier(.2,.8,.25,1); }
+  ::view-transition-old(root), ::view-transition-new(root){ animation-duration:.34s; }
+}
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*){ animation:none !important; }
+}
+
+@media (max-width:640px){
+  .vine, .stage::after{ display:none; }
+  .b1{ display:none; }
+  .card::before{ display:none; }
+  .pocket-close{ top:12px; right:12px; }
+  .pocket-inner{ padding-top:64px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .card, .backing{ transition:none; opacity:1; transform:none; }
+  .compass{ animation:none; }
+  .scroll-hint{ animation:none; }
+  .vine path{ animation:none !important; stroke-dashoffset:0; }
+  .bg-layer{ animation:none !important; translate:none !important; }
+  html{ scroll-behavior:auto; }
+  .m-flag,.m-gavel,.m-inner-rings,.m-seal{ animation:none !important; }
+  .m-thread{ animation:none !important; stroke-dashoffset:0; }
+  .card::before{ transition:none; }
+}
+</style>
+
+<svg class="grain" aria-hidden="true">
+  <filter id="paperNoise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.20  0 0 0 0 0.22  0 0 0 0 0.14  0 0 0 0.45 0"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#paperNoise)"/>
+</svg>
+
+<svg class="contours" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 400 1600">
+  <g fill="none" stroke="#4f7d63" stroke-width="1">
+    <path d="M-20 120 Q120 80 220 140 T460 110" />
+    <path d="M-30 190 Q140 150 240 210 T470 175" />
+    <path d="M-10 640 Q150 590 260 660 T480 610" />
+    <path d="M-30 710 Q160 660 270 730 T470 690" />
+    <path d="M-20 1180 Q140 1130 250 1200 T470 1150" />
+  </g>
+</svg>
+
+<div class="vignette"></div>
+<div id="shell">
+<div class="bg" aria-hidden="true">
+  <div class="ghost g1 bg-layer">POSSE</div>
+  <div class="ghost g2 bg-layer">TEMPO</div>
+  <svg class="plot p1 bg-layer" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" fill="none" stroke="#a6473c" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+  <svg class="plot p2 bg-layer" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="none" stroke="#a8703f" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+</div>
+
+<div class="wrap">
+  <div class="cover">
+    <svg class="compass" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="44" stroke="var(--copper)" stroke-width="2"/>
+      <circle cx="50" cy="50" r="2.5" fill="var(--boundary)"/>
+      <path d="M50 10 L56 48 L50 90 L44 48 Z" fill="var(--boundary)" opacity=".85"/>
+      <path d="M10 50 L48 44 L90 50 L48 56 Z" fill="var(--copper)" opacity=".6"/>
+      <text x="50" y="24" text-anchor="middle" font-family="Courier Prime" font-size="8" fill="var(--ink)">N</text>
+    </svg>
+    <p class="case-no">Direito Civil — Direitos Reais, Art. 1.238 CC</p>
+    <h1>A terra esquece quem era dono, se ninguém a reclamar.</h1>
+    <p class="sub">usucapião: quando a posse vira propriedade</p>
+    <p class="lede">Amostra rápida de outro tema — usucapião extraordinária, fora do seu currículo, só pra mostrar o mesmo tratamento visual aplicado a um assunto diferente.</p>
+    <div class="scroll-hint">role ↓</div>
+  </div>
+
+  <div class="stages" id="stages">
+    <svg class="vine" viewBox="0 0 30 1200" preserveAspectRatio="none">
+      <path class="shadow" pathLength="1" d="M15 0 C 4 150, 26 250, 12 400 S 4 650, 18 800 S 8 1000, 15 1200"/>
+      <path pathLength="1" d="M15 0 C 4 150, 26 250, 12 400 S 4 650, 18 800 S 8 1000, 15 1200"/>
+    </svg>
+
+    <div class="stage">
+      <div class="backing b1"></div>
+      <div class="card" role="button" tabindex="0" data-stage="1" aria-label="Abrir dimensão do elemento 01">
+        <div class="plotmap"><svg viewBox="0 0 60 60"><rect x="26" y="26" width="8" height="8" fill="none" stroke="var(--boundary)" stroke-width="1.5"/></svg></div>
+        <div class="card-head">
+          <div class="icon"><svg viewBox="0 0 40 40"><path d="M10 30h20M20 30V14M14 20l6-6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><p class="idx">Elemento 01</p><h2>Posse com <em>animus domini</em></h2></div>
+        </div>
+        <p>Ocupar o imóvel como se dono fosse — não como locatário, comodatário ou empregado, que possuem para outrem e nunca completam usucapião.</p>
+        <span class="note">plantar a bandeira, não pedir licença</span>
+        <div class="stamp-mark">requisito</div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="backing b1"></div>
+      <div class="card" role="button" tabindex="0" data-stage="2" aria-label="Abrir dimensão do elemento 02">
+        <div class="plotmap"><svg viewBox="0 0 60 60"><rect x="20" y="20" width="20" height="20" fill="none" stroke="var(--boundary)" stroke-width="1.5"/></svg></div>
+        <div class="card-head">
+          <div class="icon"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="13" ry="8" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="3.4" fill="currentColor"/></svg></div>
+          <div><p class="idx">Elemento 02</p><h2>Mansa e pacífica</h2></div>
+        </div>
+        <p>Sem oposição judicial do verdadeiro proprietário durante o prazo. Uma ação possessória ajuizada a tempo interrompe a contagem.</p>
+        <div class="stamp-mark">requisito</div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="backing b1"></div>
+      <div class="card" role="button" tabindex="0" data-stage="3" aria-label="Abrir dimensão do elemento 03">
+        <div class="plotmap"><svg viewBox="0 0 60 60"><rect x="14" y="14" width="32" height="32" fill="none" stroke="var(--boundary)" stroke-width="1.5"/></svg></div>
+        <div class="card-head">
+          <div class="icon"><svg viewBox="0 0 40 40"><path d="M20 8v24M8 20h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="2 3"/></svg></div>
+          <div><p class="idx">Elemento 03</p><h2>Contínua e ininterrupta</h2></div>
+        </div>
+        <p>Sem intervalos relevantes de abandono. É possível somar posses sucessivas de mesma natureza (accessio possessionis) entre antecessores.</p>
+        <span class="note">o relógio não pode parar</span>
+        <div class="stamp-mark">requisito</div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="backing b1"></div>
+      <div class="card" role="button" tabindex="0" data-stage="4" aria-label="Abrir dimensão do elemento 04">
+        <div class="plotmap"><svg viewBox="0 0 60 60"><rect x="8" y="8" width="44" height="44" fill="none" stroke="var(--boundary)" stroke-width="1.5"/></svg></div>
+        <div class="card-head">
+          <div class="icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="2" fill="none"/><path d="M20 12v8l6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><p class="idx">Elemento 04</p><h2>Prazo legal</h2></div>
+        </div>
+        <p>Quinze anos na regra geral — reduzidos a dez se o possuidor houver estabelecido moradia habitual ou realizado obras/serviços produtivos no imóvel.</p>
+        <div class="stamp-mark">requisito</div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="backing b1"></div>
+      <div class="card" role="button" tabindex="0" data-stage="5" aria-label="Abrir dimensão do elemento 05">
+        <div class="plotmap"><svg viewBox="0 0 60 60"><rect x="4" y="4" width="52" height="52" fill="none" stroke="var(--verdigris)" stroke-width="2"/></svg></div>
+        <div class="card-head">
+          <div class="icon"><svg viewBox="0 0 40 40"><path d="M10 22l7 7L32 12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><p class="idx">Elemento 05 — final</p><h2>Sentença e registro</h2></div>
+        </div>
+        <p>Preenchidos os requisitos, cabe sentença declaratória — o título não nasce sozinho, precisa ser reconhecido e levado ao registro de imóveis.</p>
+        <span class="note">a terra muda de dono no papel, agora</span>
+        <div class="stamp-mark" style="border-color:var(--verdigris);color:var(--verdigris)">reconhecido</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ================= dimensões de bolso ================= -->
+<section class="pocket" id="pocket-1" hidden tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="pk1-title">
+  <button class="pocket-close" type="button" data-close>← voltar ao levantamento</button>
+  <div class="pocket-inner">
+    <p class="pocket-eyebrow">Elemento 01 · caderno de campo</p>
+    <h2 id="pk1-title">Posse com <em>animus domini</em></h2>
+    <p class="kicker">plantar a bandeira, não pedir licença</p>
+
+    <figure class="motif">
+      <svg viewBox="0 0 560 230" role="img" aria-label="Uma bandeira fincada no centro de um lote demarcado por estacas.">
+        <g stroke="#4f7d63" stroke-width="1" fill="none" opacity=".45">
+          <path d="M-10 60 Q140 34 280 62 T580 44"/><path d="M-10 96 Q150 70 290 98 T580 80"/>
+        </g>
+        <path d="M60 190 L200 118 L500 132 L400 206 Z" fill="#c0c6a3" stroke="#a6473c" stroke-width="1.6" stroke-dasharray="7 5"/>
+        <g stroke="#a8703f" stroke-width="1" opacity=".5">
+          <path d="M110 172 L245 122"/><path d="M170 186 L320 126"/><path d="M240 198 L390 130"/><path d="M310 204 L448 134"/>
+        </g>
+        <g stroke="#2c3122" stroke-width="2.4" stroke-linecap="round">
+          <path d="M60 190v-12"/><path d="M200 118v-12"/><path d="M500 132v-12"/><path d="M400 206v-12"/>
+        </g>
+        <path d="M276 168 L276 44" stroke="#2c3122" stroke-width="3.4" stroke-linecap="round"/>
+        <ellipse cx="276" cy="170" rx="26" ry="8" fill="#a6473c" opacity=".18"/>
+        <g class="m-flag">
+          <path d="M279 48 L392 62 L370 82 L392 102 L279 92 Z" fill="#a6473c" opacity=".9"/>
+        </g>
+        <text x="300" y="132" font-family="Kalam, cursive" font-size="17" fill="#565b45">como se dono fosse</text>
+      </svg>
+      <figcaption>fig. 1 — marco de posse própria</figcaption>
+    </figure>
+
+    <div class="pocket-body">
+      <p>A usucapião extraordinária dispensa justo título e boa-fé. O que ela não dispensa é a intenção de dono: o possuidor precisa se comportar como titular do domínio — cercar, construir, cultivar, pagar tributos, excluir terceiros, decidir sobre a coisa sem prestar contas a ninguém.</p>
+      <p>Por isso <strong>locatário, comodatário, depositário e usufrutuário não usucapem</strong> o imóvel que ocupam. Todos têm posse — posse direta, real, protegida por interditos — mas posse que reconhece domínio alheio: o próprio título pelo qual entraram no bem declara que a coisa é de outro. Menos ainda o <em>detentor</em>, o caseiro ou o empregado que conserva a posse em nome de terceiro e sob suas ordens: esse sequer é possuidor.</p>
+      <div class="lex">Art. 1.198. Considera-se detentor aquele que, achando-se em relação de dependência para com outro, conserva a posse em nome deste e em cumprimento de ordens ou instruções suas.<span class="src">Código Civil</span></div>
+      <p>A doutrina admite a <em>interversio possessionis</em>: quem possuía para outrem passa a possuir para si quando pratica atos externos inequívocos de contrariedade ao proprietário — deixa de pagar aluguel e recusa a devolução, registra benfeitorias em nome próprio, expulsa prepostos do titular. A contagem começa daí, nunca da entrada original no imóvel.</p>
+      <p class="field-note">a pergunta não é quem está lá dentro — é em nome de quem.</p>
+    </div>
+    <nav class="pocket-nav" aria-label="Navegar entre elementos">
+      <span></span>
+      <button type="button" data-goto="2">Mansa e pacífica →</button>
+    </nav>
+  </div>
+</section>
+
+<section class="pocket" id="pocket-2" hidden tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="pk2-title">
+  <button class="pocket-close" type="button" data-close>← voltar ao levantamento</button>
+  <div class="pocket-inner">
+    <p class="pocket-eyebrow">Elemento 02 · caderno de campo</p>
+    <h2 id="pk2-title">Mansa e pacífica</h2>
+    <p class="kicker">o martelo que nunca desce</p>
+
+    <figure class="motif">
+      <svg viewBox="0 0 560 230" role="img" aria-label="Um martelo de juiz suspenso sobre a base, numa sala vazia, sem nunca bater.">
+        <g fill="none" stroke="#565b45" stroke-width="1.4" opacity=".38">
+          <rect x="34" y="150" width="120" height="16" rx="2"/><rect x="34" y="178" width="120" height="16" rx="2"/>
+          <rect x="406" y="150" width="120" height="16" rx="2"/><rect x="406" y="178" width="120" height="16" rx="2"/>
+          <path d="M34 150v-18M94 150v-18M154 150v-18M406 150v-18M466 150v-18M526 150v-18"/>
+        </g>
+        <path d="M196 120 h168 v78 h-168 z" fill="#c0c6a3" stroke="#565b45" stroke-width="1.4"/>
+        <rect x="230" y="150" width="100" height="14" rx="3" fill="#a8703f" opacity=".75"/>
+        <path d="M280 148 C 300 118, 344 104, 372 78" fill="none" stroke="#a6473c" stroke-width="1.5" stroke-dasharray="5 6"/>
+        <g class="m-gavel">
+          <rect x="352" y="46" width="72" height="26" rx="6" fill="#a8703f"/>
+          <path d="M388 70 L420 112" stroke="#2c3122" stroke-width="7" stroke-linecap="round"/>
+        </g>
+        <g stroke="#a6473c" stroke-width="2.4" stroke-linecap="round" opacity=".85">
+          <path d="M112 74 l22 22"/><path d="M134 74 l-22 22"/>
+        </g>
+        <text x="60" y="60" font-family="Kalam, cursive" font-size="17" fill="#565b45">nenhuma ação ajuizada</text>
+      </svg>
+      <figcaption>fig. 2 — audiência que não houve</figcaption>
+    </figure>
+
+    <div class="pocket-body">
+      <p>Mansa e pacífica não significa cordial. Significa <strong>sem oposição juridicamente idônea</strong>: durante todo o prazo, quem tinha legitimidade para retomar o imóvel não o fez de modo eficaz.</p>
+      <p>Reclamação verbal, bilhete no portão, notificação extrajudicial, boletim de ocorrência — incomodam, mas em regra não param o relógio. A oposição relevante é a que se materializa em juízo: ação possessória de reintegração ou ação reivindicatória, ajuizada a tempo e efetivamente levada adiante. Demanda extinta sem resolução de mérito por abandono do autor tende a não produzir a interrupção.</p>
+      <p>Há ainda o vício de origem. Posse tomada com violência ou clandestinidade não conta enquanto durarem os vícios; o prazo só começa depois que a violência cessa e a ocupação se torna pública e ostensiva.</p>
+      <div class="lex">Art. 1.208. Não induzem posse os atos de mera permissão ou tolerância assim como não autorizam a sua aquisição os atos violentos, ou clandestinos, senão depois de cessar a violência ou a clandestinidade.<span class="src">Código Civil</span></div>
+      <p>Por remissão do art. 1.244, aplicam-se ao possuidor as causas que obstam, suspendem ou interrompem a prescrição. Quem cobra o prazo é o proprietário — e é a inércia dele, não a esperteza do possuidor, que faz a terra mudar de dono.</p>
+      <p class="field-note">o silêncio de quem podia reclamar também é uma decisão.</p>
+    </div>
+    <nav class="pocket-nav" aria-label="Navegar entre elementos">
+      <button type="button" data-goto="1">← Animus domini</button>
+      <button type="button" data-goto="3">Contínua e ininterrupta →</button>
+    </nav>
+  </div>
+</section>
+
+<section class="pocket" id="pocket-3" hidden tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="pk3-title">
+  <button class="pocket-close" type="button" data-close>← voltar ao levantamento</button>
+  <div class="pocket-inner">
+    <p class="pocket-eyebrow">Elemento 03 · caderno de campo</p>
+    <h2 id="pk3-title">Contínua e ininterrupta</h2>
+    <p class="kicker">o relógio não pode parar — mas pode trocar de mãos</p>
+
+    <figure class="motif">
+      <svg viewBox="0 0 560 230" role="img" aria-label="Cinco folhas de calendário unidas por um fio contínuo; as duas primeiras pertencem ao antecessor e as três seguintes ao possuidor atual.">
+        <path class="m-thread" d="M30 96 H530" stroke="#4f7d63" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <g>
+          <g transform="translate(38,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#a8703f" opacity=".8"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(138,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#a8703f" opacity=".8"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(238,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#4f7d63" opacity=".85"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(338,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#4f7d63" opacity=".85"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+          <g transform="translate(438,60)"><rect width="82" height="72" rx="3" fill="#c0c6a3" stroke="#565b45" stroke-width="1.3"/><rect width="82" height="16" rx="3" fill="#4f7d63" opacity=".85"/><g stroke="#565b45" stroke-width="1" opacity=".55"><path d="M12 36h58M12 50h58M12 62h34"/></g></g>
+        </g>
+        <path d="M38 152 v10 H220 v-10" fill="none" stroke="#a8703f" stroke-width="1.5"/>
+        <path d="M238 152 v10 H520 v-10" fill="none" stroke="#4f7d63" stroke-width="1.5"/>
+        <text x="129" y="182" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#565b45">ANTECESSOR</text>
+        <text x="379" y="182" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#565b45">SUCESSOR</text>
+        <text x="280" y="212" text-anchor="middle" font-family="Kalam, cursive" font-size="18" fill="#a6473c">accessio possessionis</text>
+      </svg>
+      <figcaption>fig. 3 — soma de posses sucessivas</figcaption>
+    </figure>
+
+    <div class="pocket-body">
+      <p>Continuidade é permanência do vínculo possessório, não presença física ininterrupta. Viajar, passar temporadas fora, deixar o imóvel fechado, alugar a terceiro — nada disso rompe a posse, desde que o possuidor siga exercendo poder de fato sobre o bem. O que rompe é o abandono: perda do <em>animus</em> somada à perda do controle.</p>
+      <p>E o prazo não precisa ser cumprido por uma pessoa só. O art. 1.243 autoriza somar à posse própria a dos antecessores, desde que todas sejam contínuas e pacíficas.</p>
+      <div class="lex">Art. 1.243. O possuidor pode, para o fim de contar o tempo exigido pelos artigos antecedentes, acrescentar à sua posse a dos seus antecessores (art. 1.207), contanto que todas sejam contínuas, pacíficas e, nos casos do art. 1.242, com justo título e de boa-fé.<span class="src">Código Civil</span></div>
+      <p>A soma opera de dois modos. Na <strong>sucessão universal</strong> — herdeiro — a posse do <em>de cujus</em> continua de direito, com os mesmos caracteres: não há escolha. Na <strong>sucessão singular</strong> — comprador, donatário, cessionário — a soma é faculdade: o adquirente pode unir os tempos ou iniciar posse nova.</p>
+      <p>Somar nem sempre convém. Se a posse do antecessor nasceu violenta, foi objeto de ação possessória ou carecia de <em>animus domini</em>, o sucessor singular herda junto o vício e pode preferir começar a contar do zero, com posse limpa.</p>
+      <p class="field-note">quinze anos podem ser de duas ou três mãos.</p>
+    </div>
+    <nav class="pocket-nav" aria-label="Navegar entre elementos">
+      <button type="button" data-goto="2">← Mansa e pacífica</button>
+      <button type="button" data-goto="4">Prazo legal →</button>
+    </nav>
+  </div>
+</section>
+
+<section class="pocket" id="pocket-4" hidden tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="pk4-title">
+  <button class="pocket-close" type="button" data-close>← voltar ao levantamento</button>
+  <div class="pocket-inner">
+    <p class="pocket-eyebrow">Elemento 04 · caderno de campo</p>
+    <h2 id="pk4-title">Prazo legal</h2>
+    <p class="kicker">quinze anéis — dez, se você morou lá</p>
+
+    <figure class="motif">
+      <svg viewBox="0 0 560 250" role="img" aria-label="Corte de tronco com quinze anéis: os dez internos destacados correspondem ao prazo reduzido; os cinco externos completam os quinze anos da regra geral.">
+        <g transform="translate(180,125)">
+          <circle r="112" fill="#c0c6a3" opacity=".55"/>
+          <g fill="none" stroke="#4f7d63" stroke-width="1.3" stroke-dasharray="4 4" opacity=".8">
+            <circle r="112"/><circle r="103"/><circle r="94"/><circle r="85"/><circle r="76"/>
+          </g>
+          <g class="m-inner-rings" fill="none" stroke="#a8703f" stroke-width="2">
+            <circle r="68"/><circle r="61"/><circle r="54"/><circle r="47"/><circle r="40"/>
+            <circle r="33"/><circle r="26"/><circle r="19"/><circle r="12"/><circle r="6"/>
+          </g>
+        </g>
+        <path d="M180 13 H400" stroke="#a8703f" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <path d="M180 57 H400" stroke="#a8703f" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="410" y="18" font-family="Newsreader, serif" font-size="26" font-weight="700" fill="#a8703f">10 anos</text>
+        <text x="410" y="40" font-family="Crimson Pro, serif" font-size="15" fill="#565b45">moradia habitual ou obras</text>
+        <text x="410" y="58" font-family="Crimson Pro, serif" font-size="15" fill="#565b45">e serviços produtivos</text>
+        <path d="M292 210 H400" stroke="#4f7d63" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="410" y="200" font-family="Newsreader, serif" font-size="26" font-weight="700" fill="#4f7d63">15 anos</text>
+        <text x="410" y="220" font-family="Crimson Pro, serif" font-size="15" fill="#565b45">regra geral do caput</text>
+      </svg>
+      <figcaption>fig. 4 — contagem por anéis</figcaption>
+    </figure>
+
+    <div class="pocket-body">
+      <p>Quinze anos, sem interrupção nem oposição, independentemente de título e boa-fé. É o prazo mais longo do sistema, e essa é justamente a contrapartida da exigência mais baixa: não se pergunta como a posse começou, pergunta-se quanto tempo durou.</p>
+      <div class="lex">Art. 1.238. Aquele que, por quinze anos, sem interrupção, nem oposição, possuir como seu um imóvel, adquire-lhe a propriedade, independentemente de título e boa-fé; podendo requerer ao juiz que assim o declare por sentença, a qual servirá de título para o registro no Cartório de Registro de Imóveis.<br><br>Parágrafo único. O prazo estabelecido neste artigo reduzir-se-á a dez anos se o possuidor houver estabelecido no imóvel a sua moradia habitual, ou nele realizado obras ou serviços de caráter produtivo.<span class="src">Código Civil</span></div>
+      <p>O parágrafo único derruba o prazo para dez anos em duas hipóteses alternativas: <strong>moradia habitual</strong> no imóvel, ou <strong>obras ou serviços de caráter produtivo</strong> nele realizados. Basta uma. A lógica é de função social da propriedade: quem morou ou fez a terra produzir consolidou uma situação de fato mais densa do que a de quem apenas ocupou, e o ordenamento encurta a espera.</p>
+      <p>Não se confunde com a usucapião ordinária do art. 1.242 (dez anos, com justo título e boa-fé) nem com as modalidades constitucionais especiais, urbana e rural, de cinco anos e área limitada. Aqui não há teto de metragem nem exigência de não ser proprietário de outro imóvel.</p>
+      <p>Para posses antigas, atenção à regra de transição: nos dois primeiros anos de vigência do Código, o art. 2.029 acresceu dois anos aos prazos reduzidos do parágrafo único, qualquer que fosse o tempo já transcorrido sob o Código de 1916.</p>
+      <p class="field-note">o tempo é o único requisito que ninguém consegue acelerar.</p>
+    </div>
+    <nav class="pocket-nav" aria-label="Navegar entre elementos">
+      <button type="button" data-goto="3">← Contínua e ininterrupta</button>
+      <button type="button" data-goto="5">Sentença e registro →</button>
+    </nav>
+  </div>
+</section>
+
+<section class="pocket" id="pocket-5" hidden tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="pk5-title">
+  <button class="pocket-close" type="button" data-close>← voltar ao levantamento</button>
+  <div class="pocket-inner">
+    <p class="pocket-eyebrow">Elemento 05 · caderno de campo</p>
+    <h2 id="pk5-title">Sentença e registro</h2>
+    <p class="kicker">a terra muda de dono no papel, agora</p>
+
+    <figure class="motif">
+      <svg viewBox="0 0 560 230" role="img" aria-label="Um selo descendo sobre a folha de matrícula de um livro de registro de imóveis.">
+        <path d="M60 44 h300 v168 h-300 z" fill="#c0c6a3" stroke="#565b45" stroke-width="1.4"/>
+        <path d="M60 44 l-18 12 v168 l18 -12 z" fill="#a8703f" opacity=".35" stroke="#565b45" stroke-width="1.2"/>
+        <text x="82" y="74" font-family="Courier Prime, monospace" font-size="12" fill="#565b45">MATRÍCULA N.º ______</text>
+        <g stroke="#565b45" stroke-width="1" opacity=".5">
+          <path d="M82 96h256M82 116h256M82 136h200M82 156h256M82 176h150"/>
+        </g>
+        <path d="M392 42 C 424 60, 430 84, 412 104" fill="none" stroke="#a6473c" stroke-width="1.4" stroke-dasharray="5 6"/>
+        <g transform="translate(430,132)">
+          <g class="m-seal">
+            <circle r="56" fill="#a6473c" opacity=".12"/>
+            <circle r="56" fill="none" stroke="#a6473c" stroke-width="3"/>
+            <circle r="45" fill="none" stroke="#a6473c" stroke-width="1.4" stroke-dasharray="3 4"/>
+            <text y="-6" text-anchor="middle" font-family="Courier Prime, monospace" font-size="12" fill="#a6473c">AQUISIÇÃO</text>
+            <text y="14" text-anchor="middle" font-family="Courier Prime, monospace" font-size="12" fill="#a6473c">ORIGINÁRIA</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>fig. 5 — abertura de nova matrícula</figcaption>
+    </figure>
+
+    <div class="pocket-body">
+      <p>A propriedade se adquire pelo decurso do prazo, não pela sentença. Mas o sistema registral não enxerga fato — enxerga título. Daí a fórmula do art. 1.238: o possuidor pode requerer ao juiz que declare a aquisição, e essa sentença <strong>serve de título para o registro</strong>. Ela não cria o direito; reconhece o que o tempo já produziu, com efeitos retroativos à consumação do prazo.</p>
+      <p>A aquisição é <strong>originária</strong>: não há transmissão do antigo para o novo dono, a cadeia dominial se rompe e uma matrícula nova se abre. As consequências práticas são grandes — não incide ITBI, que pressupõe transmissão, e os ônus reais constituídos pelo antigo proprietário em regra não subsistem, ressalvados os que gravam a coisa por força de lei.</p>
+      <p>A usucapião também pode ser alegada como matéria de defesa, na linha da Súmula 237 do Supremo Tribunal Federal. O reconhecimento em contestação, porém, resolve o litígio entre as partes e não abre matrícula: para oponibilidade <em>erga omnes</em>, o caminho ao registro continua obrigatório.</p>
+      <div class="lex">Art. 216-A. Sem prejuízo da via jurisdicional, é admitido o pedido de reconhecimento extrajudicial de usucapião, que será processado diretamente perante o cartório do registro de imóveis da comarca em que estiver situado o imóvel usucapiendo.<span class="src">Lei de Registros Públicos, incluído pelo CPC/2015</span></div>
+      <p>Essa via extrajudicial exige ata notarial atestando o tempo de posse, planta e memorial descritivo assinados, certidões e anuência dos titulares registrais — mas dispensa processo judicial quando não há litígio.</p>
+      <p class="field-note">o direito nasceu no campo; o cartório só o escreve.</p>
+    </div>
+    <nav class="pocket-nav" aria-label="Navegar entre elementos">
+      <button type="button" data-goto="4">← Prazo legal</button>
+      <span></span>
+    </nav>
+  </div>
+</section>
+
+<script>
+const stages = document.querySelectorAll('.stage');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{ threshold:0.25 });
+stages.forEach(s=>io.observe(s));
+
+/* ---------- dimensões de bolso ---------- */
+(function(){
+  const cards   = Array.from(document.querySelectorAll('.card[data-stage]'));
+  const pockets = Array.from(document.querySelectorAll('.pocket'));
+  const reduce  = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const MORPH   = 'pocket-morph';
+  let openIndex = null;      // 1..5 ou null
+  let savedScroll = 0;
+  let returnCard = null;
+
+  const byIndex = n => document.getElementById('pocket-' + n);
+  const cardOf  = n => cards.find(c => c.dataset.stage === String(n));
+
+  function transition(mutate, after){
+    if (document.startViewTransition && !reduce.matches){
+      const vt = document.startViewTransition(mutate);
+      if (vt.ready) vt.ready.catch(()=>{});          // transição pulada não é erro
+      vt.finished.catch(()=>{}).finally(()=>{
+        cards.forEach(c => c.style.viewTransitionName = '');
+        pockets.forEach(p => p.style.viewTransitionName = '');
+      });
+      // foca assim que o novo estado existe, sem esperar a animação terminar
+      (vt.updateCallbackDone || Promise.resolve()).then(after).catch(()=>{});
+    } else {
+      mutate();
+      after();
+    }
+  }
+
+  function show(n){
+    const panel = byIndex(n);
+    if (!panel) return;
+    const card = cardOf(n);
+    if (openIndex === null){
+      savedScroll = window.scrollY;
+      returnCard = card;
+    }
+    // nomes de transição: apenas o par ativo, nunca dois elementos com o mesmo nome visíveis
+    cards.forEach(c => c.style.viewTransitionName = '');
+    pockets.forEach(p => p.style.viewTransitionName = '');
+    if (card) card.style.viewTransitionName = MORPH;
+    panel.style.viewTransitionName = MORPH;
+
+    transition(()=>{
+      pockets.forEach(p => { p.hidden = (p !== panel); });
+      document.body.classList.add('pocket-open');
+      panel.scrollTop = 0;
+      openIndex = n;
+    }, ()=>{
+      const p = byIndex(n);
+      if (p) p.focus({ preventScroll:true });
+    });
+  }
+
+  function close(){
+    if (openIndex === null) return;
+    const panel = byIndex(openIndex);
+    const card  = returnCard;
+    cards.forEach(c => c.style.viewTransitionName = '');
+    pockets.forEach(p => p.style.viewTransitionName = '');
+    if (panel) panel.style.viewTransitionName = MORPH;
+    if (card)  card.style.viewTransitionName = MORPH;
+
+    transition(()=>{
+      pockets.forEach(p => p.hidden = true);
+      document.body.classList.remove('pocket-open');
+      openIndex = null;
+      try { window.scrollTo({ top:savedScroll, left:0, behavior:'instant' }); }
+      catch(_){ window.scrollTo(0, savedScroll); }
+    }, ()=>{
+      if (card) card.focus({ preventScroll:true });
+    });
+  }
+
+  cards.forEach(card=>{
+    const n = Number(card.dataset.stage);
+    card.addEventListener('click', ()=> show(n));
+    card.addEventListener('keydown', e=>{
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+        e.preventDefault();
+        show(n);
+      }
+    });
+  });
+
+  pockets.forEach(panel=>{
+    panel.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', close));
+    panel.querySelectorAll('[data-goto]').forEach(b =>
+      b.addEventListener('click', ()=> show(Number(b.dataset.goto)))
+    );
+  });
+
+  document.addEventListener('keydown', e=>{
+    if (e.key === 'Escape' && openIndex !== null){
+      e.preventDefault();
+      close();
+    }
+  });
+})();
+</script>

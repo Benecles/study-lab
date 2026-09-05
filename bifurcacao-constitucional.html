@@ -1,0 +1,809 @@
+<title>Bifurcação Constitucional</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   BIFURCAÇÃO CONSTITUCIONAL
+   R&D — controle de constitucionalidade brasileiro
+   Técnicas em teste: (1) sticky graphic + stepper 100% CSS
+   scroll-driven, (2) bifurcação de trilha via :has() sem JS,
+   (3) glossário em popover ancorado (CSS anchor positioning).
+   Zero <script>. Mundo visual: desenho de corte estrutural.
+   ============================================================ */
+
+:root{
+  --ground:#dcdad2;
+  --ground-2:#d2cfc5;
+  --panel:#e8e6de;
+  --ink:#1d2023;
+  --ink-soft:#5d6058;
+  --ink-faint:#8b8d84;
+  --rule:rgba(29,32,35,.20);
+  --rule-soft:rgba(29,32,35,.10);
+  --grid:rgba(29,32,35,.055);
+  --difuso:#2f6088;
+  --difuso-wash:rgba(47,96,136,.10);
+  --concentrado:#8e3a26;
+  --concentrado-wash:rgba(142,58,38,.10);
+  --via:var(--ink);
+  --via-wash:transparent;
+  --shadow:rgba(29,32,35,.14);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16181a;
+    --ground-2:#1c1f21;
+    --panel:#212528;
+    --ink:#e5e3da;
+    --ink-soft:#a0a29a;
+    --ink-faint:#75786f;
+    --rule:rgba(229,227,218,.22);
+    --rule-soft:rgba(229,227,218,.11);
+    --grid:rgba(229,227,218,.06);
+    --difuso:#7fb0dd;
+    --difuso-wash:rgba(127,176,221,.12);
+    --concentrado:#dd8b6b;
+    --concentrado-wash:rgba(221,139,107,.12);
+    --shadow:rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16181a;
+  --ground-2:#1c1f21;
+  --panel:#212528;
+  --ink:#e5e3da;
+  --ink-soft:#a0a29a;
+  --ink-faint:#75786f;
+  --rule:rgba(229,227,218,.22);
+  --rule-soft:rgba(229,227,218,.11);
+  --grid:rgba(229,227,218,.06);
+  --difuso:#7fb0dd;
+  --difuso-wash:rgba(127,176,221,.12);
+  --concentrado:#dd8b6b;
+  --concentrado-wash:rgba(221,139,107,.12);
+  --shadow:rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Spectral', Georgia, 'Times New Roman', serif;
+  font-size:17px;
+  line-height:1.62;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- fundo: papel milimetrado de prancheta ---------- */
+.grid-bg{
+  position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(120% 80% at 50% 30%, #000 30%, transparent 92%);
+}
+.grain{
+  position:fixed; inset:0; width:100%; height:100%; z-index:70;
+  pointer-events:none; opacity:.28; mix-blend-mode:multiply;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .grain{ mix-blend-mode:screen; opacity:.16; }
+}
+:root[data-theme="dark"] .grain{ mix-blend-mode:screen; opacity:.16; }
+
+/* ---------- tipografia base ---------- */
+.eyebrow{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-faint); margin:0;
+}
+h1,h2,h3{
+  font-family:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  font-variation-settings:'wdth' 112;
+  text-wrap:balance; margin:0;
+}
+h1{ font-weight:800; font-size:clamp(38px,7.4vw,80px); line-height:.94; letter-spacing:-.025em; }
+h2{ font-weight:700; font-size:clamp(24px,3.6vw,34px); line-height:1.08; letter-spacing:-.015em; }
+h3{ font-weight:600; font-size:19px; line-height:1.2; font-variation-settings:'wdth' 100; letter-spacing:-.005em; }
+p{ margin:0 0 1em; }
+p:last-child{ margin-bottom:0; }
+a{ color:inherit; }
+strong{ font-weight:600; }
+:focus-visible{ outline:2px solid var(--via); outline-offset:3px; border-radius:2px; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,56px); position:relative; z-index:2; }
+.col{ max-width:64ch; }
+.art{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:.86em; color:var(--ink-soft); }
+
+/* ============ CAPA ============ */
+.cover{
+  min-height:96svh; display:flex; flex-direction:column; justify-content:center;
+  padding:14vh 0 10vh; position:relative;
+}
+.plate{ display:flex; gap:14px; align-items:baseline; margin-bottom:auto; }
+.plate .rule-line{ flex:1; height:1px; background:var(--rule); align-self:center; }
+.cover h1{ margin:0 0 6px; }
+.cover h1 .thin{
+  display:block; font-weight:400; font-variation-settings:'wdth' 84;
+  font-size:.36em; letter-spacing:.02em; color:var(--ink-soft); margin-bottom:14px;
+}
+.cover .lede{ max-width:52ch; margin-top:26px; color:var(--ink-soft); font-size:19px; }
+.cover .lede em{ color:var(--ink); font-style:italic; }
+.split-mark{ width:min(320px,60vw); margin:38px 0 0; display:block; }
+.cover footer{
+  margin-top:auto; padding-top:40px; display:flex; flex-wrap:wrap; gap:8px 26px;
+  border-top:1px solid var(--rule-soft);
+}
+
+/* ============ SEÇÃO ESTRUTURAL — sticky + stepper ============ */
+.section-head{ padding:16vh 0 0; }
+.section-head .num{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.2em;
+  color:var(--ink-faint); display:block; margin-bottom:10px;
+}
+.section-head p{ max-width:56ch; color:var(--ink-soft); margin-top:14px; }
+
+.struct{ position:relative; margin-top:8vh; }
+.struct-inner{ display:grid; grid-template-columns:1fr; gap:0; }
+@media (min-width:900px){
+  .struct-inner{ grid-template-columns:minmax(320px,44%) 1fr; gap:clamp(32px,5vw,72px); align-items:start; }
+}
+
+.drawing{
+  position:sticky; top:calc(50svh - 260px); height:520px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:24px;
+}
+@media (max-width:899px){
+  .drawing{
+    position:sticky; top:0; height:clamp(210px,44svh,340px); z-index:5;
+    background:linear-gradient(to bottom, var(--ground) 0 88%, transparent);
+    padding-bottom:16px; margin-bottom:0;
+  }
+}
+.drawing svg{ width:100%; height:100%; overflow:visible; }
+
+/* peças do desenho */
+.dw{ fill:none; stroke:var(--ink); stroke-width:1.6; vector-effect:non-scaling-stroke; }
+.dw-soft{ stroke:var(--ink-soft); stroke-width:1.1; }
+.dw-fill{ fill:var(--ground-2); stroke:var(--ink); stroke-width:1.6; }
+.hatch{ stroke:var(--ink-faint); stroke-width:1; }
+.lbl{
+  font-family:'IBM Plex Mono', monospace; font-size:9.5px; letter-spacing:.14em;
+  text-transform:uppercase; fill:var(--ink-soft); stroke:none;
+}
+.lbl-key{ fill:var(--ink); font-weight:500; }
+.lbl-d{ fill:var(--difuso); }
+.lbl-c{ fill:var(--concentrado); }
+.dim{ stroke:var(--ink-faint); stroke-width:.8; stroke-dasharray:3 3; }
+.crack{ stroke:var(--concentrado); stroke-width:2; fill:none; stroke-linecap:round; }
+.route-d{ stroke:var(--difuso); stroke-width:2; fill:none; stroke-dasharray:5 7; stroke-linecap:round; }
+.route-c{ stroke:var(--concentrado); stroke-width:3.4; fill:none; stroke-linecap:round; }
+.node-d{ fill:var(--difuso); }
+.node-c{ fill:var(--concentrado); }
+.stage{ opacity:1; }
+
+/* passos de texto */
+.steps{ display:flex; flex-direction:column; }
+.step{ padding:8svh 0; }
+.step:first-child{ padding-top:2svh; }
+.step:last-child{ padding-bottom:14svh; }
+.step .k{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.2em;
+  color:var(--ink-faint); display:block; margin-bottom:10px;
+}
+.step h3{ margin-bottom:10px; }
+.step p{ color:var(--ink-soft); max-width:46ch; }
+.step p strong{ color:var(--ink); }
+
+/* ---- scroll-driven: só quando há suporte e o leitor não pediu menos movimento ---- */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .struct{ view-timeline-name:--struct; view-timeline-axis:block; }
+
+    .stage{
+      opacity:0; animation:stage-in linear both;
+      animation-timeline:--struct;
+    }
+    @keyframes stage-in{ from{opacity:0; translate:0 8px;} to{opacity:1; translate:0 0;} }
+    .s1{ animation-range:contain 1% contain 5%; }
+    .s2{ animation-range:contain 15% contain 21%; }
+    .s3{ animation-range:contain 32% contain 38%; }
+    .s4{ animation-range:contain 49% contain 55%; }
+    .s5{ animation-range:contain 66% contain 72%; }
+    .s6{ animation-range:contain 82% contain 88%; }
+
+    /* as duas rotas se desenham traço a traço (só no desenho fixo) */
+    .drawing .route-d, .drawing .route-c{
+      stroke-dashoffset:220;
+      animation:draw linear both; animation-timeline:--struct;
+      animation-range:contain 84% contain 97%;
+    }
+    @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+    /* o passo em foco acende sozinho, sem observer */
+    .step{
+      animation:step-focus linear both;
+      animation-timeline:view();
+      animation-range:cover 18% cover 82%;
+    }
+    @keyframes step-focus{
+      0%{ opacity:.28; }
+      36%,64%{ opacity:1; }
+      100%{ opacity:.28; }
+    }
+    .step h3, .step .k{ transition:none; }
+  }
+}
+@supports not (animation-timeline: view()){
+  .drawing{ position:static; height:auto; min-height:420px; }
+}
+
+/* ============ BIFURCAÇÃO ============ */
+.fork{ padding:6vh 0 0; }
+.chooser{ border:0; padding:0; margin:0; }
+.chooser legend{
+  font-family:'Archivo', sans-serif; font-weight:700; font-variation-settings:'wdth' 112;
+  font-size:clamp(22px,3.2vw,30px); letter-spacing:-.015em; padding:0; margin-bottom:8px;
+}
+.chooser .hint{ color:var(--ink-soft); max-width:52ch; margin:0 0 24px; }
+.chooser .opts{ display:grid; gap:14px; }
+@media (min-width:640px){ .chooser .opts{ grid-template-columns:1fr 1fr; } }
+.chooser input{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
+.opt{
+  display:block; cursor:pointer; padding:20px 22px 22px;
+  background:var(--panel); border:1px solid var(--rule);
+  box-shadow:3px 3px 0 var(--rule-soft);
+  transition:box-shadow .16s ease, transform .16s ease, border-color .16s ease;
+}
+.opt:hover{ transform:translate(-1px,-1px); box-shadow:5px 5px 0 var(--rule-soft); }
+.opt .tag{
+  font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.18em;
+  text-transform:uppercase; display:block; margin-bottom:8px;
+}
+.opt h3{ margin-bottom:6px; }
+.opt p{ font-size:15px; color:var(--ink-soft); margin:0; }
+.opt .mark{ display:block; height:34px; margin-bottom:14px; }
+.opt-d .tag{ color:var(--difuso); }
+.opt-c .tag{ color:var(--concentrado); }
+#via-d:focus-visible ~ .opts .opt-d,
+#via-c:focus-visible ~ .opts .opt-c{ outline:2px solid var(--ink); outline-offset:3px; }
+.num.eyebrow{ display:block; margin-bottom:10px; }
+
+#via-d:checked ~ .opts .opt-d,
+#via-c:checked ~ .opts .opt-c{
+  border-color:var(--via); box-shadow:5px 5px 0 var(--via-wash); background:var(--via-wash);
+}
+body:has(#via-d:checked){ --via:var(--difuso); --via-wash:var(--difuso-wash); }
+body:has(#via-c:checked){ --via:var(--concentrado); --via-wash:var(--concentrado-wash); }
+
+.track{ display:none; padding-top:8vh; }
+body:has(#via-d:checked) #track-d{ display:block; }
+body:has(#via-c:checked) #track-c{ display:block; }
+.await{ padding:6vh 0 2vh; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
+body:has(#via-d:checked) .await, body:has(#via-c:checked) .await{ display:none; }
+
+.track-head{ border-top:2px solid var(--via); padding-top:18px; margin-bottom:6vh; }
+.track-head .eyebrow{ color:var(--via); }
+.track-head h2{ margin-top:8px; }
+.track-head p{ max-width:56ch; color:var(--ink-soft); margin-top:12px; }
+
+.cards{ display:flex; flex-direction:column; gap:34px; position:relative; padding-left:34px; max-width:768px; }
+.cards::before{
+  content:""; position:absolute; left:11px; top:6px; bottom:6px; width:2px;
+  background:var(--via); opacity:.34;
+}
+.card{ position:relative; background:var(--panel); border:1px solid var(--rule); padding:24px clamp(20px,3vw,32px) 26px; }
+.card::before{
+  content:""; position:absolute; left:-34px; top:26px; width:24px; height:24px;
+  border:2px solid var(--via); background:var(--ground); border-radius:50%;
+}
+.card::after{
+  content:""; position:absolute; left:-27px; top:33px; width:10px; height:10px;
+  background:var(--via); border-radius:50%;
+}
+.card .k{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--via); display:block; margin-bottom:8px; }
+.card h3{ margin-bottom:12px; }
+.card p{ color:var(--ink-soft); max-width:58ch; }
+.card p strong{ color:var(--ink); }
+.card ul{ margin:0 0 1em; padding-left:1.1em; color:var(--ink-soft); }
+.card li{ margin-bottom:.4em; }
+.card li strong{ color:var(--ink); }
+.card li::marker{ color:var(--via); }
+.note{
+  margin-top:16px; padding:12px 14px; border-left:2px solid var(--via);
+  background:var(--via-wash); font-size:14.5px; color:var(--ink-soft);
+}
+.note b{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--via); display:block; margin-bottom:5px; font-weight:500; }
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .card{ animation:card-in linear both; animation-timeline:view(); animation-range:entry 8% entry 62%; }
+    @keyframes card-in{ from{ opacity:0; translate:0 22px; } to{ opacity:1; translate:0 0; } }
+  }
+}
+
+.swap{ margin-top:5vh; padding-top:22px; border-top:1px solid var(--rule-soft); }
+.swap p{ color:var(--ink-soft); font-size:15px; max-width:52ch; }
+.swap a{ color:var(--via); text-decoration-thickness:1px; text-underline-offset:3px; }
+
+/* ============ CONVERGÊNCIA ============ */
+.compare{ margin-top:10vh; }
+.tbl-wrap{ overflow-x:auto; margin-top:28px; border:1px solid var(--rule); background:var(--panel); }
+table{ border-collapse:collapse; width:100%; min-width:620px; font-size:15px; }
+caption{ text-align:left; padding:16px 18px 0; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+th,td{ text-align:left; padding:13px 18px; border-bottom:1px solid var(--rule-soft); vertical-align:top; }
+thead th{ font-family:'Archivo',sans-serif; font-weight:700; font-variation-settings:'wdth' 96; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink); border-bottom:1px solid var(--rule); }
+thead th:nth-child(2){ color:var(--difuso); }
+thead th:nth-child(3){ color:var(--concentrado); }
+tbody th{ font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); white-space:nowrap; }
+td{ color:var(--ink-soft); }
+tbody tr:last-child th, tbody tr:last-child td{ border-bottom:0; }
+
+.bridges{ margin-top:8vh; display:grid; gap:26px; }
+@media (min-width:820px){ .bridges{ grid-template-columns:repeat(3,1fr); } }
+.bridge{ border-top:2px solid var(--rule); padding-top:16px; }
+.bridge h3{ margin-bottom:10px; }
+.bridge p{ font-size:15px; color:var(--ink-soft); }
+
+/* ============ GLOSSÁRIO ANCORADO ============ */
+.term{
+  font:inherit; color:inherit; background:none; border:0; padding:0; margin:0;
+  cursor:pointer; font-style:italic;
+  border-bottom:1.5px dotted var(--via);
+  padding-bottom:1px;
+}
+.term:hover{ border-bottom-style:solid; color:var(--ink); }
+
+[popover]{
+  margin:0; border:1.5px solid var(--ink); background:var(--panel); color:var(--ink);
+  padding:14px 16px; max-width:min(320px,86vw); font-size:14.5px; line-height:1.5;
+  box-shadow:6px 6px 0 var(--shadow);
+}
+[popover] .t{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:6px;
+}
+[popover] p{ margin:0; }
+[popover] .src{ display:block; margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--ink-faint); }
+
+@supports (anchor-name: --a){
+  [popover]{
+    position:fixed; position-area:block-start span-inline-end; margin:0 0 8px 0;
+    position-try-fallbacks:flip-block, flip-inline, flip-block flip-inline;
+    position-visibility:anchors-visible;
+  }
+}
+@supports not (anchor-name: --a){
+  [popover]{ position:fixed; inset:auto 0 24px; margin:0 auto; }
+}
+[popover]::backdrop{ background:transparent; }
+
+/* ============ CODA ============ */
+.coda{ padding:14vh 0 16vh; }
+.coda blockquote{
+  margin:0; font-family:'Archivo',sans-serif; font-weight:600; font-variation-settings:'wdth' 104;
+  font-size:clamp(21px,3vw,29px); line-height:1.22; letter-spacing:-.012em; max-width:22ch;
+}
+.coda .after{ margin-top:22px; max-width:56ch; color:var(--ink-soft); }
+.colophon{
+  margin-top:12vh; padding-top:20px; border-top:1px solid var(--rule-soft);
+  font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em;
+  color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:6px 24px;
+}
+</style>
+
+<svg class="grain" aria-hidden="true" preserveAspectRatio="none">
+  <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#gr)" opacity="0.5"/>
+</svg>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <!-- ================= CAPA ================= -->
+  <header class="cover">
+    <div class="plate">
+      <span class="eyebrow">Corte estrutural 01</span>
+      <span class="rule-line"></span>
+      <span class="eyebrow">Direito Constitucional</span>
+    </div>
+
+    <h1>
+      <span class="thin">Controle de constitucionalidade</span>
+      Bifurcação<br>Constitucional
+    </h1>
+
+    <svg class="split-mark" viewBox="0 0 320 60" aria-hidden="true">
+      <path class="dw" d="M0 30 H132"/>
+      <path class="route-d" d="M132 30 C170 30 168 54 206 54 H318"/>
+      <path class="route-c" d="M132 30 C170 30 168 8 206 8 H318"/>
+      <circle cx="132" cy="30" r="4" style="fill:var(--ink)"/>
+      <circle cx="318" cy="8" r="4.5" class="node-c"/>
+      <circle cx="318" cy="54" r="2.6" class="node-d"/>
+      <circle cx="296" cy="54" r="2.6" class="node-d"/>
+      <circle cx="274" cy="54" r="2.6" class="node-d"/>
+    </svg>
+
+    <p class="lede">Toda lei carrega uma pergunta que só a Constituição responde: <em>ela se sustenta?</em> O direito brasileiro criou duas rotas para fazer essa pergunta — e as duas levam a lugares diferentes. Este é o corte estrutural das duas.</p>
+
+    <footer>
+      <span class="eyebrow">CF/88 · Lei 9.868/99 · Lei 9.882/99</span>
+      <span class="eyebrow">Leitura ≈ 12 min</span>
+      <span class="eyebrow">Role para descer pela estrutura</span>
+    </footer>
+  </header>
+
+  <!-- ================= SEÇÃO ESTRUTURAL ================= -->
+  <section class="section-head col" aria-labelledby="h-estrutura">
+    <span class="num">/ 01 — O TRONCO COMUM</span>
+    <h2 id="h-estrutura">Antes da bifurcação, a estrutura</h2>
+    <p>As duas vias resolvem o mesmo problema: uma norma inferior que não transmite sua carga até a Constituição. Seis camadas, de baixo para cima.</p>
+  </section>
+
+  <div class="struct">
+    <div class="struct-inner">
+
+      <!-- ---------- desenho fixo ---------- -->
+      <div class="drawing" role="img" aria-label="Desenho de corte: a Constituição como fundação, a lei como viga apoiada nela, os vícios formal e material, o controle preventivo acima e, ao final, a bifurcação em duas rotas de controle repressivo — a difusa, pontilhada e múltipla, e a concentrada, única e contínua.">
+        <svg viewBox="0 0 400 500" aria-hidden="true">
+
+          <!-- s1: fundação -->
+          <g class="stage s1">
+            <rect class="dw-fill" x="24" y="380" width="352" height="46"/>
+            <path class="hatch" d="M24 426 l-10 16 M54 426 l-10 16 M84 426 l-10 16 M114 426 l-10 16 M144 426 l-10 16 M174 426 l-10 16 M204 426 l-10 16 M234 426 l-10 16 M264 426 l-10 16 M294 426 l-10 16 M324 426 l-10 16 M354 426 l-10 16 M376 426 l-10 16"/>
+            <path class="hatch" d="M14 442 H366"/>
+            <text class="lbl lbl-key" x="34" y="408">Constituição · parâmetro</text>
+            <text class="lbl" x="34" y="466">Rígida (art. 60) → supremacia</text>
+          </g>
+
+          <!-- s2: pilares + viga = a lei -->
+          <g class="stage s2">
+            <rect class="dw-fill" x="86" y="300" width="26" height="80"/>
+            <rect class="dw-fill" x="288" y="300" width="26" height="80"/>
+            <rect class="dw-fill" x="66" y="262" width="268" height="38"/>
+            <text class="lbl lbl-key" x="78" y="286">Lei ou ato normativo</text>
+            <path class="dim" d="M200 300 V378"/>
+            <path class="dw-soft" d="M195 372 l5 8 l5 -8"/>
+            <text class="lbl" x="206" y="345">carga</text>
+          </g>
+
+          <!-- s3: vícios -->
+          <g class="stage s3">
+            <path class="crack" d="M232 262 l-9 14 l11 10 l-7 14"/>
+            <text class="lbl lbl-c" x="246" y="286">material</text>
+            <path class="crack" d="M99 300 l-11 12 M99 312 l11 12"/>
+            <text class="lbl lbl-c" x="24" y="332">formal</text>
+          </g>
+
+          <!-- s4: controle preventivo -->
+          <g class="stage s4">
+            <path class="dw dw-soft" d="M66 168 H334 M66 168 V262 M334 168 V262 M66 206 H334 M100 168 V262 M300 168 V262"/>
+            <path class="dw-soft" d="M100 206 L300 168 M100 168 L300 206" stroke-dasharray="4 5"/>
+            <text class="lbl" x="112" y="240">Preventivo · CCJ · veto</text>
+          </g>
+
+          <!-- s5: repressivo -->
+          <g class="stage s5">
+            <circle class="dw" cx="200" cy="130" r="17"/>
+            <path class="dw" d="M200 147 V168"/>
+            <path class="dw-soft" d="M183 130 H217 M200 113 V147"/>
+            <text class="lbl lbl-key" x="228" y="127">Repressivo</text>
+            <text class="lbl" x="228" y="141">judicial</text>
+          </g>
+
+          <!-- s6: bifurcação -->
+          <g class="stage s6">
+            <path class="route-d" d="M186 262 C120 300 96 330 96 380"/>
+            <circle class="node-d" cx="96" cy="380" r="4"/>
+            <circle class="node-d" cx="120" cy="316" r="3"/>
+            <circle class="node-d" cx="150" cy="284" r="3"/>
+            <circle class="node-d" cx="102" cy="348" r="3"/>
+            <text class="lbl lbl-d" x="16" y="372">difuso</text>
+            <path class="route-c" d="M214 262 C286 300 304 330 304 380"/>
+            <circle class="node-c" cx="304" cy="380" r="6"/>
+            <text class="lbl lbl-c" x="318" y="372">concentrado</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- ---------- passos ---------- -->
+      <ol class="steps col" style="list-style:none;padding:0;margin:0;">
+        <li class="step">
+          <span class="k">01 · Fundação</span>
+          <h3>A Constituição é o solo</h3>
+          <p>Só existe controle porque a Constituição é <strong>rígida</strong>: mudá-la exige o rito reforçado do art. 60 — dois turnos, em cada Casa, três quintos. Dessa dificuldade nasce a <strong>supremacia formal</strong>. Uma norma que se altera pelo mesmo caminho de qualquer lei não serve de parâmetro para lei nenhuma.</p>
+        </li>
+
+        <li class="step">
+          <span class="k">02 · Carga</span>
+          <h3>A lei se apoia nela</h3>
+          <p>Toda lei nasce com <strong>presunção de constitucionalidade</strong> — relativa, não absoluta. Ela vale e obriga até que alguém demonstre o contrário. E não é qualquer coisa que entra no controle: o objeto tem que ser <strong>ato normativo</strong>, com generalidade, abstração e autonomia. Ato de efeito concreto, contrato administrativo e norma revogada, em regra, não.</p>
+        </li>
+
+        <li class="step">
+          <span class="k">03 · Falha</span>
+          <h3>Onde a estrutura cede</h3>
+          <p>O vício pode estar no <strong>modo de fazer</strong> ou no <strong>que foi feito</strong>. Vício <strong>formal</strong> é de origem: subjetivo, quando o órgão não tinha competência para iniciar; objetivo, quando o procedimento legislativo foi violado. Vício <strong>material</strong> é de conteúdo: a lei existe corretamente, mas o que ela manda contraria a Constituição.</p>
+        </li>
+
+        <li class="step">
+          <span class="k">04 · Inspeção anterior</span>
+          <h3>Controle preventivo</h3>
+          <p>Antes de a norma existir, o controle é interno e político: a <strong>Comissão de Constituição e Justiça</strong> (art. 58, §2º, I) e o <strong>veto jurídico</strong> do Presidente, quando reputa o projeto inconstitucional (art. 66, §1º). Há uma porta judicial estreita: o parlamentar tem direito líquido e certo ao devido processo legislativo e pode impetrar mandado de segurança contra proposta que o viole.</p>
+        </li>
+
+        <li class="step">
+          <span class="k">05 · Inspeção posterior</span>
+          <h3>Controle repressivo</h3>
+          <p>Depois de a norma existir, quem controla é, em regra, o <strong>Judiciário</strong>. Há exceções políticas expressas: o Congresso rejeita medida provisória por inconstitucionalidade (art. 62) e susta atos normativos do Executivo que exorbitem do poder regulamentar (art. 49, V).</p>
+        </li>
+
+        <li class="step">
+          <span class="k">06 · Bifurcação</span>
+          <h3>Duas rotas para a mesma pergunta</h3>
+          <p>É aqui que o sistema brasileiro se abre. Herdamos o modelo <strong>norte-americano</strong>, difuso, de <em>Marbury v. Madison</em> (1803), presente entre nós desde 1891; e o modelo <strong>austríaco</strong>, concentrado, de Kelsen, incorporado pela EC 16/1965. Convivem. A escolha entre eles não é do juiz — é de quem provoca, e do que se quer obter.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ================= BIFURCAÇÃO ================= -->
+  <section class="fork" aria-labelledby="h-fork">
+    <div class="col">
+      <span class="num eyebrow">/ 02 — A ESCOLHA</span>
+    </div>
+
+    <form>
+      <fieldset class="chooser">
+        <legend id="h-fork">Escolha a rota</legend>
+        <p class="hint">As duas chegam à inconstitucionalidade. O que muda é quem pode pedir, o que se pede, e o que sobra depois da decisão. Escolha uma — dá para voltar e percorrer a outra ao final. No texto, os termos com <span style="border-bottom:1.5px dotted var(--ink-faint);font-style:italic;">sublinhado pontilhado</span> abrem a definição ali mesmo.</p>
+
+        <input type="radio" name="via" id="via-d">
+        <input type="radio" name="via" id="via-c">
+
+        <div class="opts">
+          <label class="opt opt-d" for="via-d">
+            <svg class="mark" viewBox="0 0 120 34" aria-hidden="true">
+              <path class="route-d" style="stroke-dashoffset:0" d="M4 30 C30 30 24 4 56 4 M56 4 C88 4 82 30 116 30"/>
+              <circle class="node-d" cx="20" cy="21" r="2.6"/><circle class="node-d" cx="44" cy="8" r="2.6"/>
+              <circle class="node-d" cx="76" cy="8" r="2.6"/><circle class="node-d" cx="100" cy="21" r="2.6"/>
+            </svg>
+            <span class="tag">Via incidental</span>
+            <h3>Controle difuso</h3>
+            <p>Qualquer juiz, dentro de um caso concreto. A inconstitucionalidade aparece como obstáculo no meio do caminho.</p>
+          </label>
+
+          <label class="opt opt-c" for="via-c">
+            <svg class="mark" viewBox="0 0 120 34" aria-hidden="true">
+              <path class="route-c" d="M4 30 H74"/>
+              <circle cx="96" cy="17" r="13" style="fill:none;stroke:var(--concentrado);stroke-width:2.4"/>
+              <path class="route-c" d="M74 30 C86 30 84 22 88 20"/>
+              <circle class="node-c" cx="96" cy="17" r="4"/>
+            </svg>
+            <span class="tag">Via de ação</span>
+            <h3>Controle concentrado</h3>
+            <p>Um tribunal só, provocado por poucos legitimados, para julgar a lei em tese — sem caso, sem partes.</p>
+          </label>
+        </div>
+      </fieldset>
+    </form>
+
+    <p class="await">Aguardando escolha da rota ▾</p>
+
+    <!-- ---------- TRILHA DIFUSA ---------- -->
+    <div class="track" id="track-d">
+      <div class="track-head col">
+        <p class="eyebrow">Rota A · via incidental</p>
+        <h2>Controle difuso</h2>
+        <p>Não se pede a inconstitucionalidade: pede-se outra coisa, e a inconstitucionalidade é o argumento para chegar lá. Isso explica quase tudo o que vem a seguir.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="k">A1 · Quem e onde</span>
+          <h3>Todo juiz é juiz constitucional</h3>
+          <p>Qualquer órgão do Judiciário, de qualquer grau, em qualquer processo — ação, defesa, execução, habeas corpus —, pode deixar de aplicar uma lei que repute inconstitucional. Não há foro privativo nem legitimado especial: quem provoca é a parte do processo, e o próprio juiz pode reconhecer de ofício.</p>
+          <p>A inconstitucionalidade entra como <strong>questão prejudicial</strong>: é resolvida na fundamentação para que o pedido possa ser julgado. O dispositivo decide a demanda — não decide o destino da lei.</p>
+        </article>
+
+        <article class="card">
+          <span class="k">A2 · Nos tribunais</span>
+          <h3>Reserva de plenário</h3>
+          <p>Juiz singular decide sozinho. Tribunal, não: pelo art. 97, só pelo voto da <button class="term" popovertarget="g-plenario" style="anchor-name:--a-plenario">maioria absoluta</button> do pleno ou do órgão especial se declara a inconstitucionalidade de lei. Uma turma ou câmara não pode fazê-lo.</p>
+          <p>A <strong>Súmula Vinculante 10</strong> fechou a saída pela tangente: viola a reserva de plenário o órgão fracionário que <strong>afasta a incidência</strong> da lei, ainda que não declare expressamente sua inconstitucionalidade.</p>
+          <div class="note">
+            <b>Dispensa da reserva</b>
+            Não se aplica quando já há pronunciamento do plenário do próprio tribunal ou do plenário do STF sobre a norma, nem quando o caso é de norma anterior à Constituição — aí o juízo é de recepção ou não recepção, não de inconstitucionalidade.
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="k">A3 · Efeitos</span>
+          <h3>Vale para aquelas partes, naquele caso</h3>
+          <ul>
+            <li><strong>Subjetivos:</strong> <button class="term" popovertarget="g-inter" style="anchor-name:--a-inter">inter partes</button>. A lei continua no ordenamento, válida e aplicável a todos os demais.</li>
+            <li><strong>Temporais:</strong> em regra <button class="term" popovertarget="g-extunc" style="anchor-name:--a-extunc">ex tunc</button> — a norma nunca pôde produzir efeitos naquela relação jurídica.</li>
+            <li><strong>Modulação:</strong> o STF admite modular efeitos também aqui, por analogia ao art. 27 da Lei 9.868/99, quando a retroação ameaça a segurança jurídica.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="k">A4 · Subida ao STF</span>
+          <h3>Quando o caso concreto vira precedente geral</h3>
+          <p>A questão chega ao STF por <strong>recurso extraordinário</strong> (art. 102, III), que só é admitido se demonstrada a <button class="term" popovertarget="g-rg" style="anchor-name:--a-rg">repercussão geral</button>. Decidido o tema, a tese se projeta sobre todos os processos sobrestados: um caso concreto passa a governar milhares.</p>
+          <p>O art. 52, X, previa que o <strong>Senado</strong> suspendesse a execução da lei declarada inconstitucional pelo STF, e era isso que lhe dava alcance geral. Nas ADIs 3.406 e 3.470, em 2019, o STF assentou que sua decisão já tem eficácia geral por si, cabendo ao Senado apenas dar publicidade.</p>
+          <div class="note">
+            <b>Ponto em disputa</b>
+            Essa é a chamada <em>abstrativização do controle difuso</em>. É a posição do STF, não um consenso doutrinário: parte da doutrina sustenta que a leitura esvazia o texto do art. 52, X, por mutação constitucional feita pelo próprio tribunal beneficiado.
+          </div>
+        </article>
+      </div>
+
+      <div class="swap col">
+        <p>Percorrida a rota A. <a href="#h-fork">Voltar à bifurcação</a> e seguir pela via de ação — ou continuar para o ponto em que as duas se encontram.</p>
+      </div>
+    </div>
+
+    <!-- ---------- TRILHA CONCENTRADA ---------- -->
+    <div class="track" id="track-c">
+      <div class="track-head col">
+        <p class="eyebrow">Rota B · via de ação</p>
+        <h2>Controle concentrado</h2>
+        <p>Aqui não há caso. O objeto do processo é a própria lei, examinada em tese, diante da Constituição. Tudo o que vem a seguir decorre disso.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="k">B1 · Quem propõe</span>
+          <h3>Nove legitimados, não mais</h3>
+          <p>O art. 103 lista quem pode: Presidente da República; Mesa do Senado; Mesa da Câmara; Mesa de Assembleia Legislativa ou da Câmara Legislativa do DF; Governador de Estado ou do DF; Procurador-Geral da República; Conselho Federal da OAB; partido político com representação no Congresso; confederação sindical ou entidade de classe de âmbito nacional.</p>
+          <div class="note">
+            <b>Pertinência temática</b>
+            Exigência construída pela jurisprudência do STF, não pelo texto: Mesas de Assembleia e da Câmara Legislativa, Governadores e entidades de classe precisam demonstrar <button class="term" popovertarget="g-pertinencia" style="anchor-name:--a-pertinencia">pertinência temática</button>. Os demais são legitimados universais.
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="k">B2 · Onde e contra o quê</span>
+          <h3>Dois planos, dois parâmetros</h3>
+          <ul>
+            <li><strong>STF:</strong> lei ou ato normativo <strong>federal ou estadual</strong> em face da Constituição Federal (art. 102, I, <em>a</em>).</li>
+            <li><strong>Tribunal de Justiça:</strong> lei ou ato normativo <strong>estadual ou municipal</strong> em face da <strong>Constituição Estadual</strong> (art. 125, §2º).</li>
+          </ul>
+          <p>Falta uma casa nesse quadro: lei municipal contra a Constituição Federal não cabe em ADI. É justamente esse vazio que a ADPF preenche.</p>
+        </article>
+
+        <article class="card">
+          <span class="k">B3 · As ações</span>
+          <h3>ADI, ADC, ADPF, ADO</h3>
+          <ul>
+            <li><strong>ADI</strong> — retira do sistema a norma incompatível.</li>
+            <li><strong>ADC</strong> — confirma a validade de lei <em>federal</em> sob controvérsia judicial relevante; ADI e ADC são o mesmo processo com sinais trocados.</li>
+            <li><strong>ADPF</strong> — Lei 9.882/99, cabível contra ato do poder público que lese preceito fundamental, inclusive municipal e anterior à Constituição, e apenas quando não houver outro meio eficaz (art. 4º, §1º — <strong>subsidiariedade</strong>).</li>
+            <li><strong>ADO</strong> — inconstitucionalidade por <em>omissão</em>: dá ciência ao Poder competente e fixa prazo de 30 dias ao órgão administrativo.</li>
+          </ul>
+          <div class="note">
+            <b>Processo objetivo</b>
+            Consequências práticas do <button class="term" popovertarget="g-objetivo" style="anchor-name:--a-objetivo">processo objetivo</button> na Lei 9.868/99: não se admite desistência (art. 5º); não cabe intervenção de terceiros, ressalvado o <button class="term" popovertarget="g-amicus" style="anchor-name:--a-amicus">amicus curiae</button> (art. 7º, §2º); a decisão é irrecorrível, salvo embargos de declaração, e não cabe ação rescisória (art. 26).
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="k">B4 · Efeitos</span>
+          <h3>Contra todos, e obrigando o Estado</h3>
+          <ul>
+            <li><strong>Subjetivos:</strong> <button class="term" popovertarget="g-erga" style="anchor-name:--a-erga">erga omnes</button> e <strong>vinculantes</strong> para os demais órgãos do Judiciário e para a administração pública direta e indireta, federal, estadual e municipal (art. 102, §2º; art. 28, parágrafo único, da Lei 9.868/99).</li>
+            <li><strong>Quem não fica vinculado:</strong> o Legislativo em sua função de legislar — do contrário haveria fossilização da Constituição — e o próprio STF, que pode rever sua orientação.</li>
+            <li><strong>Temporais:</strong> em regra <em>ex tunc</em>. A <strong>modulação</strong> do art. 27 exige dois terços dos ministros e razões de segurança jurídica ou excepcional interesse social, e pode fixar eficácia <button class="term" popovertarget="g-exnunc" style="anchor-name:--a-exnunc">ex nunc</button> ou a partir de momento futuro.</li>
+          </ul>
+          <p>Na cautelar em ADI, o quórum é de maioria absoluta e a eficácia, em regra, é <em>ex nunc</em> (art. 11, §1º).</p>
+        </article>
+      </div>
+
+      <div class="swap col">
+        <p>Percorrida a rota B. <a href="#h-fork">Voltar à bifurcação</a> e seguir pela via incidental — ou continuar para o ponto em que as duas se encontram.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONVERGÊNCIA ================= -->
+  <section class="compare" aria-labelledby="h-comp">
+    <div class="col">
+      <span class="num eyebrow">/ 03 — RECONVERGÊNCIA</span>
+      <h2 id="h-comp">As duas rotas voltam a se tocar</h2>
+      <p style="color:var(--ink-soft);margin-top:14px;">O desenho clássico separa as vias com limpeza. A prática do STF nas últimas décadas foi puxando uma na direção da outra.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Quadro comparativo</caption>
+        <thead>
+          <tr><th scope="col">Critério</th><th scope="col">Difuso</th><th scope="col">Concentrado</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Competência</th><td>Qualquer juiz ou tribunal</td><td>STF (parâmetro CF) ou TJ (parâmetro CE)</td></tr>
+          <tr><th scope="row">Quem provoca</th><td>Qualquer parte do processo; também de ofício</td><td>Os nove legitimados do art. 103</td></tr>
+          <tr><th scope="row">Como aparece</th><td>Questão prejudicial, na fundamentação</td><td>Pedido principal, no dispositivo</td></tr>
+          <tr><th scope="row">Há caso concreto?</th><td>Sim — é o que dá causa ao exame</td><td>Não — lei em tese, processo objetivo</td></tr>
+          <tr><th scope="row">Efeito subjetivo</th><td><em>Inter partes</em></td><td><em>Erga omnes</em> e vinculante</td></tr>
+          <tr><th scope="row">Efeito temporal</th><td><em>Ex tunc</em>, modulável</td><td><em>Ex tunc</em>, modulável por 2/3 (art. 27)</td></tr>
+          <tr><th scope="row">A lei sai do sistema?</th><td>Não</td><td>Sim</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bridges">
+      <div class="bridge">
+        <h3>A eficácia expansiva do RE</h3>
+        <p>Com repercussão geral, a tese firmada em recurso extraordinário alcança todos os processos sobrestados e orienta as instâncias inferiores. Um julgamento nascido concreto passa a operar como norma geral.</p>
+      </div>
+      <div class="bridge">
+        <h3>A leitura de 2019 do art. 52, X</h3>
+        <p>Ao dizer que a decisão do plenário já tem eficácia geral, cabendo ao Senado dar publicidade, o STF aproximou os efeitos das duas vias. A doutrina segue dividida sobre a legitimidade dessa mutação.</p>
+      </div>
+      <div class="bridge">
+        <h3>A ADPF como ponte</h3>
+        <p>Cabível contra ato municipal e contra norma anterior à Constituição — exatamente onde a ADI não chega —, a arguição leva ao controle concentrado matéria que só existiria na via difusa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CODA ================= -->
+  <section class="coda col">
+    <blockquote>Nenhuma das duas rotas pergunta se a lei é boa. Só se ela se sustenta.</blockquote>
+    <p class="after">É a diferença entre controle de constitucionalidade e controle de mérito político — e é a razão pela qual o desenho estrutural, não a preferência do julgador, é o que decide o resultado.</p>
+
+    <div class="colophon">
+      <span>Experimento de R&amp;D · 2026-09-04</span>
+      <span>Sem JavaScript</span>
+      <span>Scroll-driven CSS · :has() · anchor positioning</span>
+      <span>Fontes: CF/88 · Lei 9.868/99 · Lei 9.882/99 · SV 10</span>
+    </div>
+  </section>
+</div>
+
+<!-- ================= GLOSSÁRIO ANCORADO ================= -->
+<div popover id="g-plenario" style="position-anchor:--a-plenario">
+  <span class="t">Reserva de plenário</span>
+  <p>Cláusula do art. 97: nos tribunais, só o pleno ou o órgão especial, por maioria absoluta de seus membros, pode declarar a inconstitucionalidade de lei ou ato normativo.</p>
+  <span class="src">CF, art. 97 · Súmula Vinculante 10</span>
+</div>
+<div popover id="g-inter" style="position-anchor:--a-inter">
+  <span class="t">Inter partes</span>
+  <p>Entre as partes. A decisão vincula apenas quem litigou naquele processo; para todo o resto do mundo jurídico, a lei continua valendo.</p>
+</div>
+<div popover id="g-extunc" style="position-anchor:--a-extunc">
+  <span class="t">Ex tunc</span>
+  <p>Desde então — retroativo. A norma é tratada como se nunca tivesse podido produzir efeitos válidos, e não apenas a partir da decisão.</p>
+</div>
+<div popover id="g-exnunc" style="position-anchor:--a-exnunc">
+  <span class="t">Ex nunc</span>
+  <p>Desde agora. Os efeitos produzidos antes da decisão são preservados; a invalidade só opera dali para a frente.</p>
+</div>
+<div popover id="g-rg" style="position-anchor:--a-rg">
+  <span class="t">Repercussão geral</span>
+  <p>Requisito de admissibilidade do recurso extraordinário: a questão constitucional precisa ter relevância econômica, política, social ou jurídica que ultrapasse os interesses subjetivos da causa.</p>
+  <span class="src">CF, art. 102, §3º · CPC, art. 1.035</span>
+</div>
+<div popover id="g-pertinencia" style="position-anchor:--a-pertinencia">
+  <span class="t">Pertinência temática</span>
+  <p>Nexo entre o objeto da ação e as finalidades institucionais de quem a propõe. O STF a exige dos legitimados ditos especiais — Governadores, Mesas de Assembleia e entidades de classe.</p>
+</div>
+<div popover id="g-amicus" style="position-anchor:--a-amicus">
+  <span class="t">Amicus curiae</span>
+  <p>Terceiro admitido pelo relator, em razão da relevância da matéria e de sua representatividade, para pluralizar o debate. Não é parte e, em regra, não recorre do mérito.</p>
+  <span class="src">Lei 9.868/99, art. 7º, §2º</span>
+</div>
+<div popover id="g-objetivo" style="position-anchor:--a-objetivo">
+  <span class="t">Processo objetivo</span>
+  <p>Processo sem partes e sem lide: não se disputa um direito subjetivo, discute-se a compatibilidade da norma com a Constituição em tese.</p>
+</div>
+<div popover id="g-erga" style="position-anchor:--a-erga">
+  <span class="t">Erga omnes</span>
+  <p>Contra todos. A decisão alcança quem não participou do processo. Distinto do efeito vinculante, que obriga especificamente os demais órgãos do Judiciário e a administração pública.</p>
+  <span class="src">CF, art. 102, §2º</span>
+</div>

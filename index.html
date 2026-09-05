@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Lab</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root{
+  --ground:#efece4;
+  --card:#f8f6f0;
+  --ink:#26251f;
+  --ink-soft:#635f52;
+  --rule:#d8d4c6;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:'IBM Plex Mono', monospace;
+  padding:9vh 6vw 12vh;
+}
+.wrap{ max-width:760px; margin:0 auto; }
+.eyebrow{
+  font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-soft); margin:0 0 18px;
+}
+h1{
+  font-family:'Newsreader', serif; font-weight:600;
+  font-size:clamp(32px,5vw,46px); line-height:1.1; margin:0 0 20px; text-wrap:balance;
+}
+.lede{
+  font-family:Georgia, serif; font-size:16px; line-height:1.65; color:var(--ink-soft);
+  max-width:56ch; margin:0 0 50px;
+}
+.index{ display:flex; flex-direction:column; gap:2px; border-top:1px solid var(--rule); }
+.entry{
+  display:grid; grid-template-columns:28px 1fr auto; align-items:start; gap:18px;
+  padding:22px 4px; border-bottom:1px solid var(--rule);
+  text-decoration:none; color:inherit;
+  transition:background .15s ease;
+}
+.entry:hover, .entry:focus-visible{ background:var(--card); }
+.tab{ width:10px; height:10px; border-radius:50%; margin-top:8px; }
+.t-rust{ background:#a3392a; }
+.t-verde{ background:#4f7d63; }
+.t-ochre{ background:#7a4a30; }
+.t-azul{ background:#2f5f78; }
+.entry-body h2{
+  font-family:'Newsreader', serif; font-weight:600; font-size:20px; margin:0 0 6px;
+}
+.entry-body p{
+  font-family:Georgia, serif; font-size:14.5px; line-height:1.55; color:var(--ink-soft); margin:0;
+  max-width:48ch;
+}
+.entry-meta{
+  font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);
+  text-align:right; white-space:nowrap; padding-top:4px;
+}
+footer{
+  margin-top:50px; font-size:11.5px; color:var(--ink-soft); letter-spacing:.02em;
+}
+footer a{ color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Study Lab — experimentos</p>
+  <h1>Direito, mas você rola a página.</h1>
+  <p class="lede">
+    Cada peça abaixo testa uma técnica diferente de web moderna sobre um tema jurídico
+    real, tratado como veículo — não é o material de estudo definitivo, é o laboratório
+    onde a apresentação é experimentada antes de decidir o que vale a pena levar pro
+    material de verdade.
+  </p>
+
+  <nav class="index">
+    <a class="entry" href="dossie-do-delito.html">
+      <span class="tab t-rust"></span>
+      <div class="entry-body">
+        <h2>Dossiê do Delito</h2>
+        <p>Teoria do Delito — um crime como um dossiê de seis fichas, cada uma um filtro que o fato precisa atravessar. Selo de cera, fita, papel envelhecido.</p>
+      </div>
+      <span class="entry-meta">scroll-timeline<br>view transitions</span>
+    </a>
+    <a class="entry" href="a-terra-muda-de-dono.html">
+      <span class="tab t-verde"></span>
+      <div class="entry-body">
+        <h2>A Terra Muda de Dono</h2>
+        <p>Usucapião — um caderno de campo de agrimensor. Cada requisito abre em sua própria "dimensão de bolso" com um motivo próprio.</p>
+      </div>
+      <span class="entry-meta">pocket dimensions<br>view transitions</span>
+    </a>
+    <a class="entry" href="glossario-ancorado.html">
+      <span class="tab t-ochre"></span>
+      <div class="entry-body">
+        <h2>Glossário Ancorado</h2>
+        <p>Direito contratual em prosa contínua — termos em latim abrem definição ancorada exatamente na palavra, sem uma linha de JS pra posicionar nada.</p>
+      </div>
+      <span class="entry-meta">anchor positioning<br>popover API</span>
+    </a>
+    <a class="entry" href="bifurcacao-constitucional.html">
+      <span class="tab t-azul"></span>
+      <div class="entry-body">
+        <h2>Bifurcação Constitucional</h2>
+        <p>Controle de constitucionalidade, difuso × concentrado — um diagrama fixo que muda de estado conforme o texto rola, e uma trilha que bifurca de verdade. Zero &lt;script&gt;.</p>
+      </div>
+      <span class="entry-meta">sticky stepper<br>CSS :has()</span>
+    </a>
+  </nav>
+
+  <footer>
+    Protótipos, não material final — ver <code>VISUAL_CRAFT_NOTES.md</code> no repositório
+    para o histórico completo de decisões, bugs e ideias em aberto.
+  </footer>
+</div>
+</body>
+</html>
