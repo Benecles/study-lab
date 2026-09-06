@@ -1426,3 +1426,48 @@ Not yet resolved: whether alt-B or alt-C avoid this, and whether the fix for a f
 attempt is "use fewer of these techniques per page" or "find the one organizing idea that
 lets several of them coexist without reading as a pile." Owner explicitly paused feedback
 here to look at B and C before drawing conclusions — entry to be continued.
+
+## 2026-09-05 — owner's reaction to alt-B and alt-C: two more specific misses, one confirmed prediction
+
+**Alt-B (register book) — rejected, closer to "slop" than any prior attempt.** Two real,
+precise findings:
+- The foxing/age-spot texture reads as **a dirty screen, not aged paper** — "I thought my
+  monitor was dirty... I can only tell you added those in because I zoomed out the entire
+  window." This is a *new* variety of the "texture must survive real viewing" problem: it's
+  not that the texture was invisible (round 2's wood-grain failure) — it rendered, but its
+  *meaning* was ambiguous at normal viewing distance/zoom, and ambiguous-toward-"defect"
+  is worse than invisible. A texture that could be mistaken for a rendering artifact,
+  smudged glass, or a bad screenshot has failed regardless of what it looks like once you
+  know to look for it. Lesson: any "wear" or "age" texture (foxing, stains, damage) needs
+  to be unambiguous as an intentional mark on first glance, not discoverable only on close
+  inspection — check this the same disciplined way as texture-visibility, but the question
+  is "does this read as intentional" rather than "is this visible at all."
+- **Layout read as unbalanced and right-heavy, wasting negative space** ("half the space
+  isn't used," "everything's to the right"). The same highlighter-doesn't-cover-the-word
+  bug from alt-A was present here too, unfixed — confirms it's a shared/copied component,
+  not independent per-file bugs, and should be fixed once at the source pattern.
+
+**Alt-C (concertina) — rejected, and this is the useful one: it tested and disproved a
+standing hypothesis.** The build log for alt-C flagged its own biggest risk in advance:
+the halftone dot screen is a perfectly regular lattice, "the thing most likely to read as
+the grid again... deliberate here, but..." **That prediction came true, in a slightly
+different form than expected.** The owner's reaction wasn't "this reads as a technical
+grid" (round 1's specific failure) — it was broader and more serious: **"it has stopped
+becoming paper... I've never seen paper like that... it stopped being paper. Doesn't feel
+as crafted as some of the mini pages we did before."** Applying one uniform, regular
+texture indiscriminately everywhere — including over running text — didn't just risk
+looking like a grid, it dissolved the material identity entirely. The flat-graphic-form
+hypothesis this piece was built to test (logged as an open item after round 3: "less
+simulation, more flat graphic form... probably ends up better and cheaper") **is now
+tested and did not hold** — at least not executed this way. Flattening the *shadows* is
+fine; flattening the *texture* into one uniform decorative pattern applied everywhere
+removed the sense of a hand-made object entirely. Worth separating those two variables
+if flat-shadow / less-simulation is tried again: hard offset shadows vs. real material
+texture are independent choices, and this round conflated them.
+
+**Overall verdict, exploratory, not a converging pick**: none of the three landed. If
+strictly ranked, A > C > B, but the owner was explicit this isn't an endorsement of A's
+direction — it's "let's not go toward B, or especially C's uniform-dot flattening." No
+new specific direction was named on purpose (owner is deliberately withholding it to keep
+this exploratory rather than prematurely converging) — the next round should keep trying
+genuinely different compositions rather than iterating on A, B, or C directly.
