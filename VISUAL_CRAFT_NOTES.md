@@ -1471,3 +1471,16 @@ direction — it's "let's not go toward B, or especially C's uniform-dot flatten
 new specific direction was named on purpose (owner is deliberately withholding it to keep
 this exploratory rather than prematurely converging) — the next round should keep trying
 genuinely different compositions rather than iterating on A, B, or C directly.
+
+
+# Codex R&D — 2026-09-05: paper folio homepage
+
+Authorship boundary: the new homepage is Codex's experiment. The four subject pages remain unchanged. The previous homepage is preserved as `index-before-folio.html`.
+
+This pass questions the assumption that four full descriptions must appear simultaneously. Four exposed tabs retain the index while one illustrated sheet comes forward at a time. The tradeoff is less simultaneous comparison in exchange for more room for each subject. Paper layers, a stitched edge, ink, thread, survey contours, a margin slip, and a structural drawing share one folio. This is a candidate for review, not an adopted house style.
+
+The owner's broader direction is a studio language rather than a reusable page template: distinct subject worlds, an equally ambitious homepage, expressive digital interpretations of paper, and a working notebook that records experiments and failures as well as successful techniques. Individually successful details do not guarantee a successful composition. The owner's early sneak peek of this folio was positive; a full review remains pending.
+
+Static source checks cover links, unique IDs, tab relationships, and JavaScript syntax. Keyboard tab selection, reduced-motion rules, responsive layouts, and a no-JavaScript fallback are implemented; live browser interaction and visual QA remain pending. The shared SVG filter was moved outside the selectable panels so later illustrations do not depend on a hidden first panel.
+
+Published here at the owner's request, using the existing GitHub Pages workflow. No new visual revision before their first review.
