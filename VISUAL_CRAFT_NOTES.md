@@ -1484,3 +1484,48 @@ The owner's broader direction is a studio language rather than a reusable page t
 Static source checks cover links, unique IDs, tab relationships, and JavaScript syntax. Keyboard tab selection, reduced-motion rules, responsive layouts, and a no-JavaScript fallback are implemented; live browser interaction and visual QA remain pending. The shared SVG filter was moved outside the selectable panels so later illustrations do not depend on a hidden first panel.
 
 Published here at the owner's request, using the existing GitHub Pages workflow. No new visual revision before their first review.
+
+# Codex R&D — 2026-09-07: three material experiments (working log)
+
+The owner authorized contrasting experiments and rendered/mobile iteration. Current folio stays the baseline, not an adopted final homepage. Research is delegated to Luna; compositions, implementation and visual judgment remain with the orchestrator.
+
+## Before rendering — tracing sheets
+
+Hypothesis: translucent sheets can encode different readings of one place rather than merely decorate a card. First version: terrain remains on the base, green occupation and terracotta remembered traces occupy separate sheets. Reading copy stays outside the stack. Two controls lift/remove sheets independently. Risk: opacity may read as a faded image instead of material; edges, slight displacement, and local grain must establish the sheet without dirty-screen staining. No verdict yet: these are intentions, not observed results.
+
+## Research opened another direction
+
+NYPL's volvelles suggest a circular paper instrument as a homepage: rotation aligns a topic with a reading position. This is a structural alternative to the folio, not another stack of equally sized cards. Risk: a charming mechanism can make navigation harder. All topic choices must remain available as ordinary keyboard-operable controls.
+
+## First rendered observation — tracing sheets
+
+At the normal browser viewport, the stack is legible through displaced edges and the tape. The drawing under two sheets is noticeably softer. Removing the memory sheet makes the occupation contours darker and removes the terracotta path: this gives the softening a cause the reader can discover. It is still a quiet experiment, and its risk is being too polite rather than visually confusing. The button state and live explanatory sentence update correctly on click. This is an observation from the rendered version, not proof that the owner will like the material.
+
+## Before rendering — ink and volvelle
+
+Ink: isolate a light-paper illustration, multiply two colored shapes, confine halftone to the blue shape, and leave running text unpatterned. Deliberately avoid duplicating title text for registration: prior iterations already demonstrated that failure. The slider translates one entire plate. This is a digital analogy to printing, not a calibrated print simulation.
+
+Volvelle: four subjects rotate into the right-hand reading position. Counterweight to the mechanism: all four direct-selection buttons remain available, and links are ordinary links. No dragging requirement, no hidden navigation. Concern before rendering: the central disc may occupy too much space and the instrument may look more like a clock than paper. Test those visually rather than explaining them away.
+
+
+## Phone check caught an invisible overflow
+
+The removed tracing sheet was opacity zero but its transformed bounds still extended the scrollable page. At the effective 354px phone viewport, scrollWidth was 411px. This is an actual interaction bug: invisible does not mean absent from layout overflow. The board now clips painting with an 8px allowance for the exposed edge/tab; this bounds the lift gesture to the object. Recheck follows. The phone composition itself retains a readable text block above a square-ish drawing instead of squeezing them side by side.
+
+
+## Rendered ink and wheel — different failure pressures
+
+Ink survived the phone width without horizontal overflow. The headline becomes three compact lines, with the colored print below. On desktop its large type has substantially more mass than the tracing-sheet page. Turning off coral removes the overlap, and keyboard End takes the register control to its maximum. The third color is visibly darker; this is the strength of the experiment and also the risk of muddiness. No claim that it accurately models physical ink.
+
+The first wheel render exposed a compositional mistake: the fixed center disc covered the inner edges of the numerals around the wheel. It was too large, not insufficiently textured. Reduced its radius by changing its inset from 25% to 29%; the important test is whether the active label now reads completely. This is precisely the kind of material metaphor that can hide its own navigation if left unchecked.
+
+The tracing-sheet overflow recheck passed: effective viewport 354px, scrollWidth 354px after removing a sheet.
+
+
+## Rechecks and the provisional synthesis
+
+Wheel recheck: the active 02 and 04 numerals now read fully outside the smaller center disc. Next advances the subject; keyboard Enter on a direct topic control changes the visible description and link. On the effective 354px phone viewport the wheel fits without horizontal overflow; the description follows below. This costs vertical space, which remains a real downside rather than a hidden bug.
+
+All three experiments now have wide and phone-width rendered inspection. Static checks found no duplicate IDs, unresolved local links, or inline JavaScript syntax errors. Original homepage and subject pages are unchanged. Reduced-motion rules have been written but not media-emulated; no physical-device or Safari validation is claimed.
+
+Working synthesis is in `experiments/house-language.md`. References, with source observations separated from adaptations, are in `experiments/research.md`. The three candidates are linked from `experiments/index.html`, each with its own hypothesis and specific questions. No owner verdict yet.
