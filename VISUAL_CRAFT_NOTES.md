@@ -1471,3 +1471,140 @@ direction — it's "let's not go toward B, or especially C's uniform-dot flatten
 new specific direction was named on purpose (owner is deliberately withholding it to keep
 this exploratory rather than prematurely converging) — the next round should keep trying
 genuinely different compositions rather than iterating on A, B, or C directly.
+
+
+# Codex R&D — 2026-09-05, retomada: um fólio com abas
+
+Authorship boundary: this entry and the new index.html are Codex work. The recovered Claude notebook above and the four subject pages are preserved. Claude's latest source was found in its temporary scratchpad, newer than both the Desktop handoff and the Law School notebook: it includes rounds D and E. Those files are preserved alongside this experiment as index-alt-d.html and index-alt-e.html. The former current homepage is claude-index.html. No user verdict on D/E was available when this experiment was made.
+
+## The assumption being tested
+
+Earlier homepages repeatedly tried to show four similarly sized descriptions simultaneously. That creates four similarly sized regions before the craft even starts. Claude correctly noted that a pile or fan hides text, then discarded those metaphors. This pass questions the requirement behind that rejection: why must all four descriptions be visible at once?
+
+One folio, four exposed tabs, one illustrated cover brought forward at a time. The tabs retain the index; the sheet gets room for its own composition. This is an actual tradeoff, not a free improvement: the visitor loses simultaneous comparison and gains a more focused encounter. The user may prefer seeing everything. That remains unproven.
+
+## Material decisions and uncertainties
+
+The common object has warm paper, a stitched left edge, slightly displaced leaves, and typed labels. The subjects use their established visual vocabulary: criminal papers and red thread, survey contours and a compass, a definition slip beside a marked word, a fractured structural drawing. I drew new SVG compositions using that vocabulary rather than inserting scaled screenshots. Paper grain is local to the page and moves with it. No simulated foxing. Running text is not covered in a dot lattice. The highlight in the glossary illustration is an SVG stroke with rounded ends; it does not depend on inline text wrapping.
+
+Compared with the rejected Codex field notebook, this attempt spends its composition budget on the physical object and large illustrations. There is intentionally little explanation of implementation in the homepage copy. The existing notebook remains the place for technical detail.
+
+Potential failure: the folio may still feel too controlled or too much like a conventional tab widget dressed in paper. The original dossier had some extravagant atmosphere. This experiment could lose that extravagance through restraint. I cannot settle that by explaining the metaphor. User judgment is needed.
+
+## Implementation and verification limits
+
+The four original subject files were copied byte-for-byte and hash-checked by Luna. Back links return to the new index. The index uses accessible tab roles, selected state, roving keyboard focus, Left/Right/Home/End handling, fragment URLs, reduced-motion suppression, and a print view that exposes every sheet. Without JavaScript all four subject sections remain readable and their links work. Responsive rules move illustration below copy on small screens.
+
+A source review caught a shared SVG filter inside the first panel: hiding that panel could make later illustrations depend on a hidden definition. The filter was moved outside the panels. Static checks cover IDs, tab relationships, local links, and script syntax. The local entry route returned HTTP 200. This pass has not yet had live browser visual or interaction QA; responsive CSS and keyboard behavior should not be reported as visually verified. The Sites skill in this session limits browser QA to explicit browser-testing requests.
+
+This is a new candidate, not an adopted house style, and not a replacement of Claude's subject work.
+
+Recovered full notebook and prototype: /Users/benecles/Documents/Codex/2026-09-05/okay-couple-things-so-first-of/outputs/study-lab/
+
+
+# Codex R&D — 2026-09-07: three material experiments (working log)
+
+The owner authorized contrasting experiments and rendered/mobile iteration. Current folio stays the baseline, not an adopted final homepage. Research is delegated to Luna; compositions, implementation and visual judgment remain with the orchestrator.
+
+## Before rendering — tracing sheets
+
+Hypothesis: translucent sheets can encode different readings of one place rather than merely decorate a card. First version: terrain remains on the base, green occupation and terracotta remembered traces occupy separate sheets. Reading copy stays outside the stack. Two controls lift/remove sheets independently. Risk: opacity may read as a faded image instead of material; edges, slight displacement, and local grain must establish the sheet without dirty-screen staining. No verdict yet: these are intentions, not observed results.
+
+## Research opened another direction
+
+NYPL's volvelles suggest a circular paper instrument as a homepage: rotation aligns a topic with a reading position. This is a structural alternative to the folio, not another stack of equally sized cards. Risk: a charming mechanism can make navigation harder. All topic choices must remain available as ordinary keyboard-operable controls.
+
+## First rendered observation — tracing sheets
+
+At the normal browser viewport, the stack is legible through displaced edges and the tape. The drawing under two sheets is noticeably softer. Removing the memory sheet makes the occupation contours darker and removes the terracotta path: this gives the softening a cause the reader can discover. It is still a quiet experiment, and its risk is being too polite rather than visually confusing. The button state and live explanatory sentence update correctly on click. This is an observation from the rendered version, not proof that the owner will like the material.
+
+## Before rendering — ink and volvelle
+
+Ink: isolate a light-paper illustration, multiply two colored shapes, confine halftone to the blue shape, and leave running text unpatterned. Deliberately avoid duplicating title text for registration: prior iterations already demonstrated that failure. The slider translates one entire plate. This is a digital analogy to printing, not a calibrated print simulation.
+
+Volvelle: four subjects rotate into the right-hand reading position. Counterweight to the mechanism: all four direct-selection buttons remain available, and links are ordinary links. No dragging requirement, no hidden navigation. Concern before rendering: the central disc may occupy too much space and the instrument may look more like a clock than paper. Test those visually rather than explaining them away.
+
+
+## Phone check caught an invisible overflow
+
+The removed tracing sheet was opacity zero but its transformed bounds still extended the scrollable page. At the effective 354px phone viewport, scrollWidth was 411px. This is an actual interaction bug: invisible does not mean absent from layout overflow. The board now clips painting with an 8px allowance for the exposed edge/tab; this bounds the lift gesture to the object. Recheck follows. The phone composition itself retains a readable text block above a square-ish drawing instead of squeezing them side by side.
+
+
+## Rendered ink and wheel — different failure pressures
+
+Ink survived the phone width without horizontal overflow. The headline becomes three compact lines, with the colored print below. On desktop its large type has substantially more mass than the tracing-sheet page. Turning off coral removes the overlap, and keyboard End takes the register control to its maximum. The third color is visibly darker; this is the strength of the experiment and also the risk of muddiness. No claim that it accurately models physical ink.
+
+The first wheel render exposed a compositional mistake: the fixed center disc covered the inner edges of the numerals around the wheel. It was too large, not insufficiently textured. Reduced its radius by changing its inset from 25% to 29%; the important test is whether the active label now reads completely. This is precisely the kind of material metaphor that can hide its own navigation if left unchecked.
+
+The tracing-sheet overflow recheck passed: effective viewport 354px, scrollWidth 354px after removing a sheet.
+
+
+## Rechecks and the provisional synthesis
+
+Wheel recheck: the active 02 and 04 numerals now read fully outside the smaller center disc. Next advances the subject; keyboard Enter on a direct topic control changes the visible description and link. On the effective 354px phone viewport the wheel fits without horizontal overflow; the description follows below. This costs vertical space, which remains a real downside rather than a hidden bug.
+
+All three experiments now have wide and phone-width rendered inspection. Static checks found no duplicate IDs, unresolved local links, or inline JavaScript syntax errors. Original homepage and subject pages are unchanged. Reduced-motion rules have been written but not media-emulated; no physical-device or Safari validation is claimed.
+
+Working synthesis is in `experiments/house-language.md`. References, with source observations separated from adaptations, are in `experiments/research.md`. The three candidates are linked from `experiments/index.html`, each with its own hypothesis and specific questions. No owner verdict yet.
+
+
+# Codex R&D — 2026-09-07, round 2: the whole page is the experiment
+
+Owner feedback supersedes my prior framing. The three pages were feature demos within ordinary website layouts; even successful components did not make the whole scene feel analog. The tracing stack was praised but read as glass. Its decorative edge tab falsely promised interaction. The ink slider's effect was not apparent to the owner. The wheel was praised as a dynamic object but its surroundings remained conventional. The plain experiment index was itself insufficiently paper-like. Research commentary must be in plain English, without poetic filler; actual legal-note content can remain Portuguese. The material should be plausible course notes drawn from contracts, civil procedure, constitutional review, theory of crime, or legal methodology.
+
+Budget context: owner authorized a bounded work burst and a resumable goal. Do not infer a precise token allowance or automatic reset from percentages or third-party announcements. Complete a coherent specimen before expanding.
+
+First direction: general contract theory as a marked-up agreement. The entire reading surface is the document, with a stitched margin, clause numbering, annotations, and interactive attached slips. No generic hero-plus-demo layout. Second possible direction: civil procedure as a folded procedural record, where a decision requires a visible opportunity to be heard. Source checks are delegated; creative design stays here.
+
+## First render — contract page
+
+The first desktop rendering places title, body, clause numbering and margin annotation on one continuous ruled sheet. The material identity extends into the reading layout rather than stopping at a diagram. Side tabs are real section links. The opening still has substantial negative space; this is a reading-document cover, not proof that the composition is finished. Attached annotation and phone checks follow.
+
+## Source caution
+
+The source agent returned an uncertain Jornada attribution for a CJF enunciado. That attribution was not carried into the page. The contract page labels the verified CJF source generically; statutory links are included. The civil-procedure diagram explicitly describes the general rule and has an attached exceptions note, so it does not imply that prior hearing has no legal exceptions.
+
+### Final inspection and findings
+
+- Contract scene: keeping the reading, ruled margin and attached example on one continuous sheet makes the material treatment persist beyond the opening. The green annotation remains opaque paper rather than a translucent glass panel. Its native disclosure was opened in the browser.
+- Procedure scene: the dark teal sheet and cream/mustard slips support a different composition within the same material family. The diagram disclosure opened with a click and closed with Enter; aria-expanded and response visibility agreed. This is a schematic of the general rule, with legal exceptions stated on the attached slip.
+- The research folder now uses warm stock, a spine and two attached paper entries. Research copy is English; study content remains Portuguese. The previous index is preserved as round1-index.html.
+- Browser review: inspected desktop composition at 1200px and phone-width layout at 390px. Index and procedure had scroll widths equal to their viewports; contract also passed the narrow-width overflow check. Reduced the contract margin numerals after seeing them crowd a heading at 390px, then visually checked the correction. These are desktop browser viewport checks, not a physical iPhone/Safari test.
+- Provisional finding: material continuity does more work than adding isolated effects. A shared typographic and physical vocabulary permits distinct page structures. This remains a hypothesis for owner review, not an approved house rule.
+- Statutory links and introductory content were reviewed separately; no material issue was found. The current main homepage and original subject pages are unchanged.
+
+
+# Codex R&D — 2026-09-08: an open problem notebook
+
+## Intent
+The owner deferred review and asked for more exploration. Added a third whole-page scene without revising the two unreviewed scenes. Legal methodology provides a reason for parallel readings: a fictional park sign, interpretive questions, and two conditional accounts of the same bicycle. All park rules are explicitly invented, not presented as law.
+
+## Material hypothesis
+An open notebook can retain the studio family with fewer attached objects. Two slightly different paper tones, a narrow central gutter, restrained ruled lines, red handwriting and a directly drawn sign establish the setting. A single ochre fold-out houses the comparison. This is quieter than the contract's attached agreement and distinct from the dark procedure sheet. The spread becomes sequential leaves on narrow screens rather than shrinking a miniature book.
+
+## Research trail and limits
+The Library of Congress search result for “The Artistry of Learning Math: The Ellerton-Clements Cyphering Book Collection” described historical student notebooks and ruled commercial notebooks. It prompted the notebook direction; direct article retrieval returned 403, so no archival image was inspected or copied. Source: https://blogs.loc.gov/manuscripts/2022/04/the-artistry-of-learning-math-the-ellerton-clements-cyphering-book-collection/ . This is a research lead, not a claim of close visual study.
+The official LINDB source was located for art. 5: https://www.planalto.gov.br/ccivil_03/decreto-lei/del4657compilado.htm . The note paraphrases its attention to social purposes and common good, without pretending it supplies an answer to the invented park example. The competing interpretations are authored hypotheses, not attributed doctrine.
+
+## Actual inspection
+Desktop browser rendering measured 1091 CSS px (requested 1200; harness scaling). The facing pages, gutter and attached comparison were inspected. Narrow rendering measured 354 CSS px (requested 390); no horizontal overflow. The separate leaves remain legible; the comparison stacks vertically. Click and Enter operated the native disclosure and exposed the comparison in the accessibility tree. Local links resolved. Physical-phone and Safari rendering remain untested.
+The initial composition needed no corrective visual change after this inspection. Its potential weakness is that it may read as a familiar notebook rather than a surprising new material world. That is deliberately left for owner judgment: this experiment tests restraint and continuous reading, not maximum novelty.
+
+## Provisional rule to test
+Use a material change to signal an actual relationship: facing leaves separate problem and reasoning; unfolding adds a comparison. Avoid adding tape or panels to every paragraph. A fold-out should have a visible action label and an actual disclosure, not merely a decorative grab tab. No new owner preference is inferred before review.
+
+## 2026-09-07 — cross-check against a new, genuinely strong Codex round
+
+Owner ran a parallel Codex session (`/Users/benecles/Documents/Codex/2026-09-05/okay-couple-things-so-first-of/`) alongside this notebook's own work. Unlike the first Codex cross-check (over-built framework, content-rigor beside the point), **this round is legitimately good and worth taking seriously, not dismissing.**
+
+**What it actually is**: real, source-grounded research (`experiments/research.md`) citing the Met, MoMA, and NYPL on tracing-paper layering (Degas, Ryman), risograph overprint chemistry, volvelles (rotating paper instruments), and movable-book flaps — each with an honest Observed/Adaptation/**Pitfall** structure written *before* building, not after. Six new "experiment" pages test real mechanisms, not just decoration: a rotating-disc navigation (`03-volvelle.html`, verified by screenshot — genuinely well-executed, concentric paper discs in ochre, hand-drawn per-position icons, a pointer marking the active reading position, distinctly novel, nothing on our side has tried disc/dial navigation), ink-as-graphic-form via risograph overprint, layered tracing paper, and two "round 2" pieces (a continuous annotated contract, a technical-paper civil-procedure note).
+
+**Important: the owner has been giving this Codex session direct feedback already**, documented in `experiments/house-language.md` under "Owner correction after round 1." Two findings from that are genuinely new and worth folding in here:
+
+1. **A new failure class, distinct from material/texture failures**: affordance mismatch. Specific owner reactions logged there — "translucency read as glass" (a material effect misread as a different material), "a decorative edge tab looked clickable and was not" (a visual signifier implying interactivity where none exists), "the slider effect was unclear." This is about whether interactive *behavior* reads correctly, separate from whether *texture* reads as intentional (our own catalogued failure class). Worth checking for on any future interactive element: does its appearance correctly predict what it does, in both directions (nothing decorative should look clickable; nothing clickable should look decorative).
+
+2. **A structural finding that likely explains part of our own struggle**: the owner rejected pages built as **isolated feature showcases** — "these were conventional websites showcasing isolated features... whole pages should be actual legal notes, with sourced concepts and hypothetical examples, not abstract visual filler." This cuts against something both this notebook's homepage attempts *and* the four original experiment pieces have in common: they're demonstrations of a technique wrapped around placeholder content. It's not yet clear this finding applies to the homepage specifically (the homepage isn't "legal notes"), but it's a real, owner-validated signal that composition/decoration alone — no matter how coherent — may not be what's been missing. Worth raising directly rather than assuming it doesn't transfer.
+
+**`experiments/house-language.md` is itself a real parallel attempt at the "Pixar house-style bible"** the owner asked this notebook to eventually produce — a vocabulary/syntax table (substrates, marks, construction, motion, typography) with an explicit "ingredients are not recipes" framing. Worth reading in full rather than duplicated here; the two notebooks should stay aware of each other rather than converge into one, per the owner's general instruction that Claude and Codex are separate tracks that shouldn't blur — but findings that are genuinely cross-cutting (like the two above) are worth mirroring in both.
+
+**Not yet done**: reading the round-2 content pages (`05-processo.html`, the "open notebook" 06 piece) in detail, or forming a view on whether the volvelle mechanism specifically should be tried on our own homepage. Flagging rather than deciding.
