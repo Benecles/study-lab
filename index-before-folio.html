@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Lab</title>
+<meta name="description" content="Laboratório de apresentação: material jurídico denso virando páginas web animadas, uma linguagem visual por tema.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* ==========================================================
+   STUDY LAB — folha de índice
+
+   DUAS TENTATIVAS REJEITADAS ANTES DESTA:
+   1) hero quase-preto + manchete grotesca gigante + grade
+      vertical fina. Diagnóstico: landing page de ferramenta
+      de dev. Não era papel; era UI.
+   2) gabinete de curiosidades — nogueira, latão, veludo.
+      Dois erros, um mais grave que o outro:
+      · o veio de madeira em repeating-linear-gradient de baixa
+        opacidade era INVISÍVEL na captura em tamanho real —
+        colapsava em preto chapado com cartões claros;
+      · e, mais fundo: madeira não é o meio deste site.
+
+   O MEIO COMPARTILHADO DAS QUATRO PEÇAS É PAPEL. Só isso, e em
+   variantes legítimas: papel creme envelhecido de dossiê, papel
+   pálido de caderneta de campo, papel limpo de manuscrito, e
+   papel técnico escuro de prancheta. Nogueira, latão e veludo
+   estão fora do vocabulário.
+
+   ESTA PÁGINA: papel técnico escuro — a prancha de montagem em
+   que as quatro peças ficam presas com fita. Papel também, só
+   que de outra família, do mesmo jeito que papel-heliográfico é
+   papel. O que o papel sabe fazer, e que é usado aqui de
+   propósito e em escala VISÍVEL: empilhar e projetar sombra,
+   receber fita, receber marca-texto, receber carimbo, e rasgar.
+
+   REGRA DE EXECUÇÃO, tirada do fracasso nº 2: nenhuma textura
+   entra aqui como gradiente sutil. Fibra, rasgo, fita e sombra
+   têm que ser legíveis numa captura de tela em tamanho real, ou
+   não estão feitos.
+   ========================================================== */
+
+:root{
+  /* prancha: papel técnico escuro, ardósia fria — deliberadamente
+     azulada, para não voltar ao marrom de móvel da tentativa 2 */
+  --board:#22303c;
+  --chalk:#dde6e6;        /* lápis branco sobre a prancha */
+  --chalk-soft:#9db0b8;
+  --chalk-faint:#71858f;
+
+  /* papel das folhas presas na prancha */
+  --sheet:#efe7d3;
+  --sheet-2:#e3d9c1;
+  --sheet-3:#d6cbb0;
+  --ink:#26221c;
+  --ink-soft:#584f42;
+  --ink-faint:#8a7f6c;
+
+  /* fita crepe */
+  --tape:rgba(233,219,176,.66);
+
+  /* tintas riso — as três chapas fora de registro */
+  --riso-red:#c8402c;
+  --riso-teal:#3f7d84;
+  --riso-ochre:#c98a2e;
+
+  /* marca-texto */
+  --hl:rgba(240,214,74,.62);
+
+  /* cada peça devolve a própria cor para a legenda da prova */
+  --p-dossie:#ece1c8;   --a-dossie:#a3392a;
+  --p-terra:#e6ded4;    --a-terra:#2f6b58;
+  --p-gloss:#efe9da;    --a-gloss:#7a4a30;
+  --p-bifu:#dcdad2;     --a-bifu:#2f6088;
+
+  --pad:clamp(18px,4.6vw,58px);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--board);
+  color:var(--chalk);
+  font-family:'Crimson Pro', Georgia, serif;
+  font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ---------- a prancha ----------
+   Quatro campos de pontinhos em passos irregulares e primos
+   entre si (43/61/53/31px) — nunca coincidem, então lêem como
+   fibra de papel, não como grade. Claros E escuros, porque
+   fibra de papel escuro tem os dois. Alfas altos de propósito:
+   a lição da tentativa 2 é que sutil = inexistente. */
+.board{
+  position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
+  background-image:
+    /* revelação irregular, como cópia heliográfica revelada à mão */
+    radial-gradient(120% 85% at 16% 4%, rgba(112,142,156,.24), transparent 62%),
+    radial-gradient(70% 50% at 78% 12%, rgba(126,154,166,.13), transparent 70%),
+    radial-gradient(95% 70% at 92% 40%, rgba(20,32,42,.55), transparent 66%),
+    radial-gradient(60% 44% at 8% 56%, rgba(14,24,32,.4), transparent 72%),
+    radial-gradient(110% 65% at 45% 104%, rgba(12,22,30,.6), transparent 70%),
+    /* fibra: passos primos entre si e alfa baixo, para nunca
+       fecharem em grade — a armadilha da tentativa 1 */
+    radial-gradient(circle at 31% 23%, rgba(203,222,222,.19) 0 1.05px, transparent 1.6px),
+    radial-gradient(circle at 67% 71%, rgba(203,222,222,.13) 0 .95px, transparent 1.45px),
+    radial-gradient(circle at 13% 79%, rgba(8,16,22,.34) 0 1.25px, transparent 1.8px),
+    radial-gradient(circle at 56% 34%, rgba(168,190,196,.11) 0 .85px, transparent 1.35px);
+  background-size:
+    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    37px 41px, 59px 53px, 83px 71px, 29px 31px;
+}
+/* grão fino por cima de tudo — em screen, porque sobre papel
+   escuro a fibra aparece clara, não escura */
+.grain{
+  position:fixed; inset:0; width:100%; height:100%; z-index:70;
+  pointer-events:none; opacity:.3; mix-blend-mode:screen;
+}
+
+.page{ position:relative; z-index:1; max-width:1120px; margin:0 auto; padding:0 var(--pad); }
+
+/* ---------- tipografia ---------- */
+.mono{
+  font-family:'Courier Prime', ui-monospace, monospace;
+  font-size:11px; letter-spacing:.15em; text-transform:uppercase;
+}
+
+/* ---------- fita crepe ----------
+   pontas irregulares por clip-path; translúcida o bastante para
+   deixar ver o que está embaixo, opaca o bastante para existir */
+.tape{
+  position:absolute; z-index:6; height:30px; width:132px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.16), rgba(0,0,0,.07)),
+    var(--tape);
+  box-shadow:0 2px 5px rgba(0,0,0,.3);
+  clip-path:polygon(
+    3% 0, 24% 4%, 47% 0, 71% 5%, 92% 1%, 100% 6%,
+    97% 100%, 76% 95%, 53% 100%, 29% 94%, 8% 99%, 0 93%);
+}
+
+/* ---------- montagem do cabeçalho ---------- */
+.masthead{ position:relative; padding:clamp(46px,9vh,96px) 0 clamp(30px,5vh,52px); }
+.stack{ position:relative; max-width:760px; }
+
+/* folhas embaixo, só para a pilha ter espessura */
+.stack .under{
+  position:absolute; inset:0; border-radius:1px;
+  box-shadow:0 10px 22px -10px rgba(0,0,0,.65);
+}
+.stack .u1{ background:var(--sheet-2); transform:rotate(-1.15deg) translate(-9px,7px); }
+.stack .u2{ background:var(--sheet-3); transform:rotate(1.35deg) translate(11px,12px); }
+
+/* a folha principal: borda de baixo rasgada.
+   clip-path anula box-shadow, então a sombra vem de
+   filter:drop-shadow no invólucro, que segue a silhueta rasgada */
+.sheet-wrap{ position:relative; filter:drop-shadow(0 16px 20px rgba(0,0,0,.55)); }
+.sheet{
+  position:relative; background:var(--sheet); color:var(--ink);
+  padding:clamp(28px,4vw,44px) clamp(24px,4vw,46px) clamp(46px,6vw,64px);
+  clip-path:polygon(
+    0 0, 100% 0,
+    100% calc(100% - 13px), 97% 100%, 94% calc(100% - 9px), 91% calc(100% - 2px),
+    88% calc(100% - 12px), 85% calc(100% - 4px), 81% 100%, 78% calc(100% - 8px),
+    74% calc(100% - 1px), 70% calc(100% - 11px), 66% calc(100% - 3px), 62% 100%,
+    58% calc(100% - 7px), 54% calc(100% - 13px), 50% calc(100% - 4px), 46% 100%,
+    42% calc(100% - 9px), 38% calc(100% - 2px), 34% calc(100% - 12px), 30% calc(100% - 5px),
+    26% 100%, 22% calc(100% - 8px), 18% calc(100% - 1px), 14% calc(100% - 11px),
+    10% calc(100% - 3px), 6% 100%, 3% calc(100% - 9px), 0 calc(100% - 4px));
+}
+/* dente do papel claro — ponto de meio-tom em passo discreto,
+   a mesma textura que já funciona no dossiê */
+.sheet::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.115) .95px, transparent 1.45px);
+  background-size:6px 6px;
+}
+.sheet > *{ position:relative; z-index:2; }
+
+.masthead .t-a{ top:-13px; left:38px; transform:rotate(-5.5deg); }
+.masthead .t-b{ top:-16px; right:52px; transform:rotate(4deg); width:112px; }
+
+/* marca de registro: três chapas fora de alinhamento, multiply —
+   a mesma técnica do selo de cera do dossiê, que é o que o dono
+   pediu para levar adiante */
+.regmark{ display:block; width:66px; height:auto; margin:0 0 20px -3px; }
+.regmark g{ mix-blend-mode:multiply; }
+
+.slug{ color:var(--ink-faint); margin:0 0 16px; display:flex; flex-wrap:wrap; gap:4px 15px; }
+.slug b{ color:var(--ink-soft); font-weight:700; }
+
+h1{
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:900; font-size:clamp(33px,5.6vw,62px); line-height:.99;
+  letter-spacing:-.022em; margin:0; color:var(--ink); max-width:13ch;
+  font-variation-settings:'SOFT' 30, 'WONK' 1;
+}
+
+.lede{
+  max-width:46ch; color:var(--ink-soft); font-size:clamp(16px,1.6vw,18.5px);
+  line-height:1.62; margin:20px 0 0;
+}
+/* marca-texto: multiply de verdade.
+   `white-space:nowrap` é obrigatório — quebrado em duas linhas o
+   traço vira duas etiquetas amarelas com cantos, que é
+   exatamente o que caneta marca-texto NÃO faz. Verificado em
+   captura: era o defeito mais visível da primeira versão. */
+.hl{
+  background:linear-gradient(93deg,
+    rgba(240,214,74,0) 0, var(--hl) 3%, rgba(236,206,60,.72) 42%,
+    var(--hl) 78%, rgba(240,214,74,.18) 97%, rgba(240,214,74,0) 100%);
+  mix-blend-mode:multiply; color:inherit; white-space:nowrap;
+  padding:2px 5px 3px; margin:0 -2px; display:inline;
+}
+
+/* carimbo */
+.stampmark{
+  position:absolute; z-index:5; right:clamp(-6px,1vw,26px); bottom:clamp(30px,5vw,56px);
+  transform:rotate(-8deg); mix-blend-mode:multiply; opacity:.78;
+  border:3px solid var(--riso-red); border-radius:3px;
+  padding:7px 13px 8px; text-align:center; color:var(--riso-red);
+  max-width:180px;
+}
+.stampmark b{
+  display:block; font-family:'Fraunces',serif; font-weight:900; font-size:22px;
+  letter-spacing:.1em; line-height:1;
+}
+.stampmark span{
+  display:block; font-family:'Courier Prime',monospace; font-size:8.5px;
+  letter-spacing:.09em; text-transform:uppercase; margin-top:4px; line-height:1.3;
+}
+
+/* ---------- ficha de tintas ----------
+   Terceira camada de papel, presa por cima da folha principal:
+   é o que resolve o vazio à direita e, de quebra, dá a chave de
+   cor das quatro peças antes de o leitor chegar nelas.
+   Puramente decorativa/redundante (as mesmas cores aparecem na
+   legenda de cada prova), então some abaixo de 1080px sem
+   custo de conteúdo. */
+.inkcard{
+  /* presa no canto superior direito, transbordando a folha.
+     NÃO descer daqui: verificado em captura que, na altura do
+     miolo, esta ficha cobria a palavra "vira" da manchete. */
+  position:absolute; z-index:7; right:-30px; top:-40px; width:232px;
+  background:var(--sheet-2); color:var(--ink);
+  padding:15px 16px 14px; border-radius:1px;
+  transform:rotate(2.4deg);
+  box-shadow:0 0 0 1px rgba(0,0,0,.24), 0 16px 26px -14px rgba(0,0,0,.7);
+}
+.inkcard::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.115) .95px, transparent 1.45px);
+  background-size:6px 6px;
+}
+.inkcard h3{
+  font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:.15em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-faint);
+  margin:0 0 11px; padding-bottom:8px; border-bottom:1px solid rgba(38,34,28,.22);
+}
+.inkcard ul{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.inkcard li{ display:flex; align-items:center; gap:9px; }
+.inkcard .sw{ width:26px; height:15px; flex:none; border-radius:1px; box-shadow:0 0 0 1px rgba(38,34,28,.3) inset; }
+.inkcard b{
+  font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:.09em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-soft);
+}
+.inkcard .tape{ width:88px; height:24px; top:-11px; left:-16px; transform:rotate(-9deg); }
+@media (max-width:1079px){ .inkcard{ display:none; } }
+
+/* No celular não sobra margem: em captura de 390px o carimbo
+   caía POR CIMA das últimas linhas do texto. Passa a entrar no
+   fluxo, encostado à direita, ainda torto. */
+@media (max-width:719px){
+  .stampmark{
+    position:static; display:block; width:max-content;
+    margin:26px 4px 0 auto; transform:rotate(-5deg);
+  }
+}
+@media (max-width:619px){ .band .fill{ display:none; } }
+
+/* ---------- faixa de seção, escrita na prancha ---------- */
+.band{
+  display:flex; align-items:baseline; gap:14px; color:var(--chalk-faint);
+  padding:clamp(22px,3.6vh,38px) 0 clamp(16px,2.4vh,24px); margin:0;
+}
+.band .t{ color:var(--chalk); letter-spacing:.2em; }
+.band .fill{ flex:1; height:1px; background:rgba(221,230,230,.22); }
+
+/* ---------- as quatro provas presas na prancha ---------- */
+.plates{
+  display:grid; gap:clamp(28px,3.4vw,44px); grid-template-columns:1fr;
+  padding:8px 0 clamp(40px,8vh,86px);
+}
+@media (min-width:780px){ .plates{ grid-template-columns:1fr 1fr; } }
+
+.plate{
+  position:relative; display:flex; flex-direction:column;
+  text-decoration:none; color:var(--ink); background:var(--sheet);
+  padding:10px 10px 0; border-radius:1px;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.28),
+    0 1px 0 rgba(255,255,255,.5) inset,
+    0 20px 30px -18px rgba(0,0,0,.75);
+  transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease;
+}
+.plate:nth-child(1){ transform:rotate(-.55deg); }
+.plate:nth-child(2){ transform:rotate(.45deg); }
+.plate:nth-child(3){ transform:rotate(.35deg); }
+.plate:nth-child(4){ transform:rotate(-.4deg); }
+.plate:hover, .plate:focus-visible{
+  transform:rotate(0deg) translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.34),
+    0 1px 0 rgba(255,255,255,.5) inset,
+    0 30px 42px -18px rgba(0,0,0,.8);
+}
+.plate:focus-visible{ outline:2px solid var(--riso-ochre); outline-offset:4px; }
+/* dente do papel na prova também */
+.plate::after{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:4;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.13) 1.05px, transparent 1.5px);
+  background-size:7px 7px;
+}
+/* a fita que prende cada prova */
+.plate .tape{ width:104px; height:26px; top:-12px; }
+.plate:nth-child(odd) .tape{ left:22px; transform:rotate(-6deg); }
+.plate:nth-child(even) .tape{ right:26px; transform:rotate(5deg); }
+
+.window{
+  position:relative; aspect-ratio:16/8.6; background:var(--pw); overflow:hidden;
+  /* a borda precisa ser firme: o papel do glossário (#efe9da) é
+     quase idêntico ao papel da prova (#efe7d3), e com hairline
+     fraca a janela sangrava no cartão. Visto na captura. */
+  box-shadow:0 0 0 1px rgba(38,34,28,.34) inset, 0 2px 6px -3px rgba(38,34,28,.4) inset;
+}
+.window svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+
+.meta{ padding:14px 8px 18px; display:flex; flex-direction:column; gap:7px; flex:1; }
+.meta .no{ color:var(--ink-faint); margin:0; display:flex; align-items:center; gap:8px; }
+.meta .no i{ width:11px; height:11px; background:var(--pa); display:inline-block; border-radius:1px; }
+.meta h2{
+  font-family:'Fraunces', Georgia, serif; font-weight:700;
+  font-size:clamp(19px,2.1vw,23px); line-height:1.14; letter-spacing:-.012em;
+  margin:0; color:var(--ink);
+}
+.meta .sub{ color:var(--ink-faint); font-size:10px; letter-spacing:.11em; margin:-2px 0 0; }
+.meta .desc{ margin:3px 0 0; color:var(--ink-soft); font-size:15.5px; line-height:1.5; max-width:46ch; }
+.tags{ margin-top:auto; padding-top:13px; display:flex; flex-wrap:wrap; gap:5px; }
+.tags span{
+  font-family:'Courier Prime', ui-monospace, monospace;
+  font-size:10px; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--ink-faint); border:1px solid rgba(38,34,28,.22);
+  padding:2px 7px; border-radius:2px; white-space:nowrap;
+}
+
+/* ---------- colofão: mais uma folha presa na prancha ---------- */
+.colophon{ position:relative; margin:0 0 clamp(56px,11vh,110px); max-width:820px; }
+.colophon .tape{ width:118px; top:-13px; left:34px; transform:rotate(-4deg); }
+.colophon .inner{
+  background:var(--sheet-2); color:var(--ink); border-radius:1px;
+  padding:clamp(24px,3.4vw,38px) clamp(22px,3.4vw,40px);
+  box-shadow:0 0 0 1px rgba(0,0,0,.26), 0 18px 28px -18px rgba(0,0,0,.7);
+  display:grid; gap:clamp(16px,3vw,42px); grid-template-columns:1fr; position:relative;
+}
+.colophon .inner::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(80,66,44,.15) 1.05px, transparent 1.5px);
+  background-size:7px 7px;
+}
+@media (min-width:780px){ .colophon .inner{ grid-template-columns:1fr 1fr; } }
+.colophon h3{
+  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.15em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-faint); margin:0 0 10px;
+}
+.colophon p{ margin:0 0 10px; color:var(--ink-soft); font-size:15.5px; line-height:1.6; max-width:46ch; position:relative; z-index:2; }
+.colophon em{ color:var(--ink); }
+.colophon a{ color:var(--ink); text-decoration-color:rgba(38,34,28,.35); text-underline-offset:3px; }
+.colophon a:hover{ text-decoration-color:currentColor; }
+.colophon code{ font-family:'Courier Prime',monospace; font-size:13px; }
+
+/* ---------- movimento ----------
+   translate (propriedade própria) para não sobrescrever o
+   transform:rotate() que dá a inclinação de cada prova */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .plate{
+      animation:plate-in linear both;
+      animation-timeline:view();
+      animation-range:entry 3% entry 42%;
+    }
+    @keyframes plate-in{ from{ opacity:0; translate:0 22px; } to{ opacity:1; translate:0 0; } }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .plate{ transition:none; }
+  .plate:hover, .plate:focus-visible{ transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="board" aria-hidden="true"></div>
+<svg class="grain" aria-hidden="true" preserveAspectRatio="none">
+  <filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/>
+  <feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#g)" opacity=".55"/>
+</svg>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="stack">
+      <div class="under u2" aria-hidden="true"></div>
+      <div class="under u1" aria-hidden="true"></div>
+
+      <div class="sheet-wrap">
+        <div class="sheet">
+
+          <svg class="regmark" viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="var(--riso-teal)" stroke-width="3.4" opacity=".88" transform="translate(-5.5,4)">
+              <circle cx="54" cy="54" r="27"/><circle cx="54" cy="54" r="12.5"/>
+              <path d="M54 5v27M54 76v27M5 54h27M76 54h27"/>
+            </g>
+            <g fill="none" stroke="var(--riso-ochre)" stroke-width="3.4" opacity=".88" transform="translate(5,5.5)">
+              <circle cx="54" cy="54" r="27"/><circle cx="54" cy="54" r="12.5"/>
+              <path d="M54 5v27M54 76v27M5 54h27M76 54h27"/>
+            </g>
+            <g fill="none" stroke="var(--riso-red)" stroke-width="3.4" opacity=".92">
+              <circle cx="54" cy="54" r="27"/><circle cx="54" cy="54" r="12.5"/>
+              <path d="M54 5v27M54 76v27M5 54h27M76 54h27"/>
+            </g>
+          </svg>
+
+          <p class="slug mono">
+            <span>Study&nbsp;Lab</span>
+            <span><b>P&amp;D</b> de apresentação</span>
+            <span><b>04</b> peças</span>
+            <span>HTML de arquivo único</span>
+          </p>
+
+          <h1>Material denso vira interface.</h1>
+
+          <p class="lede">
+            Cada peça pega um tema jurídico e o trata como
+            <mark class="hl">veículo descartável</mark> — o que está sendo testado é a
+            apresentação, não o conteúdo. Uma técnica de web moderna por peça, um
+            mundo de papel próprio por peça, e um caderno de bordo que anota
+            honestamente o que funcionou e o que não.
+          </p>
+
+          <div class="stampmark" aria-hidden="true">
+            <b>PROVA</b>
+            <span>não é material de estudo</span>
+          </div>
+
+        </div>
+      </div>
+
+      <span class="tape t-a" aria-hidden="true"></span>
+
+      <aside class="inkcard" aria-hidden="true">
+        <span class="tape"></span>
+        <h3>Tintas desta prancha</h3>
+        <ul>
+          <li><span class="sw" style="background:var(--a-dossie)"></span><b>Vermelhão</b></li>
+          <li><span class="sw" style="background:var(--a-terra)"></span><b>Verdete</b></li>
+          <li><span class="sw" style="background:var(--a-gloss)"></span><b>Sépia</b></li>
+          <li><span class="sw" style="background:var(--a-bifu)"></span><b>Azulejo</b></li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <p class="band mono">
+    <span>01</span>
+    <span class="t">Experimentos</span>
+    <span class="fill"></span>
+    <span>04 peças · 2026</span>
+  </p>
+
+  <nav class="plates">
+
+    <!-- ---------- Dossiê do Delito ---------- -->
+    <a class="plate" href="dossie-do-delito.html" style="--pw:var(--p-dossie); --pa:var(--a-dossie);">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="window">
+        <svg viewBox="0 0 320 172" aria-hidden="true">
+          <!-- fichas empilhadas, fita, selo de cera em três chapas riso -->
+          <g opacity=".5">
+            <rect x="26" y="34" width="150" height="118" rx="2" fill="#e2d4b3" stroke="#c7b78e"/>
+            <rect x="38" y="26" width="150" height="126" rx="2" fill="#dccca6" stroke="#c7b78e"/>
+          </g>
+          <rect x="52" y="18" width="152" height="134" rx="2" fill="#f2e9d6" stroke="#c7b78e"/>
+          <g stroke="#5a4d3a" stroke-width="1.6" opacity=".45" stroke-linecap="round">
+            <path d="M68 44h84M68 58h108M68 72h66M68 86h96M68 100h52"/>
+          </g>
+          <rect x="86" y="10" width="52" height="17" fill="#e8d9a8" opacity=".85" transform="rotate(-4 112 18)"/>
+          <!-- selo: três chapas fora de registro (misregistro riso) -->
+          <g style="mix-blend-mode:multiply">
+            <circle cx="231" cy="109" r="25" fill="#c98a2e" opacity=".42"/>
+            <circle cx="224" cy="115" r="25" fill="#3f7d84" opacity=".3"/>
+            <circle cx="228" cy="112" r="25" fill="#d4462f" opacity=".8"/>
+          </g>
+          <circle cx="228" cy="112" r="16" fill="none" stroke="#f4ead4" stroke-width="1.8" opacity=".9"/>
+          <path d="M222 112l4 5 9-10" fill="none" stroke="#f4ead4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+          <!-- linha vermelha costurando -->
+          <path d="M204 40 C 250 56, 214 78, 244 96" fill="none" stroke="#a3392a" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="204" cy="40" r="2.6" fill="#a3392a"/>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="no mono"><i></i>Prova 01</p>
+        <h2>Dossiê do Delito</h2>
+        <p class="sub mono">Teoria do delito · arquivo criminal</p>
+        <p class="desc">Seis fichas, cada uma um filtro que o fato precisa atravessar. Selo de cera em três chapas fora de registro, fita adesiva, linha vermelha desenhada pelo scroll.</p>
+        <div class="tags"><span>scroll-timeline</span><span>view transitions</span><span>riso</span></div>
+      </div>
+    </a>
+
+    <!-- ---------- A Terra Muda de Dono ---------- -->
+    <a class="plate" href="a-terra-muda-de-dono.html" style="--pw:var(--p-terra); --pa:var(--a-terra);">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="window">
+        <svg viewBox="0 0 320 172" aria-hidden="true">
+          <!-- curvas de nível, lote demarcado, rosa dos ventos, videira -->
+          <g fill="none" stroke="#5c5348" stroke-width="1" opacity=".28">
+            <path d="M-10 128 C 60 108, 96 140, 168 118 S 268 96, 330 112"/>
+            <path d="M-10 110 C 62 88, 98 122, 170 98 S 270 76, 330 94"/>
+            <path d="M-10 92 C 64 68, 100 104, 172 78 S 272 56, 330 76"/>
+            <path d="M-10 74 C 66 48, 102 86, 174 58 S 274 36, 330 58"/>
+          </g>
+          <path d="M44 132 L128 96 L206 110 L154 152 Z" fill="#cfc3b4" stroke="#a6473c" stroke-width="1.4" stroke-dasharray="6 4"/>
+          <!-- videira: o tempo que corre -->
+          <path d="M60 168 C 46 132, 76 116, 62 82 S 84 44, 72 12" fill="none" stroke="#2f6b58" stroke-width="2.2" stroke-linecap="round"/>
+          <g fill="#2f6b58"><circle cx="66" cy="112" r="3"/><circle cx="70" cy="66" r="3"/><circle cx="70" cy="30" r="3"/></g>
+          <!-- rosa dos ventos -->
+          <g transform="translate(250 54)">
+            <circle r="26" fill="none" stroke="#a8703f" stroke-width="1.2"/>
+            <circle r="17" fill="none" stroke="#a8703f" stroke-width=".8" stroke-dasharray="2 3"/>
+            <path d="M0 -30 L6 0 L0 30 L-6 0 Z" fill="#a8703f" opacity=".9"/>
+            <path d="M-30 0 L0 -5 L30 0 L0 5 Z" fill="#a8703f" opacity=".45"/>
+          </g>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="no mono"><i></i>Prova 02</p>
+        <h2>A Terra Muda de Dono</h2>
+        <p class="sub mono">Usucapião · caderno de agrimensor</p>
+        <p class="desc">Cada requisito abre em sua própria “dimensão de bolso”, com motivo próprio. Rosa dos ventos, curvas de nível, e uma videira que se desenha conforme o prazo corre.</p>
+        <div class="tags"><span>pocket dimensions</span><span>view transitions</span><span>scroll-timeline</span></div>
+      </div>
+    </a>
+
+    <!-- ---------- Glossário Ancorado ---------- -->
+    <a class="plate" href="glossario-ancorado.html" style="--pw:var(--p-gloss); --pa:var(--a-gloss);">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="window">
+        <svg viewBox="0 0 320 172" aria-hidden="true">
+          <!-- prosa contínua com um termo aceso e a ficha ancorada nele -->
+          <g stroke="#5c584a" stroke-width="2.4" opacity=".26" stroke-linecap="round">
+            <path d="M34 30h206M34 46h236M34 62h150"/>
+            <path d="M132 78h108M34 110h74M34 126h198M34 142h122"/>
+          </g>
+          <!-- o termo, realçado -->
+          <rect x="32" y="70" width="88" height="15" rx="2" fill="#7a4a30" opacity=".16"/>
+          <path d="M34 78h84" stroke="#7a4a30" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M34 86h84" stroke="#7a4a30" stroke-width="1.4" stroke-dasharray="2 3"/>
+          <!-- a ficha de definição, presa ao termo -->
+          <g>
+            <rect x="34" y="96" width="150" height="62" rx="9" fill="#fbf7ec" stroke="#7a4a30" stroke-opacity=".2"/>
+            <rect x="34" y="96" width="4" height="62" rx="2" fill="#7a4a30" opacity=".8"/>
+            <path d="M52 112h72" stroke="#7a4a30" stroke-width="3" stroke-linecap="round"/>
+            <g stroke="#5c584a" stroke-width="2" opacity=".3" stroke-linecap="round">
+              <path d="M52 128h112M52 142h84"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="no mono"><i></i>Prova 03</p>
+        <h2>Glossário Ancorado</h2>
+        <p class="sub mono">Direito contratual · profundidade sob demanda</p>
+        <p class="desc">Prosa contínua em que o termo em latim abre uma definição presa exatamente à palavra — CSS Anchor Positioning e Popover API nativos, sem uma linha de JS posicionando nada.</p>
+        <div class="tags"><span>anchor positioning</span><span>popover api</span><span>zero JS</span></div>
+      </div>
+    </a>
+
+    <!-- ---------- Bifurcação Constitucional ---------- -->
+    <a class="plate" href="bifurcacao-constitucional.html" style="--pw:var(--p-bifu); --pa:var(--a-bifu);">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="window">
+        <svg viewBox="0 0 320 172" aria-hidden="true">
+          <!-- corte estrutural: fundação, viga, e as duas rotas divergindo -->
+          <g stroke="rgba(29,32,35,.07)" stroke-width="1">
+            <path d="M0 24h320M0 60h320M0 96h320M0 132h320M40 0v172M120 0v172M200 0v172M280 0v172"/>
+          </g>
+          <rect x="40" y="126" width="240" height="24" fill="#e8e6de" stroke="#1d2023" stroke-width="1.4"/>
+          <g stroke="#8b8d84" stroke-width=".9">
+            <path d="M40 150l-7 10M62 150l-7 10M84 150l-7 10M106 150l-7 10M128 150l-7 10M150 150l-7 10M172 150l-7 10M194 150l-7 10M216 150l-7 10M238 150l-7 10M260 150l-7 10M280 150l-7 10"/>
+            <path d="M31 160h242"/>
+          </g>
+          <rect x="86" y="86" width="16" height="40" fill="#e8e6de" stroke="#1d2023" stroke-width="1.4"/>
+          <rect x="218" y="86" width="16" height="40" fill="#e8e6de" stroke="#1d2023" stroke-width="1.4"/>
+          <rect x="72" y="64" width="176" height="22" fill="#e8e6de" stroke="#1d2023" stroke-width="1.4"/>
+          <!-- fissura -->
+          <path d="M176 64l-6 9 7 6-4 9" fill="none" stroke="#8e3a26" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- as duas rotas -->
+          <path d="M142 86 C 100 100, 84 112, 84 128" fill="none" stroke="#2f6088" stroke-width="1.8" stroke-dasharray="4 5" stroke-linecap="round"/>
+          <path d="M180 86 C 224 100, 240 112, 240 128" fill="none" stroke="#8e3a26" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="84" cy="128" r="3" fill="#2f6088"/><circle cx="240" cy="128" r="4.4" fill="#8e3a26"/>
+          <!-- treliça de inspeção preventiva -->
+          <g stroke="#5d6058" stroke-width="1" fill="none">
+            <path d="M72 30h176M72 30v34M248 30v34M72 46h176"/>
+            <path d="M96 46 L224 30M96 30 L224 46" stroke-dasharray="3 4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="no mono"><i></i>Prova 04</p>
+        <h2>Bifurcação Constitucional</h2>
+        <p class="sub mono">Controle de constitucionalidade · prancheta</p>
+        <p class="desc">Um diagrama de corte fixo que se monta peça a peça conforme o texto rola, e uma trilha que bifurca de verdade — difuso ou concentrado. Nenhum <code>&lt;script&gt;</code> no arquivo.</p>
+        <div class="tags"><span>sticky stepper</span><span>view-timeline</span><span>:has()</span><span>zero JS</span></div>
+      </div>
+    </a>
+
+  </nav>
+
+  <footer class="colophon">
+    <span class="tape" aria-hidden="true"></span>
+    <div class="inner">
+      <div>
+        <h3>O que isto é</h3>
+        <p>
+          Um laboratório de <em>apresentação</em>. A pergunta em teste é se material de
+          estudo denso fica mais legível quando cada conceito ganha uma linguagem visual
+          própria — e quanto isso custa para produzir.
+        </p>
+        <p>
+          O conteúdo jurídico de cada peça é deliberadamente descartável: serve de
+          maquete para o texto real, não substitui material de estudo.
+        </p>
+      </div>
+      <div>
+        <h3>Caderno de bordo</h3>
+        <p>
+          Cada decisão, bug e ideia em aberto fica registrada em
+          <a href="https://github.com/Benecles/study-lab/blob/main/VISUAL_CRAFT_NOTES.md"><code>VISUAL_CRAFT_NOTES.md</code></a>,
+          incluindo o que deu errado — que costuma ser a parte útil.
+        </p>
+        <p><a href="https://github.com/Benecles/study-lab">Código no GitHub</a></p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
