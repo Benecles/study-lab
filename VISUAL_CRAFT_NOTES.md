@@ -1554,3 +1554,23 @@ The source agent returned an uncertain Jornada attribution for a CJF enunciado. 
 - Browser review: inspected desktop composition at 1200px and phone-width layout at 390px. Index and procedure had scroll widths equal to their viewports; contract also passed the narrow-width overflow check. Reduced the contract margin numerals after seeing them crowd a heading at 390px, then visually checked the correction. These are desktop browser viewport checks, not a physical iPhone/Safari test.
 - Provisional finding: material continuity does more work than adding isolated effects. A shared typographic and physical vocabulary permits distinct page structures. This remains a hypothesis for owner review, not an approved house rule.
 - Statutory links and introductory content were reviewed separately; no material issue was found. The current main homepage and original subject pages are unchanged.
+
+
+# Codex R&D — 2026-09-08: an open problem notebook
+
+## Intent
+The owner deferred review and asked for more exploration. Added a third whole-page scene without revising the two unreviewed scenes. Legal methodology provides a reason for parallel readings: a fictional park sign, interpretive questions, and two conditional accounts of the same bicycle. All park rules are explicitly invented, not presented as law.
+
+## Material hypothesis
+An open notebook can retain the studio family with fewer attached objects. Two slightly different paper tones, a narrow central gutter, restrained ruled lines, red handwriting and a directly drawn sign establish the setting. A single ochre fold-out houses the comparison. This is quieter than the contract's attached agreement and distinct from the dark procedure sheet. The spread becomes sequential leaves on narrow screens rather than shrinking a miniature book.
+
+## Research trail and limits
+The Library of Congress search result for “The Artistry of Learning Math: The Ellerton-Clements Cyphering Book Collection” described historical student notebooks and ruled commercial notebooks. It prompted the notebook direction; direct article retrieval returned 403, so no archival image was inspected or copied. Source: https://blogs.loc.gov/manuscripts/2022/04/the-artistry-of-learning-math-the-ellerton-clements-cyphering-book-collection/ . This is a research lead, not a claim of close visual study.
+The official LINDB source was located for art. 5: https://www.planalto.gov.br/ccivil_03/decreto-lei/del4657compilado.htm . The note paraphrases its attention to social purposes and common good, without pretending it supplies an answer to the invented park example. The competing interpretations are authored hypotheses, not attributed doctrine.
+
+## Actual inspection
+Desktop browser rendering measured 1091 CSS px (requested 1200; harness scaling). The facing pages, gutter and attached comparison were inspected. Narrow rendering measured 354 CSS px (requested 390); no horizontal overflow. The separate leaves remain legible; the comparison stacks vertically. Click and Enter operated the native disclosure and exposed the comparison in the accessibility tree. Local links resolved. Physical-phone and Safari rendering remain untested.
+The initial composition needed no corrective visual change after this inspection. Its potential weakness is that it may read as a familiar notebook rather than a surprising new material world. That is deliberately left for owner judgment: this experiment tests restraint and continuous reading, not maximum novelty.
+
+## Provisional rule to test
+Use a material change to signal an actual relationship: facing leaves separate problem and reasoning; unfolding adds a comparison. Avoid adding tape or panels to every paragraph. A fold-out should have a visible action label and an actual disclosure, not merely a decorative grab tab. No new owner preference is inferred before review.

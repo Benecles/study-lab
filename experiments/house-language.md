@@ -55,3 +55,7 @@ Phone testing used a resized desktop browser with an effective content viewport 
 The owner rejected the page-level framing: these were conventional websites showcasing isolated features. The diagrams, overlays and rotating object received praise, but did not establish a coherent analog scene. Translucency read as glass. A decorative edge tab looked clickable and was not. The slider effect was unclear. All new research commentary must be plain English, with less poetic copy. Whole pages should be actual legal notes, with sourced concepts and hypothetical examples, not abstract visual filler. This feedback supersedes any suggestion above that the first three pieces were successful overall compositions.
 
 Round 2 tests a continuous annotated contract and a technical-paper civil-procedure note. Both keep research commentary in a secondary English disclosure and make apparent controls functional. They are pending owner review.
+
+
+### Pending review: open notebook (06)
+Facing pages distinguish a problem from its reasoning; one fold-out expands the comparison. Test whether this quieter, less layered composition still belongs to the family. On narrow screens, page relationships survive as sequential leaves. This has not received owner approval.

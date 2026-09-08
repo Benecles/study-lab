@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entre o texto e o caso — Metodologia Jurídica</title>
+<link rel="stylesheet" href="lab.css">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#35464a;--red:#a84e46;--paper:#eee9d8;--rule:#839f9e40}
+body{background:#637b76;color:var(--ink)}
+.return{display:block;max-width:1120px;margin:24px auto;padding:0 22px;color:#f3ebd4;font:11px 'Courier Prime',monospace;text-decoration:none}
+.book{max-width:1120px;margin:0 auto 55px;border:12px solid #3d5853;border-radius:8px 14px 14px 8px;background:var(--paper);box-shadow:0 3px 0 #c5c3ae,0 7px 0 #e2dbc6,0 10px 0 #3d5853,5px 20px 24px #243d3b55;position:relative}
+.spread{display:grid;grid-template-columns:1fr 1fr;position:relative}
+.spread:after{content:'';position:absolute;left:50%;width:30px;top:0;bottom:0;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#84765b13 35%,#51473526 48%,#fff8df70 54%,transparent);pointer-events:none;z-index:5}
+.leaf{position:relative;padding:35px 44px 42px;min-width:0;background:var(--paper)}
+.leaf:nth-child(2){background:#f3eddc}
+.running{font:9px 'Courier Prime',monospace;letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;border-bottom:1px solid #667b7266;padding-bottom:13px;gap:16px}
+h1{font-size:clamp(48px,5.1vw,65px);margin:34px 0 24px;line-height:1.01;letter-spacing:-.05em;font-weight:600}
+h1 em{color:var(--red);font-weight:600}
+.intro{font-size:23px;line-height:1.4;margin-bottom:32px}
+.hand{font:27px/1.05 'Caveat',cursive;color:var(--red)}
+.pencil{font:11px 'Courier Prime',monospace;text-transform:uppercase;letter-spacing:.06em}
+.scenario{border-top:1px solid #627971;border-bottom:1px solid #627971;padding:23px 0 12px;margin-top:30px}
+.scenario h2{font-size:29px;line-height:1.1;margin:12px 0}
+.scenario p{font-size:20px}
+.sketch{width:100%;height:auto;display:block;margin:14px 0;color:var(--ink)}
+.sketch text{font-family:'Courier Prime',monospace;font-size:13px;fill:currentColor}
+.margin-note{margin:16px 0 22px 30px;transform:rotate(-3deg);max-width:260px}
+.reading{font-size:20px;line-height:1.5}
+.ruled{background:repeating-linear-gradient(transparent 0 29px,var(--rule) 29px 30px);line-height:30px;padding:0 0 12px;margin-top:25px}
+.ruled h2{font-size:31px;line-height:1.04;background:#f3eddc;display:inline-block;margin:0 0 20px;padding-right:12px}
+.ruled p{font-size:20px;line-height:30px;margin:0 0 30px}
+.ruled b{font-weight:500;color:#914a40}
+.step{font:12px 'Courier Prime',monospace;color:var(--red);display:block;margin:0 0 10px}
+.question{border:1px solid #aa5e4f77;padding:15px 17px;margin:12px -4px 25px;transform:rotate(1deg);font:26px/1.1 'Caveat',cursive;color:var(--red)}
+.fold{margin:0 35px 30px;position:relative;background:#e1c795;box-shadow:1px 4px 4px #584c3433;border-left:2px dashed #a1835977}
+.fold summary{cursor:pointer;list-style:none;padding:22px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;font:13px 'Courier Prime',monospace;min-height:70px}
+.fold summary::-webkit-details-marker{display:none}
+.fold summary:after{content:'+';font-size:26px}.fold[open] summary:after{content:'−'}
+.fold summary span{display:block;font:25px 'Caveat',cursive;margin-top:7px;color:#835446}
+.fold-content{border-top:1px dashed #a1835977;padding:25px 30px 30px;animation:unfold .4s ease-out;transform-origin:top;background:linear-gradient(90deg,#e1c795,#e8d4a8 49%,#b9a07855 50%,#ead7ae 51%,#e8d4a8)}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+.comparison h3{font-size:26px;margin:10px 0 15px}.comparison p{font-size:20px;margin:12px 0}
+.conclusion{border-top:1px solid #9b7d5666;padding-top:16px;margin-top:20px;font-size:21px;max-width:62ch}
+.last{border-top:1px solid #62797144;padding-top:18px;margin-top:30px;font-size:17px}
+.foot{padding:0 44px 30px;font-size:15px;line-height:1.5}.foot a{text-underline-offset:3px}
+.research{border-top:1px dashed #62797166;margin-top:22px;padding-top:18px}.research summary{font:11px 'Courier Prime',monospace;cursor:pointer}.research p{font-size:17px;max-width:80ch}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:5px}
+@keyframes unfold{from{opacity:.3;transform:perspective(900px) rotateX(-7deg)}to{opacity:1;transform:none}}
+@view-transition{navigation:auto}
+@media(max-width:760px){.book{margin:0 14px 40px;border-width:7px}.spread{display:block}.spread:after{display:none}.leaf{padding:28px 26px 30px}.leaf:nth-child(2){border-top:1px solid #a4a28c;box-shadow:inset 0 5px 6px #77664912}h1{font-size:58px}.intro{font-size:22px}.running{font-size:8px}.fold{margin:0 19px 25px}.fold summary{padding:20px}.fold-content{padding:20px;background:#e8d4a8}.comparison{grid-template-columns:1fr;gap:20px}.comparison>div+div{border-top:1px dashed #a1835988;padding-top:20px}.foot{padding:0 26px 27px}.ruled{margin-top:32px}.ruled h2{font-size:30px}.return{margin:20px auto;font-size:10px}.comparison p{font-size:19px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+@media print{body{background:white}.return,.research{display:none}.book{border:0;box-shadow:none;margin:0}.fold-content{display:block}.spread{display:block}.spread:after{display:none}.leaf{break-inside:avoid}.paper:after{display:none}}
+</style>
+</head>
+<body>
+<a class="return" href="index.html">← Study Lab / whole-page experiments</a>
+<main class="book paper">
+<div class="spread">
+<section class="leaf">
+<header class="running"><span>Metodologia jurídica</span><span>Caderno de problemas</span></header>
+<h1>Entre o texto<br>e <em>o caso.</em></h1>
+<p class="intro">Uma palavra pode parecer clara. Até encontrar uma situação que não cabe tão facilmente nela.</p>
+<p class="hand margin-note">Ler → perguntar → justificar.<br>Não pular a última parte.</p>
+<div class="scenario">
+<span class="pencil">Exercício inventado · não é lei vigente</span>
+<h2>Uma placa na entrada.</h2>
+<svg class="sketch" viewBox="0 0 380 205" role="img" aria-label="Desenho de uma placa: Proibida a entrada de veículos. Ao lado, a pergunta: Quais veículos?">
+<path d="M22 23 L272 20 L275 106 L19 109 Z M130 109 L128 183 M157 108 L160 182 M90 185 Q146 175 195 185" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<path d="M27 28 L267 25 L269 102 L25 104 Z" fill="none" stroke="currentColor" stroke-width=".6"/>
+<text x="50" y="56">PROIBIDA A ENTRADA</text><text x="98" y="81">DE VEÍCULOS</text>
+<path d="M296 153 Q343 129 279 76 M279 76 l6 13 M279 76 l14 2" fill="none" stroke="#a84e46" stroke-width="1.5"/>
+<text x="222" y="175" style="font-family:Caveat,cursive;font-size:27px;fill:#a84e46">quais veículos?</text>
+</svg>
+<p>Um parque tem essa regra. Uma pessoa chega de bicicleta. Outra utiliza uma cadeira de rodas. Um veículo de emergência precisa entrar.</p>
+<p>A palavra é a mesma. As situações pedem razões diferentes.</p>
+</div>
+<p class="last">O exercício não procura adivinhar uma resposta oficial. Procura tornar visível o caminho entre uma formulação geral e uma decisão sobre o caso.</p>
+</section>
+<section class="leaf">
+<header class="running"><span>Interpretação</span><span>Texto / contexto / finalidade</span></header>
+<div class="ruled">
+<span class="step">01 / COMEÇAR PELO TEXTO</span>
+<h2>O que a palavra<br>permite dizer?</h2>
+<p>O uso da palavra <b>“veículo”</b> oferece um ponto de partida. Ainda é preciso examinar seu sentido no contexto da regra. Uma definição isolada não resolve, por si, todos os casos.</p>
+<span class="step">02 / RECONSTRUIR O PROBLEMA</span>
+<h2>Que situação<br>a regra organiza?</h2>
+<p>A placa protege o silêncio? A segurança de quem caminha? O piso do parque? Essas são hipóteses de finalidade: precisam de apoio no contexto, não apenas da preferência de quem interpreta.</p>
+</div>
+<p class="question">Se a finalidade muda, a justificativa também muda. O que sustenta a finalidade que você escolheu?</p>
+<div class="ruled">
+<span class="step">03 / EXPLICITAR AS RAZÕES</span>
+<h2>Da resposta<br>ao argumento.</h2>
+<p>Uma conclusão precisa enfrentar o texto, os fatos relevantes e as normas aplicáveis. Considerar a finalidade não significa ter liberdade para ignorar esses limites.</p>
+</div>
+<p class="last">Na aplicação da lei, o art. 5º da LINDB orienta a consideração dos fins sociais e do bem comum. Ele não fornece uma solução automática para esta placa fictícia.</p>
+</section>
+</div>
+<details class="fold">
+<summary><div>DESDOBRAR A COMPARAÇÃO<span>Duas leituras da mesma bicicleta.</span></div></summary>
+<div class="fold-content">
+<div class="comparison">
+<div><span class="pencil">Hipótese A / silêncio</span><h3>O ruído é o problema.</h3><p>Se houver apoio para essa finalidade, a ausência de motor pode ser relevante para a bicicleta. Mas é preciso explicar como essa leitura se relaciona com a amplitude da palavra escrita.</p></div>
+<div><span class="pencil">Hipótese B / circulação</span><h3>O risco é o problema.</h3><p>Se o contexto mostrar preocupação com colisões, a velocidade e o fluxo de pessoas ganham peso. A ausência de motor deixa de ser uma razão suficiente, sozinha.</p></div>
+</div>
+<p class="conclusion">O objeto não mudou. Mudaram as razões consideradas relevantes. Para concluir, faltam dados sobre a regra e o parque — e é melhor reconhecer essa falta do que inventá-los.</p>
+<p class="hand">A cadeira de rodas e a emergência exigem outros argumentos.<br>Uma resposta para a bicicleta não resolve tudo.</p>
+</div>
+</details>
+<footer class="foot">
+<p><a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del4657compilado.htm">Base de leitura: LINDB, art. 5º.</a> Exercício introdutório de interpretação; os exemplos do parque são hipotéticos.</p>
+<details class="research" lang="en"><summary>Research notes — an open notebook</summary>
+<p>This page tests a quieter material setting: two facing pages, ruled writing, a diagram drawn directly on the sheet, and one attached fold-out. The notebook becomes sequential pages on a narrow screen. The comparison opens through its labeled paper edge.</p>
+<p>The question is whether the page still feels made by the same studio without relying on a stack of cards. The fold-out adds room for competing arguments; it is not a quiz and does not choose an answer for the reader.</p>
+<p>Historical student notebooks were a research lead through the <a href="https://blogs.loc.gov/manuscripts/2022/04/the-artistry-of-learning-math-the-ellerton-clements-cyphering-book-collection/">Library of Congress cyphering-book collection</a>. This is an original digital composition, not a reconstruction of an archival page.</p>
+<p><a href="index.html">Back to all experiments</a> · <a href="../VISUAL_CRAFT_NOTES.md">Development log</a></p>
+</details>
+</footer>
+</main>
+</body></html>
