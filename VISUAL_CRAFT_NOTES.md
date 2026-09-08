@@ -1529,3 +1529,28 @@ Wheel recheck: the active 02 and 04 numerals now read fully outside the smaller 
 All three experiments now have wide and phone-width rendered inspection. Static checks found no duplicate IDs, unresolved local links, or inline JavaScript syntax errors. Original homepage and subject pages are unchanged. Reduced-motion rules have been written but not media-emulated; no physical-device or Safari validation is claimed.
 
 Working synthesis is in `experiments/house-language.md`. References, with source observations separated from adaptations, are in `experiments/research.md`. The three candidates are linked from `experiments/index.html`, each with its own hypothesis and specific questions. No owner verdict yet.
+
+# Codex R&D — 2026-09-07, round 2: the whole page is the experiment
+
+Owner feedback supersedes my prior framing. The three pages were feature demos within ordinary website layouts; even successful components did not make the whole scene feel analog. The tracing stack was praised but read as glass. Its decorative edge tab falsely promised interaction. The ink slider's effect was not apparent to the owner. The wheel was praised as a dynamic object but its surroundings remained conventional. The plain experiment index was itself insufficiently paper-like. Research commentary must be in plain English, without poetic filler; actual legal-note content can remain Portuguese. The material should be plausible course notes drawn from contracts, civil procedure, constitutional review, theory of crime, or legal methodology.
+
+Budget context: owner authorized a bounded work burst and a resumable goal. Do not infer a precise token allowance or automatic reset from percentages or third-party announcements. Complete a coherent specimen before expanding.
+
+First direction: general contract theory as a marked-up agreement. The entire reading surface is the document, with a stitched margin, clause numbering, annotations, and interactive attached slips. No generic hero-plus-demo layout. Second possible direction: civil procedure as a folded procedural record, where a decision requires a visible opportunity to be heard. Source checks are delegated; creative design stays here.
+
+## First render — contract page
+
+The first desktop rendering places title, body, clause numbering and margin annotation on one continuous ruled sheet. The material identity extends into the reading layout rather than stopping at a diagram. Side tabs are real section links. The opening still has substantial negative space; this is a reading-document cover, not proof that the composition is finished. Attached annotation and phone checks follow.
+
+## Source caution
+
+The source agent returned an uncertain Jornada attribution for a CJF enunciado. That attribution was not carried into the page. The contract page labels the verified CJF source generically; statutory links are included. The civil-procedure diagram explicitly describes the general rule and has an attached exceptions note, so it does not imply that prior hearing has no legal exceptions.
+
+### Final inspection and findings
+
+- Contract scene: keeping the reading, ruled margin and attached example on one continuous sheet makes the material treatment persist beyond the opening. The green annotation remains opaque paper rather than a translucent glass panel. Its native disclosure was opened in the browser.
+- Procedure scene: the dark teal sheet and cream/mustard slips support a different composition within the same material family. The diagram disclosure opened with a click and closed with Enter; aria-expanded and response visibility agreed. This is a schematic of the general rule, with legal exceptions stated on the attached slip.
+- The research folder now uses warm stock, a spine and two attached paper entries. Research copy is English; study content remains Portuguese. The previous index is preserved as round1-index.html.
+- Browser review: inspected desktop composition at 1200px and phone-width layout at 390px. Index and procedure had scroll widths equal to their viewports; contract also passed the narrow-width overflow check. Reduced the contract margin numerals after seeing them crowd a heading at 390px, then visually checked the correction. These are desktop browser viewport checks, not a physical iPhone/Safari test.
+- Provisional finding: material continuity does more work than adding isolated effects. A shared typographic and physical vocabulary permits distinct page structures. This remains a hypothesis for owner review, not an approved house rule.
+- Statutory links and introductory content were reviewed separately; no material issue was found. The current main homepage and original subject pages are unchanged.

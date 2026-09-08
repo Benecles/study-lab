@@ -49,3 +49,9 @@ These are evaluation questions, not admission rules. A surprising experiment may
 No owner verdict on the three new experiments yet. We do not know whether tracing paper is too quiet, the ink palette too saturated, or the wheel too antique / space-hungry. Nor do we know whether these techniques improve repeated study. The experiment can be worthwhile artistically without proving that second claim.
 
 Phone testing used a resized desktop browser with an effective content viewport of 354 CSS pixels. It is not physical iPhone or Safari testing. Reduced-motion CSS is present but media emulation was not exercised in this pass. Cross-document transitions are optional enhancement between the experiment pages, with ordinary navigation as fallback; original subject pages are unchanged.
+
+## Owner correction after round 1
+
+The owner rejected the page-level framing: these were conventional websites showcasing isolated features. The diagrams, overlays and rotating object received praise, but did not establish a coherent analog scene. Translucency read as glass. A decorative edge tab looked clickable and was not. The slider effect was unclear. All new research commentary must be plain English, with less poetic copy. Whole pages should be actual legal notes, with sourced concepts and hypothetical examples, not abstract visual filler. This feedback supersedes any suggestion above that the first three pieces were successful overall compositions.
+
+Round 2 tests a continuous annotated contract and a technical-paper civil-procedure note. Both keep research commentary in a secondary English disclosure and make apparent controls functional. They are pending owner review.
