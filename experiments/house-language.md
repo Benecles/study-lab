@@ -59,3 +59,27 @@ Round 2 tests a continuous annotated contract and a technical-paper civil-proced
 
 ### Pending review: open notebook (06)
 Facing pages distinguish a problem from its reasoning; one fold-out expands the comparison. Test whether this quieter, less layered composition still belongs to the family. On narrow screens, page relationships survive as sequential leaves. This has not received owner approval.
+
+## Owner correction — 2026-09-09: reinterpret the information
+
+The first full course was judged visually good but still a styled container for the pack. Source fidelity and comfortable reading are infrastructure, not the intended artistic outcome. The owner explicitly asks to reconsider prose and tables through the medium: relationships may call for drawings, symbols, spatial arrangements, schematics, physical interactions or text, chosen case by case.
+
+Desktop may have a richer composition than mobile; mobile must remain good, but does not dictate a reduced desktop experience. Physical work must be perceptible: local paper textures, ink overprints, pencil/pen, ruler marks, actual layering and attachment. These are a vocabulary to compose with, not a checklist to put on every page. Earlier rejections of dirt-like stains, uniform dotted overlays and incoherent campus-pamphlet collage still apply.
+
+The owner questions the search bar as an assumed website convention. Cross-chapter search does have a different scope from browser find, but that is not sufficient reason to make it a compositional centerpiece. Decide navigation from the study object rather than default website components.
+
+Next design hypothesis (not yet built or approved): unit 08's temporal and causal comparisons can become a single ruled reconstruction with alternative continuations. Position encodes phase; a branch encodes a different cause of non-consummation; annotations preserve conditions and exceptions. Do not imply that elapsed time alone determines commencement of execution. Preserve access to the full original reading, and document which sections the authored visual interpretation covers.
+
+Before implementation, inspect Claude's new parallel work as requested. Remote main has no commits after 6fb5893 at this check; local discovery is underway.
+
+### Inspection and specimen, 2026-09-09
+
+Located Claude's independent work in a temporary scratchpad. Its v3 was inspected in a live browser (unit 10 opening and decision matrix); the v4 build log describes an apostila material vocabulary, but its HTML still referenced the older styles at inspection. Do not report unfinished v4 as a reviewed finished design. No files in Claude's project were changed.
+
+The new `courses/teoria-do-delito/atelier/iter.html` is an authored visual reading of unit 08's selected temporal/causal relationships. It is not a full chapter replacement. Sequence becomes a ruled line; the execution boundary is marked as an argument to establish, not an automatic time threshold. Alternative cases replace an intervention drawing and its legal consequence. A fold-out exposes all comparisons without requiring memory of a previous selection. Separate attached papers hold conditions which must survive the simplification.
+
+Actual corrections: the first result slip obscured the last event and was moved below the diagram; the initial narrow rendering would have shrunk labels too far, so the drawing now retains scale inside an explicitly labeled horizontal scroll area. The mobile phase line reflows vertically. A weapon illustration was replaced with poison/antidote objects in the corresponding hypothetical. Body/diagram text remains in the DOM with a dynamically updated SVG description. Keyboard Enter changed cases and opened/closed the comparison. At 390 CSS px, whole-page scrollWidth equaled viewport width. Desktop and mobile screenshots inspected; physical iPhone/Safari untested.
+
+Bounded source review caught the need to distinguish definitive abandonment from a temporary pause, clarify the agent's causal contribution to preventing death, and qualify the attempted-crime penalty. Those points were added. The legal basis was checked against the official compiled Penal Code (arts. 14–17): https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm . The underlying complete reading is linked; original source files unchanged.
+
+Open for owner review: whether this composition feels materially convincing and whether changing the drawn cause is more useful/expressive than the original table. Do not record the specimen as endorsed. The current richer desktop spread is intentional; mobile rearranges it without determining the desktop layout.
