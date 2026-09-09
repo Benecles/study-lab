@@ -1473,6 +1473,35 @@ this exploratory rather than prematurely converging) — the next round should k
 genuinely different compositions rather than iterating on A, B, or C directly.
 
 
+# Codex R&D — 2026-09-05, retomada: um fólio com abas
+
+Authorship boundary: this entry and the new index.html are Codex work. The recovered Claude notebook above and the four subject pages are preserved. Claude's latest source was found in its temporary scratchpad, newer than both the Desktop handoff and the Law School notebook: it includes rounds D and E. Those files are preserved alongside this experiment as index-alt-d.html and index-alt-e.html. The former current homepage is claude-index.html. No user verdict on D/E was available when this experiment was made.
+
+## The assumption being tested
+
+Earlier homepages repeatedly tried to show four similarly sized descriptions simultaneously. That creates four similarly sized regions before the craft even starts. Claude correctly noted that a pile or fan hides text, then discarded those metaphors. This pass questions the requirement behind that rejection: why must all four descriptions be visible at once?
+
+One folio, four exposed tabs, one illustrated cover brought forward at a time. The tabs retain the index; the sheet gets room for its own composition. This is an actual tradeoff, not a free improvement: the visitor loses simultaneous comparison and gains a more focused encounter. The user may prefer seeing everything. That remains unproven.
+
+## Material decisions and uncertainties
+
+The common object has warm paper, a stitched left edge, slightly displaced leaves, and typed labels. The subjects use their established visual vocabulary: criminal papers and red thread, survey contours and a compass, a definition slip beside a marked word, a fractured structural drawing. I drew new SVG compositions using that vocabulary rather than inserting scaled screenshots. Paper grain is local to the page and moves with it. No simulated foxing. Running text is not covered in a dot lattice. The highlight in the glossary illustration is an SVG stroke with rounded ends; it does not depend on inline text wrapping.
+
+Compared with the rejected Codex field notebook, this attempt spends its composition budget on the physical object and large illustrations. There is intentionally little explanation of implementation in the homepage copy. The existing notebook remains the place for technical detail.
+
+Potential failure: the folio may still feel too controlled or too much like a conventional tab widget dressed in paper. The original dossier had some extravagant atmosphere. This experiment could lose that extravagance through restraint. I cannot settle that by explaining the metaphor. User judgment is needed.
+
+## Implementation and verification limits
+
+The four original subject files were copied byte-for-byte and hash-checked by Luna. Back links return to the new index. The index uses accessible tab roles, selected state, roving keyboard focus, Left/Right/Home/End handling, fragment URLs, reduced-motion suppression, and a print view that exposes every sheet. Without JavaScript all four subject sections remain readable and their links work. Responsive rules move illustration below copy on small screens.
+
+A source review caught a shared SVG filter inside the first panel: hiding that panel could make later illustrations depend on a hidden definition. The filter was moved outside the panels. Static checks cover IDs, tab relationships, local links, and script syntax. The local entry route returned HTTP 200. This pass has not yet had live browser visual or interaction QA; responsive CSS and keyboard behavior should not be reported as visually verified. The Sites skill in this session limits browser QA to explicit browser-testing requests.
+
+This is a new candidate, not an adopted house style, and not a replacement of Claude's subject work.
+
+Recovered full notebook and prototype: /Users/benecles/Documents/Codex/2026-09-05/okay-couple-things-so-first-of/outputs/study-lab/
+
+
 # Codex R&D — 2026-09-05: paper folio homepage
 
 Authorship boundary: the new homepage is Codex's experiment. The four subject pages remain unchanged. The previous homepage is preserved as `index-before-folio.html`.
@@ -1574,6 +1603,22 @@ The initial composition needed no corrective visual change after this inspection
 
 ## Provisional rule to test
 Use a material change to signal an actual relationship: facing leaves separate problem and reasoning; unfolding adds a comparison. Avoid adding tape or panels to every paragraph. A fold-out should have a visible action label and an actual disclosure, not merely a decorative grab tab. No new owner preference is inferred before review.
+
+## 2026-09-07 — cross-check against a new, genuinely strong Codex round
+
+Owner ran a parallel Codex session (`/Users/benecles/Documents/Codex/2026-09-05/okay-couple-things-so-first-of/`) alongside this notebook's own work. Unlike the first Codex cross-check (over-built framework, content-rigor beside the point), **this round is legitimately good and worth taking seriously, not dismissing.**
+
+**What it actually is**: real, source-grounded research (`experiments/research.md`) citing the Met, MoMA, and NYPL on tracing-paper layering (Degas, Ryman), risograph overprint chemistry, volvelles (rotating paper instruments), and movable-book flaps — each with an honest Observed/Adaptation/**Pitfall** structure written *before* building, not after. Six new "experiment" pages test real mechanisms, not just decoration: a rotating-disc navigation (`03-volvelle.html`, verified by screenshot — genuinely well-executed, concentric paper discs in ochre, hand-drawn per-position icons, a pointer marking the active reading position, distinctly novel, nothing on our side has tried disc/dial navigation), ink-as-graphic-form via risograph overprint, layered tracing paper, and two "round 2" pieces (a continuous annotated contract, a technical-paper civil-procedure note).
+
+**Important: the owner has been giving this Codex session direct feedback already**, documented in `experiments/house-language.md` under "Owner correction after round 1." Two findings from that are genuinely new and worth folding in here:
+
+1. **A new failure class, distinct from material/texture failures**: affordance mismatch. Specific owner reactions logged there — "translucency read as glass" (a material effect misread as a different material), "a decorative edge tab looked clickable and was not" (a visual signifier implying interactivity where none exists), "the slider effect was unclear." This is about whether interactive *behavior* reads correctly, separate from whether *texture* reads as intentional (our own catalogued failure class). Worth checking for on any future interactive element: does its appearance correctly predict what it does, in both directions (nothing decorative should look clickable; nothing clickable should look decorative).
+
+2. **A structural finding that likely explains part of our own struggle**: the owner rejected pages built as **isolated feature showcases** — "these were conventional websites showcasing isolated features... whole pages should be actual legal notes, with sourced concepts and hypothetical examples, not abstract visual filler." This cuts against something both this notebook's homepage attempts *and* the four original experiment pieces have in common: they're demonstrations of a technique wrapped around placeholder content. It's not yet clear this finding applies to the homepage specifically (the homepage isn't "legal notes"), but it's a real, owner-validated signal that composition/decoration alone — no matter how coherent — may not be what's been missing. Worth raising directly rather than assuming it doesn't transfer.
+
+**`experiments/house-language.md` is itself a real parallel attempt at the "Pixar house-style bible"** the owner asked this notebook to eventually produce — a vocabulary/syntax table (substrates, marks, construction, motion, typography) with an explicit "ingredients are not recipes" framing. Worth reading in full rather than duplicated here; the two notebooks should stay aware of each other rather than converge into one, per the owner's general instruction that Claude and Codex are separate tracks that shouldn't blur — but findings that are genuinely cross-cutting (like the two above) are worth mirroring in both.
+
+**Not yet done**: reading the round-2 content pages (`05-processo.html`, the "open notebook" 06 piece) in detail, or forming a view on whether the volvelle mechanism specifically should be tried on our own homepage. Flagging rather than deciding.
 
 # First real course — 2026-09-08
 
