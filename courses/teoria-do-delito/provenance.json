@@ -1,0 +1,2090 @@
+{
+  "course": "teoria-do-delito",
+  "editorial": {
+    "review_date": "2026-09-08",
+    "review_scope": "Syllabus mapping, source-version comparison, publication hygiene, and targeted doctrinal/statutory sampling. Not comprehensive legal validation.",
+    "reference_pdf": {
+      "title": "Teoria do Delito - Complete Study Pack (Louro Classico).pdf",
+      "pages": 456,
+      "sha256": "aea1239e7798842a12472a4a442a5842aa37d97719bc285f1440b3ee1c530034"
+    },
+    "source_materials": [
+      {
+        "title": "PLANO TEORIA DO DELITO 2026 (2).docx",
+        "sha256": "75073411c9b31b9cd0b854ead731d4137891fb297b6b4fe71d9e06c25abf19a1"
+      },
+      {
+        "title": "Brandão - Teorias da Conduta.pdf",
+        "sha256": "0b6335f73e642f7d9e76048dd6fda58a2b0f24203258092b2be306caf728e238"
+      },
+      {
+        "title": "Roxin - 2002 - Política Criminal e Sistema Jurídico-penal.pdf",
+        "sha256": "56a901a6954906b1e0bf08761526dce3ef2c0785d626d7ee29144ac268170cc7"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "source": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "sha256": "4a1816f884ab12888fca531439673a95c2578cac046b568927a02138b642b33d",
+      "word_count": 6389
+    },
+    {
+      "source": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "sha256": "06e6b0e889d4870fba754609e03c51e9499e2ee5c80e560206cbae5ed9b0bba8",
+      "word_count": 6640
+    },
+    {
+      "source": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "sha256": "328bc0edf2d69d004244597abd82d082a67713cc43e93c7ec42d8f4152eae97d",
+      "word_count": 6602
+    },
+    {
+      "source": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "sha256": "4e16092f9593e66c43e878acca723109f6ed99d348a766166bfcb01457b70916",
+      "word_count": 6823
+    },
+    {
+      "source": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "sha256": "12d4db201b7ae0ce610fc6995e97b79722f46aa7df37d9660dcf8507258e8506",
+      "word_count": 6049
+    },
+    {
+      "source": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "sha256": "0881b00e6ab5bcb5838c7ec07d04e153ce564a592aecb1ee7aecc163633a8eb1",
+      "word_count": 6270
+    },
+    {
+      "source": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "sha256": "d7d8b68e775572b05df40f40ef97300fd458ed174cd319f5424a7ad6f0e9e276",
+      "word_count": 6170
+    },
+    {
+      "source": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "sha256": "47acdee28236e3ce8fb2b4eb4ec877bba50926769be0b082fdbd0ece0cecb5d5",
+      "word_count": 5783
+    },
+    {
+      "source": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "sha256": "246a8af53c342aba0d4fe617b87649a4b633c9b0342f1d862d05db64e4f36d99",
+      "word_count": 5659
+    },
+    {
+      "source": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "sha256": "08752f2e338c237c811861d6de7fac8aad879728da55ff838e6747772d9779f7",
+      "word_count": 5765
+    },
+    {
+      "source": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "sha256": "6fe22ac0bb26cdb29a8378083060c42f73180493203939d23fb1984a450284a5",
+      "word_count": 6245
+    },
+    {
+      "source": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "sha256": "8fa8baff2b4d32d969d85abf5c4a78f1cd6304cf9d101fbe0469c423b0e23031",
+      "word_count": 5470
+    },
+    {
+      "source": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "sha256": "c4b3759b547f428fe43d265bf6169ee7845a8e59ae922fdb4682407177946da8",
+      "word_count": 5350
+    },
+    {
+      "source": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "sha256": "b9e938ed04c2024e7f1bb1568fab99ba54c52d24ad39a15c0e936518dbc9deeb",
+      "word_count": 5528
+    },
+    {
+      "source": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "sha256": "1a146f4840efb13fc8cc9d3f4f16c22a60c2c019b9b187c0c5f005a5b29ea68e",
+      "word_count": 7402
+    },
+    {
+      "source": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "sha256": "422e43a44793faa6dcbf1eb48714556ea3baaad2812bc40e99a06d51b51d1f27",
+      "word_count": 7159
+    },
+    {
+      "source": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "sha256": "19b01a5bff5662ac1e1c7720054af98f60c14a6ec7eb93a12aad13990700585a",
+      "word_count": 7709
+    },
+    {
+      "source": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "sha256": "fdf8f149b342129e5ef40efc5bb612d61e014b5781c74002e5a97f45a3f17ff9",
+      "word_count": 7001
+    },
+    {
+      "source": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "sha256": "ffb6f7a36256951bc7d765c511a4e98cfa98c047ffc3090acbdcab7e15060ebb",
+      "word_count": 8238
+    },
+    {
+      "source": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "sha256": "c948e81042cdb8088ed7c6478a684d7c5c8e803c46677e421a1347d245707c0f",
+      "word_count": 8256
+    },
+    {
+      "source": "Mapa do Curso.md",
+      "sha256": "71c8cf8f6339eaa9873b74105bfe201e979b5618c85b3d4381121ba8b4db0b2f",
+      "word_count": 329
+    },
+    {
+      "source": "Guia Mestre de Estudo.md",
+      "sha256": "8ede305b9677cd2c7989366983bdd24c0c937705b92b22451bf29f5c475b9504",
+      "word_count": 2606
+    }
+  ],
+  "transformations": [
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 1: Conceito analítico e arquitetura do delito"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "diagram-marker",
+      "source": "diagrams/semana01-cascata.mmd",
+      "action": "svg-and-text-alternative"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "diagram-marker",
+      "source": "diagrams/semana01-fato-norma-juizo.mmd",
+      "action": "svg-and-text-alternative"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "diagram-marker",
+      "source": "diagrams/semana01-exclusoes-conduta.mmd",
+      "action": "svg-and-text-alternative"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 2: Conduta, sistemas e política criminal"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 3: Tipo e tipicidade objetiva"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "declared-replacement",
+      "count": 2,
+      "find": "****",
+      "replace": ""
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 4: Tipo subjetivo e dolo"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 5: Erro de tipo e elementos subjetivos especiais"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 6: Culpa, preterdolo, omissão e delitos de dever"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 7: Nexo causal e imputação objetiva"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 8: Iter Criminis, Tentativa e Abandono"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 9: Antijuridicidade e normas de permissão"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 10: Causas de Justificação e Excesso"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 11: Culpabilidade e Responsabilidade"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 12: Imputabilidade e erro de proibição"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 13: Exigibilidade e excludentes de culpabilidade"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 14: Autoria, coautoria e domínio do fato"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Semana 15: Participação, Acessoriedade e Comunicabilidade"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "type": "callout",
+      "source": "QUOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "16 Adendo doutrinário - Brandão (Teorias da Conduta)"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "17 Adendo doutrinário - Roxin (Política criminal e método)"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência)"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "19 Adendo doutrinário - Roxin (Justificação e conflito social)"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência)"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "declared-replacement",
+      "count": 1,
+      "find": "[[01_Courses/2026-2/Teoria do Delito/01 Course Reader|Course Reader]]",
+      "replace": "[Course Reader](index.html)"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "declared-replacement",
+      "count": 1,
+      "find": "[[01_Courses/2026-2/Teoria do Delito/10 Classes/01 - Semana 1 - Conceito Analítico e Arquitetura do Delito|Módulos semanais]]",
+      "replace": "[Módulos semanais](unidade-01.html)"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "declared-replacement",
+      "count": 1,
+      "find": "[[01_Courses/2026-2/Teoria do Delito/20 Readings/01 - Brandão - Teorias da Conduta|Guias de leitura]]",
+      "replace": "[Guias de leitura](suplemento-16.html)"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "declared-replacement",
+      "count": 1,
+      "find": "[[01_Courses/2026-2/Teoria do Delito/04 Source Map|Source Map]]",
+      "replace": "[Web edition source record](editorial.html#sources)"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "declared-replacement",
+      "count": 1,
+      "find": "[[01_Courses/2026-2/Teoria do Delito/91 Coverage Register|Coverage Register]]",
+      "replace": "[Web edition coverage record](editorial.html#coverage)"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "declared-prepend",
+      "action": "editorial-context"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Teoria do Delito - Mapa do Curso"
+    },
+    {
+      "file": "Mapa do Curso.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "frontmatter",
+      "action": "removed-from-public"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "heading",
+      "action": "source-title-represented-in-page-header",
+      "value": "Teoria do Delito - Guia Mestre de Estudo"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "callout",
+      "source": "NOTE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "callout",
+      "source": "CAUTION",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "callout",
+      "source": "EXAMPLE",
+      "action": "semantic-aside"
+    },
+    {
+      "file": "Guia Mestre de Estudo.md",
+      "type": "callout",
+      "source": "INFO",
+      "action": "semantic-aside"
+    }
+  ],
+  "diagrams": [
+    {
+      "path": "diagrams/semana01-cascata.mmd",
+      "sha256": "54f2dc468a2192f51d56bb24762f80f1068682d56e16cc27a3244a5c91b598de"
+    },
+    {
+      "path": "diagrams/semana01-fato-norma-juizo.mmd",
+      "sha256": "dcaf1daa72b845ecb3f8d5662b8da8b3583cb265ebbf7bdf463f493ee8ce9724"
+    },
+    {
+      "path": "diagrams/semana01-exclusoes-conduta.mmd",
+      "sha256": "2e599aa7f50e83681f3182ff70727ca37a69e3634ea8284e74bb03b153a1b88a"
+    }
+  ],
+  "builder_sha256": "e6731342043646d2387c78a9f6a5b8e6c77b1cb7a249a93ee0e6b284b755f2bd"
+}

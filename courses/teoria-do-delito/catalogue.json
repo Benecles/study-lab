@@ -1,0 +1,183 @@
+{
+  "slug": "teoria-do-delito",
+  "title": "Teoria do Delito",
+  "description": "Guia de estudo de Teoria do Delito, organizado a partir do plano de disciplina e de leituras complementares.",
+  "units": [
+    {
+      "id": "unidade-01",
+      "title": "Conceito analítico e arquitetura do delito",
+      "group": "Fundamentos",
+      "source": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "output": "unidade-01.html",
+      "word_count": 6389
+    },
+    {
+      "id": "unidade-02",
+      "title": "Conduta, sistemas e política criminal",
+      "group": "Fundamentos",
+      "source": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "output": "unidade-02.html",
+      "word_count": 6640
+    },
+    {
+      "id": "unidade-03",
+      "title": "Tipo e tipicidade objetiva",
+      "group": "Tipicidade",
+      "source": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "output": "unidade-03.html",
+      "word_count": 6602
+    },
+    {
+      "id": "unidade-04",
+      "title": "Tipo subjetivo e dolo",
+      "group": "Tipicidade",
+      "source": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "output": "unidade-04.html",
+      "word_count": 6823
+    },
+    {
+      "id": "unidade-05",
+      "title": "Erro de tipo e elementos subjetivos especiais",
+      "group": "Tipicidade",
+      "source": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "output": "unidade-05.html",
+      "word_count": 6049
+    },
+    {
+      "id": "unidade-06",
+      "title": "Culpa, preterdolo, omissão e delitos de dever",
+      "group": "Tipicidade",
+      "source": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "output": "unidade-06.html",
+      "word_count": 6270
+    },
+    {
+      "id": "unidade-07",
+      "title": "Nexo causal e imputação objetiva",
+      "group": "Imputação e tentativa",
+      "source": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "output": "unidade-07.html",
+      "word_count": 6170
+    },
+    {
+      "id": "unidade-08",
+      "title": "Iter criminis, tentativa e abandono",
+      "group": "Imputação e tentativa",
+      "source": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "output": "unidade-08.html",
+      "word_count": 5783
+    },
+    {
+      "id": "unidade-09",
+      "title": "Antijuridicidade e normas de permissão",
+      "group": "Antijuridicidade",
+      "source": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "output": "unidade-09.html",
+      "word_count": 5659
+    },
+    {
+      "id": "unidade-10",
+      "title": "Causas de justificação e excesso",
+      "group": "Antijuridicidade",
+      "source": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "output": "unidade-10.html",
+      "word_count": 5765
+    },
+    {
+      "id": "unidade-11",
+      "title": "Culpabilidade e responsabilidade",
+      "group": "Culpabilidade",
+      "source": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "output": "unidade-11.html",
+      "word_count": 6245
+    },
+    {
+      "id": "unidade-12",
+      "title": "Imputabilidade e erro de proibição",
+      "group": "Culpabilidade",
+      "source": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "output": "unidade-12.html",
+      "word_count": 5470
+    },
+    {
+      "id": "unidade-13",
+      "title": "Exigibilidade e excludentes de culpabilidade",
+      "group": "Culpabilidade",
+      "source": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "output": "unidade-13.html",
+      "word_count": 5350
+    },
+    {
+      "id": "unidade-14",
+      "title": "Autoria, coautoria e domínio do fato",
+      "group": "Concurso de pessoas",
+      "source": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "output": "unidade-14.html",
+      "word_count": 5528
+    },
+    {
+      "id": "unidade-15",
+      "title": "Participação, acessoriedade e comunicabilidade",
+      "group": "Concurso de pessoas",
+      "source": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "output": "unidade-15.html",
+      "word_count": 7402
+    },
+    {
+      "id": "suplemento-16",
+      "title": "Adendo doutrinário — Brandão (Teorias da Conduta)",
+      "group": "Leituras complementares",
+      "source": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "output": "suplemento-16.html",
+      "word_count": 7159
+    },
+    {
+      "id": "suplemento-17",
+      "title": "Adendo doutrinário — Roxin (Política criminal e método)",
+      "group": "Leituras complementares",
+      "source": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "output": "suplemento-17.html",
+      "word_count": 7709
+    },
+    {
+      "id": "suplemento-18",
+      "title": "Adendo doutrinário — Roxin (Tipo, dever, omissão e imprudência)",
+      "group": "Leituras complementares",
+      "source": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "output": "suplemento-18.html",
+      "word_count": 7001
+    },
+    {
+      "id": "suplemento-19",
+      "title": "Adendo doutrinário — Roxin (Justificação e conflito social)",
+      "group": "Leituras complementares",
+      "source": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "output": "suplemento-19.html",
+      "word_count": 8238
+    },
+    {
+      "id": "suplemento-20",
+      "title": "Adendo doutrinário — Roxin (Culpabilidade e desistência)",
+      "group": "Leituras complementares",
+      "source": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "output": "suplemento-20.html",
+      "word_count": 8256
+    },
+    {
+      "id": "mapa-do-curso",
+      "title": "Mapa do Curso",
+      "group": "Orientação",
+      "source": "Mapa do Curso.md",
+      "output": "mapa-do-curso.html",
+      "word_count": 329
+    },
+    {
+      "id": "guia-de-estudo",
+      "title": "Guia Mestre de Estudo",
+      "group": "Orientação",
+      "source": "Guia Mestre de Estudo.md",
+      "output": "guia-de-estudo.html",
+      "word_count": 2606
+    }
+  ]
+}

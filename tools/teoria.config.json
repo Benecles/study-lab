@@ -1,0 +1,208 @@
+{
+  "slug": "teoria-do-delito",
+  "title": "Teoria do Delito",
+  "description": "Guia de estudo de Teoria do Delito, organizado a partir do plano de disciplina e de leituras complementares.",
+  "source_root": ".",
+  "output_dir": "courses/teoria-do-delito",
+  "replacements": [
+    {
+      "source": "Mapa do Curso.md",
+      "find": "[[01_Courses/2026-2/Teoria do Delito/01 Course Reader|Course Reader]]",
+      "replace": "[Course Reader](index.html)",
+      "count": 1
+    },
+    {
+      "source": "Mapa do Curso.md",
+      "find": "[[01_Courses/2026-2/Teoria do Delito/10 Classes/01 - Semana 1 - Conceito Analítico e Arquitetura do Delito|Módulos semanais]]",
+      "replace": "[Módulos semanais](unidade-01.html)",
+      "count": 1
+    },
+    {
+      "source": "Mapa do Curso.md",
+      "find": "[[01_Courses/2026-2/Teoria do Delito/20 Readings/01 - Brandão - Teorias da Conduta|Guias de leitura]]",
+      "replace": "[Guias de leitura](suplemento-16.html)",
+      "count": 1
+    },
+    {
+      "source": "Mapa do Curso.md",
+      "find": "[[01_Courses/2026-2/Teoria do Delito/04 Source Map|Source Map]]",
+      "replace": "[Web edition source record](editorial.html#sources)",
+      "count": 1
+    },
+    {
+      "source": "Mapa do Curso.md",
+      "find": "[[01_Courses/2026-2/Teoria do Delito/91 Coverage Register|Coverage Register]]",
+      "replace": "[Web edition coverage record](editorial.html#coverage)",
+      "count": 1
+    },
+    {
+      "source": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "find": "****",
+      "replace": "",
+      "count": 2
+    }
+  ],
+  "prepends": [
+    {
+      "source": "Mapa do Curso.md",
+      "text": "> [!INFO] Web edition note\n> This map adapts the original vault route to a single public reading surface. Source and coverage records are represented by the linked editorial notes below. The course prose remains in its original order.\n"
+    }
+  ],
+  "units": [
+    {
+      "id": "unidade-01",
+      "title": "Semana 01 — Conceito analítico e arquitetura do delito",
+      "source": "01 Semana 01 - Conceito analítico e arquitetura do delito.md",
+      "group": "Fundamentos"
+    },
+    {
+      "id": "unidade-02",
+      "title": "Semana 02 — Conduta, sistemas e política criminal",
+      "source": "02 Semana 02 - Conduta, sistemas e política criminal.md",
+      "group": "Fundamentos"
+    },
+    {
+      "id": "unidade-03",
+      "title": "Semana 03 — Tipo e tipicidade objetiva",
+      "source": "03 Semana 03 - Tipo e tipicidade objetiva.md",
+      "group": "Tipicidade"
+    },
+    {
+      "id": "unidade-04",
+      "title": "Semana 04 — Tipo subjetivo e dolo",
+      "source": "04 Semana 04 - Tipo subjetivo e dolo.md",
+      "group": "Tipicidade"
+    },
+    {
+      "id": "unidade-05",
+      "title": "Semana 05 — Erro de tipo e elementos subjetivos especiais",
+      "source": "05 Semana 05 - Erro de tipo e elementos subjetivos especiais.md",
+      "group": "Tipicidade"
+    },
+    {
+      "id": "unidade-06",
+      "title": "Semana 06 — Culpa, preterdolo, omissão e delitos de dever",
+      "source": "06 Semana 06 - Culpa, preterdolo, omissão e delitos de dever.md",
+      "group": "Tipicidade"
+    },
+    {
+      "id": "unidade-07",
+      "title": "Semana 07 — Nexo causal e imputação objetiva",
+      "source": "07 Semana 07 - Nexo Causal e Imputação Objetiva.md",
+      "group": "Imputação e tentativa"
+    },
+    {
+      "id": "unidade-08",
+      "title": "Semana 08 — Iter criminis, tentativa e abandono",
+      "source": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
+      "group": "Imputação e tentativa"
+    },
+    {
+      "id": "unidade-09",
+      "title": "Semana 09 — Antijuridicidade e normas de permissão",
+      "source": "09 Semana 09 - Antijuridicidade e Normas de Permissão.md",
+      "group": "Antijuridicidade"
+    },
+    {
+      "id": "unidade-10",
+      "title": "Semana 10 — Causas de justificação e excesso",
+      "source": "10 Semana 10 - Causas de Justificação e Excesso.md",
+      "group": "Antijuridicidade"
+    },
+    {
+      "id": "unidade-11",
+      "title": "Semana 11 — Culpabilidade e responsabilidade",
+      "source": "11 Semana 11 - Culpabilidade e Responsabilidade.md",
+      "group": "Culpabilidade"
+    },
+    {
+      "id": "unidade-12",
+      "title": "Semana 12 — Imputabilidade e erro de proibição",
+      "source": "12 Semana 12 - Imputabilidade e Erro de Proibição.md",
+      "group": "Culpabilidade"
+    },
+    {
+      "id": "unidade-13",
+      "title": "Semana 13 — Exigibilidade e excludentes de culpabilidade",
+      "source": "13 Semana 13 - Exigibilidade e Excludentes de Culpabilidade.md",
+      "group": "Culpabilidade"
+    },
+    {
+      "id": "unidade-14",
+      "title": "Semana 14 — Autoria, coautoria e domínio do fato",
+      "source": "14 Semana 14 - Autoria, Coautoria e Domínio do Fato.md",
+      "group": "Concurso de pessoas"
+    },
+    {
+      "id": "unidade-15",
+      "title": "Semana 15 — Participação, acessoriedade e comunicabilidade",
+      "source": "15 Semana 15 - Participação, Acessoriedade e Comunicabilidade.md",
+      "group": "Concurso de pessoas"
+    },
+    {
+      "id": "suplemento-16",
+      "title": "Adendo doutrinário — Brandão (Teorias da Conduta)",
+      "source": "16 Adendo doutrinário - Brandão (Teorias da Conduta).md",
+      "group": "Leituras complementares"
+    },
+    {
+      "id": "suplemento-17",
+      "title": "Adendo doutrinário — Roxin (Política criminal e método)",
+      "source": "17 Adendo doutrinário - Roxin (Política criminal e método).md",
+      "group": "Leituras complementares"
+    },
+    {
+      "id": "suplemento-18",
+      "title": "Adendo doutrinário — Roxin (Tipo, dever, omissão e imprudência)",
+      "source": "18 Adendo doutrinário - Roxin (Tipo, dever, omissão e imprudência).md",
+      "group": "Leituras complementares"
+    },
+    {
+      "id": "suplemento-19",
+      "title": "Adendo doutrinário — Roxin (Justificação e conflito social)",
+      "source": "19 Adendo doutrinário - Roxin (Justificação e conflito social).md",
+      "group": "Leituras complementares"
+    },
+    {
+      "id": "suplemento-20",
+      "title": "Adendo doutrinário — Roxin (Culpabilidade e desistência)",
+      "source": "20 Adendo doutrinário - Roxin (Culpabilidade e desistência).md",
+      "group": "Leituras complementares"
+    },
+    {
+      "id": "mapa-do-curso",
+      "title": "Mapa do Curso",
+      "source": "Mapa do Curso.md",
+      "group": "Orientação"
+    },
+    {
+      "id": "guia-de-estudo",
+      "title": "Guia Mestre de Estudo",
+      "source": "Guia Mestre de Estudo.md",
+      "group": "Orientação"
+    }
+  ],
+  "editorial": {
+    "review_date": "2026-09-08",
+    "review_scope": "Syllabus mapping, source-version comparison, publication hygiene, and targeted doctrinal/statutory sampling. Not comprehensive legal validation.",
+    "reference_pdf": {
+      "title": "Teoria do Delito - Complete Study Pack (Louro Classico).pdf",
+      "pages": 456,
+      "sha256": "aea1239e7798842a12472a4a442a5842aa37d97719bc285f1440b3ee1c530034"
+    },
+    "source_materials": [
+      {
+        "title": "PLANO TEORIA DO DELITO 2026 (2).docx",
+        "sha256": "75073411c9b31b9cd0b854ead731d4137891fb297b6b4fe71d9e06c25abf19a1"
+      },
+      {
+        "title": "Brandão - Teorias da Conduta.pdf",
+        "sha256": "0b6335f73e642f7d9e76048dd6fda58a2b0f24203258092b2be306caf728e238"
+      },
+      {
+        "title": "Roxin - 2002 - Política Criminal e Sistema Jurídico-penal.pdf",
+        "sha256": "56a901a6954906b1e0bf08761526dce3ef2c0785d626d7ee29144ac268170cc7"
+      }
+    ]
+  }
+}

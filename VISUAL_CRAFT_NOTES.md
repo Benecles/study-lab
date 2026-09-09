@@ -1574,3 +1574,33 @@ The initial composition needed no corrective visual change after this inspection
 
 ## Provisional rule to test
 Use a material change to signal an actual relationship: facing leaves separate problem and reasoning; unfolding adds a comparison. Avoid adding tape or panels to every paragraph. A fold-out should have a visible action label and an actual disclosure, not merely a decorative grab tab. No new owner preference is inferred before review.
+
+# First real course — 2026-09-08
+
+## Selection and editorial work
+The owner asked to use one of three existing full-semester study packs. We located the Desktop PDFs (Teoria do Delito: 456 pages; Metodologia Jurídica: 295; Controle de Constitucionalidade: 251) and traced their relocated editable sources. Three bounded Luna audits checked syllabus mapping, source coverage, prior audit claims, version identity and publication hygiene.
+
+Teoria was selected. Its 15 study units map to six official plan blocks; five addenda remain supplemental. The editable bodies were reconciled with the preserved candidate and PDF, with the live Markdown selected as canonical web input. A prior structural PASS was not treated as full legal verification. Targeted source samples were checked against the recovered Brandão/Roxin files and official Penal Code. The complete body is retained; the site does not assert exhaustive legal or Moodle coverage.
+
+Metodologia needs supplementary-link reconciliation and has missing/alternative-source coverage in several later aulas. Controle needs visible language fixes and renewed case-law checks. These are documented in private course audits rather than silently hidden by the first-course choice.
+
+## Visual direction
+The homepage is now an actual reading collection with one substantial course entry. The prior folio remains in the archive. The course contents page is a ruled file, with six syllabus groups, supplementary reading and orientation material. Long chapters use a continuous sheet and a separate paper contents slip, not a card around every paragraph. Existing callouts become attached annotations; actual source flowcharts retain all branches and revision links.
+
+Owner feedback during this build explicitly rejected the muddy background and asked for appropriate centering and visually ambitious layouts. The gray-green surround was replaced with light paper (#e9e4d8), navigation recolored for contrast, and the reading sheet centered on roomy screens. Browser geometry at 1309 CSS px measured the sheet center at 654.5 px. On narrow screens the sidebar becomes a native contents disclosure. Prose stays left-aligned for reading.
+
+## Findings from real conversion
+- A generated SVG with renamed IDs lost its scoped Mermaid CSS. External SVG images already have separate document scopes; removing the unnecessary rename restored styling. Compiled diagrams now use the paper palette and serif labels.
+- The initial diagram-edge parser missed revision edges declared on the same line as their nodes. Independent verification caught the missing R1/R3 relationships. Inline declarations are normalized before extracting the accessible edge list.
+- Filtering a chapter contents list to H2 headings exposed a missing heading-level field and emptied the navigation. Visual review caught this; the extractor was corrected and the verifier now checks the actual contents links against every H2.
+- Five old vault links in the course map were explicitly adapted to public reading/editorial routes. Two stray four-asterisk markers were removed from the publication copy of unit 04. Original files remain unchanged; corrections are recorded in the build configuration and provenance.
+- Search originally put incidental body matches first. It now ranks title and exact-phrase matches, bringing the dedicated “erro de tipo” unit to the top.
+- Long comparison tables remain readable in their own keyboard-accessible scroll regions. They do not widen the page. Diagram captions explain scrolling and provide a full-size link, with a textual alternative beside each figure.
+- CSS and script links carry content hashes; this fixed stale browser assets during review and makes later deployments predictable.
+
+## Verification and limits
+Independent ordered-block checking covered 5,089 substantive paragraphs, table rows and list items with zero unexplained omissions. All 22 selected documents are emitted. Functional contents checks cover desktop and mobile H2 navigation; link, fragment, duplicate-ID, raw-marker and private-path checks pass. All 22 source hashes match the first build report. The retained reference PDF in the study-pack QA folder matches the audited PDF hash; its former Desktop path was no longer present at final checking. No original source file was edited by this work.
+
+Browser review covered the homepage, course index, first and middle chapters, the final study guide, diagrams, a wide table, mobile contents, previous navigation, ranked search and text-size persistence. Actual viewport widths were 1309 and 354 CSS px due to harness scaling. The homepage and reading sheets had no horizontal page overflow at the narrow width. The background/centering change was visually inspected. A physical iPhone/Safari pass remains unperformed.
+
+This is a reusable reading system for the full guide, not a claim that every chapter has received a bespoke illustration or every legal claim has been verified. Future artwork should develop actual conceptual relationships in the text while preserving this reading and source structure.
