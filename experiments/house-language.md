@@ -83,3 +83,15 @@ Actual corrections: the first result slip obscured the last event and was moved 
 Bounded source review caught the need to distinguish definitive abandonment from a temporary pause, clarify the agent's causal contribution to preventing death, and qualify the attempted-crime penalty. Those points were added. The legal basis was checked against the official compiled Penal Code (arts. 14–17): https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm . The underlying complete reading is linked; original source files unchanged.
 
 Open for owner review: whether this composition feels materially convincing and whether changing the drawn cause is more useful/expressive than the original table. Do not record the specimen as endorsed. The current richer desktop spread is intentional; mobile rearranges it without determining the desktop layout.
+
+## Material-depth follow-up — 2026-09-10
+
+Owner verdict: the causal reconstruction was a much-needed improvement, but individual components lacked texture, depth and distinct identity; the background remained unresolved. That is approval of the direction, not of every component or a final house style.
+
+This focused pass gives the whole object a bounded blue bookcloth backing on warm white. This replaces the undifferentiated gray-beige surround with a material that supports the paper stack. The blue field is confined to the backing, with fine woven marks and a seam; it is not a new dark theme for the reading.
+
+Material identities: the timeline uses warm drawing stock; the causal diagram has green engineering stock, two grid scales and a quiet fold; the consequence slip has rougher grain, a torn lower edge and transparent tape. The correction uses yellow adhesive paper with a darker attachment band and a lifted edge. The legal interleaf is finer ivory paper with a double blue rule and a second leaf. The exception note is rose ruled stock with separate ink color. Shadow spread follows apparent attachment and distance instead of applying one identical shadow to every rectangle.
+
+Actual corrections: first-render timeline grain was too coarse, so its contrast was reduced. The initial medium-width title was squeezed into awkward lines, so the spread becomes a full-width title at that size. Fixed intermediate timeline column sizing and constrained the diagram to its own scrolling region. At 390 and 780 CSS px the page did not overflow horizontally. Wide rendering inspected at a requested 1440 px. Keyboard Enter changed the case and opened the comparison; the selected label and paper color agree. The full study text and causal script are unchanged; extracted HTML text was compared to the previous commit and matched exactly.
+
+The background is still a design hypothesis awaiting owner judgment. Physical-phone/Safari rendering remains untested. No claim is made that stronger grain automatically improves a component; the differences must remain legible without making the screen appear dirty.
