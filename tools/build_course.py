@@ -217,11 +217,12 @@ def make_html(course: dict[str, Any], unit: dict[str, Any], article: str, index:
     nav = "".join('<li><a href="#%s">%s</a></li>' % (h["id"], html.escape(h["title"])) for h in headings if h.get("level") == "2")
     prevnext = []
     def short(u): return re.sub(r"^Semana\s+\d+\s*[—-]\s*", "", u["title"], flags=re.I)
-    if index: prevnext.append('<a rel="prev" href="%s">← %s</a>' % (html.escape(course["units"][index - 1]["output"]), html.escape(short(course["units"][index - 1]))))
-    if index + 1 < total: prevnext.append('<a rel="next" href="%s">%s →</a>' % (html.escape(course["units"][index + 1]["output"]), html.escape(short(course["units"][index + 1]))))
+    if index: prevnext.append('<a rel="prev" href="%s">← %s</a>' % (html.escape(course["units"][index - 1]["public_output"]), html.escape(short(course["units"][index - 1]))))
+    if index + 1 < total: prevnext.append('<a rel="next" href="%s">%s →</a>' % (html.escape(course["units"][index + 1]["public_output"]), html.escape(short(course["units"][index + 1]))))
     group = unit.get("group", "")
     eyebrow = ("Unidade %d de 15" % (index + 1)) if index < 15 else (("Leitura %d de %d" % (index + 1, total)) if group == "Leituras complementares" else "Orientação")
-    return '''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>%s · %s</title><link rel="stylesheet" href="%s"></head><body class="course-reader"><a class="skip-link" href="#reading-content">Pular para a leitura</a><a class="site-return" href="index.html">← %s · índice do curso</a><div class="reader-layout"><aside class="chapter-nav"><h2>%s</h2><a href="index.html">Índice do curso</a><nav aria-label="Nesta página"><ol>%s</ol></nav></aside><main class="reading-sheet" id="reading-content"><header class="chapter-header"><p class="eyebrow">%s</p><h1>%s</h1></header><details class="mobile-contents"><summary>Conteúdo</summary><ol>%s</ol></details><article class="prose">%s</article><p class="editorial-note"><a href="editorial.html">English editorial note and source provenance</a></p><nav class="chapter-pagination" aria-label="Navegação entre unidades">%s</nav></main></div><script src="%s" defer></script></body></html>''' % (title, html.escape(course["title"]), css_url, html.escape(course["title"]), html.escape(course["title"]), nav, eyebrow, title, nav, article, " · ".join(prevnext), js_url)
+    original_note = '' if unit.get("public_output") == unit.get("output") else '<aside class="callout callout-info original-reading-note"><h2>Original unabridged reading</h2><p>This page preserves the generated source reading in full. For the authored public lesson, return to <a href="%s">%s</a>.</p></aside>' % (html.escape(unit["public_output"], quote=True), html.escape(short(unit)))
+    return '''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>%s · %s</title><link rel="stylesheet" href="%s"></head><body class="course-reader"><a class="skip-link" href="#reading-content">Pular para a leitura</a><a class="site-return" href="index.html">← %s · índice do curso</a><div class="reader-layout"><aside class="chapter-nav"><h2>%s</h2><a href="index.html">Índice do curso</a><nav aria-label="Nesta página"><ol>%s</ol></nav></aside><main class="reading-sheet" id="reading-content"><header class="chapter-header"><p class="eyebrow">%s</p><h1>%s</h1></header><details class="mobile-contents"><summary>Conteúdo</summary><ol>%s</ol></details><article class="prose">%s%s</article><p class="editorial-note"><a href="editorial.html">English editorial note and source provenance</a></p><nav class="chapter-pagination" aria-label="Navegação entre unidades">%s</nav></main></div><script src="%s" defer></script></body></html>''' % (title, html.escape(course["title"]), css_url, html.escape(course["title"]), html.escape(course["title"]), nav, eyebrow, title, nav, original_note, article, " · ".join(prevnext), js_url)
 
 
 def build(config_path: Path, source_root_override: str | None = None, output_dir_override: str | None = None, report_path_override: str | None = None) -> dict[str, Any]:
@@ -238,8 +239,10 @@ def build(config_path: Path, source_root_override: str | None = None, output_dir
         source = Path(u["source"])
         path = source if source.is_absolute() else source_root / source
         rel = path.resolve().relative_to(source_root)
-        out = f"{slugify(u.get('id', u['title']))}.html"
-        record = {"id": u.get("id", slugify(u["title"])), "title": re.sub(r"^Semana\s+\d+\s*[—-]\s*", "", u["title"], flags=re.I), "group": u.get("group", "main"), "source": rel.as_posix(), "output": out, "path": path}
+        default_output = f"{slugify(u.get('id', u['title']))}.html"
+        out = u.get("generated_output", u.get("output", default_output))
+        public_output = u.get("public_output", default_output)
+        record = {"id": u.get("id", slugify(u["title"])), "title": re.sub(r"^Semana\s+\d+\s*[—-]\s*", "", u["title"], flags=re.I), "group": u.get("group", "main"), "source": rel.as_posix(), "output": out, "public_output": public_output, "path": path}
         entries.append(record); by_source[rel.as_posix()] = record
     report = {"slug": config["slug"], "title": config.get("title", config["slug"]), "files": [], "transformations": [], "unresolved_links": [], "unresolved_markers": [], "diagram_markers": []}
     search_records: list[dict[str, Any]] = []
@@ -267,7 +270,7 @@ def build(config_path: Path, source_root_override: str | None = None, output_dir
             report["unresolved_markers"].append({"file": rec["source"], "marker": "unconverted-wikilink-or-strong-artifact"})
             raise ValueError(f"unresolved publication marker in {rec['source']}")
         if stripped: report["transformations"].append({"file": rec["source"], "type": "frontmatter", "action": "removed-from-public"})
-        report["files"].append({"source": rec["source"], "output": rec["output"], "sha256": hashlib.sha256(raw.encode()).hexdigest(), "bytes": len(raw.encode()), "word_count": len(re.findall(r"\b\w+\b", text, flags=re.UNICODE)), "frontmatter": metadata})
+        report["files"].append({"source": rec["source"], "output": rec["output"], "public_output": rec["public_output"], "sha256": hashlib.sha256(raw.encode()).hexdigest(), "bytes": len(raw.encode()), "word_count": len(re.findall(r"\b\w+\b", text, flags=re.UNICODE)), "frontmatter": metadata})
         def resolve(target: str) -> str:
             target = unquote(target)
             if target.startswith(("http://", "https://", "mailto:", "#")): return target
@@ -278,7 +281,7 @@ def build(config_path: Path, source_root_override: str | None = None, output_dir
             candidate = (Path(rec["source"]).parent / path_part).as_posix() if path_part else rec["source"]
             candidate = PurePosixPath(candidate).as_posix()
             if candidate in by_source:
-                return by_source[candidate]["output"] + (("#" + slugify(fragment)) if sep and fragment else "")
+                return by_source[candidate]["public_output"] + (("#" + slugify(fragment)) if sep and fragment else "")
             if path_part.lower().endswith((".md", ".markdown")):
                 report["unresolved_links"].append({"file": rec["source"], "target": target})
             return target
@@ -342,7 +345,7 @@ def build(config_path: Path, source_root_override: str | None = None, output_dir
         search_text = re.sub(r"\{\{mermaid:[^}]+\}\}", " diagram ", search_text)
         search_text = re.sub(r"[#>*_`|]", " ", search_text)
         search_text = re.sub(r"\s+", " ", search_text).strip()
-        search_records.append({"id": rec["id"], "title": rec["title"], "group": rec["group"], "href": rec["output"], "text": search_text})
+        search_records.append({"id": rec["id"], "title": rec["title"], "group": rec["group"], "href": rec["public_output"], "text": search_text})
         # derive heading labels from the rendered article for navigation
         headings = [{"level": level, "id": anchor, "title": html.unescape(re.sub("<[^>]+>", "", content))} for level, anchor, content in re.findall(r'<h([1-6]) id="([^"]+)"><a[^>]*>¶</a>(.*?)</h[1-6]>', article)]
         rec["path"].relative_to(source_root)  # validates source containment
@@ -350,7 +353,7 @@ def build(config_path: Path, source_root_override: str | None = None, output_dir
         report["transformations"].extend({"file": rec["source"], **x} for x in transformations)
     if report["unresolved_links"] or report["unresolved_markers"]:
         raise ValueError(json.dumps({"unresolved_links": report["unresolved_links"], "unresolved_markers": report["unresolved_markers"]}, indent=2))
-    public = {"slug": course["slug"], "title": course["title"], "description": course["description"], "units": [{k: v for k, v in rec.items() if k in ("id", "title", "group", "source", "output")} | {"word_count": next(x["word_count"] for x in report["files"] if x["output"] == rec["output"])} for rec in entries]}
+    public = {"slug": course["slug"], "title": course["title"], "description": course["description"], "units": [{"id": rec["id"], "title": rec["title"], "group": rec["group"], "source": rec["source"], "output": rec["public_output"], "word_count": next(x["word_count"] for x in report["files"] if x["output"] == rec["output"])} for rec in entries]}
     (output_dir / "catalogue.json").write_text(json.dumps(public, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "search-index.json").write_text(json.dumps(search_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     provenance = {"course": course["slug"], "editorial": config.get("editorial", {}), "sources": [{"source": x["source"], "sha256": x["sha256"], "word_count": x["word_count"]} for x in report["files"]], "transformations": report["transformations"], "diagrams": [{"path": x["path"], "sha256": hashlib.sha256((source_root / x["path"]).read_bytes()).hexdigest()} for x in report["diagram_markers"]], "builder_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
@@ -363,7 +366,7 @@ def build(config_path: Path, source_root_override: str | None = None, output_dir
             groups: list[str] = []
             for group in dict.fromkeys(r["group"] for r in entries):
                 members = [r for r in entries if r["group"] == group]
-                lis = "".join('<li><a href="%s"><span class="unit-no">%02d</span><span class="unit-title">%s</span></a></li>' % (html.escape(r["output"]), entries.index(r) + 1, html.escape(r["title"])) for r in members)
+                lis = "".join('<li><a href="%s"><span class="unit-no">%02d</span><span class="unit-title">%s</span></a></li>' % (html.escape(r["public_output"]), entries.index(r) + 1, html.escape(r["title"])) for r in members)
                 groups.append('<section class="course-group"><h3>%s</h3><ol>%s</ol></section>' % (html.escape(group), lis))
             replacement = start + "\n" + "\n".join(groups) + "\n" + end
             index = re.sub(re.escape(start) + r".*?" + re.escape(end), replacement, index, flags=re.S)

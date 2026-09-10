@@ -1649,3 +1649,7 @@ Independent ordered-block checking covered 5,089 substantive paragraphs, table r
 Browser review covered the homepage, course index, first and middle chapters, the final study guide, diagrams, a wide table, mobile contents, previous navigation, ranked search and text-size persistence. Actual viewport widths were 1309 and 354 CSS px due to harness scaling. The homepage and reading sheets had no horizontal page overflow at the narrow width. The background/centering change was visually inspected. A physical iPhone/Safari pass remains unperformed.
 
 This is a reusable reading system for the full guide, not a claim that every chapter has received a bespoke illustration or every legal claim has been verified. Future artwork should develop actual conceptual relationships in the text while preserving this reading and source structure.
+
+## 2026-09-10 — rejected framing; whole-lesson integration
+
+The user rejected the blue backing / beige sheet / white outer page treatment and the artificial prose of the isolated iter specimen. This supersedes any earlier note treating that pass as accepted. The current candidate replaces actual unit 08, retains an original-reading route, and uses a continuous substrate with local material distinctions. Research, observed references, rejected texture trials and transferable decisions: [Unit 08 research](experiments/unit08-research.md). It is awaiting user review.

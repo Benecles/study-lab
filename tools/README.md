@@ -40,3 +40,28 @@ When a course index contains `<!-- COURSE_CONTENTS_START -->` and
 those markers, preserving the surrounding template. The build fails on
 unresolved local links, diagram markers, raw wikilinks, malformed `****`
 artifacts, or an incorrect count for a declared source-specific correction.
+
+## Explicit generated/public output mapping
+
+Each unit normally writes `<id>.html`. A unit may explicitly set
+`generated_output` when the generated reading must be kept under a different
+filename, and `public_output` when catalogue, search, source links, and
+pagination should point to an authored public page. The builder does not scan
+for authored files and does not rewrite or replace them. For example, the
+Teoria do Delito manifest maps unit 08 to `unidade-08-original.html` for the
+generated, unabridged reading while retaining `unidade-08.html` as the public
+lesson route.
+
+This mapping is a provenance transformation: the original page records the
+source reading and the generated page's report/hash, while the authored page
+is the public teaching surface. The provenance and source-fidelity verifier
+must therefore compare the original generated output against its declared
+source; it cannot infer that the authored primary page is source-faithful from
+the public route alone. Keep the publication mapping in the manifest's
+`editorial` metadata so a generic rebuild carries it into `provenance.json`.
+
+After the generic course build, run `python3 tools/build_unit08.py` from the
+repository root. It renders the authored lesson from `tools/editorial/unit08.json`
+and the diagram template, refreshes asset references, and records hashes of its
+editorial input, renderer and output in course provenance. The original reading
+is generated separately; do not replace it with the authored adaptation.

@@ -1,0 +1,774 @@
+{
+  "unit": "08",
+  "title": "Iter criminis, tentativa e abandono",
+  "language": "pt-BR",
+  "editorial_note": "Consolidação substantiva da aula. As hipóteses são condicionais quando a classificação depende de tipo, dolo, prova ou causa da interrupção.",
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Fases do iter criminis",
+      "source_sections": [
+        "1. O iter criminis e suas fases"
+      ],
+      "representation": "sequence+comparison",
+      "intro": "O iter criminis descreve a passagem temporal do projeto ao resultado, mas cada etapa responde a uma pergunta jurídica diferente. A progressão não é uma cronologia neutra: cogitação, preparação, execução, consumação e exaurimento têm tratamentos distintos.",
+      "blocks": [
+        {
+          "type": "comparison",
+          "title": "Fases e perguntas jurídicas",
+          "text": "Use a tabela como mapa inicial; a classificação depende do tipo concreto e das circunstâncias.",
+          "items": [
+            {
+              "label": "Cogitação",
+              "text": "Formação da ideia ou vontade de delinquir. Em regra, não é punível: pensar em matar ou escrever um plano privado não inicia a execução."
+            },
+            {
+              "label": "Preparação",
+              "text": "Escolha de horário, obtenção de instrumento, vigilância e organização do plano. Em regra não é tentativa, mas a lei pode criar tipos autônomos de associação, porte, fabricação ou posse."
+            },
+            {
+              "label": "Execução",
+              "text": "Realização de atos ligados ao núcleo do tipo. O ato que ultrapassa a preparação pode iniciar a tentativa, conforme o tipo, o plano demonstrado, a proximidade e o risco."
+            },
+            {
+              "label": "Consumação",
+              "text": "Reunião de todos os elementos da definição legal. Se o tipo já se completou, a falta de proveito ou de consequência desejada não reabre a tentativa."
+            },
+            {
+              "label": "Exaurimento",
+              "text": "Proveito, ocultação do produto, consolidação do poder ou ampliação de efeitos posteriores à consumação. Não transforma crime consumado em tentativa."
+            }
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Cogitação, preparação e execução",
+          "text": "Cogitar não é executar: a intenção sem ato executivo não completa a estrutura do art. 14, II. Comprar veneno pode ser preparação; misturá-lo na bebida pode iniciar a execução de homicídio ou envenenamento, dependendo do tipo e do plano. Vigiar uma casa pode permanecer preparatório; entrar no quarto com instrumento apropriado pode iniciar a execução, mas não há resposta automática. Comprar uma faca, sacá-la e avançar sobre a vítima ocupam posições diferentes na linha temporal. A preparação também pode realizar um crime autônomo, mas isso não converte toda preparação em tentativa do delito-fim. A legalidade impede ampliar a tentativa por analogia desfavorável.",
+          "items": []
+        },
+        {
+          "type": "comparison",
+          "title": "A consumação muda com a estrutura do tipo",
+          "text": "Antes de classificar o tempo, reconstrua o tipo.",
+          "items": [
+            {
+              "label": "Material",
+              "text": "Pergunta-se se ocorreu o resultado naturalístico exigido, como a morte no homicídio."
+            },
+            {
+              "label": "Formal",
+              "text": "A conduta descrita pode consumar o crime ainda que o resultado ulterior imaginado não ocorra."
+            },
+            {
+              "label": "Mera conduta",
+              "text": "A realização do comportamento completa o tipo sem resultado naturalístico separado."
+            },
+            {
+              "label": "Permanente",
+              "text": "A situação típica começa em certo momento e se mantém; atos posteriores de manutenção não são necessariamente nova tentativa."
+            },
+            {
+              "label": "Omissivo",
+              "text": "É preciso localizar o dever de agir, a possibilidade de atuação e o momento em que a inação realiza o tipo."
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Fórmula de controle",
+          "text": "A ideia nunca pode delinquir. A frase resume a fronteira mínima: a tentativa exige exteriorização executiva juridicamente relevante.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Tentativa: os três requisitos do art. 14, II",
+      "source_sections": [
+        "2. Tentativa no art. 14, II"
+      ],
+      "representation": "comparison+case",
+      "intro": "A tentativa exige início da execução, não consumação e circunstâncias alheias à vontade do agente. O parágrafo único prevê, salvo disposição em contrário, a pena do crime consumado diminuída de um a dois terços.",
+      "blocks": [
+        {
+          "type": "comparison",
+          "title": "Elementos que precisam ser demonstrados",
+          "text": "A ausência de um elemento muda a classificação; o resultado não deve ser usado como atalho para concluir tentativa.",
+          "items": [
+            {
+              "label": "Início da execução",
+              "text": "O ato ultrapassou a preparação e começou a realizar o tipo. O Código Penal não oferece uma fórmula única; é necessário ligar ato, núcleo verbal, contexto e risco."
+            },
+            {
+              "label": "Não consumação",
+              "text": "Faltou um ou mais elementos do tipo consumado. Se todos se reuniram, há consumação, mesmo que o agente não venda, oculte ou obtenha o proveito final."
+            },
+            {
+              "label": "Circunstância alheia",
+              "text": "A execução não terminou por causa externa à vontade do agente. Polícia, fuga da vítima ou falha ocasional podem ser externas; uma decisão livre de parar pode conduzir ao art. 15."
+            }
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Dolo e causa da interrupção",
+          "text": "O dolo da tentativa é o dolo do crime pretendido. Não existe um “dolo de tentativa” autônomo: o agente deve dirigir sua vontade aos elementos relevantes do crime cuja execução começou. Não basta querer fazer algo ilícito. A causa externa tampouco basta sozinha. Se A atira e erra, a morte não ocorre e pode haver tentativa; se a arma falha por defeito ocasional, a tentativa pode permanecer. Mas é preciso reconstruir se A ainda queria prosseguir e se podia fazê-lo. Se A baixa a arma porque decidiu não matar, a mesma sequência pode envolver desistência voluntária.",
+          "items": []
+        },
+        {
+          "type": "comparison",
+          "title": "Por que a tentativa é punida de modo distinto?",
+          "text": "As teorias organizam a justificativa da punição, mas nenhuma substitui os requisitos legais.",
+          "items": [
+            {
+              "label": "Objetiva",
+              "text": "Parte do perigo ou da lesão objetiva inferior à consumação; explica pena menor, mas não resolve sozinha dolo e início da execução."
+            },
+            {
+              "label": "Subjetiva",
+              "text": "Enfatiza a vontade criminosa de consumar; pode aproximar intenção insuficientemente exteriorizada de tentativa punível."
+            },
+            {
+              "label": "Mista",
+              "text": "Combina desvalor da conduta e perigo para o bem; preserva exterioridade e direção subjetiva, exigindo delimitação cuidadosa."
+            }
+          ]
+        },
+        {
+          "type": "case",
+          "title": "Porta arrombada e disparo",
+          "text": "Duas ações físicas podem receber classificações diferentes conforme tipo e dolo.",
+          "items": [
+            {
+              "label": "Porta arrombada",
+              "facts": "A força a porta de uma casa para furtar, mas não entra.",
+              "analysis": "Pode haver furto tentado se a execução já começou, dano consumado pela porta, preparação para outro delito ou conduta atípica. É preciso separar tipos e causalidade."
+            },
+            {
+              "label": "Disparo",
+              "facts": "A dispara, mas a vítima não morre.",
+              "analysis": "Pode haver tentativa de homicídio, lesão, perigo comum ou fato justificado. Tipo, dolo e causa da interrupção precisam ser reconstruídos antes da etiqueta."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Crime impossível: a exigência de impossibilidade absoluta",
+      "source_sections": [
+        "3. Crime impossível e art. 17",
+        "8. Tentativa e dolo"
+      ],
+      "representation": "comparison+case",
+      "intro": "O art. 17 afasta a tentativa quando, por ineficácia absoluta do meio ou absoluta impropriedade do objeto, é impossível consumar o crime. O termo “absoluta” impede transformar qualquer falha ou dificuldade em crime impossível.",
+      "blocks": [
+        {
+          "type": "comparison",
+          "title": "Absoluto e contingente",
+          "text": "A classificação depende da capacidade estrutural do meio ou do objeto, não apenas do resultado que ocorreu.",
+          "items": [
+            {
+              "label": "Meio absolutamente ineficaz",
+              "text": "Não pode produzir a consumação em nenhuma condição relevante; a tentativa punível é afastada."
+            },
+            {
+              "label": "Objeto absolutamente impróprio",
+              "text": "O objeto não pode realizar o tipo, como pode ocorrer ao tentar matar cadáver acreditando que está vivo."
+            },
+            {
+              "label": "Falha ou inadequação ocasional",
+              "text": "Arma que falha por defeito contingente ou objeto ausente por circunstância passageira pode preservar tentativa; é preciso verificar os fatos."
+            },
+            {
+              "label": "Erro do agente",
+              "text": "Erro sobre pessoa viva, coisa alheia ou objeto proibido altera a representação do tipo. Erro e impossibilidade podem aparecer juntos, mas não são sinônimos."
+            }
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Perspectiva ex ante e conhecimento posterior",
+          "text": "O intérprete pode saber depois que a arma estava descarregada, que a vítima já estava morta ou que a polícia havia chegado. Esse conhecimento não apaga automaticamente o estado cognitivo do agente, mas a crença do agente também não transforma impossibilidade absoluta em perigo real. Uma análise ex ante pergunta o que a conduta representava no momento executivo; uma análise ex post verifica capacidade efetiva do meio ou objeto. O art. 17 exige combinar as perspectivas: o dolo pode estar dirigido ao crime, mas a lei não pune tentativa quando a consumação era absolutamente impossível.",
+          "items": []
+        },
+        {
+          "type": "case",
+          "title": "Arma sem munição e cadáver",
+          "text": "A capacidade do meio e a condição do objeto devem ser avaliadas separadamente.",
+          "items": [
+            {
+              "label": "Arma descarregada",
+              "facts": "A aponta arma sem munição contra B acreditando que está carregada.",
+              "analysis": "Se a ineficácia é absoluta, o art. 17 pode afastar a tentativa; se a falha foi ocasional ou a arma podia ser carregada em segundos, a tentativa pode permanecer."
+            },
+            {
+              "label": "Cadáver",
+              "facts": "A atira em cadáver acreditando que B está dormindo.",
+              "analysis": "O objeto pode ser absolutamente impróprio, mas a classificação exige certeza sobre o estado do objeto e a estrutura do tipo. Vontade grave não substitui possibilidade executória."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Art. 15: desistência voluntária e arrependimento eficaz",
+      "source_sections": [
+        "4. Art. 15: desistência voluntária e arrependimento eficaz",
+        "9. Desistência: prova e fronteiras"
+      ],
+      "representation": "comparison+case",
+      "intro": "O art. 15 trata do agente que voluntariamente desiste de prosseguir na execução ou impede que o resultado se produza. Nessa hipótese, responde apenas pelos atos já praticados. A fronteira com a tentativa está na causa e no momento da interrupção.",
+      "blocks": [
+        {
+          "type": "comparison",
+          "title": "Institutos próximos",
+          "text": "A comparação deve ser feita depois de reconstruir a sequência causal.",
+          "items": [
+            {
+              "label": "Desistência voluntária",
+              "text": "Antes da consumação, o agente interrompe a execução quando ainda podia prosseguir. O motivo pode ser consciência, medo, pena, vergonha, cálculo ou mudança de ideia."
+            },
+            {
+              "label": "Arrependimento eficaz",
+              "text": "Depois de atos capazes de produzir o resultado, o agente neutraliza o curso causal e impede eficazmente sua produção. A intervenção precisa ser voluntária, causal e efetiva."
+            },
+            {
+              "label": "Tentativa",
+              "text": "A execução não se completa por circunstância alheia. Polícia, fuga da vítima ou terceiro podem impedir o resultado contra a vontade do agente."
+            },
+            {
+              "label": "Arrependimento posterior",
+              "text": "Depois da consumação, reparação ou restituição em condições do art. 16 não reabre a tentativa nem se confunde com o art. 15."
+            }
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Voluntariedade e eficácia",
+          "text": "Voluntariedade não exige motivo nobre nem ausência de qualquer pressão. A pergunta é se a pressão retirou a possibilidade concreta de continuar ou apenas tornou o crime menos conveniente. Se a polícia bate à porta e o agente sai, a intervenção pode ser externa; se o agente ouve a polícia distante e decide não prosseguir embora ninguém o impeça, a conclusão exige análise mais fina. No arrependimento eficaz, a ação deve impedir causalmente o resultado: A fornece veneno, arrepende-se e fornece antídoto eficaz. Chamar socorro pode ser suficiente se evita a morte, mas é insuficiente se a vítima já estava salva por terceiros ou se o resultado era inevitável.",
+          "items": []
+        },
+        {
+          "type": "note",
+          "title": "Atos já praticados",
+          "text": "Responder pelos atos já praticados impede impunidade total, mas não cria delito residual. Se A desiste de matar e causa lesão, responde pela lesão conforme dolo, culpa e tipo. Dano ou violação de domicílio consumados durante a execução permanecem em exame; se só houve compra de instrumento sem tipo autônomo, não se inventa uma punição.",
+          "items": []
+        },
+        {
+          "type": "case",
+          "title": "Intervenção depois do ato executivo",
+          "text": "A intervenção só produz o art. 15 se for voluntária, causal e eficaz.",
+          "items": [
+            {
+              "label": "Antídoto",
+              "facts": "A administra veneno, arrepende-se e fornece antídoto eficaz.",
+              "analysis": "Há base para discutir arrependimento eficaz se a própria ação impediu a morte; os atos já praticados permanecem em exame."
+            },
+            {
+              "label": "Médico e frasco",
+              "facts": "B ingere veneno e começa a passar mal; A confessa ao médico e entrega o frasco, permitindo tratamento eficaz.",
+              "analysis": "Reconstrua a cadeia: ingestão, sintomas, confissão, entrega do frasco, tratamento e sobrevivência. O homicídio pode não se consumar por intervenção de A se essa entrega foi causal para o tratamento; se B já estava salvo ou o tratamento veio de terceiro, falta arrependimento eficaz. Não há imunidade geral para atos independentes."
+            },
+            {
+              "label": "Socorro tardio",
+              "facts": "A fere B mortalmente, chama socorro, mas B morre.",
+              "analysis": "O arrependimento não foi eficaz e o homicídio pode estar consumado. Chamar ajuda depois não reabre a tentativa."
+            },
+            {
+              "label": "Tratamento de terceiro",
+              "facts": "A fornece substância letal e pede antídoto, mas B já recebeu tratamento de terceiro.",
+              "analysis": "O resultado não ocorrer por terceiro não produz automaticamente arrependimento eficaz; falta demonstrar intervenção causal própria."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Roxin: abandono, fato global e retorno ao direito",
+      "source_sections": [
+        "5. Roxin e a desistência como fato global"
+      ],
+      "representation": "prose+comparison+decision",
+      "intro": "Roxin, nas páginas indicadas pela fonte, critica ler a desistência apenas como causa pessoal separada do fato tentado. Tentativa e desistência devem ser avaliadas como momentos do mesmo processo, perguntando-se se a conduta arrependida ainda necessita de pena. Essa é uma lente comparada; o ponto de partida jurídico brasileiro continua sendo o art. 15.",
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Retorno ao direito",
+          "text": "Lang-Hinrichsen descreve a transformação de uma vontade voltada contra o bem em vontade fiel ao direito e orientada a evitar a lesão. Roxin aproxima-se dessa ideia no plano da culpabilidade ou responsabilidade e dos fins da pena. O agente que ergue o braço para golpe mortal e o abaixa no último instante pode revelar abandono juridicamente significativo mesmo sem motivo moral puro. A questão não é exigir espontaneidade psicológica absoluta, mas avaliar o significado normativo da interrupção dentro do empreendimento.",
+          "items": []
+        },
+        {
+          "type": "comparison",
+          "title": "O que a descoberta revela?",
+          "text": "A mesma observação factual pode apoiar conclusões distintas; preserve a condição que decide o caso.",
+          "items": [
+            {
+              "label": "Câmera percebida, execução ainda possível",
+              "text": "Pode haver abandono voluntário se o agente ainda podia prosseguir e decidiu não fazê-lo, mas a descoberta também pode demonstrar racionalidade criminosa, e não retorno à legalidade."
+            },
+            {
+              "label": "Câmera torna execução impossível",
+              "text": "A interrupção tende a ser externa, pois não decorre de livre abandono do empreendimento executável."
+            },
+            {
+              "label": "Troca de instrumento ou método",
+              "text": "Pode ser pausa ou continuidade do mesmo plano; não se presume abandono definitivo só porque o primeiro instrumento foi deixado."
+            },
+            {
+              "label": "Vários golpes ou projéteis",
+              "text": "Não se deve inventar tentativa falha pelo número planejado de golpes. Pergunte se o agente ainda podia continuar e o que significa o abandono do empreendimento concreto."
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Fronteira brasileira",
+          "text": "A terminologia alemã ilumina voluntariedade, fato global e fins da pena, mas não substitui a lei brasileira nem resolve sozinha a jurisprudência nacional. Se houver conflito entre uma construção comparada e o art. 15, declare o conflito e consulte fonte brasileira adicional.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Início da execução",
+      "source_sections": [
+        "6. Início da execução: critérios em confronto",
+        "7. Consumação, omissão e permanência"
+      ],
+      "representation": "comparison+sequence+prose",
+      "intro": "O início da execução é o principal limite entre preparação e tentativa. Nenhum critério decide sozinho: a análise deve ligar ato, tipo, plano demonstrado, proximidade e risco juridicamente relevante.",
+      "blocks": [
+        {
+          "type": "comparison",
+          "title": "Critérios em confronto",
+          "text": "Use-os em conjunto e registre também a resposta contrária.",
+          "items": [
+            {
+              "label": "Objetivo-formal",
+              "text": "Pergunta se o agente começou o núcleo verbal do tipo. Protege contra punição da preparação distante, mas pode chegar tarde em crimes cuja execução se inicia antes da conclusão do verbo."
+            },
+            {
+              "label": "Objetivo-material",
+              "text": "Pergunta se o ato criou perigo imediato ou se aproximou do bem. Capta execuções anteriores, mas pode ampliar a tentativa sem fronteira clara."
+            },
+            {
+              "label": "Subjetivo",
+              "text": "Pergunta o que o agente planejava realizar. Evidencia o sentido do ato, mas intenção não demonstrada não deve transformar preparação em execução."
+            },
+            {
+              "label": "Misto",
+              "text": "Combina tipo, plano, contexto e proximidade. É útil, mas exige justificar cada dado sem abandonar o art. 14, II."
+            }
+          ]
+        },
+        {
+          "type": "sequence",
+          "title": "Teste em quatro perguntas",
+          "text": "Registre a conclusão e a alternativa mais restritiva compatível com a legalidade.",
+          "items": [
+            {
+              "label": "1",
+              "text": "Qual ato foi praticado e qual elemento do tipo ele começa a realizar?"
+            },
+            {
+              "label": "2",
+              "text": "Visto no contexto, o ato já cria risco juridicamente relevante para o bem?"
+            },
+            {
+              "label": "3",
+              "text": "Ele é explicável apenas como preparação ou já pertence ao empreendimento executivo?"
+            },
+            {
+              "label": "4",
+              "text": "A conclusão depende de intenção que o fato não demonstra? Se sim, procure dado externo de confirmação."
+            }
+          ]
+        },
+        {
+          "type": "prose",
+          "title": "Execução por etapas, omissão e permanência",
+          "text": "Alguns crimes se desenvolvem por sequência: abrir uma fechadura pode iniciar o furto antes da retirada da coisa; disparar contra uma pessoa pode ser execução ainda que a bala erre; ingerir substância pode ser execução de envenenamento ainda que antídoto posterior impeça a morte. Na omissão, ficar parado não basta: é necessário dever de agir, possibilidade concreta e momento em que a inação realiza o tipo. A palavra “deixar” também pode descrever ação anterior ou omissão posterior. Nos crimes permanentes, a consumação pode manter-se no tempo; a tentativa termina quando a situação típica se consolida, e a manutenção não é automaticamente nova tentativa.",
+          "items": []
+        },
+        {
+          "type": "prose",
+          "title": "Reconstruir o tipo antes do fato",
+          "text": "O homicídio exige matar alguém; o furto exige subtração de coisa alheia móvel e seus elementos subjetivos; crimes sexuais e outros tipos têm núcleos e requisitos próprios conforme a lei vigente. Escreva o tipo em linguagem de trabalho, enumere os elementos já presentes e registre o que faltava. Se faltava apenas o resultado naturalístico, pode haver tentativa. Se faltava elemento objetivo que não poderia surgir, pode haver atipicidade ou crime impossível. Se todos os elementos se reuniram, há consumação, ainda que outras consequências desejadas não ocorram. Esse método impede usar o homicídio como modelo universal e evita confundir proximidade física com início automático da execução.",
+          "items": []
+        },
+        {
+          "type": "note",
+          "title": "Permanência e momento do art. 15",
+          "text": "Nos crimes permanentes, a situação típica pode manter-se no tempo. A tentativa termina quando a situação se consolida; atos posteriores de manutenção não são automaticamente nova tentativa. A desistência deve ser localizada antes da consumação ou, quando a estrutura do tipo permitir, na interrupção eficaz do processo. Não basta dizer que o agente parou: é preciso indicar quando a consumação começou, se ainda podia interromper a situação e quais efeitos o art. 15 pode produzir.",
+          "items": []
+        },
+        {
+          "type": "case",
+          "title": "Atos contrastivos",
+          "text": "Comprar uma faca é preparação; sacá-la e avançar sobre a vítima pode iniciar execução de lesão ou homicídio conforme o dolo. Alugar carro para fugir é preparação; dirigi-lo contra barreira para abrir caminho pode ser execução de crime contra vida ou patrimônio conforme alvo e tipo.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Dolo, erro e prova da tentativa",
+      "source_sections": [
+        "8. Tentativa e dolo",
+        "9. Desistência: prova e fronteiras",
+        "10. Casos trabalhados",
+        "11. Prova e imputação",
+        "12. Legalidade, redução e justificação"
+      ],
+      "representation": "case+comparison+note",
+      "intro": "A tentativa costuma depender de prova circunstancial e de imputação por trechos. O resultado, a vontade grave ou uma única evidência não resolvem sozinhos dolo, início da execução, impossibilidade ou voluntariedade.",
+      "blocks": [
+        {
+          "type": "prose",
+          "title": "Dolo, dolo eventual e erro",
+          "text": "Se A quer matar B e causa lesão antes de ser impedido, a análise pode envolver tentativa de homicídio e lesão já realizada, conforme tipo e concurso aplicáveis. Se A queria apenas ferir e a vítima morre por circunstância superveniente, tentativa de homicídio não surge automaticamente.\n\nO dolo eventual exige cuidado: sua compatibilidade com tentativa de crimes de resultado depende da estrutura do tipo, da teoria adotada e da interpretação legal. Erro sobre pessoa viva ou cadáver, coisa própria ou alheia, ou objeto lícito e proibido altera a representação do agente. O art. 17 trata da capacidade de consumação; o erro trata da representação; não são sinônimos.",
+          "items": []
+        },
+        {
+          "type": "comparison",
+          "title": "Prova: fato favorável e cautela",
+          "text": "Para cada hipótese, compare o indício que aponta para a categoria e o dado que impede conclusão automática.",
+          "items": [
+            {
+              "label": "Início da execução",
+              "text": "Ato ligado ao núcleo e risco imediato; cautela: ato ainda reversível e distante."
+            },
+            {
+              "label": "Circunstância alheia",
+              "text": "Terceiro, polícia ou defeito ocasional; cautela: decisão livre de parar."
+            },
+            {
+              "label": "Crime impossível",
+              "text": "Incapacidade estrutural do meio ou objeto; cautela: falha contingente."
+            },
+            {
+              "label": "Desistência",
+              "text": "Agente podia prosseguir e abandonou; cautela: força externa impediu."
+            },
+            {
+              "label": "Arrependimento eficaz",
+              "text": "Ação causal impediu o resultado; cautela: resultado inevitável ou impedido por terceiro."
+            }
+          ]
+        },
+        {
+          "type": "case",
+          "title": "Casos condicionais e fronteiras",
+          "text": "Leia cada hipótese com fatos e análise separados; a conclusão depende do tipo, dolo, prova e causa da interrupção.",
+          "items": [
+            {
+              "label": "Primeiro golpe",
+              "facts": "A desfere golpe com intenção de matar e para porque se arrepende, embora pudesse continuar.",
+              "analysis": "Há base para abandono voluntário e aplicação do art. 15; pela leitura de Roxin, o gesto pode significar retorno ao direito. Os atos já praticados continuam imputáveis."
+            },
+            {
+              "label": "Câmera e polícia",
+              "facts": "A vê uma câmera e sai; em outro cenário, entra na casa com arma e é interrompido pela polícia antes do disparo.",
+              "analysis": "A câmera exige decidir se tornou execução impossível ou apenas mais arriscada; a polícia é externa, mas só há tentativa se início da execução estiver demonstrado."
+            },
+            {
+              "label": "Abandono de B e agressão a C",
+              "facts": "A espera B para matá-lo, vê B acompanhado de C e desiste por consciência; depois agride C para abrir caminho.",
+              "analysis": "Pode haver desistência quanto ao homicídio de B, se A ainda podia prosseguir. A agressão a C é nova conduta e deve ser analisada separadamente; a desistência não a cobre."
+            },
+            {
+              "label": "Quarto vazio",
+              "facts": "A atira no quarto acreditando que B dorme, mas B saiu horas antes.",
+              "analysis": "O art. 17 exige saber se a impropriedade do objeto é absoluta na estrutura do tipo. O ato armado pode configurar outro delito se seus elementos estiverem presentes."
+            },
+            {
+              "label": "Arma, outro método e polícia",
+              "facts": "A arma falha; A procura outra arma, percebe a polícia e abandona.",
+              "analysis": "A falha inicial pode sustentar tentativa se contingente; buscar outra demonstra continuidade; a polícia pode tornar a interrupção externa. Cada trecho deve ser imputado por sua função."
+            },
+            {
+              "label": "Porta e ausência de moradores",
+              "facts": "A força uma porta para furtar, encontra interior vazio e vai embora.",
+              "analysis": "A ausência de moradores não torna automaticamente o crime impossível. Se a execução começou, a decisão voluntária pode ter efeitos do art. 15, sem apagar dano à porta."
+            },
+            {
+              "label": "Incêndio e sirenes",
+              "facts": "A começa a incendiar uma casa, ouve sirenes e tenta apagar o fogo.",
+              "analysis": "Se efetivamente impede o resultado, o arrependimento eficaz pode ser discutido; se apenas torna a continuação arriscada, a voluntariedade normativa exige análise."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Casos, legalidade e pontes com outras semanas",
+      "source_sections": [
+        "10. Casos trabalhados",
+        "11. Prova e imputação",
+        "12. Legalidade, redução e justificação",
+        "13. Método e integração"
+      ],
+      "representation": "case+note+comparison",
+      "intro": "Os casos devem ser lidos como hipóteses condicionais. A legalidade limita tanto a tentativa quanto o abandono, e a análise pode cruzar causalidade, antijuridicidade, excesso e culpabilidade.",
+      "blocks": [
+        {
+          "type": "case",
+          "title": "Inventário de casos e revisão factual",
+          "text": "Não escolha uma etiqueta para a sequência inteira: cada trecho deve ser imputado conforme sua função.",
+          "items": [
+            {
+              "label": "Comprar e misturar",
+              "facts": "A compra veneno e depois mistura a substância na bebida de B, mas B não bebe.",
+              "analysis": "A compra é preparação; a mistura pode iniciar execução. Retirar voluntariamente a bebida permite discutir art. 15; impedir por terceiro aponta para circunstância alheia."
+            },
+            {
+              "label": "Polícia antes do disparo",
+              "facts": "A entra na casa com arma e é interrompido pela polícia.",
+              "analysis": "A chegada policial é externa, mas tentativa só existe se o início da execução estiver demonstrado."
+            },
+            {
+              "label": "Sequência de falhas",
+              "facts": "A arma falha, A busca outra, percebe a polícia e abandona.",
+              "analysis": "Falha contingente pode sustentar tentativa; busca demonstra continuidade; polícia pode tornar a interrupção externa. Se a arma era absolutamente ineficaz, art. 17 pode afastar tentativa."
+            },
+            {
+              "label": "Coautoria",
+              "facts": "Um participante interrompe sua contribuição enquanto os demais continuam.",
+              "analysis": "A desistência de um agente não elimina automaticamente responsabilidade dos demais. Examine sua contribuição, eventual impedimento do resultado e atos praticados, reconferindo legislação e jurisprudência aplicáveis."
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Legalidade, justificação e individualização",
+          "text": "Nulla poena impede criar tentativa onde a execução não começou ou ampliar punição por analogia desfavorável. A tentativa pode ocorrer em contexto de legítima defesa, mas a causa de justificação pode excluir antijuridicidade se seus requisitos estiverem preenchidos; atirar em cadáver não é legítima defesa. O art. 14, parágrafo único, prevê redução de um a dois terços, mas a fração depende da proximidade da consumação, risco, caminho percorrido, culpabilidade e demais circunstâncias segundo o direito aplicável. O art. 15 limita a resposta aos atos praticados; o art. 17 exclui tentativa por impossibilidade absoluta.",
+          "items": []
+        },
+        {
+          "type": "case",
+          "title": "Defesa real, descriminante putativa e impossibilidade",
+          "text": "A causa de justificação e o crime impossível respondem a perguntas diferentes.",
+          "items": [
+            {
+              "label": "Defesa real",
+              "facts": "A dispara contra agressor real para repelir agressão injusta, mas erra o tiro.",
+              "analysis": "Pode ter iniciado descritivamente execução de crime contra a vida, mas a legítima defesa exclui antijuridicidade se seus requisitos estiverem presentes."
+            },
+            {
+              "label": "Descriminante putativa",
+              "facts": "A acredita estar sendo atacado e golpeia pessoa ou situação que não constitui agressão real.",
+              "analysis": "A hipótese envolve erro sobre fato justificante, questão distinta de iniciar deliberadamente um ataque e depois desistir; a imputação depende do regime jurídico do erro."
+            },
+            {
+              "label": "Cadáver",
+              "facts": "A atira em cadáver acreditando que a vítima está viva.",
+              "analysis": "A hipótese pode envolver impossibilidade absoluta, não legítima defesa. Bem protegido, perigo e finalidade devem ser separados."
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "title": "Pontes com outras semanas",
+          "text": "A sequência semanal é ferramenta de aprendizagem, não hierarquia rígida.",
+          "items": [
+            {
+              "label": "Semana 7",
+              "text": "Causalidade e risco: o resultado pode ser atribuído?"
+            },
+            {
+              "label": "Semana 8",
+              "text": "A execução começou e não terminou? Tentativa e abandono."
+            },
+            {
+              "label": "Semana 9",
+              "text": "O fato típico é permitido? Antijuridicidade."
+            },
+            {
+              "label": "Semana 10",
+              "text": "A permissão cobria toda a reação? Excesso."
+            },
+            {
+              "label": "Semana 11",
+              "text": "A pena é necessária e o agente é responsável? Culpabilidade. A sequência pode exigir simultaneamente dolo, causalidade, justificação, erro e excesso."
+            },
+            {
+              "label": "Integração",
+              "text": "Causalidade e risco delimitam atribuição do resultado; antijuridicidade testa a permissão; excesso verifica se a reação ultrapassou seus limites; culpabilidade trata da responsabilidade e necessidade de pena."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Método de resposta e recuperação ativa",
+      "source_sections": [
+        "13. Método de resposta e integração",
+        "14. Recuperação ativa e síntese"
+      ],
+      "representation": "sequence+comparison+questions",
+      "intro": "A melhor análise começa pelo tipo consumado e retorna no tempo. Descreva antes de valorar, localize a norma antes de concluir e mostre a transição entre preparação e execução.",
+      "blocks": [
+        {
+          "type": "sequence",
+          "title": "Seis movimentos para resolver um caso",
+          "text": "A sequência permite controlar a imputação e indicar o fato que mudaria a conclusão.",
+          "items": [
+            {
+              "label": "1. Tipo",
+              "text": "Descreva o tipo consumado, núcleo, elementos e resultado exigido."
+            },
+            {
+              "label": "2. Tempo",
+              "text": "Reconstrua decisão, preparação, primeiro ato executivo, atos intermediários, consumação possível, interrupção e exaurimento."
+            },
+            {
+              "label": "3. Execução",
+              "text": "Marque o primeiro ato que começa a realizar o tipo e justifique com tipo, plano, contexto e risco."
+            },
+            {
+              "label": "4. Resultado",
+              "text": "Explique consumação, impossibilidade ou não consumação; não use o resultado como atalho."
+            },
+            {
+              "label": "5. Interrupção",
+              "text": "Classifique causa externa, desistência voluntária ou arrependimento eficaz, demonstrando vontade, causalidade e eficácia."
+            },
+            {
+              "label": "6. Consequência",
+              "text": "Delimite atos autônomos, absorção ou concurso e indique fonte normativa. Escreva: se X não for demonstrado, a conclusão muda em Y."
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "title": "Variações para recuperação",
+          "text": "Responda primeiro sem consultar a aula e depois identifique fato, norma e categoria.",
+          "items": [
+            {
+              "label": "Corda e observação",
+              "text": "Comprar corda, observar B, levá-la ao local e voltar por mudança de ideia não é tentativa de homicídio sem início de execução; eventual tipo autônomo deve ser identificado."
+            },
+            {
+              "label": "Sufocamento interrompido",
+              "text": "Começar a sufocar, soltar por remorso e chamar ajuda pode sustentar art. 15 se B sobreviver por essa ação; atos praticados permanecem em exame."
+            },
+            {
+              "label": "Arma recarregável",
+              "text": "Apontar arma sem munição, apertar gatilho e fugir pode ser tentativa por falha contingente; art. 17 exige verificar ineficácia absoluta."
+            },
+            {
+              "label": "Tratamento de terceiro",
+              "text": "Pedir antídoto quando B já recebeu tratamento de terceiro não produz automaticamente arrependimento eficaz; falta causalidade própria."
+            },
+            {
+              "label": "Objeto preso",
+              "text": "Invadir para subtrair objeto preso e abandonar exige separar impossibilidade absoluta, dificuldade contingente e voluntariedade."
+            },
+            {
+              "label": "Incêndio e sirenes",
+              "text": "Começar incêndio, ouvir sirenes e apagar pode ser arrependimento eficaz se impedir resultado; só tornar continuação arriscada exige análise normativa."
+            }
+          ]
+        },
+        {
+          "type": "questions",
+          "title": "Perguntas de recuperação",
+          "text": "Responda primeiro sem consultar o texto; depois identifique fato, norma e categoria.",
+          "items": [
+            {
+              "label": "1",
+              "text": "Quais são as fases do iter criminis?"
+            },
+            {
+              "label": "2",
+              "text": "Por que cogitação não é tentativa?"
+            },
+            {
+              "label": "3",
+              "text": "Como distinguir preparação e execução?"
+            },
+            {
+              "label": "4",
+              "text": "O que exige o art. 14, II?"
+            },
+            {
+              "label": "5",
+              "text": "Quando há consumação e quando há exaurimento?"
+            },
+            {
+              "label": "6",
+              "text": "O que é circunstância alheia?"
+            },
+            {
+              "label": "7",
+              "text": "Como o art. 17 limita a punição?"
+            },
+            {
+              "label": "8",
+              "text": "Qual é o papel do dolo na tentativa?"
+            },
+            {
+              "label": "9",
+              "text": "Qual a diferença entre desistência e arrependimento eficaz?"
+            },
+            {
+              "label": "10",
+              "text": "O que significa responder pelos atos já praticados?"
+            },
+            {
+              "label": "11",
+              "text": "Como Roxin trata o fato global?"
+            },
+            {
+              "label": "12",
+              "text": "Por que consciência pode gerar voluntariedade?"
+            },
+            {
+              "label": "13",
+              "text": "Por que observação pode conservar racionalidade criminosa?"
+            },
+            {
+              "label": "14",
+              "text": "O que é abandono definitivo?"
+            },
+            {
+              "label": "15",
+              "text": "Por que uma falha externa não é automaticamente crime impossível?"
+            },
+            {
+              "label": "16",
+              "text": "Como analisar machadada, vários projéteis e troca de método?"
+            },
+            {
+              "label": "17",
+              "text": "Quando a intervenção externa afasta o art. 15?"
+            },
+            {
+              "label": "18",
+              "text": "Como erro e impossibilidade se distinguem?"
+            },
+            {
+              "label": "19",
+              "text": "Como nulla poena limita correções judiciais?"
+            },
+            {
+              "label": "20",
+              "text": "Que fonte sustenta cada conclusão?"
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Síntese para retenção",
+          "text": "Cogitação não é execução; tentativa não é crime impossível; desistência não é fracasso externo; arrependimento eficaz não é simples emoção nem arrependimento posterior. O art. 14 delimita consumação e tentativa, o art. 15 limita a resposta aos atos já praticados quando há abandono voluntário ou impedimento eficaz, e o art. 17 exclui tentativa diante de impossibilidade absoluta. Roxin oferece uma leitura normativa comparada do abandono como fato global, sem deslocar o Código Penal brasileiro como referência central.",
+          "items": []
+        }
+      ]
+    }
+  ]
+}

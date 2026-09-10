@@ -21,7 +21,23 @@
         "title": "Roxin - 2002 - Política Criminal e Sistema Jurídico-penal.pdf",
         "sha256": "56a901a6954906b1e0bf08761526dce3ef2c0785d626d7ee29144ac268170cc7"
       }
-    ]
+    ],
+    "unit08_publication": {
+      "primary_route": "unidade-08.html",
+      "primary_status": "authored adaptation",
+      "original_route": "unidade-08-original.html",
+      "original_status": "preserved generated unabridged reading",
+      "former_atelier_route": "atelier/iter.html",
+      "former_atelier_status": "redirects to the authored primary lesson",
+      "source_fidelity_note": "The source hash below identifies the original Markdown input. It does not establish full source fidelity or comprehensive legal validation for the authored primary lesson.",
+      "editorial_data": "../../tools/editorial/unit08.json",
+      "editorial_sha256": "779d60042a40f2d6f201932b2895767838840ec2d06086a0168321e0b2ac0d10",
+      "renderer": "../../tools/build_unit08.py",
+      "renderer_sha256": "96c7894602c636ac81c99720ebe79c8e9e7916230c3d1fb5c3ef1f5fb36cf6b7",
+      "authored_html_sha256": "fe7d591fc5dffcbcc434c59beef0d82fef8e4c289ef81f055990af4195af307b",
+      "source_sections": 14,
+      "authored_sections": 9
+    }
   },
   "sources": [
     {

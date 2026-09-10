@@ -95,7 +95,9 @@
       "id": "unidade-08",
       "title": "Semana 08 — Iter criminis, tentativa e abandono",
       "source": "08 Semana 08 - Iter Criminis, Tentativa e Abandono.md",
-      "group": "Imputação e tentativa"
+      "group": "Imputação e tentativa",
+      "generated_output": "unidade-08-original.html",
+      "public_output": "unidade-08.html"
     },
     {
       "id": "unidade-09",
@@ -203,6 +205,15 @@
         "title": "Roxin - 2002 - Política Criminal e Sistema Jurídico-penal.pdf",
         "sha256": "56a901a6954906b1e0bf08761526dce3ef2c0785d626d7ee29144ac268170cc7"
       }
-    ]
+    ],
+    "unit08_publication": {
+      "primary_route": "unidade-08.html",
+      "primary_status": "authored adaptation",
+      "original_route": "unidade-08-original.html",
+      "original_status": "preserved generated unabridged reading",
+      "former_atelier_route": "atelier/iter.html",
+      "former_atelier_status": "redirects to the authored primary lesson",
+      "source_fidelity_note": "The source hash below identifies the original Markdown input. It does not establish full source fidelity or comprehensive legal validation for the authored primary lesson."
+    }
   }
 }
