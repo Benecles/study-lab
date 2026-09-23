@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADI: cabimento · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 20 — ADI: cabimento nas espécies normativas. O que pode e o que não pode ser objeto de ação direta de inconstitucionalidade: leis, decretos, súmulas, tratados, normas pré-constitucionais e a jurisprudência do STF.">
+<link rel="stylesheet" href="assets/controle.css">
+<style>
+  .funil{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border:1.5px solid var(--ink);background:var(--paper)}
+  .funil>div{padding:16px 18px;font-size:17px;line-height:1.5}
+  .funil>div+div{border-left:1.5px solid var(--ink)}
+  .funil .label{display:block;margin-bottom:6px}
+  .funil .cabe .label{color:var(--conc)} .funil .naocabe .label{color:var(--dif)}
+  .funil ul{margin:6px 0 0;padding-left:18px}
+  .funil li{margin:0 0 4px}
+</style>
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 20 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · VI. Ações diretas: a ADI</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">A lei sob suspeita,</span><span class="split">posta à prova.</span></h1>
+  <p class="deck">Antes de perguntar se uma lei é inconstitucional, o STF pergunta algo mais simples: essa lei pode, sequer, ser examinada por ADI? Esta aula percorre os testes de cabimento — forma, espécie, abstração, momento — que separam o que entra na ação direta do que precisa de outro caminho.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 150" aria-hidden="true">
+    <path class="draw" d="M0 75H330" stroke-width="2" fill="none" style="stroke:var(--ink-2)"/>
+    <rect x="290" y="52" width="90" height="46" fill="none" stroke-width="2" class="draw" style="stroke:var(--ink)"/>
+    <path class="draw" d="M380 75C470 75 480 30 580 30H1060" stroke-width="3" fill="none" style="stroke:var(--conc)"/>
+    <path class="draw" d="M380 75C470 75 480 120 580 120H1060" stroke-width="3" fill="none" stroke-dasharray="1200" style="stroke:var(--dif)"/>
+    <circle cx="380" cy="75" r="6" class="late" style="fill:var(--ink)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.2">
+      <text x="0" y="62" style="fill:var(--ink-2)">LEI OU ATO NORMATIVO</text>
+      <text x="330" y="42" style="fill:var(--ink-2)">TESTE</text>
+      <text x="600" y="20" style="fill:var(--conc)">CABE ADI · FORMA + ABSTRAÇÃO + ATUALIDADE</text>
+      <text x="600" y="138" style="fill:var(--dif)">NÃO CABE · ADPF · NÃO RECEPÇÃO · LEGALIDADE · MS</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “ADI — cabimento nas espécies normativas”, 77 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 30 min</b></div>
+    <div role="listitem">Antes<b>Aula 19 · Presunção de constitucionalidade e reação legislativa</b></div>
+    <div role="listitem">Depois<b>Aula 21 · ADI: requisitos de ajuizamento</b></div>
+  </div>
+</header>
+<!-- ============ 01 · A ADI ENTRE AS AÇÕES DIRETAS ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">A ADI entre as ações diretas</h2>
+  <p class="lede">O slide 2 mostra uma árvore: no topo, "via de ação (principal)"; embaixo, cinco ações de competência originária do STF. A ADI é uma delas. Antes de perguntar o que ela pode atacar, vale fixar o que ela é.</p>
+</section>
+<div class="wide">
+  <div class="prosa">
+    <p>As <strong>ações diretas</strong> são o instrumento do <strong class="conc">controle concentrado</strong> de normas, de competência originária do STF, todas exercidas pela <strong>via de ação (principal)</strong>: a <strong>ADI</strong> (art. 102, I, "a" CF), a <strong>ADC</strong> (art. 102, I, "a" CF), a <strong>ADPF</strong> (art. 102, § 1º CF), a <strong>ADIpo</strong> — ADI por omissão (art. 103, § 2º CF) — e a <strong>REDIN</strong>, representação interventiva (art. 36, III CF).</p>
+    <p>A <strong>Lei 9.868/99</strong> reproduz a competência do art. 102, I, "a": compete ao STF processar e julgar originalmente a <strong>ação direta de inconstitucionalidade</strong> de lei ou ato normativo <strong>federal ou estadual</strong>, e a <strong>ação declaratória de constitucionalidade</strong> de lei ou ato normativo <strong>federal</strong>. O parâmetro de controle é sempre a Constituição Federal.</p>
+  </div>
+  <dl class="termos">
+    <dt>Processo objetivo</dt><dd>A ADI não tem partes. Não há réu, não há litígio concreto entre A e B — só a lei e a Constituição.</dd>
+    <dt>Controle abstrato</dt><dd>O exame não depende de nenhum caso concreto. A inconstitucionalidade é o próprio objeto da ação.</dd>
+    <dt>Sistema concentrado</dt><dd>Competência originária do STF, e não de qualquer juiz (Aula 11 detalha a distinção difuso/concentrado).</dd>
+    <dt>Via principal</dt><dd>A ADI é o meio, não um incidente dentro de outra disputa (contraste com o controle difuso, incidental).</dd>
+    <dt>Legislador negativo</dt><dd>A ADI consagra a máxima de que, no controle abstrato, o Tribunal Constitucional é <strong>legislador negativo</strong>: ela <strong>retira</strong> uma norma do mundo jurídico (total ou parcialmente) por violar a Constituição — nunca cria norma nova.</dd>
+  </dl>
+  <span class="src">Slides 2–5</span>
+</div>
+<div class="wide">
+  <div class="par">
+    <div class="regra">
+      <span class="label">Momento da propositura — regra</span>
+      <p>Não é obrigatório que a lei <strong>esteja em vigor</strong> para a propositura de uma ADI. O que importa é que tenha havido a <strong>conclusão definitiva do processo legislativo</strong> — o controle abstrato pressupõe a existência formal da lei ou do ato normativo.</p>
+    </div>
+    <div class="excecao">
+      <span class="label">Consequência</span>
+      <p>Isso abre a hipótese de ajuizamento de ADI durante a <em>vacatio legis</em> de uma norma: a lei já existe formalmente, mesmo sem estar produzindo efeitos ainda.</p>
+    </div>
+  </div>
+  <span class="src">Slide 6</span>
+</div>
+
+<!-- ============ 02 · O FUNIL DO CABIMENTO (scrolly de abertura) ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num" aria-hidden="true">02</span>
+  <h2 id="c2">O funil do cabimento</h2>
+  <p class="lede">Ressalvada a inconstitucionalidade por omissão, a ADI só pode ter como objeto leis e atos normativos <strong>federais ou estaduais</strong>, <strong>já promulgados, editados e publicados</strong>. Mas passar por essa porta é só o primeiro filtro. Os slides seguintes mostram outros três: a espécie normativa, o grau de abstração e a atualidade do parâmetro. Vermelho marca o que <strong class="conc">cabe</strong>; azul, o que <strong class="dif">não cabe</strong> — cada um com sua própria via de saída.</p>
+</section>
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-a1" viewBox="0 0 600 600">
+        <text x="50" y="60" class="t-small tc-muted">TESTE 1 · FORMA</text>
+        <rect x="50" y="90" width="150" height="110" class="f-paper ink"/>
+        <path d="M66 118h118M66 138h118M66 158h90M66 178h100" class="thin"/>
+        <text x="50" y="76" class="t-small">LEI OU ATO NORMATIVO</text>
+        <g font-family="IBM Plex Mono,monospace">
+          <rect x="240" y="90" width="24" height="24" class="ink"/><path d="M245 102l6 7 12-16" style="stroke:var(--conc)" stroke-width="2.6" fill="none"/>
+          <text x="276" y="108" class="t-mid">JÁ PROMULGADO</text>
+          <rect x="240" y="128" width="24" height="24" class="ink"/><path d="M245 140l6 7 12-16" style="stroke:var(--conc)" stroke-width="2.6" fill="none"/>
+          <text x="276" y="146" class="t-mid">JÁ EDITADO</text>
+          <rect x="240" y="166" width="24" height="24" class="ink"/><path d="M245 178l6 7 12-16" style="stroke:var(--conc)" stroke-width="2.6" fill="none"/>
+          <text x="276" y="184" class="t-mid">JÁ PUBLICADO</text>
+        </g>
+        <path class="c-conc grow" d="M200 145H236" marker-end="url(#ah-a1)"/>
+        <defs><marker id="ah-a1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <line x1="50" y1="250" x2="550" y2="250" class="thin dash"/>
+        <text x="50" y="284" class="t-small tc-dif">FORA DO OBJETO, MESMO EM FORMA</text>
+        <rect x="50" y="310" width="220" height="70" class="w-dif ink"/>
+        <text x="66" y="342" class="t-mid tc-dif">PEC</text><text x="66" y="366" class="t-small">MERA PROPOSTA · AINDA NÃO É EC</text>
+        <path d="M60 320l200 60M260 320l-200 60" stroke-width="2.4" style="stroke:var(--dif)"/>
+        <rect x="330" y="310" width="220" height="70" class="w-dif ink"/>
+        <text x="346" y="342" class="t-mid tc-dif">LEI MUNICIPAL</text><text x="346" y="366" class="t-small">NUNCA CABE ADI</text>
+        <path d="M340 320l200 60M540 320l-200 60" stroke-width="2.4" style="stroke:var(--dif)"/>
+        <text x="50" y="430" class="t-small tc-muted">EXCEÇÃO PONTUAL</text>
+        <text x="50" y="458" class="t-mid">PEC pode ser atacada por</text><text x="50" y="484" class="t-mid tc-dif">mandado de segurança</text>
+        <text x="50" y="512" class="t-small">impetrado só pelo parlamentar,</text><text x="50" y="532" class="t-small">contra vício do processo legislativo.</text>
+      </svg>
+      <svg class="panel fig" id="p-a2" viewBox="0 0 600 600">
+        <defs><marker id="ah-a2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <text x="50" y="70" class="t-small tc-muted">TESTE 2 · ESPÉCIE (ART. 59 CF)</text>
+        <g font-family="IBM Plex Mono,monospace" font-size="13">
+          <text x="50" y="106">I · EMENDAS À CONSTITUIÇÃO</text>
+          <text x="50" y="130">II · LEIS COMPLEMENTARES</text>
+          <text x="50" y="154">III · LEIS ORDINÁRIAS</text>
+          <text x="50" y="178">IV · LEIS DELEGADAS</text>
+          <text x="50" y="202">V · MEDIDAS PROVISÓRIAS</text>
+          <text x="50" y="226">VI · DECRETOS LEGISLATIVOS</text>
+          <text x="50" y="250">VII · RESOLUÇÕES</text>
+        </g>
+        <rect x="40" y="88" width="500" height="180" fill="none" stroke-width="1.5" style="stroke:var(--ink-2)" stroke-dasharray="4 5"/>
+        <text x="50" y="310" class="t-small tc-muted">TESTE 3 · GRAU DE ABSTRAÇÃO</text>
+        <rect x="50" y="336" width="500" height="26" class="w-dif"/>
+        <rect x="50" y="336" width="500" height="26" class="w-conc" style="clip-path:inset(0 0 0 50%)"/>
+        <path class="grow" d="M300 330V368" style="stroke:var(--ink)" stroke-width="2.4"/>
+        <text x="60" y="392" class="t-small tc-dif">CONCRETO · PESSOAL</text>
+        <text x="380" y="392" class="t-small tc-conc">ABSTRATO · GERAL · IMPESSOAL</text>
+        <text x="60" y="440" class="t-mid tc-dif">→ ADPF</text>
+        <text x="380" y="440" class="t-mid tc-conc">→ ADI</text>
+        <text x="50" y="486" class="t-small tc-muted">CRITÉRIO JURISPRUDENCIAL (5 ELEMENTOS)</text>
+        <text x="50" y="512" class="t-small">autonomia jurídica · generalidade · abstração</text>
+        <text x="50" y="534" class="t-small">impessoalidade · densidade normativa</text>
+      </svg>
+      <svg class="panel fig" id="p-a3" viewBox="0 0 600 600">
+        <defs><marker id="ah-a3c" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker><marker id="ah-a3d" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="50" y="56" class="t-small tc-muted">RESULTADO DO FUNIL</text>
+        <path d="M170 80H430L330 210H270z" class="f-paper ink" stroke-width="2"/>
+        <text x="220" y="120" class="t-mid">LEI SOB</text><text x="220" y="146" class="t-mid">SUSPEITA</text>
+        <path class="c-conc grow" d="M310 210C310 280 420 260 460 330" marker-end="url(#ah-a3c)"/>
+        <path class="c-dif grow" d="M290 210C290 280 180 260 140 330" marker-end="url(#ah-a3d)"/>
+        <rect x="330" y="336" width="220" height="220" class="w-conc ink"/>
+        <text x="350" y="368" class="t-big tc-conc">CABE ADI</text>
+        <text x="350" y="398" class="t-small">EC · LC · LO · LEI DELEGADA</text>
+        <text x="350" y="418" class="t-small">MP · DECRETO LEGISLATIVO</text>
+        <text x="350" y="438" class="t-small">RESOLUÇÃO (COM ABSTRAÇÃO)</text>
+        <text x="350" y="466" class="t-small">DECRETO AUTÔNOMO</text>
+        <text x="350" y="486" class="t-small">LEI/MP DE EFEITO CONCRETO</text>
+        <text x="350" y="506" class="t-small">TRATADO INCORPORADO</text>
+        <rect x="50" y="336" width="220" height="220" class="w-dif ink"/>
+        <text x="70" y="368" class="t-big tc-dif">NÃO CABE</text>
+        <text x="70" y="398" class="t-small">PEC · NORMA ORIGINÁRIA</text>
+        <text x="70" y="418" class="t-small">DECRETO REGULAMENTAR</text>
+        <text x="70" y="438" class="t-small">SÚMULA (VINCULANTE OU NÃO)</text>
+        <text x="70" y="466" class="t-small">NORMA PRÉ-CONSTITUCIONAL</text>
+        <text x="70" y="486" class="t-small">LEI JÁ REVOGADA</text>
+        <text x="70" y="506" class="t-small">→ ADPF · MS · REVISÃO · NADA</text>
+      </svg>
+      <figcaption><span>Fig. 1 · O funil do cabimento</span><span class="stage-count">Slides 7–26</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-a1" data-slides="Slides 7–10"><div class="card">
+      <span class="label conc">Teste 1 · Forma</span>
+      <h3>Já promulgado, já editado, já publicado</h3>
+      <p>Ressalvada a hipótese de inconstitucionalidade por omissão, exige-se que a ADI tenha, e só possa ter, como objeto juridicamente idôneo, leis e atos normativos <strong>federais ou estaduais</strong> já <strong>promulgados</strong>, já <strong>editados</strong> e já <strong>publicados</strong>.</p>
+      <p><strong>Não cabe ADI</strong> contra leis <strong>municipais</strong>. E <strong>não há controle abstrato preventivo de PEC's</strong> por ADI: a impossibilidade de fiscalizar em tese uma mera proposta não obsta sua fiscalização depois, quando ela se transformar em emenda (<strong>ADI 466</strong>).</p>
+      <p><strong>Exceção pontual:</strong> o STF admite, excepcionalmente, o controle preventivo de PEC por <strong>mandado de segurança</strong>, impetrado só pelo parlamentar, contra violação ao devido processo legislativo (<strong>MS 24.667-AgR</strong>, Rel. Min. Carlos Velloso, j. 4.12.2003, Plenário, DJ 23.4.2004).</p>
+      <span class="src">Slides 7–10</span>
+    </div></div>
+    <div class="step" data-panel="p-a2" data-slides="Slides 11–12"><div class="card">
+      <span class="label conc">Teste 2 · Espécie</span>
+      <h3>"Lei" é qualquer espécie legislativa do art. 59 CF</h3>
+      <p>Para efeito de ADI, "Lei" é entendida de forma ampla: qualquer <strong>espécie legislativa do art. 59 da CF</strong> — emendas à Constituição, leis complementares, leis ordinárias, leis delegadas, medidas provisórias, decretos legislativos e resoluções.</p>
+      <p>Mas o rol do art. 59 não basta sozinho. Fundamental é que estejam presentes dois requisitos: <strong>generalidade</strong> e <strong>abstração</strong>. Quanto mais as normas se afastam deles, mais dúvida há sobre o cabimento da ADI.</p>
+      <span class="src">Slides 11–12</span>
+    </div></div>
+    <div class="step" data-panel="p-a2" data-slides="Slides 17–20"><div class="card">
+      <span class="label">Teste 3 · Grau de abstração</span>
+      <h3>Quanto mais abstrato, mais ADI; quanto mais concreto, mais ADPF</h3>
+      <p>O critério jurisprudencial do STF para identificar "ato normativo" tem cinco elementos: <strong>autonomia jurídica da deliberação estatal, generalidade, abstração, impessoalidade</strong> e <strong>densidade normativa</strong>.</p>
+      <p>A regra de proporcionalidade central do deck: quanto <strong>maior</strong> o grau de abstração, generalidade e impessoalidade, <strong>maior</strong> a chance de a ADI ser cabível. Quanto <strong>mais concretos (pessoais)</strong> os efeitos, <strong>maiores as chances de o STF não aceitar</strong> a ADI e remeter para <strong>ADPF</strong>.</p>
+      <span class="src">Slides 17–20</span>
+    </div></div>
+    <div class="step" data-panel="p-a3" data-slides="Slides 21–26"><div class="card">
+      <span class="label mix">Resultado do funil</span>
+      <h3>Dois lados, dois caminhos</h3>
+      <p>O que sai pelo lado <strong class="conc">vermelho</strong> pode ser atacado por ADI: emendas, leis, MPs, decretos legislativos e resoluções com abstração suficiente, decretos autônomos, leis/MPs de efeito concreto, tratados incorporados. O capítulo seguinte de cada figura desta aula detalha uma dessas categorias, com os precedentes do STF.</p>
+      <p>O que sai pelo lado <strong class="dif">azul</strong> não cabe em ADI, mas nem sempre fica sem resposta: PEC e norma originária são infiscalizáveis (ou quase); decreto regulamentar e resolução concreta vão para <strong>ADPF</strong>; súmula tem <strong>revisão</strong> própria; norma pré-constitucional passa por <strong>recepção/não recepção</strong>.</p>
+      <span class="src">Slides 21–26</span>
+    </div></div>
+  </div>
+</div>
+<!-- ============ 03 · EMENDA CONSTITUCIONAL x NORMA ORIGINÁRIA ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num conc" aria-hidden="true">03</span>
+  <h2 id="c3">Emenda constitucional cabe; norma originária, nunca</h2>
+  <p class="lede">Os slides 13 e 14 colocam lado a lado dois produtos do poder constituinte: um derivado, outro originário. Só um deles pode ser réu numa ADI.</p>
+</section>
+<div class="wide">
+  <div class="par">
+    <div class="regra">
+      <span class="label conc">Emenda constitucional — cabe ADI</span>
+      <p>A emenda constitucional pode ser objeto de controle concentrado por ADI. Ela emana do <strong>constituinte derivado</strong>, sujeito a limites materiais e formais — daí ser controlável pelo STF, guardião da Constituição.</p>
+      <p class="caso" style="margin:14px 0 0"><span class="label">ADI 939</span>Emenda constitucional emanada de constituinte derivado pode ser declarada inconstitucional pelo STF. A questão liga-se aos limites materiais do poder constituinte originário ou a vícios formais.</p>
+    </div>
+    <div class="excecao">
+      <span class="label dif">Norma constitucional originária — nunca cabe</span>
+      <p>As normas constitucionais originárias, fruto do <strong>poder constituinte originário</strong>, serão sempre constitucionais — <strong>não se podendo falar em controle de sua constitucionalidade</strong>. Conflitos aparentes entre normas originárias se resolvem por interpretação, não por controle.</p>
+      <p class="caso" style="margin:14px 0 0"><span class="label">ADI 4.097-AgR, j. 08/10/2008</span>Não se admite controle concentrado ou difuso de constitucionalidade de normas produzidas pelo poder constituinte originário: caso de carência de ação e inépcia da petição inicial.</p>
+    </div>
+  </div>
+  <span class="src">Slides 13–14</span>
+</div>
+
+<!-- ============ 04 · MEDIDA PROVISÓRIA ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num conc" aria-hidden="true">04</span>
+  <h2 id="c4">Medida provisória: cabe, mas o destino do texto importa</h2>
+  <p class="lede">A MP tem força de lei — por isso pode ser objeto de ADI. Mas o que acontece com ela depois de ajuizada a ação muda tudo.</p>
+</section>
+<div class="wide">
+  <div class="prosa">
+    <p>Só ato estatal de conteúdo normativo, com processo legislativo já concluído, pode ser objeto do controle concentrado. Como a medida provisória tem <strong>força de lei</strong> (art. 62 CF), com plena vigência, <strong>poderá ser objeto de ADI</strong> — contudo, há restrições ligadas ao que ocorre com ela no curso do processo.</p>
+  </div>
+  <div class="par">
+    <div class="regra">
+      <span class="label conc">MP convertida em lei</span>
+      <p>Se a MP for convertida em lei <strong>após o ajuizamento da ADI</strong>, o autor deverá <strong>aditar o seu pedido</strong> à nova lei de conversão. A ação continua.</p>
+    </div>
+    <div class="excecao">
+      <span class="label dif">MP perde eficácia</span>
+      <p>Se a MP <strong>perder eficácia</strong> por não ter sido convertida em lei (decurso de prazo do art. 62, § 3º CF — 60 dias, prorrogáveis uma vez por igual período, com exceções nos §§ 11 e 12), a ADI fica <strong>prejudicada</strong> pela perda do objeto.</p>
+    </div>
+  </div>
+  <span class="src">Slides 15–16</span>
+</div>
+
+<!-- ============ 05 · O CRITÉRIO DOS CINCO ELEMENTOS E OS EXEMPLOS ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num conc" aria-hidden="true">05</span>
+  <h2 id="c5">O critério dos cinco elementos, na prática</h2>
+  <p class="lede">Quando a CF fala em "atos normativos" que podem ser combatidos por ADI, não fica claro quais espécies estão nessa categoria. Em muitos casos é preciso recorrer à jurisprudência do STF, que diz o que são e o que não são.</p>
+</section>
+<div class="wide">
+  <blockquote class="law">
+    <cite>ADI 2.321 MC, Rel. Min. Celso de Mello, j. 25.10.2000, DJ 31.10.2000</cite>
+    A noção de ato normativo, para efeito de controle concentrado de constitucionalidade, pressupõe, além da <strong>autonomia jurídica da deliberação estatal</strong>, a constatação de seu coeficiente de <strong>generalidade abstrata</strong>, bem assim de sua <strong>impessoalidade</strong>. Todos esses elementos qualificam-se como requisitos essenciais que conferem, ao ato estatal, a necessária aptidão para atuar, no plano do direito positivo, como norma revestida de eficácia subordinante de comportamentos estatais ou de condutas individuais.
+  </blockquote>
+  <p class="note">A este critério de conteúdo (autonomia jurídica, generalidade, abstração, impessoalidade), os slides somam um quinto elemento, de uso mais recente: a <strong>densidade normativa</strong>.</p>
+  <span class="src">Slides 17–18</span>
+</div>
+<div class="wide">
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Exemplos que não cabem e que cabem em ADI">
+  <table class="compare">
+    <thead><tr><th scope="col"><span class="label">Sem abstração/generalidade</span></th><th scope="col" class="dif">Não cabe ADI</th><th scope="col" class="conc">Com abstração/generalidade suficientes</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Instruções normativas</th><td>Editadas por autoridades federais</td><td>—</td></tr>
+      <tr><th scope="row">Decreto legislativo</th><td>Sustar licitação específica (ex.: compra de material escolar por órgão da União)</td><td>—</td></tr>
+      <tr><th scope="row">Resolução (autorização)</th><td>Processo contra o Presidente (art. 51, I CF); ausência do país por mais de 15 dias (art. 49, III CF)</td><td>—</td></tr>
+      <tr><th scope="row">Convenção coletiva</th><td>Art. 611 CLT</td><td>—</td></tr>
+      <tr><th scope="row">Resolução administrativa</th><td>—</td><td>Regimentos internos de tribunais; deliberações administrativas dos órgãos judiciários</td></tr>
+      <tr><th scope="row">Resolução de órgão</th><td>TRTs, quando forem convenção coletiva (ressalva)</td><td>CNJ; Conselho Interministerial de Preços; TRTs (regra geral)</td></tr>
+      <tr><th scope="row">Resolução estadual</th><td>—</td><td>Poder Executivo estadual disciplinando horário de comércio e assuntos análogos</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Estas resoluções (coluna azul) <strong>não possuem abstração e generalidade suficientes</strong> — são, na prática, atos concretos, insuscetíveis de verificação por ADI. Em caso de violação inequívoca a princípios constitucionais da administração pública (desvio de finalidade), pode-se cogitar <strong>ADPF</strong>.</p>
+  <span class="src">Slides 19–24</span>
+</div>
+<div class="wide">
+  <div class="julgados">
+    <div class="julgado">
+      <header><span>ADI 5.543</span><b>Rel. Min. Edson Fachin</b><span>Pleno · j. 11.05.2020 · DJE 26.08.2020</span></header>
+      <div class="corpo">
+        <p>A Portaria n. 158/2016 do Ministério da Saúde (art. 64, IV) e a RDC n. 34/2014 da Anvisa (art. 25, XXX, "d") restringiam a doação de sangue por homens homossexuais/bissexuais. O STF reconheceu que essas disposições constituem <strong>atos normativos federais</strong>, dotados de abstração, generalidade e impessoalidade, com alta densidade normativa — não meros atos regulamentares.</p>
+        <p>"O estabelecimento de grupos — e não de condutas — de risco incorre em discriminação e viola a dignidade humana e o direito à igualdade [...]. Orientação sexual não contamina ninguém, condutas de risco sim."</p>
+      </div>
+      <div class="tese">Procedente. Inconstitucionalidade por discriminação em razão da orientação sexual, com ofensa à dignidade da pessoa humana, à autonomia privada e pública e à igualdade.</div>
+    </div>
+  </div>
+  <span class="src">Slides 25–26</span>
+</div>
+<!-- ============ 06 · DECRETOS: REGULAMENTAR x AUTÔNOMO ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">Decretos: quando a ofensa é direta, e quando passa pela lei</h2>
+  <p class="lede">Dependendo do tipo de decreto, ele pode ser combatido por ADI ou por ADPF. Os slides 28-30 e 35 desenham a resposta com três palavras empilhadas: Constituição, Lei, Decreto — e uma pergunta sobre onde cada seta aponta.</p>
+</section>
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-b1" viewBox="0 0 600 600">
+        <defs><marker id="ah-b1a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker><marker id="ah-b1b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <text x="50" y="60" class="t-small tc-muted">TÍPICO DECRETO REGULAMENTAR</text>
+        <rect x="180" y="90" width="240" height="70" style="fill:var(--const)"/>
+        <text x="204" y="132" class="t-light t-big">CONSTITUIÇÃO</text>
+        <rect x="180" y="260" width="240" height="70" class="w-conc ink" stroke-width="2"/>
+        <text x="204" y="302" class="t-big tc-conc">LEI</text>
+        <text x="360" y="302" class="t-small tc-conc">ATO PRIMÁRIO</text>
+        <rect x="180" y="430" width="240" height="70" class="w-dif ink" stroke-width="2"/>
+        <text x="204" y="472" class="t-big tc-dif">DECRETO</text>
+        <text x="360" y="472" class="t-small tc-dif">ATO SECUNDÁRIO</text>
+        <path class="c-conc grow" d="M420 130C500 150 500 250 420 285" marker-end="url(#ah-b1b)"/>
+        <path class="c-dif grow" d="M180 300C100 340 100 420 180 458" marker-end="url(#ah-b1a)"/>
+        <text x="60" y="200" class="t-small">ART. 5º, II CF · PRINCÍPIO DA LEGALIDADE</text>
+        <text x="60" y="220" class="t-small">"ninguém será obrigado... senão em virtude de lei"</text>
+        <text x="60" y="388" class="t-small">A lei retira seu fundamento de validade</text>
+        <text x="60" y="408" class="t-small">diretamente na Constituição.</text>
+      </svg>
+      <svg class="panel fig" id="p-b2" viewBox="0 0 600 600">
+        <defs><marker id="ah-b2a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="50" y="60" class="t-small tc-muted">DECRETO QUE EXTRAPOLA A LEI</text>
+        <rect x="180" y="90" width="240" height="70" style="fill:var(--const)" opacity=".5"/>
+        <text x="204" y="132" class="t-light t-big" opacity=".5">CONSTITUIÇÃO</text>
+        <rect x="180" y="260" width="240" height="70" class="w-conc ink" stroke-width="2"/>
+        <text x="204" y="302" class="t-big tc-conc">LEI</text>
+        <rect x="180" y="430" width="240" height="70" style="fill:var(--dif-wash)" stroke-width="3" style2="stroke:var(--conc)"/>
+        <rect x="180" y="430" width="240" height="70" fill="none" stroke-width="3" style="stroke:var(--conc)"/>
+        <text x="204" y="472" class="t-big tc-dif">DECRETO</text>
+        <path class="c-dif grow" d="M180 300C90 350 90 410 180 450" marker-end="url(#ah-b2a)"/>
+        <text x="60" y="200" class="t-mid tc-conc">Comparar decreto × lei</text>
+        <text x="60" y="224" class="t-small">primeiro — a Constituição só entra depois</text>
+        <rect x="60" y="512" width="480" height="60" style="fill:var(--conc)"/>
+        <text x="76" y="540" class="t-light t-mid">CRISE DE LEGALIDADE</text>
+        <text x="76" y="560" class="t-light t-small">ILEGAL ANTES DE SER INCONSTITUCIONAL</text>
+      </svg>
+      <svg class="panel fig" id="p-b3" viewBox="0 0 600 600">
+        <defs><marker id="ah-b3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <text x="50" y="60" class="t-small tc-muted">DECRETO AUTÔNOMO</text>
+        <rect x="180" y="90" width="240" height="70" style="fill:var(--const)"/>
+        <text x="204" y="132" class="t-light t-big">CONSTITUIÇÃO</text>
+        <g opacity=".55">
+          <rect x="180" y="260" width="240" height="70" class="f-paper ink" stroke-width="2"/>
+          <text x="216" y="302" class="t-big">LEI</text>
+          <path d="M190 268l220 54M410 268l-220 54" stroke-width="4" style="stroke:var(--conc)"/>
+        </g>
+        <rect x="180" y="430" width="240" height="70" class="w-conc ink" stroke-width="2.4"/>
+        <text x="196" y="472" class="t-mid tc-conc">DECRETO AUTÔNOMO</text>
+        <path class="c-conc grow" d="M170 430C60 340 60 200 170 130" marker-end="url(#ah-b3)"/>
+        <text x="60" y="360" class="t-mid tc-conc">ofensa</text><text x="60" y="384" class="t-mid tc-conc">direta à CF</text>
+        <text x="60" y="200" class="t-small">inova na ordem jurídica —</text>
+        <text x="60" y="220" class="t-small">não regulamenta, equipara-se à lei</text>
+        <rect x="60" y="512" width="480" height="60" style="fill:var(--conc)"/>
+        <text x="76" y="540" class="t-light t-mid">CABE ADI</text>
+        <text x="76" y="560" class="t-light t-small">OFENSA DIRETA À CONSTITUIÇÃO</text>
+      </svg>
+      <svg class="panel fig" id="p-b4" viewBox="0 0 600 600">
+        <text x="50" y="70" class="t-small tc-muted">O CRITÉRIO, EM ESCALA</text>
+        <rect x="50" y="100" width="500" height="30" class="w-dif"/>
+        <rect x="50" y="100" width="500" height="30" class="w-conc" style="clip-path:inset(0 0 0 50%)"/>
+        <path d="M300 94V136" style="stroke:var(--ink)" stroke-width="2.4"/>
+        <text x="60" y="164" class="t-mid tc-dif">MAIS REGULAMENTAR</text>
+        <text x="60" y="188" class="t-small">ofensa indireta/oblíqua</text>
+        <text x="60" y="210" class="t-small">problema de LEGALIDADE</text>
+        <text x="60" y="236" class="t-big tc-dif">→ ADPF</text>
+        <text x="330" y="164" class="t-mid tc-conc">MAIS AUTÔNOMO/INOVADOR</text>
+        <text x="330" y="188" class="t-small">ofensa direta</text>
+        <text x="330" y="210" class="t-small">problema de INCONSTITUCIONALIDADE</text>
+        <text x="330" y="236" class="t-big tc-conc">→ ADI</text>
+        <text x="50" y="300" class="t-small tc-muted">DIFICULDADE PRÁTICA</text>
+        <text x="50" y="330" class="t-mid">A partir de qual momento um decreto</text>
+        <text x="50" y="356" class="t-mid">se torna "inovador" o bastante</text>
+        <text x="50" y="382" class="t-mid">para ser atacado por ADI?</text>
+        <text x="50" y="440" class="t-small tc-muted">FUNÇÃO NORMATIVA NÃO É MONOPÓLIO DO LEGISLATIVO</text>
+        <text x="50" y="466" class="t-small">regulamentar (Executivo) · regimental (Judiciário) · legislativa (Legislativo)</text>
+        <text x="50" y="490" class="t-small">— decretos que veiculam função normativa também se sujeitam ao controle.</text>
+      </svg>
+      <figcaption><span>Fig. 2 · Constituição, Lei, Decreto</span><span class="stage-count">Slides 27–41</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-b1" data-slides="Slides 27–29"><div class="card">
+      <span class="label">Regra</span>
+      <h3>Decreto regulamentar: ato secundário, não cabe ADI</h3>
+      <p>Por regra, decretos regulamentares do Poder Executivo (art. 84, IV CF, destinados a garantir a fiel execução das leis) <strong>não podem ser atacados por ADI</strong>, mas sim por ADPF. Motivo: a violação à Constituição se dá de forma <strong>indireta ou "oblíqua"</strong>.</p>
+      <p>A <strong>Lei</strong> retira seu fundamento de validade na Constituição — é <strong>ato primário</strong>. O <strong>Decreto</strong> retira seu fundamento na Lei — é <strong>ato secundário</strong>. Princípio da legalidade (art. 5º, II CF): ninguém será obrigado a fazer ou deixar de fazer algo senão em virtude de lei.</p>
+      <span class="src">Slides 27–29</span>
+    </div></div>
+    <div class="step" data-panel="p-b2" data-slides="Slides 30, 32–33"><div class="card">
+      <span class="label">Ordem do exame</span>
+      <h3>Primeiro a legalidade, depois — talvez — a inconstitucionalidade</h3>
+      <p>Quando um decreto viola uma lei, o problema é de <strong>legalidade antes de ser de inconstitucionalidade</strong>. É preciso primeiro comparar o decreto com a lei, para só então concluir se ele extrapolou a competência legislativa. O STF chama isso de <strong>crise de legalidade</strong>: inobservância do dever jurídico de subordinação normativa à lei.</p>
+      <p>Não se admite controle de inconstitucionalidade indireta, reflexa ou oblíqua por ADI quando o objeto é ato secundário, com base na lei, e não ato primário com fundamento direto na Constituição.</p>
+      <div class="julgados">
+        <div class="julgado"><header><span>ADI 264/DF</span><b>Rel. Min. Celso de Mello</b></header><div class="corpo"><p>Crise de legalidade: inobservância do dever jurídico de subordinação normativa à lei, escapando das balizas constitucionais.</p></div></div>
+        <div class="julgado"><header><span>ADI MC 1.253-3</span><b>Rel. Min. Carlos Velloso</b><span>DJ 25.08.1995</span></header><div class="corpo"><p>Mesma tese: crise de legalidade antecede eventual inconstitucionalidade.</p></div></div>
+        <div class="julgado"><header><span>ADI 996-MC</span><b>Rel. Min. Celso de Mello</b><span>Plenário · j. 11.03.1994 · DJ 06.05.1994</span></header><div class="corpo"><p>Não se admite controle de inconstitucionalidade indireta, reflexa ou oblíqua por ADI.</p></div></div>
+        <div class="julgado"><header><span>ADI 3.805-AgR</span><b>Rel. Min. Eros Grau</b><span>j. 22.04.2009</span></header><div class="corpo"><p>No mesmo sentido do controle indireto/reflexo não admitido.</p></div></div>
+        <div class="julgado"><header><span>ADI 2.999</span><b>Rel. Min. Gilmar Mendes</b><span>j. 13.03.2008</span></header><div class="corpo"><p>No mesmo sentido.</p></div></div>
+        <div class="julgado"><header><span>ADI 365-AgR</span><b>Rel. Min. Celso de Mello</b><span>j. 07.11.1990</span></header><div class="corpo"><p>No mesmo sentido.</p></div></div>
+      </div>
+      <span class="src">Slides 30, 32–33</span>
+    </div></div>
+    <div class="step" data-panel="p-b3" data-slides="Slides 31, 34–38"><div class="card">
+      <span class="label conc">A exceção</span>
+      <h3>Decreto autônomo: quando ele pula a lei</h3>
+      <p>Decretos autônomos <strong>inovam na ordem jurídica</strong> e, por isso, não regulamentam leis (art. 84, VI CF) — vigoram sozinhos. Ao inovar, equiparam-se à lei para efeito de caracterizar <strong>ofensa direta à Constituição</strong>, e podem, eventualmente, ser objeto de ADI. Por vezes o STF afirma que, quando um decreto extrapola os limites definidos pela lei, ele também se caracteriza como "autônomo".</p>
+      <div class="julgados">
+        <div class="julgado">
+          <header><span>ADI 6.476 (MC)</span><b>Rel. Min. Barroso</b><span>Notícias STF, 03 e 09/03/2021</span></header>
+          <div class="corpo"><p>"Afasto a preliminar de não conhecimento [...]. As normas que possibilitam a exclusão de adaptação para candidatos com deficiência em provas de concursos públicos <strong>inovam no ordenamento jurídico</strong> [...]. <strong>Trata-se de hipótese de ofensa direta às normas constitucionais</strong>."</p></div>
+          <div class="tese">Cautelar deferida contra interpretações do Decreto 9.546/2018 que excluíam adaptação razoável a candidatos com deficiência.</div>
+        </div>
+        <div class="julgado">
+          <header><span>ADI 3.664</span><b>Rel. Min. Cezar Peluso</b><span>j. 1.º.06.2011 · DJE 20.09.2011</span></header>
+          <div class="corpo"><p>Impugnação de decreto autônomo que institui benefícios fiscais. Caráter não meramente regulamentar; introdução de novidade normativa.</p></div>
+          <div class="tese">"Decreto que, não se limitando a regulamentar lei, institua benefício fiscal ou introduza outra novidade normativa, reputa-se autônomo e, como tal, é suscetível de controle concentrado."</div>
+        </div>
+        <div class="julgado">
+          <header><span>ADI 2.950-AgR</span><b>Rel. p/ o ac. Min. Eros Grau</b><span>j. 6.10.2004 · P · DJ 9.2.2007</span></header>
+          <div class="corpo"><p>Estão sujeitos ao controle concentrado os atos normativos, expressões da função normativa: função regulamentar (Executivo), regimental (Judiciário) e legislativa (Legislativo).</p></div>
+          <div class="tese">O Poder Legislativo não detém o monopólio da função normativa — decretos que veiculam ato normativo também se sujeitam ao controle por ação direta.</div>
+        </div>
+      </div>
+      <span class="src">Slides 31, 34–39</span>
+    </div></div>
+    <div class="step" data-panel="p-b4" data-slides="Slides 40–41"><div class="card">
+      <span class="label">O critério, resumido</span>
+      <h3>Um gradiente, não uma linha nítida</h3>
+      <p>Quanto <strong>maior o caráter meramente regulamentar</strong> do decreto, <strong>menor a possibilidade</strong> de ser questionado por ADI — a ofensa é "indireta"/"oblíqua", problema de <strong>legalidade</strong>, e o caminho, se houver, é a <strong>ADPF</strong>.</p>
+      <p>Quanto <strong>maior o caráter autônomo ou inovador</strong>, <strong>maior a possibilidade</strong> de ADI — a ofensa é "direta", problema de <strong>inconstitucionalidade</strong>, não de ilegalidade. A dificuldade prática, reconhecida pelos próprios slides: a partir de que momento um decreto se torna "inovador" o bastante?</p>
+      <span class="src">Slides 40–41</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 04 · SÚMULAS E TRATADOS ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">Súmulas não são objeto de ADI; tratados podem ser</h2>
+  <p class="lede">O cabimento depende do grau de normatividade e da forma de incorporação. Para tratados, importa saber em que ponto o procedimento interno se completa.</p>
+</section>
+<div class="wide">
+  <div class="par">
+    <div class="regra"><span class="label">Súmulas</span><p>Uma súmula de jurisprudência não tem o grau de normatividade necessário ao controle concentrado. O material também afasta ADI contra súmula vinculante, por falta de generalidade e abstração suficientes.</p><p>O caminho próprio para a súmula vinculante é o procedimento de aprovação, revisão ou cancelamento do art. 103-A, § 2º, CF, disciplinado pela Lei 11.417/2006 — não uma ADI.</p></div>
+    <div class="excecao"><span class="label">Tratados</span><p>O decreto legislativo ratificador do tratado pode ser objeto de ADI. A hierarquia do tratado varia conforme a matéria e o processo de incorporação: constitucional, supralegal ou infraconstitucional.</p></div>
+  </div>
+  <p class="note">O slide 42 cita a ADI 594/DF para reafirmar que o objeto do controle abstrato perante o STF deve ser lei ou ato normativo federal ou estadual.</p>
+  <span class="src">Slides 42–45 · ADI 594/DF; CF, art. 103-A, § 2º; Lei 11.417/2006</span>
+</div>
+<div class="wide">
+  <figure class="flow">
+    <div class="par">
+      <div class="regra"><span class="label">1 · Executivo</span><p>Celebração do tratado: negociação, conclusão e assinatura, ou posterior adesão (art. 84, VIII, CF).</p></div>
+      <div class="excecao"><span class="label">2 · Congresso</span><p>Aprovação pelo Congresso Nacional por decreto legislativo (art. 49, I, combinado com art. 84, VIII, CF).</p></div>
+    </div>
+    <div class="par">
+      <div class="regra"><span class="label">3 · Executivo</span><p>Troca ou depósito dos instrumentos de ratificação, ou adesão se não houve celebração prévia.</p></div>
+      <div class="excecao"><span class="label">4 · Promulgação e publicação</span><p>Decreto presidencial e publicação do texto em português no Diário Oficial. Nesse momento, segundo o slide, o tratado adquire executoriedade interna.</p></div>
+    </div>
+    <figcaption><span>Fig. 3 · As quatro fases de incorporação</span><span class="stage-count">Slides 46–48</span></figcaption>
+  </figure>
+  <p>O material adverte que atos isolados — como a aprovação congressual ou o depósito no exterior — não bastam para assegurar vigência no território brasileiro; o procedimento precisa estar completo. O slide 48 chama de “sete atos ao todo” as etapas que descreve, sem desdobrá-las aqui em uma lista distinta das quatro fases anteriores.</p>
+  <span class="src">Slides 46–48</span>
+</div>
+<div class="wide">
+  <div class="prosa">
+    <p>O slide 49 apresenta a tese de supralegalidade dos tratados de direitos humanos, associada ao Min. Gilmar Mendes no RE 466.343: embora possam paralisar a eficácia de normas infraconstitucionais incompatíveis, esses tratados continuam sujeitos ao controle de constitucionalidade porque devem respeito à supremacia da Constituição.</p>
+    <p>O slide 50 chama de <strong>interpretação evolutiva</strong> a leitura dos tratados que se desenvolve ao longo do tempo. Sua formulação afirma uma tendência de ampliação dos direitos humanos e rejeita que o intérprete retire posteriormente direitos da lista. Trata-se da formulação do slide, aqui identificada como tal.</p>
+  </div>
+  <span class="src">Slides 49–50 · RE 466.343</span>
+</div>
+
+<!-- ============ 05 · TEMPO E PARÂMETRO ============ -->
+<section class="chapter" aria-labelledby="c8">
+  <span class="num dif" aria-hidden="true">08</span>
+  <h2 id="c8">O tempo separa inconstitucionalidade de não recepção</h2>
+  <p class="lede">A pergunta não é apenas se há conflito com a Constituição. Importa saber quando a norma foi editada e se o parâmetro mudou depois.</p>
+</section>
+<div class="scrolly">
+  <div class="stage" aria-hidden="true"><figure>
+    <svg class="panel fig on" id="p-tempo1" viewBox="0 0 600 600">
+      <text x="187" y="78" class="t-mid tc-const">CONSTITUIÇÃO DE 1988</text>
+      <line x1="55" y1="145" x2="545" y2="145" stroke-width="5" style="stroke:var(--const)"/>
+      <line x1="300" y1="108" x2="300" y2="475" stroke-width="4" style="stroke:var(--accent)"/>
+      <circle cx="300" cy="145" r="10" style="fill:var(--accent)"/>
+      <text x="68" y="197" class="t-mid">ANTES</text><text x="354" y="197" class="t-mid">DEPOIS</text>
+      <rect x="55" y="235" width="210" height="110" fill="none" stroke-width="2" style="stroke:var(--dif)"/><text x="76" y="275" class="t-small tc-dif">NORMA PRÉ-CONSTITUCIONAL</text><text x="76" y="312" class="t-mid tc-dif">RECEPÇÃO?</text>
+      <rect x="335" y="235" width="210" height="110" fill="none" stroke-width="2" style="stroke:var(--conc)"/><text x="356" y="275" class="t-small tc-conc">NORMA POSTERIOR</text><text x="356" y="312" class="t-mid tc-conc">ADI?</text>
+      <text x="62" y="392" class="t-small tc-dif">Compatível → recepção</text><text x="62" y="420" class="t-small tc-dif">Incompatível → não recepção</text>
+      <text x="342" y="392" class="t-small tc-conc">Vício desde a origem →</text><text x="342" y="420" class="t-small tc-conc">inconstitucionalidade</text>
+      <rect x="65" y="485" width="470" height="55" style="fill:var(--ink)"/><text x="98" y="520" class="t-light t-small">NÃO HÁ INCONSTITUCIONALIDADE SUPERVENIENTE</text>
+    </svg>
+    <svg class="panel fig" id="p-tempo2" viewBox="0 0 600 600">
+      <text x="42" y="58" class="t-small tc-muted">QUATRO SITUAÇÕES · QUANDO A NORMA E O PARÂMETRO SURGEM</text>
+      <rect x="42" y="92" width="516" height="86" fill="none" stroke-width="1.5" style="stroke:var(--conc)"/><text x="60" y="124" class="t-mid">1 · Lei posterior já nasce incompatível</text><text x="60" y="155" class="t-small tc-conc">INCONSTITUCIONALIDADE · ADI 7.739/DF (2025, como citado)</text>
+      <rect x="42" y="190" width="516" height="86" fill="none" stroke-width="1.5" style="stroke:var(--dif)"/><text x="60" y="222" class="t-mid">2 · Constituição nova encontra lei anterior</text><text x="60" y="253" class="t-small tc-dif">NÃO RECEPÇÃO · ADI 2/DF</text>
+      <rect x="42" y="288" width="516" height="86" fill="none" stroke-width="1.5" style="stroke:var(--dif)"/><text x="60" y="320" class="t-mid">3 · EC posterior cria incompatibilidade</text><text x="60" y="351" class="t-small tc-dif">PERDA DE VALIDADE / NÃO RECEPÇÃO · ADPF 836, TEMA 1.053</text>
+      <rect x="42" y="386" width="516" height="86" fill="none" stroke-width="1.5" style="stroke:var(--conc)"/><text x="60" y="418" class="t-mid">4 · EC posterior passa a admitir lei inválida</text><text x="60" y="449" class="t-small tc-conc">SEM CONVALIDAÇÃO · ADIs 2.158 E 2.189</text>
+      <text x="92" y="526" class="t-small tc-muted">A EMENDA PODE RETIRAR, MAS NÃO SALVAR A LEI</text>
+    </svg>
+    <figcaption><span>Fig. 4 · Marco temporal e quatro cenários</span><span class="stage-count">Slides 51–60</span></figcaption>
+  </figure></div>
+  <div class="steps">
+    <div class="step" data-panel="p-tempo1" data-slides="Slides 51–53, 55–56"><div class="card"><span class="label dif">Não recepção</span><h3>Norma anterior e Constituição nova</h3><p>Para norma editada antes da Constituição de 1988, os slides afastam a ADI e a categoria de inconstitucionalidade superveniente: examina-se se houve <strong>recepção</strong>. Norma incompatível não é recebida pela nova ordem; o material descreve o efeito como revogação.</p><p>O controle de norma pré-constitucional é indicado por ADPF. Os slides citam como referências clássicas a ADI 2/DF, rel. Min. Paulo Brossard, e a ADPF 130 (Lei de Imprensa).</p><span class="src">Slides 51–53, 56</span></div></div>
+    <div class="step" data-panel="p-tempo2" data-slides="Slides 54–60"><div class="card"><span class="label">Quatro situações</span><h3>A emenda pode retirar a lei, mas não salvar o vício original</h3><p>O quadro dos slides distingue: (1) lei posterior incompatível desde a origem: inconstitucionalidade; (2) lei anterior incompatível com nova Constituição: não recepção; (3) lei antes válida que passa a conflitar com emenda: perda de validade/não recepção ou revogação; (4) lei que já nasceu inconstitucional não é convalidada por emenda posterior que passe a admitir seu conteúdo.</p><p>Para a hipótese 3, os slides citam ADPF 836/RR e RE 1.167.478/RJ, Tema 1.053, e relacionam o exemplo à EC 66/2010. Para a hipótese 4, citam ADI 2.158/PR e ADI 2.189/PR, sobre contribuição previdenciária de inativos no Paraná. O resumo do slide 59 ainda cita ADI 7.739/DF como hipótese 1; mantemos o dado como consta, sem verificação externa.</p><p>A síntese enunciada no slide 60: a mudança constitucional pode retirar do sistema uma lei originalmente válida, mas não salvar uma lei que nasceu inválida.</p><span class="src">Slides 54–60</span></div></div>
+  </div>
+</div>
+<div class="wide">
+  <div class="par">
+    <div class="regra"><span class="label">Divergência · efeitos da não recepção</span><p>Os slides registram posições contrárias sobre aplicar por analogia o art. 27 da Lei 9.868/99 para modular efeitos temporais da declaração de não recepção.</p><p><strong>Contrário:</strong> RE-AgR 353.508, rel. Min. Celso de Mello (15.7.2007). <strong>Favorável:</strong> AI 582.280, rel. Min. Gilmar Mendes (12.9.2006, Info STF 442).</p></div>
+    <div class="excecao"><span class="label">Posição indicada no material</span><p>O professor afirma que, em princípio, deve prevalecer a possibilidade de modulação, em atenção à unidade da Constituição, à segurança jurídica e à confiança. Os slides sustentam essa formulação com trechos da ADI 2.231 e das ADIs 2.154 e 2.258, julgadas em 2023.</p></div>
+  </div>
+  <span class="src">Slides 61–62 · Lei 9.868/99, art. 27; RE-AgR 353.508; AI 582.280; ADIs 2.231, 2.154 e 2.258</span>
+</div>
+
+<!-- ============ 06 · EFEITO CONCRETO E REVOGAÇÃO ============ -->
+<section class="chapter" aria-labelledby="c9">
+  <span class="num" aria-hidden="true">09</span>
+  <h2 id="c9">Forma de lei, efeito concreto e perda de objeto</h2>
+  <p class="lede">A ausência de generalidade não fecha toda via de ADI quando o ato foi editado sob forma de lei. Já a revogação da norma, em regra, encerra a ação — com exceções delimitadas nos slides.</p>
+</section>
+<div class="wide">
+  <div class="prosa">
+    <p>Um ato estatal de efeito concreto resolve situação específica e particular, sem generalidade e abstração. Os slides citam como exemplos leis que criam município, tratam de orçamento, concedem pensões especiais, anistiam, integram bem ao patrimônio histórico ou desafetam bem do serviço público.</p>
+    <p>A jurisprudência descrita teria evoluído de uma posição de não cabimento para uma tendência de admitir ADI contra atos concretos <strong>materializados por lei</strong> — ou medida provisória, no caso de abertura de crédito extraordinário. O precedente indicado é a ADI 4.048-MC, rel. Min. Gilmar Mendes. O argumento exposto: se a Constituição exige que determinado ato seja lei formal, isentá-lo do controle abstrato enfraqueceria essa garantia.</p>
+    <p>O material distingue esse bloco dos decretos autônomos discutidos nos slides 31–39: aqui o critério é a forma legal do ato de efeito concreto; o outro bloco trata da natureza normativa e da ofensa direta à Constituição.</p>
+  </div>
+  <span class="src">Slides 63–66 · ADI 4.048-MC</span>
+</div>
+<div class="wide">
+  <div class="chave"><span class="label">Regra · revogação ou eficácia exaurida</span>Em regra, a lei revogada ou já sem eficácia não é objeto atual de ADI. A revogação superveniente gera perda de objeto e prejudicialidade, total ou parcial, independentemente de efeitos residuais concretos da norma — conforme a citação da ADI 2.010-QO/DF reproduzida no slide 68.</div>
+  <span class="src">Slides 67–68 · RTJ 95/980, 95/993, 99/544 e 145/339; ADI 2.010-QO/DF</span>
+</div>
+<div class="wide">
+  <h3>Quatro exceções apresentadas nos slides</h3>
+  <dl class="termos">
+    <dt>1 · Fraude processual</dt><dd>Se a revogação for feita perto do julgamento apenas para frustrá-lo, o STF pode prosseguir. ADI 3.232 (Info STF 515) e ADI 3.306, rel. Min. Gilmar Mendes, j. 17.3.2011.</dd>
+    <dt>2 · Comunicação tardia</dt><dd>Comunicada a revogação apenas depois do julgamento de mérito, admitir perda de objeto poderia permitir manipulação estratégica do resultado, segundo a notícia do STF de 27.10.2016 citada no slide 72.</dd>
+    <dt>3 · Singularidades do caso</dt><dd>O material aponta impugnação tempestiva e inclusão em pauta antes do exaurimento da lei temporária, com possíveis efeitos ainda em curso. ADI 4.426 e ADI 4.356.</dd>
+    <dt>4 · Continuidade normativa</dt><dd>Se uma MP é convertida em lei com o mesmo texto impugnado, a ADI pode prosseguir: não há perda do objeto, mas continuidade normativa. ADI 1.055/DF (Info 851), ADI 5.604 e ADI 5.599.</dd>
+  </dl>
+  <p class="note">Os slides advertem que esse tema está sujeito a alterações jurisprudenciais frequentes; a lista registra as exceções e fontes citadas no material, sem pretensão de esgotar a evolução posterior.</p>
+  <span class="src">Slides 69–74</span>
+</div>
+<div class="wide">
+  <div class="par">
+    <div class="regra"><span class="label">Entendimento inicial</span><p>Se o parâmetro constitucional invocado é alterado por emenda durante a ADI, a leitura inicialmente adotada pelo STF era julgar a ação prejudicada por perda superveniente do objeto.</p></div>
+    <div class="excecao"><span class="label">Evolução relatada</span><p>Os slides registram que o STF passou a admitir o controle concentrado mesmo após mudança do parâmetro, quando a situação de inconstitucionalidade permanece atual. O exemplo citado é ADI 2.158 e ADI 2.189.</p></div>
+  </div>
+  <p>O critério final do slide 77 é, portanto, a persistência atual da situação de inconstitucionalidade, ainda que o dispositivo constitucional invocado originalmente não esteja mais em vigor.</p>
+  <span class="src">Slides 75–77 · ADI 2.158 e ADI 2.189, rel. Min. Dias Toffoli, j. 15.9.2010</span>
+</div>
+
+<!-- ============ 07 · SÍNTESE ============ -->
+<section class="chapter" aria-labelledby="c10"><span class="num" aria-hidden="true">10</span><h2 id="c10">Resumo</h2><p class="lede">O cabimento depende da natureza do ato, do parâmetro e do momento.</p></section>
+<div class="wide"><dl class="termos">
+  <dt>Objeto da ADI</dt><dd>Lei ou ato normativo federal/estadual, formalmente existente e com normatividade suficiente; a análise varia conforme a espécie e o grau de abstração.</dd>
+  <dt>Lei e decreto</dt><dd>Decreto regulamentar em regra suscita questão de legalidade; decreto autônomo pode gerar ofensa direta. A fronteira é casuística.</dd>
+  <dt>Norma pré-constitucional</dt><dd>Juízo de recepção ou não recepção; não inconstitucionalidade superveniente.</dd>
+  <dt>Mudança por emenda</dt><dd>Pode retirar a subsistência de norma antes válida, mas não convalida vício que já existia na origem.</dd>
+  <dt>Revogação</dt><dd>Regra de perda do objeto, com as quatro exceções descritas nos slides: fraude, comunicação tardia, singularidades e continuidade normativa.</dd>
+  <dt>Parâmetro alterado</dt><dd>O slide final indica que a ADI pode prosseguir se a situação de inconstitucionalidade persistir e continuar atual.</dd>
+</dl><span class="src">Slides 2–77</span></div>
+
+<section class="chapter" aria-labelledby="c11"><span class="num" aria-hidden="true">11</span><h2 id="c11">Teste rápido</h2><p class="lede">Responda antes de abrir.</p></section>
+<div class="wide"><div class="quiz">
+  <details><summary>Por que uma súmula vinculante não é, segundo os slides, objeto de ADI?</summary><p>Por não possuir grau suficiente de generalidade e abstração; o caminho indicado para alterá-la é o procedimento de revisão ou cancelamento do art. 103-A, § 2º, CF (slides 43–44).</p></details>
+  <details><summary>Em que momento um tratado adquire executoriedade interna, conforme o esquema da aula?</summary><p>Após a promulgação por decreto presidencial e a publicação do texto em português no Diário Oficial, quarta fase do processo descrito (slides 46–48).</p></details>
+  <details><summary>Qual categoria se aplica à lei anterior incompatível com nova Constituição?</summary><p>Não recepção, e não inconstitucionalidade superveniente (slides 51–56).</p></details>
+  <details><summary>Uma emenda pode convalidar lei que já nasceu inconstitucional?</summary><p>Não. Os slides afirmam que não há constitucionalidade superveniente; a lei continua inválida (slides 54, 58–60).</p></details>
+  <details><summary>O que ocorre, em regra, se a norma questionada em ADI é revogada no curso do processo?</summary><p>Perda superveniente do objeto e prejudicialidade, ressalvadas as exceções descritas nos slides 69–74.</p></details>
+  <details><summary>Qual é o critério final se o parâmetro constitucional muda durante a ADI?</summary><p>Segundo o slide 77, importa verificar se a situação de inconstitucionalidade persiste e permanece atual (slides 75–77).</p></details>
+</div></div>
+
+<nav class="endnav" aria-label="Aulas vizinhas"><a href="aula-19.html"><span>← Aula 19</span>Presunção de constitucionalidade e reação legislativa</a><a href="aula-21.html" style="text-align:right"><span>Aula 21 →</span>ADI: requisitos de ajuizamento</a></nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides “ADI I (cabimento)”, do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 77 páginas, conforme o digesto visual. Cada bloco e cada figura identificam os slides de origem. Os diagramas de funil, hierarquia Constituição/lei/decreto, linha do tempo, cenários temporais e fluxos são reconstruções editoriais das relações descritas no material.</p>
+  <p>O digesto registra divergências, tendências e mudanças jurisprudenciais; por isso, a página conserva expressões como “em regra”, “tendência” e “segundo os slides” nos pontos em que a fonte não apresenta uma regra sem controvérsia. Números de processos e datas, inclusive a ADI 7.739/DF (2025), foram reproduzidos conforme o digesto, sem verificação externa. A página ainda não foi cruzada com bibliografia doutrinária externa.</p>
+</details>
+<script src="assets/controle.js"></script>
+</body>
+</html>

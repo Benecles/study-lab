@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Controle preventivo · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 09 — Momentos do controle de constitucionalidade: o controle preventivo, exercido em regra por Legislativo e Executivo, e a exceção judicial pelo mandado de segurança parlamentar.">
+<link rel="stylesheet" href="assets/controle.css">
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 09 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · III.1 Momentos do controle · III.1.1 Preventivo</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">A lei</span><span class="split">ainda não existe.</span></h1>
+  <p class="deck">Toda lei nasce de um projeto, tramita, é sancionada ou vetada, promulgada e passa a vigorar. Em algum ponto desse trajeto, a Constituição passa a ser examinada. O controle preventivo age <em>antes</em>: sobre o projeto, não sobre a lei. Esta aula mostra quem o exerce por regra e quem, excepcionalmente, o exerce por via judicial.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 150" aria-hidden="true">
+    <path class="draw" d="M0 75H620" stroke-width="3" fill="none" style="stroke:var(--dif)"/>
+    <path class="late" d="M620 75H1060" stroke-width="3" fill="none" stroke-dasharray="7 7" style="stroke:var(--conc)"/>
+    <circle cx="620" cy="75" r="6" class="late" style="fill:var(--ink)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing="1.1">
+      <text x="0" y="58" style="fill:var(--dif)">CONTROLE PREVENTIVO</text>
+      <text x="884" y="58" style="fill:var(--conc)">CONTROLE REPRESSIVO</text>
+      <text x="0" y="100" style="fill:var(--ink-2)">PROJETO</text>
+      <text x="220" y="100" style="fill:var(--ink-2)">TRAMITAÇÃO</text>
+      <text x="430" y="100" style="fill:var(--ink-2)">SANÇÃO OU VETO</text>
+      <text x="520" y="128" style="fill:var(--ink)">PROMULGAÇÃO · PUBLICAÇÃO NO D.O.</text>
+      <text x="962" y="100" style="fill:var(--ink-2)">VIGÊNCIA</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “Momentos do controle (preventivo)”, 19 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 14 min</b></div>
+    <div role="listitem">Antes<b>Aula 08 · Teorias do controle</b></div>
+    <div role="listitem">Depois<b>Aula 10 · Controle repressivo</b></div>
+  </div>
+</header>
+
+<!-- ============ 01 · DOIS MOMENTOS ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">Dois momentos, um marco</h2>
+  <p class="lede">Nesta aula e na próxima, <strong class="dif">azul</strong> marca o controle <strong class="dif">preventivo</strong> — antes de a lei existir — e <strong class="conc">vermelho</strong> marca o controle <strong class="conc">repressivo</strong> — depois. O marco entre os dois é a publicação do ato no diário oficial.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p9-defs" viewBox="0 0 600 600">
+        <text x="60" y="72" class="t-small tc-muted">MOMENTOS DE CONTROLE</text>
+        <rect x="60" y="96" width="480" height="160" class="w-dif ink"/>
+        <text x="80" y="136" class="t-big tc-dif">PREVENTIVO</text>
+        <text x="80" y="166">MOMENTO: durante o processo legislativo</text>
+        <text x="80" y="190">OBJETO: o projeto, ainda não a lei</text>
+        <text x="80" y="214">AGENTE (regra): Legislativo e Executivo</text>
+        <rect x="60" y="320" width="480" height="160" class="w-conc ink"/>
+        <text x="80" y="360" class="t-big tc-conc">REPRESSIVO</text>
+        <text x="80" y="390">MOMENTO: após encerrado o processo legislativo</text>
+        <text x="80" y="414">OBJETO: a lei já existente</text>
+        <text x="80" y="438">AGENTE (regra): Poder Judiciário</text>
+        <text x="60" y="500" class="t-small tc-muted">O PROJETO NÃO É LEI · A LEI NÃO É MAIS PROJETO</text>
+      </svg>
+      <svg class="panel fig" id="p9-linha" viewBox="0 0 600 600">
+        <defs><marker id="ah9-1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <line x1="300" y1="60" x2="300" y2="540" class="thin dash"/>
+        <rect x="220" y="270" width="160" height="60" style="fill:var(--accent)"/>
+        <text x="236" y="294">PUBLICAÇÃO NO</text>
+        <text x="236" y="314">DIÁRIO OFICIAL</text>
+        <path class="c-dif grow" d="M60 300H300" stroke-width="3"/>
+        <path class="dash" d="M300 300H540" stroke-width="3" style="stroke:var(--conc)" marker-end="url(#ah9-1)"/>
+        <text x="70" y="380" class="t-mid tc-dif">PROCESSO LEGISLATIVO</text>
+        <text x="70" y="412" class="t-big tc-dif">CONTROLE PREVENTIVO</text>
+        <text x="330" y="370" class="t-mid tc-conc">EXISTÊNCIA DA LEI</text>
+        <text x="330" y="392" class="t-small tc-muted">vigendo ou em vacatio legis</text>
+        <text x="330" y="428" class="t-big tc-conc">CONTROLE REPRESSIVO</text>
+        <text x="60" y="500" class="t-small tc-muted">A PUBLICAÇÃO DIVIDE O EIXO DA VIDA DA NORMA</text>
+      </svg>
+      <figcaption><span>Fig. 1 · Dois momentos</span><span class="stage-count">Slide 2</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p9-defs" data-slides="Slide 2"><div class="card">
+      <span class="label dif">Definição por contraste</span>
+      <h3>Preventivo x repressivo</h3>
+      <p>O <strong class="dif">controle preventivo</strong> (prévio) é realizado <strong>durante o processo legislativo</strong>. A lei <strong>ainda não existe</strong>, só o projeto. É realizado, por regra, pelos Poderes <strong>Legislativo</strong> e <strong>Executivo</strong>.</p>
+      <p>O <strong class="conc">controle repressivo</strong> (posterior) é feito sobre a lei, não mais sobre o projeto. Pressupõe o <strong>encerramento do processo legislativo</strong> — e não, necessariamente, o início de vigência da lei. É realizado, por regra, pelo <strong>Poder Judiciário</strong>.</p>
+      <span class="src">Slide 2</span>
+    </div></div>
+    <div class="step" data-panel="p9-linha" data-slides="Slide 3"><div class="card">
+      <span class="label conc">O marco temporal</span>
+      <h3>A publicação divide o eixo</h3>
+      <p>Antes da publicação no diário oficial há apenas <strong>processo legislativo</strong> — projeto — e <strong class="dif">controle preventivo</strong>. Depois dela, a lei <strong>existe</strong>, esteja <strong>vigendo</strong> ou em <em>vacatio legis</em>, e o controle passa a ser <strong class="conc">repressivo</strong>.</p>
+      <p>É o esquema central que estrutura esta aula e a próxima (Aula 10): mesmo uma lei que ainda não entrou em vigor já é objeto de controle repressivo, porque já foi publicada.</p>
+      <span class="src">Slide 3</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 02 · A REGRA ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num dif" aria-hidden="true">02</span>
+  <h2 id="c2"><span class="dif">A regra:</span> Legislativo e Executivo</h2>
+  <p class="lede">Por regra, o controle preventivo é político, não judicial. Ele acontece em dois pontos da tramitação: dentro da própria Casa legislativa e nas mãos do Presidente da República, por meio do veto.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p9-leg" viewBox="0 0 600 600">
+        <defs><marker id="ah9-2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="60" y="70" class="t-small tc-muted">PELO LEGISLATIVO (CONTROLE POLÍTICO)</text>
+        <rect x="60" y="96" width="150" height="90" class="f-paper ink"/>
+        <path d="M78 120h114M78 140h114M78 160h80" class="thin"/>
+        <text x="60" y="84" class="t-small">PROJETO</text>
+        <rect x="260" y="96" width="190" height="110" class="w-dif ink"/>
+        <text x="280" y="132" class="t-mid tc-dif">CCJ</text>
+        <text x="280" y="154">art. 58 CF</text>
+        <text x="280" y="176">decisão terminativa</text>
+        <text x="280" y="196">(recurso ao plenário)</text>
+        <path class="c-dif grow" d="M210 140H260" marker-end="url(#ah9-2)"/>
+        <rect x="150" y="280" width="320" height="90" class="w-dif ink"/>
+        <text x="170" y="316" class="t-mid tc-dif">PLENÁRIO DA CASA LEGISLATIVA</text>
+        <text x="170" y="342">vota o projeto em definitivo</text>
+        <path class="c-dif" d="M355 206V280" stroke-width="3"/>
+        <text x="60" y="460" class="t-small tc-muted">CCJ NÃO EXAMINA TODO PROJETO:</text>
+        <text x="60" y="482" class="t-small tc-muted">MPS, RESOLUÇÕES DE TRIBUNAIS E DECRETOS FICAM DE FORA</text>
+      </svg>
+      <svg class="panel fig" id="p9-veto" viewBox="0 0 600 600">
+        <defs><marker id="ah9-3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="60" y="70" class="t-small tc-muted">PELO EXECUTIVO</text>
+        <rect x="180" y="96" width="240" height="80" class="w-dif ink"/>
+        <text x="200" y="130" class="t-mid tc-dif">PRESIDENTE DA</text>
+        <text x="200" y="152" class="t-mid tc-dif">REPÚBLICA</text>
+        <text x="60" y="230" class="t-small">VETO — art. 66, § 1º CF</text>
+        <text x="60" y="252" class="t-small tc-muted">15 dias úteis · total ou parcial</text>
+        <text x="60" y="272" class="t-small tc-muted">comunica motivos em 48h ao Pres. do Senado</text>
+        <path class="c-dif grow" d="M300 176V300" stroke-width="3"/>
+        <path class="c-dif" d="M300 300C300 330 130 330 130 360" marker-end="url(#ah9-3)"/>
+        <path class="c-dif" d="M300 300C300 330 470 330 470 360" marker-end="url(#ah9-3)"/>
+        <rect x="30" y="368" width="220" height="110" class="w-dif ink"/>
+        <text x="50" y="402" class="t-mid tc-dif">VETO JURÍDICO</text>
+        <text x="50" y="428">fundamento:</text>
+        <text x="50" y="450">inconstitucional</text>
+        <rect x="350" y="368" width="220" height="110" class="f-paper ink"/>
+        <text x="370" y="402" class="t-mid">VETO POLÍTICO</text>
+        <text x="370" y="428">fundamento: contrário</text>
+        <text x="370" y="450">ao interesse público</text>
+      </svg>
+      <figcaption><span>Fig. 2 · A regra: Legislativo e Executivo</span><span class="stage-count">Slide 4</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p9-leg" data-slides="Slide 4"><div class="card">
+      <span class="label dif">Comissões e Plenário</span>
+      <h3>Pelo Legislativo</h3>
+      <p>Dois órgãos fazem o controle preventivo dentro da Casa legislativa: as <strong>Comissões de Constituição e Justiça</strong> (art. 58 CF) e o <strong>Plenário</strong> da respectiva Casa.</p>
+      <p>As CCJs não atuam sobre todos os projetos de atos normativos — ficam de fora, por exemplo, Medidas Provisórias, resoluções de tribunais e decretos, conforme as atribuições previstas no regimento interno de cada CCJ. A decisão de inconstitucionalidade tomada pela CCJ tem, no texto dos slides, "PR caráter terminativo" (rejeição e arquivamento), cabendo recurso ao plenário da Casa.</p>
+      <span class="src">Slide 4</span>
+    </div></div>
+    <div class="step" data-panel="p9-veto" data-slides="Slide 5"><div class="card">
+      <span class="label dif">O veto presidencial</span>
+      <h3>Pelo Executivo: veto jurídico e veto político</h3>
+      <p>Compete ao <strong>Presidente da República</strong> vetar o projeto, no todo ou em parte, quando o considerar <strong>inconstitucional</strong> ou <strong>contrário ao interesse público</strong> (art. 66, § 1º CF).</p>
+      <p>A doutrina batiza as duas hipóteses: veto por inconstitucionalidade é <strong>veto jurídico</strong>; veto por contrariedade ao interesse público é <strong>veto político</strong>. O próximo bloco reúne o procedimento completo do art. 66.</p>
+      <span class="src">Slide 5</span>
+    </div></div>
+  </div>
+</div>
+
+<div class="wide">
+  <h3 style="font:700 25px var(--sans);margin:0 0 6px">O procedimento do veto (art. 66 CF)</h3>
+  <p class="note" style="margin-bottom:18px">Os slides 6 a 8 transcrevem o artigo por extenso. Reorganizado como sequência:</p>
+  <ol class="fluxo">
+    <li><b>Envio para sanção</b> — art. 66, caput. A Casa em que se concluiu a votação envia o projeto ao Presidente da República, que, aquiescendo, o sanciona.</li>
+    <li class="dif"><b>Veto presidencial</b> — art. 66, § 1º. Se considerar o projeto, no todo ou em parte, inconstitucional ou contrário ao interesse público, o Presidente veta-o total ou parcialmente, em <strong>quinze dias úteis</strong> contados do recebimento, e comunica os motivos ao Presidente do Senado Federal em <strong>quarenta e oito horas</strong>.</li>
+    <li><b>Limite do veto parcial</b> — art. 66, § 2º. O veto parcial só pode abranger texto integral de artigo, parágrafo, inciso ou alínea.</li>
+    <li><b>Silêncio é sanção</b> — art. 66, § 3º. Decorrido o prazo de quinze dias, o silêncio do Presidente da República importa sanção.</li>
+    <li><b>Apreciação em sessão conjunta</b> — art. 66, § 4º. O veto é apreciado em sessão conjunta, em até trinta dias do recebimento, só podendo ser rejeitado pelo voto da maioria absoluta de Deputados e Senadores. A maioria absoluta é aferida por <strong>votação por estirpe</strong> — maioria dos deputados e maioria dos senadores, separadamente. A EC 76/2013 suprimiu o voto secreto dessa votação.</li>
+    <li><b>Prazo esgotado tranca a pauta</b> — art. 66, § 6º. Esgotado sem deliberação o prazo do § 4º, o veto entra na ordem do dia da sessão imediata, sobrestadas as demais proposições, até a votação final.</li>
+    <li><b>Se não mantido, promulgação em cascata</b> — art. 66, §§ 5º e 7º. Rejeitado o veto, o projeto é enviado para promulgação ao Presidente da República. Se este não promulgar a lei em quarenta e oito horas, promulga o Presidente do Senado; se este também não o fizer no mesmo prazo, promulga o Vice-Presidente do Senado.</li>
+  </ol>
+  <span class="src">Slides 6–8</span>
+</div>
+
+<!-- ============ 03 · A EXCEÇÃO ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num dif" aria-hidden="true">03</span>
+  <h2 id="c3"><span class="dif">A exceção:</span> o Judiciário</h2>
+  <p class="lede">Excepcionalmente, o próprio Judiciário controla preventivamente — ainda pelo lado azul do eixo, porque a lei ainda não existe. É controle incidental, movido por um único legitimado, com limites estreitos.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p9-fund" viewBox="0 0 600 600">
+        <defs><marker id="ah9-4" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="60" y="56" class="t-small tc-muted">FUNDAMENTO CONSTITUCIONAL</text>
+        <rect x="60" y="76" width="480" height="140" class="f-paper ink"/>
+        <text x="80" y="104" class="t-small tc-muted">ART. 60, § 4º CF — VEDA DELIBERAR PEC TENDENTE A ABOLIR:</text>
+        <text x="80" y="130">I — a forma federativa de Estado</text>
+        <text x="80" y="154">II — o voto direto, secreto, universal e periódico</text>
+        <text x="80" y="178">III — a separação dos Poderes</text>
+        <text x="80" y="202">IV — os direitos e garantias individuais</text>
+        <circle cx="110" cy="300" r="22" class="ink" stroke-width="2.2"/>
+        <path d="M110 322v70M80 350h60M110 392l-26 56M110 392l26 56" class="ink" stroke-width="2.2"/>
+        <text x="60" y="418" class="t-small">PARLAMENTAR</text>
+        <path class="c-dif grow" d="M300 216V260" marker-end="url(#ah9-4)"/>
+        <line x1="140" y1="310" x2="220" y2="310" class="thin"/>
+        <rect x="220" y="260" width="320" height="110" class="w-dif ink"/>
+        <text x="240" y="294" class="t-mid tc-dif">DIREITO A PROCESSO</text>
+        <text x="240" y="318" class="t-mid tc-dif">LEGISLATIVO HÍGIDO</text>
+        <text x="240" y="344" class="t-small">não ver deliberada PEC que</text>
+        <text x="240" y="364" class="t-small">tenda a abolir cláusula pétrea</text>
+        <text x="60" y="480" class="t-small tc-muted">"DIREITO FUNÇÃO" DO PARLAMENTAR AO PROCESSO LEGISLATIVO</text>
+      </svg>
+      <svg class="panel fig" id="p9-ms" viewBox="0 0 600 600">
+        <defs><marker id="ah9-5" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="60" y="56" class="t-small tc-muted">MECANISMO PROCESSUAL</text>
+        <rect x="60" y="80" width="220" height="90" class="w-grey ink"/>
+        <text x="80" y="112" class="t-mid">MESA DA CASA</text>
+        <text x="80" y="136" class="t-small">põe matéria vedada</text>
+        <text x="80" y="156" class="t-small">em pauta — ilegalidade</text>
+        <path class="c-dif grow" d="M280 122H340" marker-end="url(#ah9-5)"/>
+        <rect x="340" y="80" width="110" height="140" class="f-paper ink"/>
+        <path d="M356 110h78M356 130h78M356 150h60M356 170h70" class="thin"/>
+        <text x="340" y="240" class="t-mid tc-dif">MANDADO DE</text>
+        <text x="340" y="262" class="t-mid tc-dif">SEGURANÇA</text>
+        <text x="340" y="286" class="t-small">impetrado pelo parlamentar</text>
+        <text x="340" y="306" class="t-small">contra a mesa</text>
+        <text x="60" y="340" class="t-small tc-muted">VIA DE EXCEÇÃO OU DEFESA (INCIDENTAL)</text>
+        <text x="60" y="360" class="t-small tc-muted">EM DEFESA DE DIREITO DO PARLAMENTAR</text>
+        <rect x="60" y="390" width="480" height="120" class="w-dif ink"/>
+        <text x="80" y="422" class="t-mid tc-dif">LEGITIMIDADE EXCLUSIVA DO PARLAMENTAR</text>
+        <text x="80" y="450">leading case: MS 20.257/DF, Min. Moreira Alves</text>
+        <text x="80" y="472">(RTJ 99/1031)</text>
+        <text x="80" y="496" class="t-small tc-muted">+ seis precedentes reiterando a regra (slide 11)</text>
+      </svg>
+      <svg class="panel fig" id="p9-limites" viewBox="0 0 600 600">
+        <text x="60" y="56" class="t-small tc-muted">LIMITES DO CONTROLE JUDICIAL PREVENTIVO</text>
+        <rect x="60" y="80" width="220" height="160" class="w-dif ink"/>
+        <text x="80" y="116" class="t-mid tc-dif">ABRANGE</text>
+        <text x="80" y="144">garantia de procedimento</text>
+        <text x="80" y="164">em conformidade com a</text>
+        <text x="80" y="184">Constituição</text>
+        <rect x="320" y="80" width="220" height="160" class="w-grey ink"/>
+        <text x="340" y="116" class="t-mid">NÃO ABRANGE</text>
+        <text x="340" y="144">mérito de questões</text>
+        <text x="340" y="164">políticas e atos</text>
+        <text x="340" y="184">interna corporis</text>
+        <text x="340" y="208" class="t-small tc-muted">(interpretação regimental</text>
+        <text x="340" y="226" class="t-small tc-muted">vedada — controverso)</text>
+        <rect x="60" y="270" width="480" height="150" class="f-paper ink"/>
+        <text x="80" y="300" class="t-small tc-muted">MS 24.356/DF · Min. Carlos Velloso · 13/02/2003</text>
+        <text x="80" y="326">controvérsia puramente regimental é ato</text>
+        <text x="80" y="348">interna corporis, imune ao controle</text>
+        <text x="80" y="370">judicial — não há ofensa a direito subjetivo</text>
+        <text x="80" y="396" class="t-small tc-muted">mandado de segurança não conhecido</text>
+      </svg>
+      <figcaption><span>Fig. 3 · A exceção pelo Judiciário</span><span class="stage-count">Slide 9</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p9-fund" data-slides="Slide 9"><div class="card">
+      <span class="label dif">Fundamento</span>
+      <h3>Um direito subjetivo do parlamentar</h3>
+      <p>O controle preventivo pelo Judiciário ocorre na via judicial, quando a Constituição, expressamente, prevê a <strong>impossibilidade de trâmite</strong> de uma determinada matéria ou espécie normativa. Ele diz respeito a um <strong>"direito função"</strong> do parlamentar ao processo legislativo <strong>"hígido"</strong> (sadio).</p>
+      <p>O parlamentar tem <strong>direito a não ver deliberada</strong> uma emenda tendente a abolir os bens assegurados por cláusulas pétreas: o art. 60, § 4º veda a deliberação de proposta de emenda tendente a abolir a forma federativa de Estado, o voto direto, secreto, universal e periódico, a separação dos Poderes e os direitos e garantias individuais.</p>
+      <span class="src">Slide 9</span>
+    </div></div>
+    <div class="step" data-panel="p9-ms" data-slides="Slides 10–11"><div class="card">
+      <span class="label dif">Mecanismo e legitimidade</span>
+      <h3>Mandado de segurança, só do parlamentar</h3>
+      <p>Se a mesa da Casa legislativa coloca, mesmo assim, a votação de tal matéria em pauta, comete, em tese, uma <strong>ilegalidade</strong> — viola a garantia do parlamentar ao devido processo legislativo. O controle se exerce pela <strong>via de exceção ou defesa (incidental)</strong>, em defesa de direito do próprio parlamentar: <strong>mandado de segurança</strong> contra a mesa da Câmara dos Deputados ou do Senado Federal.</p>
+      <p>A legitimidade para propor a ação é <strong>exclusiva do parlamentar</strong>. O STF fixou isso desde o <em>leading case</em> MS 20.257/DF, Min. Moreira Alves (RTJ 99/1031), reiterado em MS 20.452/DF (Min. Aldir Passarinho, RTJ 116/47), MS 21.642/DF (Min. Celso de Mello, RDA 191/200), MS 24.645/DF e MS 24.593/DF e MS 24.576/DF (2003) e MS 24.356/DF (Min. Carlos Velloso), na síntese do MS 24.667-AgR, Rel. Min. Carlos Velloso, julgamento em 4-12-2003, Plenário, DJ de 23-4-2004.</p>
+      <span class="src">Slides 10–11</span>
+    </div></div>
+    <div class="step" data-panel="p9-limites" data-slides="Slides 12–13"><div class="card">
+      <span class="label dif">Limites</span>
+      <h3>Procedimento sim, mérito político não</h3>
+      <p>O controle preventivo exercido pelo Judiciário abrange apenas a garantia de um procedimento em total conformidade com a Constituição. <strong>Não</strong> lhe cabe estender o controle sobre aspectos discricionários relativos às <strong>questões políticas</strong> e aos <strong>atos internos</strong> (<em>interna corporis</em>). Por regra, é vedada pelo STF a interpretação das normas regimentais das Casas legislativas — ponto que os slides marcam como <strong>controverso</strong>.</p>
+      <p>O precedente MS 24.356/DF ilustra o limite: sendo a controvérsia puramente regimental, trata-se de ato <em>interna corporis</em>, imune ao controle judicial, porque não há alegação de ofensa a direito subjetivo — mandado de segurança não conhecido (Rel. Min. Carlos Velloso, julgamento 13/02/2003, Tribunal Pleno).</p>
+      <span class="src">Slides 12–13</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 04 · CASOS ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num dif" aria-hidden="true">04</span>
+  <h2 id="c4">Dois casos, dois desfechos</h2>
+  <p class="lede">Uma liminar concedida e depois derrubada; uma cautelar simplesmente indeferida. Os dois casos mostram como a via é, na prática, estreita.</p>
+</section>
+<div class="wide">
+  <div class="julgados">
+    <div class="julgado dif">
+      <header><span>MS 32.033/DF</span><span>Rel. Min. Gilmar Mendes · STF, abril de 2013</span></header>
+      <div class="corpo">
+        <p>Medida liminar afastou a possibilidade prevista no PLC 14/2013, que restringia o acesso ao fundo partidário e ao tempo de propaganda eleitoral a novos partidos, na migração partidária ocorrida durante a legislatura. Aponta-se lei casuística, voltada a impedir a implantação do partido Rede Sustentabilidade — possível violação do direito público subjetivo do parlamentar de não se submeter a processo legislativo inconstitucional.</p>
+      </div>
+      <div class="tese">Liminar deferida em 24.4.2013; em 20.6.2013 o Plenário revogou a liminar e denegou a segurança.</div>
+    </div>
+    <div class="julgado dif">
+      <header><span>MS 32.036 e 32.037/DF</span><span>Rel. Min. Dias Toffoli · STF, maio de 2013</span></header>
+      <div class="corpo">
+        <p>Mandado de segurança impetrado para obstar a tramitação e a deliberação da PEC 33/2011 (que alteraria o controle das decisões do STF pelo Congresso Nacional). O regimento interno da Câmara prevê que, após a admissão pela CCJ, a mesa deve designar comissão especial para o exame do mérito, com prazo de 40 sessões para o parecer — comissão não instalada, o que indica tramitação suspensa.</p>
+      </div>
+      <div class="tese">Medida cautelar indeferida: sem notícia da comissão especial, falta o <em>periculum in mora</em> — a tramitação já estava, de fato, suspensa.</div>
+    </div>
+  </div>
+  <span class="src">Slides 14–15</span>
+</div>
+
+<!-- ============ 05 · SÍNTESE JURISPRUDENCIAL ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num dif" aria-hidden="true">05</span>
+  <h2 id="c5">A via existe, mas raramente vinga</h2>
+  <p class="lede">Os slides finais do deck consolidam a jurisprudência do STF sobre o mandado de segurança parlamentar de controle preventivo.</p>
+</section>
+<div class="wide">
+  <dl class="termos">
+    <dt>Premissas</dt>
+    <dd>A via é excepcional e se funda no direito público subjetivo do parlamentar a um processo legislativo hígido. O cabimento clássico é invocado quando a Constituição veda expressamente a deliberação de determinada matéria. Quanto às cláusulas pétreas, sustenta-se que o parlamentar tem direito a não ver deliberada PEC tendente a abolir os bens protegidos pelo art. 60, § 4º.</dd>
+    <dt>Ponto jurisprudencial central</dt>
+    <dd>O STF admite, em tese, a possibilidade jurídica excepcional do controle preventivo por mandado de segurança. A jurisprudência examinada não revela concessão definitiva pelo Plenário para barrar PEC por ofensa material a cláusula pétrea. Há, contudo, precedente de deferimento liminar com suspensão temporária do processo legislativo: MS 32.033/DF (liminar depois derrubada pelo Plenário).</dd>
+  </dl>
+  <div class="chave"><span class="label">Slide 16</span>A via existe, mas a concessão definitiva é extremamente rara; o MS 32.033/DF destaca-se pelo deferimento cautelar.</div>
+
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Casos relevantes no STF sobre controle preventivo">
+  <table class="compare">
+    <thead><tr><th scope="col">Processo</th><th scope="col">Proposição impugnada</th><th scope="col">Resultado no STF</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">MS 20.257/DF</th><td>PEC que prorrogava mandatos municipais</td><td>Precedente fundador. Reconhecida a legitimidade do parlamentar e a possibilidade abstrata do controle preventivo, mas segurança não concedida.</td></tr>
+      <tr><th scope="row">MS 21.648/DF</th><td>PEC do IPMF</td><td>Perdeu o objeto após a promulgação da emenda; sem concessão da segurança.</td></tr>
+      <tr><th scope="row">MS 24.138/DF</th><td>Projeto de lei que alterava a CLT</td><td>Segurança denegada por unanimidade; afastado o controle material preventivo sobre projeto de lei ordinária.</td></tr>
+      <tr><th scope="row">MS 24.642/DF</th><td>PEC da Reforma da Previdência</td><td>Segurança indeferida; não reconhecida violação suficiente para sustar o processo legislativo.</td></tr>
+      <tr><th scope="row">MS 30.956/DF</th><td>Projeto sobre royalties do petróleo</td><td>Seguimento negado: a vedação do art. 60, § 4º dirige-se a PECs, não a projetos de lei.</td></tr>
+      <tr><th scope="row">MS 32.033/DF</th><td>PLC 14/2013 — fundo partidário e propaganda</td><td>Liminar deferida em 24.4.2013 (Min. Gilmar Mendes); em 20.6.2013 o Plenário revogou a liminar e denegou a segurança.</td></tr>
+      <tr><th scope="row">MS 34.448/DF</th><td>PEC do teto de gastos (depois EC 95/2016)</td><td>Liminar indeferida; processo extinto ou prejudicado pela promulgação da emenda.</td></tr>
+      <tr><th scope="row">MS 34.518/DF</th><td>PEC da vaquejada (depois EC 96/2017)</td><td>Pedido de suspensão da tramitação não acolhido; promulgação posterior prejudicou o controle.</td></tr>
+      <tr><th scope="row">MS 37.721/DF</th><td>PEC das imunidades parlamentares</td><td>Liminar indeferida; o relator afirmou que só situações extremas autorizariam intervenção judicial antes da conclusão do processo legislativo.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <span class="src">Slides 17–19</span>
+
+  <ol class="fluxo" style="margin-top:34px">
+    <li><b>Cabimento reconhecido em tese</b> O STF admite, excepcionalmente, o mandado de segurança parlamentar para tutela do processo legislativo.</li>
+    <li><b>Âmbito restrito</b> O Tribunal é mais receptivo a vícios formais e procedimentais do que a um controle material preventivo amplo.</li>
+    <li><b>Ponto distintivo</b> O MS 32.033/DF é o caso mais expressivo de deferimento liminar, embora sem concessão final da ordem.</li>
+    <li><b>Síntese final</b> Não foi identificado precedente consolidado de concessão definitiva pelo Plenário para sustar PEC por ofensa material a cláusula pétrea.</li>
+  </ol>
+  <span class="src">Slide 19</span>
+</div>
+
+<!-- ============ 06 · RESUMO ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">Resumo lado a lado</h2>
+  <p class="lede">A regra e a exceção do controle preventivo, reunidas num único quadro.</p>
+</section>
+<div class="wide">
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Quadro comparativo do controle preventivo">
+  <table class="compare">
+    <thead><tr><th scope="col"><span class="label">Critério</span></th><th scope="col" class="dif">Regra — Legislativo e Executivo</th><th scope="col" class="dif">Exceção — Judiciário</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Órgão</th><td>CCJ e Plenário da Casa; Presidente da República (veto)</td><td>Órgão judicial, ao julgar mandado de segurança</td></tr>
+      <tr><th scope="row">Objeto</th><td>Todo projeto (com exceções regimentais para a CCJ)</td><td>Só matéria com vedação expressa de deliberação (cláusulas pétreas)</td></tr>
+      <tr><th scope="row">Via</th><td>Interna ao processo legislativo (parecer, votação, veto)</td><td>Incidental — mandado de segurança contra a mesa</td></tr>
+      <tr><th scope="row">Legitimado</th><td>Órgãos da própria Casa; Presidente da República</td><td>Exclusivamente o parlamentar</td></tr>
+      <tr><th scope="row">Alcance</th><td>Pode examinar mérito e forma, conforme o órgão</td><td>Só a regularidade do procedimento; não alcança questões políticas nem atos <em>interna corporis</em></td></tr>
+      <tr><th scope="row">Fundamento</th><td>Arts. 58 e 66 CF</td><td>Art. 60, § 4º CF · direito do parlamentar a processo legislativo hígido</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <span class="src">Síntese das Slides 2–19</span>
+</div>
+
+<!-- ============ 07 · TESTE ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">Teste rápido</h2>
+  <p class="lede">Responda antes de abrir.</p>
+</section>
+<div class="wide">
+  <div class="quiz">
+    <details><summary>Uma CCJ rejeita e arquiva um projeto por considerá-lo inconstitucional. Essa decisão é definitiva?</summary><p>Não. A decisão da CCJ tem caráter terminativo, mas cabe recurso ao <strong>plenário</strong> da Casa legislativa (slide 4).</p></details>
+    <details><summary>Qual a diferença entre veto jurídico e veto político?</summary><p>O veto jurídico se funda em <strong>inconstitucionalidade</strong>; o veto político, em <strong>contrariedade ao interesse público</strong> (art. 66, § 1º CF, slide 5).</p></details>
+    <details><summary>Se o Presidente fica em silêncio pelos 15 dias úteis do art. 66, § 1º, o que acontece?</summary><p>O silêncio importa <strong>sanção</strong> (art. 66, § 3º, slide 8).</p></details>
+    <details><summary>Um parlamentar pretende impedir, por via judicial, que sua Casa vote uma PEC que julga abolir cláusula pétrea. Qual o instrumento e quem pode usá-lo?</summary><p><strong>Mandado de segurança</strong> contra a mesa da Casa legislativa, de legitimidade <strong>exclusiva do parlamentar</strong> (slides 10–11).</p></details>
+    <details><summary>O Judiciário, nesse controle preventivo excepcional, pode examinar se a interpretação do regimento interno da Casa foi correta?</summary><p>Por regra, não: é ato <em>interna corporis</em>, imune ao controle judicial (MS 24.356/DF, slides 12–13).</p></details>
+    <details><summary>Em algum caso o STF já concedeu definitivamente a ordem para barrar uma PEC por ofensa material a cláusula pétrea?</summary><p>Não, segundo a síntese jurisprudencial dos slides 16–19. O caso mais próximo foi a liminar do MS 32.033/DF, depois revogada pelo Plenário.</p></details>
+  </div>
+</div>
+
+<nav class="endnav" aria-label="Aulas vizinhas">
+  <a href="aula-08.html"><span>← Aula 08</span>Teorias do controle: nulidade e nulificabilidade</a>
+  <a href="aula-10.html" style="text-align:right"><span>Aula 10 →</span>Momentos do controle: repressivo</a>
+</nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides “Momentos do Controle de Constitucionalidade (Controle Preventivo)”, do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 19 páginas, lidos a partir do digesto visual dos slides (texto, descrição visual e reconstrução de cada slide), não das imagens originais.</p>
+  <p>Acréscimos editoriais, marcados como tais: o eixo da vida da norma no topo da página, a organização em capítulos e do quadro-resumo final, e as remissões a outras aulas. A expressão "PR caráter terminativo" (slide 4) e a ausência do conectivo "e" em "pelos Poderes Legislativo Executivo" (slide 2) foram preservadas exatamente como constam no material de origem. Os resultados dos mandados de segurança no quadro dos slides 17–19 são apresentados como síntese do digesto, sem conferência independente dos acórdãos; as conclusões didáticas ao fim do bloco são inferências a partir dessa síntese. Esta página ainda não foi cruzada com a bibliografia (Barroso, Mendes &amp; Branco, Lenza).</p>
+</details>
+
+<script src="assets/controle.js"></script>
+</body>
+</html>

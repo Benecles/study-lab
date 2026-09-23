@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interpretação conforme · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 15 — Interpretação conforme a Constituição: técnica hermenêutica, limites, base legal, variantes, e por que é um favor legis.">
+<link rel="stylesheet" href="assets/controle.css">
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 15 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · V. Técnicas atuais · 3. Interpretação conforme</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">Salvar a lei,</span><span class="split">sem reescrevê-la.</span></h1>
+  <p class="deck">Uma norma pode admitir mais de um sentido. Se um desses sentidos cabe na Constituição, o juiz fica com ele e descarta os outros — sem tocar em uma vírgula do texto legal. Esta aula mostra o que essa técnica permite, o que ela proíbe, e por que o professor a chama de <em>favor legis</em>.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 150" aria-hidden="true">
+    <path class="draw" d="M0 75H380" stroke-width="2" fill="none" style="stroke:var(--const)"/>
+    <path class="draw" d="M380 75C470 75 480 22 580 22H1060" stroke-width="3" fill="none" stroke-dasharray="6 6" style="stroke:var(--conc)"/>
+    <path class="draw" d="M380 75C470 75 480 75 580 75H1060" stroke-width="3.5" fill="none" style="stroke:var(--dif)"/>
+    <path class="draw" d="M380 75C470 75 480 128 580 128H1060" stroke-width="3" fill="none" stroke-dasharray="6 6" style="stroke:var(--conc)"/>
+    <circle cx="380" cy="75" r="6" class="late" style="fill:var(--const)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.2">
+      <text x="0" y="62" style="fill:var(--ink-2)">A NORMA TEM MAIS DE UM SENTIDO</text>
+      <text x="600" y="12" style="fill:var(--conc)">SENTIDO A · COLIDE · AFASTADO</text>
+      <text x="600" y="66" style="fill:var(--dif)">SENTIDO B · CONFORME · FICA</text>
+      <text x="600" y="148" style="fill:var(--conc)">SENTIDO C · COLIDE · AFASTADO</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “Interpretação conforme”, 9 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 10 min</b></div>
+    <div role="listitem">Antes<b>Aula 14 · Inconstitucionalidade por arrastamento</b></div>
+    <div role="listitem">Depois<b>Aula 16 · Inconstitucionalidade progressiva e circunstancial</b></div>
+  </div>
+</header>
+
+<!-- ============ 01 · CONCEITO E LIMITE ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">Interpretar para não anular</h2>
+  <p class="lede">A interpretação conforme é uma técnica hermenêutica: entre os sentidos possíveis de uma norma, o intérprete escolhe o que é compatível com a Constituição. Nas figuras desta aula, <strong class="dif">azul</strong> marca o sentido que fica (conforme); <strong class="conc">vermelhão</strong> marca o sentido afastado, por colidir com a Constituição.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-conceito" viewBox="0 0 600 600">
+        <defs><marker id="ah-ic1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="50" y="56" class="t-small tc-muted">TÉCNICA HERMENÊUTICA DE PRESERVAÇÃO DO TEXTO</text>
+        <g class="ink">
+          <circle cx="90" cy="110" r="13"/><path d="M90 123v34M74 138h32M90 157l-15 26M90 157l15 26"/>
+          <circle cx="230" cy="110" r="13"/><path d="M230 123v34M214 138h32M230 157l-15 26M230 157l15 26"/>
+          <circle cx="370" cy="110" r="13"/><path d="M370 123v34M354 138h32M370 157l-15 26M370 157l15 26"/>
+        </g>
+        <text x="50" y="212" class="t-small">QUALQUER JUÍZO, EM QUALQUER INSTÂNCIA</text>
+        <text x="60" y="248" class="t-small">NORMA</text>
+        <rect x="60" y="260" width="150" height="170" class="f-paper ink"/>
+        <path d="M78 292h114M78 312h114M78 332h114M78 352h84M78 372h96" class="thin"/>
+        <rect x="390" y="250" width="150" height="190" style="fill:var(--const)"/>
+        <text x="404" y="336" class="t-light t-small">CONSTITUIÇÃO</text>
+        <path class="c-dif grow" d="M210 345H390" marker-end="url(#ah-ic1)"/>
+        <text x="222" y="330" class="t-serif tc-dif">sentido conforme</text>
+        <rect x="225" y="470" width="150" height="90" class="ink" fill="none" stroke-width="1.6"/>
+        <path d="M225 470h150M240 470v90M270 470v90M300 470v90M330 470v90M360 470v90" class="thin"/>
+        <text x="225" y="458" class="t-small">PLENÁRIO / ÓRGÃO ESPECIAL</text>
+        <path d="M215 460l170 110M385 460l-170 110" stroke-width="3" style="stroke:var(--conc)"/>
+        <text x="150" y="592" class="t-small tc-conc">NÃO INCIDE ART. 97 CF, NO CONTROLE DIFUSO</text>
+      </svg>
+      <svg class="panel fig" id="p-limite" viewBox="0 0 600 600">
+        <rect x="50" y="90" width="230" height="420" class="f-paper ink"/>
+        <text x="66" y="126" class="t-mid">INTERPRETAÇÃO</text>
+        <rect x="290" y="90" width="230" height="420" class="w-grey ink" stroke-dasharray="7 6"/>
+        <text x="306" y="126" class="t-mid tc-muted">CRIAÇÃO NORMATIVA</text>
+        <line x1="280" y1="90" x2="280" y2="510" stroke-width="2.5" stroke-dasharray="8 7" style="stroke:var(--conc)"/>
+        <circle cx="150" cy="240" r="15" class="ink"/><path d="M150 255v42M124 274h52M150 297l-18 32M150 297l18 32" class="ink"/>
+        <text x="90" y="360" class="t-small tc-conc">“NÃO PODE DEIXAR DE SER</text>
+        <text x="90" y="378" class="t-small tc-conc">INTERPRETAÇÃO”</text>
+        <path d="M245 240l60 0" stroke-width="3" style="stroke:var(--conc)"/>
+        <path d="M285 220l20 20-20 20" fill="none" stroke-width="3" style="stroke:var(--conc)"/>
+        <text x="330" y="234" class="t-small">o intérprete pode chegar perto</text>
+        <text x="330" y="252" class="t-small">da fronteira, mas não a cruza</text>
+        <rect x="90" y="430" width="400" height="60" class="ink" fill="none" stroke-width="1.6"/>
+        <text x="106" y="454" class="t-small">EFEITO VINCULANTE QUANTO ÀS</text>
+        <text x="106" y="472" class="t-small">INTERPRETAÇÕES TIDAS POR CONTRÁRIAS</text>
+        <text x="90" y="540" class="t-mid tc-dif">o que importa: a determinação dos limites</text>
+      </svg>
+      <svg class="panel fig" id="p-pluralidade" viewBox="0 0 600 600">
+        <defs><marker id="ah-ic2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <text x="60" y="70" class="t-small">NORMA</text>
+        <rect x="60" y="82" width="130" height="100" class="f-paper ink"/>
+        <path d="M76 108h98M76 126h98M76 144h70" class="thin"/>
+        <path d="M190 100C280 100 280 60 380 60" class="c-dif" stroke-width="2.5" fill="none"/>
+        <path d="M190 120C280 120 280 170 380 170" class="c-dif" stroke-width="2.5" fill="none"/>
+        <path class="c-conc dash grow" d="M190 140C280 140 280 300 380 300" marker-end="url(#ah-ic2)" stroke-width="2.5" fill="none"/>
+        <path d="M190 160C280 160 280 420 380 420" class="c-dif" stroke-width="2.5" fill="none"/>
+        <circle cx="420" cy="60" r="34" class="w-dif ink"/><text x="398" y="66" class="t-small tc-dif">FICA</text>
+        <circle cx="420" cy="170" r="34" class="w-dif ink"/><text x="398" y="176" class="t-small tc-dif">FICA</text>
+        <circle cx="420" cy="300" r="34" class="w-conc ink"/><text x="396" y="294" class="t-small tc-conc">COLIDE</text><text x="392" y="312" class="t-small tc-conc">AFASTADA</text>
+        <circle cx="420" cy="420" r="34" class="w-dif ink"/><text x="398" y="426" class="t-small tc-dif">FICA</text>
+        <text x="60" y="500" class="t-mid tc-mix">não há uma única interpretação</text>
+        <text x="60" y="526" class="t-mid tc-mix">válida — só se afasta o que colide</text>
+      </svg>
+      <figcaption><span>Fig. 1 · O que sobra da norma</span><span class="stage-count">Slides 2–4</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-conceito" data-slides="Slide 2"><div class="card">
+      <span class="label">Conceito</span>
+      <h3>Uma técnica que preserva o texto</h3>
+      <p>A interpretação conforme é uma <strong>técnica hermenêutica</strong> que visa à <strong>preservação do texto da norma</strong>: realizar o sentido da norma na maior medida possível. Pode ser efetivada <strong>por qualquer juízo, em qualquer instância</strong>.</p>
+      <p>No controle difuso, ela <strong>não enseja a manifestação do pleno ou do órgão especial</strong> do tribunal: <strong class="conc">não incide o art. 97 CF</strong>, a cláusula de reserva de plenário. Isso porque, tecnicamente, não se trata de uma declaração de inconstitucionalidade.</p>
+      <span class="src">Slide 2</span>
+    </div></div>
+    <div class="step" data-panel="p-limite" data-slides="Slide 3"><div class="card">
+      <span class="label">Limite conceitual</span>
+      <h3>Não pode deixar de ser interpretação</h3>
+      <p>A técnica <strong>não pode destoar do sentido da norma pretendido pelo legislador</strong>: <strong class="conc">não pode deixar de ser interpretação</strong>. Ela tem papel fundamental na <strong>preservação da obra legislativa</strong> e na coexistência entre tribunais e Poder Legislativo, a partir dos limites funcionais entre eles.</p>
+      <p>Há <strong>efeito vinculante</strong> relativo às modalidades de interpretação consideradas contrárias à Constituição. O que importa, no fim, é a <strong>determinação dos seus limites</strong>.</p>
+      <span class="src">Slide 3</span>
+    </div></div>
+    <div class="step" data-panel="p-pluralidade" data-slides="Slide 4"><div class="card">
+      <span class="label">Efeito sobre as demais leituras</span>
+      <h3>Nem tudo o mais é descartado</h3>
+      <p>A interpretação conforme <strong>não implica necessariamente extirpação</strong> — extinção do mundo jurídico — de outras interpretações que não aquela adotada pelo julgado, <strong>desde que essas outras interpretações não colidam frontalmente</strong> com a interpretação dada pelo tribunal.</p>
+      <p>Por isso a técnica <strong>não corresponde à fixação de uma única interpretação como válida</strong>: várias leituras podem conviver; só é afastada a que colide de frente com a Constituição.</p>
+      <span class="src">Slide 4</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 02 · BASE LEGAL ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num" aria-hidden="true">02</span>
+  <h2 id="c2">O que a lei diz</h2>
+  <p class="lede">O slide 5 traz o fundamento legal expresso da técnica, e uma leitura doutrinária dele.</p>
+</section>
+<div class="wide">
+  <blockquote class="law"><cite>Lei 9.868/99, art. 28, parágrafo único</cite>A declaração de constitucionalidade ou de inconstitucionalidade, <strong>inclusive a interpretação conforme</strong> a Constituição e a declaração parcial de inconstitucionalidade sem redução de texto, <strong>têm eficácia contra todos e efeito vinculante</strong> em relação aos órgãos do Poder Judiciário e à Administração Pública federal, estadual e municipal.</blockquote>
+  <p class="note">O dispositivo trata a interpretação conforme e a declaração parcial de inconstitucionalidade sem redução de texto lado a lado, atribuindo às duas a mesma eficácia <em>erga omnes</em> e o mesmo efeito vinculante. O digesto não desenvolve essa segunda técnica além dessa menção; ela é objeto de outra aula do programa (item VII.2–3).</p>
+  <p>Para alguns, dessa eficácia decorre que a interpretação conforme possui um <strong>juízo de censura</strong> de outras interpretações que com ela <strong>colidam</strong> frontalmente — a mesma ideia de afastamento seletivo já vista no slide 4.</p>
+  <span class="src">Slide 5</span>
+</div>
+
+<!-- ============ 03 · VARIANTES E LIMITE ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num" aria-hidden="true">03</span>
+  <h2 id="c3">Duas variantes, um limite</h2>
+  <p class="lede">O slide 6 nomeia as duas formas de operar a técnica e fixa onde ela para de caber.</p>
+</section>
+<div class="wide">
+  <div class="par">
+    <div class="regra"><span class="label">Variante 1</span><p><strong>Exclusão de interpretação inconstitucional.</strong> O tribunal afasta os sentidos que colidem com a Constituição e mantém os demais.</p></div>
+    <div class="regra"><span class="label">Variante 2</span><p><strong>Opção por uma determinada interpretação.</strong> O tribunal escolhe, entre os sentidos possíveis, aquele que prevalece.</p></div>
+  </div>
+  <p><strong>Tem-se admitido</strong> o uso da técnica com ou sem redução de texto — embora se trate, nesse segundo caso, de uma espécie de <strong>“desvio” do sentido original</strong> da técnica.</p>
+  <ul class="requisitos">
+    <li><b>Não cabe</b> interpretação conforme quando o sentido da norma for <strong>unívoco</strong> — isto é, quando não houver mais de um sentido possível a escolher.</li>
+  </ul>
+  <span class="src">Slide 6</span>
+</div>
+
+<!-- ============ 04 · SOLUÇÃO DE EQUILÍBRIO ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num" aria-hidden="true">04</span>
+  <h2 id="c4">Uma solução de equilíbrio</h2>
+  <p class="lede">Postulados e princípios abertos admitem várias leituras legítimas. Os slides 7 e 8 discutem até onde o Judiciário deve ir ao escolher uma delas.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-abertura" viewBox="0 0 600 600">
+        <text x="50" y="64" class="t-small tc-muted">POSTULADOS E PRINCÍPIOS GERAIS</text>
+        <circle cx="130" cy="170" r="60" class="w-dif ink"/><text x="90" y="176" class="t-mid tc-dif">leitura 1</text>
+        <circle cx="300" cy="130" r="60" class="w-dif ink"/><text x="260" y="136" class="t-mid tc-dif">leitura 2</text>
+        <circle cx="460" cy="190" r="60" class="w-dif ink"/><text x="418" y="196" class="t-mid tc-dif">leitura 3</text>
+        <text x="70" y="290" class="t-small">VÁRIAS ALTERNATIVAS DE INTERPRETAÇÃO,</text>
+        <text x="70" y="308" class="t-small">DESDE QUE NÃO HAJA ERRO EVIDENTE</text>
+        <rect x="70" y="360" width="460" height="90" class="ink" fill="none" stroke-width="1.6" stroke-dasharray="7 6"/>
+        <text x="90" y="394" class="t-mid">AUTORREGULAÇÃO E PROCESSO POLÍTICO</text>
+        <text x="90" y="420" class="t-small tc-muted">CONCRETIZAÇÃO CONFIADA AOS DEMAIS PODERES</text>
+        <path class="c-dif grow" d="M300 240V352" stroke-width="2.5" fill="none"/>
+        <text x="70" y="500" class="t-mid tc-conc">afasta-se fixar, de forma vinculante,</text>
+        <text x="70" y="526" class="t-mid tc-conc">uma única alternativa como “a melhor”</text>
+      </svg>
+      <svg class="panel fig" id="p-favor" viewBox="0 0 600 600">
+        <rect x="60" y="70" width="200" height="90" class="ink" fill="none" stroke-width="1.6"/>
+        <text x="76" y="106" class="t-mid">LEGISLATIVO</text><text x="76" y="128" class="t-mid">E EXECUTIVO</text>
+        <text x="76" y="150" class="t-small tc-dif">“espaço de apreciação”</text>
+        <rect x="340" y="70" width="200" height="90" class="w-conc ink"/>
+        <text x="356" y="106" class="t-mid tc-conc">JUDICIÁRIO</text>
+        <text x="356" y="128" class="t-small">“não é o único”, mas</text>
+        <text x="356" y="146" class="t-small">dá a última palavra</text>
+        <path d="M260 115H340" class="thin"/>
+        <circle cx="300" cy="300" r="70" class="w-dif ink" stroke-width="2.5"/>
+        <text x="256" y="292" class="t-big tc-dif">favor</text><text x="256" y="322" class="t-big tc-dif">legis</text>
+        <text x="70" y="440" class="t-mid">salva muitas leis</text>
+        <text x="70" y="466" class="t-mid">da inconstitucionalidade</text>
+        <text x="70" y="530" class="t-small tc-muted">risco a evitar: ativismo judicial</text>
+      </svg>
+      <figcaption><span>Fig. 2 · Última palavra e espaço de apreciação</span><span class="stage-count">Slides 7–8</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-abertura" data-slides="Slide 7"><div class="card">
+      <span class="label">Pluralidade legítima</span>
+      <h3>Confiar a concretização ao processo político</h3>
+      <p>Postulados gerais e princípios permitem <strong>várias alternativas de interpretação</strong>, desde que não se vislumbre <strong>erro evidente</strong> e que haja diversidade de alternativas para levá-las à prática.</p>
+      <p>Nesse caso, um Tribunal Constitucional deve <strong>confiar a concretização desses postulados à autorregulação</strong> e às pressões em prol de um acordo no processo político. <strong>Afasta-se, em princípio, fixar vinculativamente uma única alternativa</strong> como a melhor — questão que toca o <strong>problema do ativismo judicial</strong>.</p>
+      <span class="src">Slide 7</span>
+    </div></div>
+    <div class="step" data-panel="p-favor" data-slides="Slide 8"><div class="card">
+      <span class="label">Em suma</span>
+      <h3>Última palavra, mas não exclusividade</h3>
+      <p>O Poder Judiciário <strong>não é o único</strong> poder encarregado de interpretar a Constituição. Contudo, ele é o poder encarregado de <strong>dar a última palavra</strong> em assuntos constitucionais.</p>
+      <p>Uma solução de equilíbrio recomenda que o Judiciário visualize um considerável <strong>espaço de apreciação</strong> pelos demais Poderes na condução de suas funções. A interpretação conforme é, na prática, um <strong><em>favor legis</em></strong>.</p>
+      <span class="src">Slide 8</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 05 · FECHAMENTO ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num" aria-hidden="true">05</span>
+  <h2 id="c5">“Estúpida, mas constitucional”</h2>
+  <p class="lede">O slide 9 fecha a aula com um carimbo de borracha fotografado, estampado com essa frase, para ilustrar o favor legis de forma bem-humorada.</p>
+</section>
+<div class="wide">
+  <div class="chave">
+    <span class="label">Favor legis</span>
+    Uma norma malfeita, mal redigida, tecnicamente pobre — “estúpida” — ainda pode ser salva da inconstitucionalidade, se comportar uma leitura compatível com a Constituição.
+  </div>
+  <p>O slide 9 usa a fotografia de um carimbo de borracha com a mensagem “estúpida, mas constitucional” para sintetizar o que os slides 7 e 8 já haviam concluído: a interpretação conforme, na prática, funciona como um <em>favor legis</em>, favorecendo a validade da lei sempre que exista leitura compatível com a Constituição, e assim <strong>salva muitas leis da inconstitucionalidade</strong>.</p>
+  <span class="src">Slide 9</span>
+</div>
+
+<!-- ============ 06 · RESUMO ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">Termos-chave</h2>
+  <p class="lede">Os conceitos que sustentam a técnica, reunidos num só lugar.</p>
+</section>
+<div class="wide">
+  <dl class="termos">
+    <dt>Interpretação conforme</dt><dd>Técnica hermenêutica de preservação do texto: entre os sentidos possíveis da norma, mantém-se o compatível com a Constituição.</dd>
+    <dt>Art. 97 CF (reserva de plenário)</dt><dd>Não incide sobre a interpretação conforme no controle difuso, porque a técnica não é, tecnicamente, declaração de inconstitucionalidade.</dd>
+    <dt>Juízo de censura</dt><dd>Efeito, para alguns, da eficácia vinculante do art. 28, parágrafo único, da Lei 9.868/99: afasta as interpretações que colidam frontalmente com a fixada.</dd>
+    <dt>Sentido unívoco</dt><dd>Limite de cabimento da técnica: não cabe interpretação conforme quando a norma só admite um sentido possível.</dd>
+    <dt>Favor legis</dt><dd>A função prática da técnica: favorecer a validade da lei, evitando sua invalidação total quando exista leitura compatível com a Constituição.</dd>
+  </dl>
+  <span class="src">Slides 2, 3, 5, 6, 8</span>
+</div>
+
+<!-- ============ 07 · TESTE ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">Teste rápido</h2>
+  <p class="lede">Responda antes de abrir.</p>
+</section>
+<div class="wide">
+  <div class="quiz">
+    <details><summary>No controle difuso, um juiz de primeira instância aplica interpretação conforme a uma lei estadual. Ele precisa submeter a questão ao órgão especial do tribunal?</summary><p>Não. A técnica pode ser efetivada por <strong>qualquer juízo, em qualquer instância</strong>, e <strong>não incide o art. 97 CF</strong> (reserva de plenário), pois não se trata, tecnicamente, de declaração de inconstitucionalidade (slide 2).</p></details>
+    <details><summary>A interpretação conforme elimina todas as demais leituras possíveis da norma, além da escolhida?</summary><p>Não necessariamente. Ela <strong>não implica extirpação</strong> de outras interpretações, desde que <strong>não colidam frontalmente</strong> com a interpretação fixada. Não corresponde à fixação de uma única interpretação válida (slide 4).</p></details>
+    <details><summary>Qual dispositivo legal dá à interpretação conforme eficácia contra todos e efeito vinculante, e o que mais ele alcança?</summary><p>O <strong>art. 28, parágrafo único, da Lei 9.868/99</strong>, que também alcança a <strong>declaração parcial de inconstitucionalidade sem redução de texto</strong> (slide 5).</p></details>
+    <details><summary>Quando a interpretação conforme não cabe?</summary><p>Quando o <strong>sentido da norma for unívoco</strong> — isto é, quando não há mais de uma leitura possível a escolher (slide 6).</p></details>
+    <details><summary>Por que a solução de equilíbrio recomenda cautela ao Judiciário diante de postulados abertos?</summary><p>Porque, havendo várias alternativas legítimas de interpretação sem erro evidente, convém <strong>confiar a concretização ao processo político</strong> e à autorregulação dos demais Poderes, em vez de fixar vinculativamente uma única leitura como a melhor — sob pena de <strong>ativismo judicial</strong> (slide 7).</p></details>
+    <details><summary>O que o carimbo “estúpida, mas constitucional” ilustra?</summary><p>A ideia de <em>favor legis</em>: mesmo uma lei tecnicamente pobre pode ser salva da inconstitucionalidade se comportar uma leitura compatível com a Constituição (slide 9).</p></details>
+  </div>
+</div>
+
+<nav class="endnav" aria-label="Aulas vizinhas">
+  <a href="aula-14.html"><span>← Aula 14</span>Inconstitucionalidade por arrastamento</a>
+  <a href="aula-16.html" style="text-align:right"><span>Aula 16 →</span>Inconstitucionalidade progressiva e circunstancial</a>
+</nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides “Interpretação conforme a Constituição”, do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 9 páginas, lidas a partir do digesto visual dos slides. Cada bloco indica os slides de onde vem. Os diagramas redesenham as ideias descritas no digesto (funil de sentidos, fronteira interpretação/criação, espaço de apreciação); nenhuma imagem ou fotografia dos slides é reproduzida aqui.</p>
+  <p>Acréscimos editoriais, marcados como tais: a organização em capítulos, os rótulos dos diagramas, e as remissões a outras aulas do programa. Esta página ainda não foi cruzada com a bibliografia (Barroso, Mendes &amp; Branco, Lenza).</p>
+</details>
+
+<script src="assets/controle.js"></script>
+</body>
+</html>

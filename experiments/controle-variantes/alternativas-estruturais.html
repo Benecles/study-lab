@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cinco alternativas · Controle de Constitucionalidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Special+Elite&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Franklin:wght@400;600;800&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Bungee&family=Nunito:wght@500;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#1b1d21;color:#e9e6de;font:17px/1.55 'Spectral',Georgia,serif}
+.intro{max-width:1100px;margin:0 auto;padding:60px 24px 30px}
+.intro h1{font:800 clamp(38px,6vw,72px)/.95 'Archivo',sans-serif;font-stretch:115%;letter-spacing:-.03em;margin:0 0 16px}
+.intro p{max-width:62ch;color:#b9b4a8;font-size:19px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:12px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#e9e6de;border:1px solid #555;padding:7px 11px;text-decoration:none;text-transform:uppercase}
+.toc a:hover{background:#e9e6de;color:#1b1d21}
+.spec{position:relative;padding:0}
+.meta{max-width:1100px;margin:0 auto;padding:70px 24px 18px;display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:baseline}
+.meta .n{font:800 64px/1 'Archivo',sans-serif;font-stretch:125%;color:transparent;-webkit-text-stroke:1px #e9e6de;grid-row:span 2}
+.meta h2{font:750 28px/1.1 'Archivo',sans-serif;margin:0}
+.meta p{margin:0;color:#b9b4a8;max-width:70ch}
+.meta .why{grid-column:2;font:12.5px/1.6 'IBM Plex Mono',monospace;color:#9d988c;margin-top:6px}
+.frame{max-width:1100px;margin:0 auto 20px;padding:0 24px}
+.canvas{border-radius:4px;overflow:hidden;position:relative}
+.hint{font:11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
+
+/* ============ 1 · AUTOS DO PROCESSO ============ */
+.autos{background:#5b4a3a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Cpath d='M0 6L6 0' stroke='%23000' stroke-opacity='.08'/%3E%3C/svg%3E");padding:44px 34px 50px;color:#26211a;font-family:'Special Elite','Courier New',monospace}
+.autos .row{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.folder{position:relative;background:#e9dcb9;padding:0;box-shadow:0 12px 24px #0006;transform:rotate(-.8deg)}
+.folder:nth-child(2){transform:rotate(.9deg)}
+.folder .tab{position:absolute;top:-22px;left:18px;background:#e9dcb9;padding:4px 16px 2px;font-size:12px;border-radius:5px 5px 0 0}
+.folder summary{list-style:none;cursor:pointer;padding:22px 24px 20px}
+.folder summary::-webkit-details-marker{display:none}
+.capa-h{font-size:12px;letter-spacing:.12em;border-bottom:1px solid #26211a55;padding-bottom:6px;margin-bottom:12px}
+.capa-t{font:700 22px/1.2 'Old Standard TT',serif;text-transform:uppercase;margin:4px 0 14px}
+.campo{display:grid;grid-template-columns:110px 1fr;font-size:14px;border-bottom:1px dotted #26211a66;padding:5px 0}
+.campo b{font-weight:400;opacity:.7}
+.riscado{text-decoration:line-through;text-decoration-color:#b0312a;text-decoration-thickness:2px}
+.stamp{position:absolute;right:18px;top:62px;border:3px double currentColor;padding:6px 12px;font:700 17px 'Old Standard TT',serif;letter-spacing:.08em;transform:rotate(-12deg);opacity:.85;mix-blend-mode:multiply}
+.stamp.conc{color:#a3262a}.stamp.dif{color:#1f4a8f}
+.folha{background:#fbf6e8;margin:0 14px 16px;padding:18px 22px 20px;font:15px/1.6 'Old Standard TT',serif;border-left:1px solid #e1a7a3;box-shadow:0 2px 3px #0002;position:relative}
+.folha .fls{position:absolute;top:8px;right:12px;font:11px 'Special Elite',monospace;opacity:.7}
+.folha em.hl{font-style:normal;background:linear-gradient(transparent 55%,#f2d36b 55%)}
+.autos .hint{color:#f0e3c2;display:block;margin-top:26px;text-align:center}
+
+/* ============ 2 · MAPA DE METRÔ ============ */
+.metro{background:#fbfbf8;color:#16181c;font-family:'Libre Franklin',sans-serif;padding:34px 30px 30px}
+.metro-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:30px;align-items:start}
+.metro svg{width:100%;height:auto}
+.metro .st{cursor:pointer}
+.metro .st circle{transition:r .2s}
+.metro .st:hover circle,.metro .st.sel circle{r:13}
+.metro .lbl{font:600 13px 'Libre Franklin',sans-serif;fill:#16181c}
+.metro .lbl.small{font-weight:400;font-size:11px;fill:#555}
+.board{background:#16181c;color:#fff;padding:20px 22px;border-radius:6px;min-height:240px}
+.board .line{display:inline-block;font:800 12px 'Libre Franklin';padding:4px 10px;border-radius:30px;margin-bottom:10px}
+.board h3{font:800 24px/1.15 'Libre Franklin';margin:4px 0 8px}
+.board p{font:15px/1.5 'Libre Franklin';color:#cfd2d8;margin:0}
+.legend-m{display:flex;gap:20px;margin-top:14px;font:600 12px 'Libre Franklin'}
+.legend-m span::before{content:'';display:inline-block;width:22px;height:6px;border-radius:3px;margin-right:7px;vertical-align:middle;background:var(--c)}
+
+/* ============ 3 · JORNAL ============ */
+.jornal{background:#f4f0e6;color:#141414;padding:26px 34px 40px;font-family:'Old Standard TT',serif}
+.mast{display:flex;justify-content:space-between;align-items:end;border-bottom:4px double #141414;padding-bottom:8px;font:12px 'Libre Franklin',sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.mast .name{font:900 clamp(34px,5vw,58px)/1 'Playfair Display',serif;letter-spacing:-.01em;text-transform:none}
+.dateline{display:flex;justify-content:space-between;border-bottom:1px solid #141414;padding:4px 0;font:11px 'Libre Franklin',sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.manchete{font:900 clamp(40px,6.4vw,84px)/.95 'Playfair Display',serif;letter-spacing:-.02em;margin:22px 0 10px;text-align:center}
+.manchete i{font-style:italic;color:#8e1c1c}
+.linhafina{text-align:center;font:italic 21px/1.35 'Old Standard TT',serif;max-width:52ch;margin:0 auto 22px;color:#333}
+.cols{display:grid;grid-template-columns:1.2fr 2fr 1fr;gap:26px;border-top:1px solid #141414;padding-top:16px}
+.cols .col{font-size:16px;line-height:1.5;text-align:justify;hyphens:auto}
+.cols .col p{margin:0 0 10px}
+.cols .col p:first-child::first-letter{float:left;font:900 58px/.8 'Playfair Display';padding:6px 6px 0 0}
+.kicker-j{font:800 11px 'Libre Franklin',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8e1c1c;display:block;margin-bottom:6px}
+.info{border:1px solid #141414;padding:14px}
+.info h4{font:800 14px 'Libre Franklin';text-transform:uppercase;margin:0 0 10px;letter-spacing:.04em}
+.bar{display:grid;grid-template-columns:90px 1fr;gap:8px;align-items:center;font:12px 'Libre Franklin';margin:6px 0}
+.bar i{display:block;height:14px;background:#141414}
+.quote{font:700 italic 24px/1.25 'Playfair Display';border-top:3px solid #141414;border-bottom:1px solid #141414;padding:12px 0;margin:6px 0 12px}
+.foto{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#d9d3c4 0 2px,#e6e0d1 2px 6px);display:grid;place-items:center;font:700 44px 'Playfair Display'}
+.legenda{font:italic 13px 'Old Standard TT';margin-top:6px;color:#444}
+
+/* ============ 4 · TABULEIRO ============ */
+.jogo{background:#2f6b4f;color:#fff8e7;padding:30px 30px 34px;font-family:'Nunito',sans-serif}
+.jogo h3{font:24px 'Bungee',sans-serif;margin:0 0 4px;letter-spacing:.02em}
+.jogo .sub{margin:0 0 18px;color:#d6ecd9}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+.sq{background:#fff8e7;color:#1f2a24;border-radius:10px;padding:14px 10px 12px;min-height:130px;box-shadow:0 5px 0 #1d4634;position:relative;text-align:center;font-weight:800}
+.sq small{display:block;font-weight:500;font-size:12px;margin-top:6px;color:#56655b}
+.sq.stf{background:#f6c343}
+.sq .ico{font-size:30px;display:block;margin-bottom:4px}
+.pawn{position:absolute;top:-18px;left:50%;width:30px;height:30px;margin-left:-15px;border-radius:50% 50% 45% 45%;background:#d6452f;border:3px solid #fff;box-shadow:0 3px 0 #0005;transition:transform .5s cubic-bezier(.5,1.6,.4,1)}
+.pawn.adi{background:#1f4a8f}
+.controls{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
+.controls button{font:16px 'Bungee';background:#f6c343;color:#1f2a24;border:0;border-radius:8px;padding:12px 16px;box-shadow:0 4px 0 #a07a14;cursor:pointer}
+.controls button:active{transform:translateY(3px);box-shadow:0 1px 0 #a07a14}
+.controls button.alt{background:#fff8e7;box-shadow:0 4px 0 #9aa99f}
+.efeito{margin-left:auto;background:#1d4634;border-radius:10px;padding:10px 16px;min-width:240px}
+.efeito b{font:20px 'Bungee';display:block}
+.carta{margin-top:18px;background:#fff8e7;color:#1f2a24;border-radius:10px;padding:14px 18px;font-size:16px;border:2px dashed #2f6b4f;box-shadow:0 0 0 6px #fff8e7}
+
+/* ============ 5 · ACETATOS ============ */
+.acetato{background:#2a2c30;padding:34px 30px;color:#eee;font-family:'Archivo',sans-serif}
+.lightbox{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.table{position:relative;aspect-ratio:4/3;background:radial-gradient(circle at 50% 45%,#fffef6,#e9e7dc 70%,#cfccbf);border-radius:6px;box-shadow:inset 0 0 40px #0003,0 20px 40px #0008;overflow:hidden}
+.sheet{position:absolute;inset:6% 7%;border:1px solid #0000001a;background:#ffffff12;transition:transform .6s cubic-bezier(.3,1.3,.5,1),opacity .5s;mix-blend-mode:multiply}
+.sheet svg{width:100%;height:100%}
+.sheet .corner{position:absolute;right:8px;top:6px;font:11px 'IBM Plex Mono';color:#555}
+.s1{transform:rotate(-.6deg)}
+.s2{transform:rotate(.9deg)}
+.s3{transform:rotate(-1.4deg)}
+.off{opacity:0;transform:translateX(70%) rotate(8deg)!important}
+.toggles label{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid #555;margin-bottom:10px;cursor:pointer;font-weight:600}
+.toggles input{accent-color:#e3b23c;width:18px;height:18px}
+.toggles small{display:block;font:12px 'IBM Plex Mono';color:#aaa;font-weight:400}
+.readout{margin-top:16px;padding:16px;background:#e3b23c;color:#1b1d21;font:700 20px/1.25 'Archivo';min-height:90px}
+.readout span{display:block;font:500 14px/1.45 'Spectral',serif;margin-top:6px}
+
+@media(max-width:820px){
+  .autos .row,.metro-grid,.lightbox,.cols{grid-template-columns:1fr}
+  .track{grid-template-columns:1fr 1fr}
+  .efeito{margin-left:0}
+  .meta{grid-template-columns:1fr}.meta .n{grid-row:auto}.meta .why{grid-column:1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="intro">
+  <a href="aula-11.html" class="hint" style="color:#b9b4a8">← Voltar à Aula 11 (versão atual)</a>
+  <h1>Cinco outras maneiras de ler a mesma aula</h1>
+  <p>O conteúdo é o mesmo nas cinco: exame em abstrato × em concreto e a subida até o STF (slides 10–19). Muda a metáfora estrutural, ou seja, o que a página <em>é</em> e como você a manipula. A cor é o de menos. Todas funcionam: clique, abra e aperte.</p>
+  <nav class="toc"><a href="#autos">1 · Autos do processo</a><a href="#metro">2 · Mapa de metrô</a><a href="#jornal">3 · Primeira página</a><a href="#jogo">4 · Tabuleiro</a><a href="#acetato">5 · Acetatos</a></nav>
+</header>
+
+<!-- 1 -->
+<section class="spec" id="autos">
+  <div class="meta"><span class="n">1</span><h2>Autos do processo</h2><p>A aula vira o próprio objeto jurídico: capas de autos, folhas numeradas, carimbos. Cada sistema é um processo que você abre.</p><p class="why">Por que funciona: a diferença entre os sistemas <em>é</em> a diferença entre dois tipos de processo. O campo “Réu” vazio, riscado em vermelho, ensina “processo objetivo” sem precisar de explicação. · Escala: cada aula = um volume dos autos; jurisprudência = folhas juntadas.</p></div>
+  <div class="frame"><div class="canvas autos">
+    <div class="row">
+      <details class="folder" open><summary>
+        <span class="tab">STF · Vol. 1</span>
+        <div class="capa-h">SUPREMO TRIBUNAL FEDERAL · COMPETÊNCIA ORIGINÁRIA</div>
+        <div class="capa-t">Ação Direta de Inconstitucionalidade</div>
+        <div class="campo"><b>Requerente</b><span>Legitimado do art. 103</span></div>
+        <div class="campo"><b>Requerido</b><span class="riscado">— não há réu —</span></div>
+        <div class="campo"><b>Objeto</b><span>Lei X, em tese</span></div>
+        <div class="campo"><b>Pedido</b><span>Declarar a Lei X inconstitucional</span></div>
+        <span class="stamp conc">ERGA OMNES</span>
+      </summary>
+        <div class="folha"><span class="fls">fls. 2</span>A inconstitucionalidade é a <em class="hl">questão principal e autônoma</em>: é o alvo da ação. O exame é <em class="hl">em abstrato</em>: a Lei X é confrontada com a Constituição sem nenhum caso concreto entre A e B. Efeitos <em>erga omnes</em>; por regra <em>ex tunc</em>, com possibilidade de modulação. <span class="hint" style="display:block;margin-top:8px;color:#8a6f4e">Slides 10–12</span></div>
+      </details>
+      <details class="folder"><summary>
+        <span class="tab">1ª Vara Cível · Vol. 1</span>
+        <div class="capa-h">JUSTIÇA COMUM · PROCEDIMENTO COMUM</div>
+        <div class="capa-t">Ação Reivindicatória</div>
+        <div class="campo"><b>Autor</b><span>A</span></div>
+        <div class="campo"><b>Réu</b><span>B</span></div>
+        <div class="campo"><b>Objeto</b><span>A casa (bem da vida)</span></div>
+        <div class="campo"><b>Pedido</b><span>Entrega do imóvel, com base na Lei X</span></div>
+        <span class="stamp dif">INTER PARTES</span>
+      </summary>
+        <div class="folha"><span class="fls">fls. 38 · contestação</span>“…ademais, a Lei X, em que se funda o autor, é <em class="hl">inconstitucional</em>, razão pela qual não pode amparar o pedido.” Aqui a inconstitucionalidade é <em class="hl">questão prejudicial</em>: uma premissa lógica e uma estratégia para vencer a ação. O juiz pode conhecê-la <em>de ofício</em>. <span class="hint" style="display:block;margin-top:8px;color:#8a6f4e">Slides 14–16 · exemplo hipotético</span></div>
+      </details>
+    </div>
+    <span class="hint">Clique nas capas para abrir e fechar os autos</span>
+  </div></div>
+</section>
+
+<!-- 2 -->
+<section class="spec" id="metro">
+  <div class="meta"><span class="n">2</span><h2>Mapa de metrô</h2><p>Difuso e concentrado viram duas linhas de trem. As estações são os conceitos, em ordem, e a baldeação no STF é onde as linhas se encontram.</p><p class="why">Por que funciona: o mapa de metrô é o diagrama de percurso que todo mundo sabe ler. A pergunta “por onde a questão passa até chegar ao STF?” vira topologia. · Escala: o curso inteiro pode ser um único mapa com uma linha por bloco do programa. Cada aula é um trecho.</p></div>
+  <div class="frame"><div class="canvas metro">
+    <div class="metro-grid">
+      <svg viewBox="0 0 640 380" role="img" aria-label="Mapa com as linhas difusa e concentrada">
+        <path d="M40 300H200L260 240V120L320 60H560" stroke="#2b5597" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M40 80H200L260 60H560" stroke="#c7372a" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round" transform="translate(0 0)"/>
+        <g class="st" data-k="d1"><circle cx="60" cy="300" r="10" fill="#fff" stroke="#2b5597" stroke-width="5"/><text class="lbl" x="44" y="330">Caso A × B</text></g>
+        <g class="st" data-k="d2"><circle cx="150" cy="300" r="10" fill="#fff" stroke="#2b5597" stroke-width="5"/><text class="lbl" x="120" y="330">Questão prejudicial</text></g>
+        <g class="st" data-k="d3"><circle cx="260" cy="240" r="10" fill="#fff" stroke="#2b5597" stroke-width="5"/><text class="lbl" x="276" y="245">Instâncias inferiores</text><text class="lbl small" x="276" y="261">inter partes</text></g>
+        <g class="st" data-k="d4"><circle cx="260" cy="150" r="10" fill="#fff" stroke="#2b5597" stroke-width="5"/><text class="lbl" x="276" y="155">RE c/ repercussão geral</text></g>
+        <g class="st" data-k="c1"><circle cx="60" cy="80" r="10" fill="#fff" stroke="#c7372a" stroke-width="5"/><text class="lbl" x="40" y="112">Legitimado</text></g>
+        <g class="st" data-k="c2"><circle cx="170" cy="80" r="10" fill="#fff" stroke="#c7372a" stroke-width="5"/><text class="lbl" x="140" y="112">ADI · ADC · ADPF</text></g>
+        <g class="st sel" data-k="stf"><rect x="370" y="40" width="70" height="40" rx="20" fill="#fff" stroke="#16181c" stroke-width="5"/><text class="lbl" x="387" y="66">STF</text></g>
+        <g class="st" data-k="fim"><circle cx="560" cy="60" r="12" fill="#16181c"/><text class="lbl" x="492" y="100">Erga omnes</text></g>
+      </svg>
+      <div class="board" aria-live="polite"><span class="line" style="background:#16181c;border:2px solid #fff">BALDEAÇÃO</span><h3>STF</h3><p>As duas linhas se encontram aqui. No concentrado, o STF é o ponto de partida (competência originária). No difuso, é o ponto de chegada. Depois que ele decide, o efeito passa a ser <em>erga omnes</em> (slide 19).</p></div>
+    </div>
+    <div class="legend-m"><span style="--c:#c7372a">Linha Concentrada · via de ação</span><span style="--c:#2b5597">Linha Difusa · via incidental</span></div>
+    <p class="hint" style="margin-top:12px">Clique nas estações</p>
+  </div></div>
+</section>
+
+<!-- 3 -->
+<section class="spec" id="jornal">
+  <div class="meta"><span class="n">3</span><h2>Primeira página</h2><p>Longform de jornal, na linha da matéria da UOL que você mandou: manchete, linha fina, colunas, capitular, citação em destaque, infográfico e foto com legenda.</p><p class="why">Por que funciona: os slides do professor já têm tom de manchete (“Confuso”). O jornal dá hierarquia forte e boa legibilidade em texto longo. Rolando a página, cada aula vira uma “edição”, com fotos de verdade do STF quando houver licença. · Risco: a metáfora é visual, não mecânica, e ensina menos pelo formato do que as outras.</p></div>
+  <div class="frame"><div class="canvas jornal">
+    <div class="mast"><span>Porto Alegre · 2026/2</span><span class="name">O Constitucional</span><span>Aula 11 · Edição de estudo</span></div>
+    <div class="dateline"><span>Sistemas de controle</span><span>Slides 10–20</span><span>Prof. Marcelo Schenk Duque</span></div>
+    <h3 class="manchete">Concentrado + Difuso = <i>Confuso</i></h3>
+    <p class="linhafina">Brasil combina a rota alemã e a norte-americana de controle de constitucionalidade. O resultado é um sistema misto, e as duas vias nem sempre convivem bem.</p>
+    <div class="cols">
+      <div class="col"><span class="kicker-j">Via de ação</span><p>No sistema concentrado, a lei é julgada sem que ninguém dispute nada. Não há réu: o processo é objetivo, e a declaração de inconstitucionalidade é o próprio alvo da ação. O que o STF decide vale para todos.</p></div>
+      <div class="col"><div class="foto">A × B</div><p class="legenda">No difuso, a lei é examinada dentro de uma briga concreta, como a disputa por uma casa. Até o STF decidir, a decisão só vale entre as partes. (Ilustração: exemplo hipotético.)</p></div>
+      <div class="col"><p class="quote">“A declaração de inconstitucionalidade é uma estratégia para vencer a ação.”</p><div class="info"><h4>Alcance da decisão</h4><div class="bar"><span>Difuso</span><i style="width:22%;background:#2b5597"></i></div><div class="bar"><span>Após o STF</span><i style="width:100%;background:#8e1c1c"></i></div><div class="bar"><span>Concentrado</span><i style="width:100%;background:#8e1c1c"></i></div></div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 4 -->
+<section class="spec" id="jogo">
+  <div class="meta"><span class="n">4</span><h2>Tabuleiro</h2><p>A questão constitucional é um peão. Você decide a via e joga, e o efeito da decisão muda conforme a casa em que o peão para.</p><p class="why">Por que funciona: transforma “efeitos” em consequência de uma escolha, que é como a prova cobra (“qual via, qual efeito?”). A carta da ADI, que pula direto para o STF, ensina a competência originária pelo movimento. · Escala: dá para montar um jogo por bloco, e as ações diretas (aulas 20–29) viram fases do mesmo tabuleiro.</p></div>
+  <div class="frame"><div class="canvas jogo">
+    <h3>Suba até o Supremo</h3>
+    <p class="sub">Via incidental: a questão sobe casa por casa. Via de ação: a carta ADI leva direto ao STF.</p>
+    <div class="track" id="track">
+      <div class="sq"><span class="ico">⚖︎</span>Caso A × B<small>questão prejudicial</small></div>
+      <div class="sq"><span class="ico">🏛</span>1ª instância<small>qualquer juiz, até de ofício</small></div>
+      <div class="sq"><span class="ico">🏛</span>Tribunal<small>debatida em todas as instâncias</small></div>
+      <div class="sq"><span class="ico">⏳</span>Recurso extraordinário<small>repercussão geral</small></div>
+      <div class="sq stf"><span class="ico">★</span>STF decide<small>efeito muda de escala</small></div>
+    </div>
+    <div class="controls">
+      <button id="roll">Avançar ▸</button>
+      <button id="adi" class="alt">Carta ADI</button>
+      <button id="reset" class="alt">Recomeçar</button>
+      <div class="efeito" aria-live="polite"><span class="hint">Efeito agora</span><b id="ef">—</b><span id="efd" style="font-size:14px">Posicione o peão.</span></div>
+    </div>
+    <div class="carta" id="carta" hidden><b>Carta ADI:</b> vá direto ao STF. Competência originária, processo objetivo, sem réu. Efeito <em>erga omnes</em> desde o início (slides 10–13).</div>
+  </div></div>
+</section>
+
+<!-- 5 -->
+<section class="spec" id="acetato">
+  <div class="meta"><span class="n">5</span><h2>Acetatos na mesa de luz</h2><p>Transparências empilhadas, como num retroprojetor. Cada camada é um elemento do problema, e a combinação de camadas visíveis define a técnica de exame.</p><p class="why">Por que funciona: “em abstrato” e “em concreto” são literalmente a mesma imagem com uma camada a mais ou a menos. Você tira A, B e a casa, e o que sobra é o controle abstrato. É o único dos cinco que ensina por subtração. · Escala: serve bem aos vícios (formal e material como camadas) e à interpretação conforme.</p></div>
+  <div class="frame"><div class="canvas acetato">
+    <div class="lightbox">
+      <div class="table" aria-hidden="true">
+        <div class="sheet s1" id="L1"><span class="corner">folha 1</span><svg viewBox="0 0 400 300"><rect x="250" y="70" width="100" height="150" fill="#1d2530" opacity=".9"/><text x="258" y="150" fill="#f2eee3" font-family="IBM Plex Mono" font-size="10">CONSTITUIÇÃO</text></svg></div>
+        <div class="sheet s2" id="L2"><span class="corner">folha 2</span><svg viewBox="0 0 400 300"><rect x="130" y="95" width="80" height="105" fill="none" stroke="#b4432a" stroke-width="3"/><path d="M142 118h56M142 134h56M142 150h40M142 166h50" stroke="#b4432a" stroke-width="2"/><text x="146" y="222" fill="#b4432a" font-family="IBM Plex Mono" font-size="13">LEI X</text><path d="M212 150C230 150 232 145 246 145" stroke="#b4432a" stroke-width="3" fill="none" stroke-dasharray="5 4"/></svg></div>
+        <div class="sheet s3" id="L3"><span class="corner">folha 3</span><svg viewBox="0 0 400 300"><g stroke="#2b5597" stroke-width="3" fill="none"><circle cx="40" cy="80" r="13"/><path d="M40 93v44M23 110h34M40 137l-12 26M40 137l12 26"/><circle cx="376" cy="80" r="13"/><path d="M376 93v44M359 110h34M376 137l-12 26M376 137l12 26"/><path d="M40 235l30-24 30 24v36H40z"/><path d="M40 190C40 215 55 225 62 228M376 190C376 260 200 262 106 250" stroke-dasharray="4 4" stroke-width="2"/></g><text x="33" y="188" fill="#2b5597" font-family="Archivo" font-weight="800" font-size="20">A</text><text x="369" y="188" fill="#2b5597" font-family="Archivo" font-weight="800" font-size="20">B</text><text x="110" y="288" fill="#2b5597" font-family="IBM Plex Mono" font-size="11">BEM DA VIDA</text></svg></div>
+      </div>
+      <div>
+        <div class="toggles">
+          <label><input type="checkbox" data-l="L1" checked> <span>Folha 1 · Constituição<small>o parâmetro, sempre embaixo</small></span></label>
+          <label><input type="checkbox" data-l="L2" checked> <span>Folha 2 · Lei X<small>o objeto do controle</small></span></label>
+          <label><input type="checkbox" data-l="L3"> <span>Folha 3 · A, B e a casa<small>o caso concreto</small></span></label>
+        </div>
+        <div class="readout" id="readout" aria-live="polite"></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<footer class="intro" style="padding-bottom:80px"><p>Qualquer uma pode ser combinada com a versão atual. O “autos” funciona bem como capa de cada aula, e o tabuleiro cabe como exercício no fim. Diga quais gostaria de ver aplicadas a uma aula inteira.</p></footer>
+
+<script>
+// Metro stations
+(function(){
+  var info={
+    d1:['#2b5597','Linha Difusa','Caso A × B','Um processo concreto disputa um bem da vida. A lei aparece como fundamento do pedido (slide 15).'],
+    d2:['#2b5597','Linha Difusa','Questão prejudicial','A inconstitucionalidade é premissa lógica do pedido principal, não o objetivo da ação. Pode ser declarada de ofício (slides 14–16).'],
+    d3:['#2b5597','Linha Difusa','Instâncias inferiores','A questão é debatida em todas as instâncias. Enquanto o STF não decide, efeitos inter partes (slide 18).'],
+    d4:['#2b5597','Linha Difusa','RE com repercussão geral','É o caminho pelo qual a questão difusa chega ao STF. Ao lado das súmulas vinculantes, marca a virada para erga omnes (slide 19).'],
+    c1:['#c7372a','Linha Concentrada','Legitimado','A ação é proposta no próprio STF. Não há caso concreto nem réu (slides 10–12).'],
+    c2:['#c7372a','Linha Concentrada','ADI · ADC · ADPF','Ações diretas de competência originária do STF, além da Redin (slides 10 e 13).'],
+    stf:['#16181c','Baldeação','STF','As duas linhas se encontram aqui. No concentrado, o STF é o ponto de partida (competência originária). No difuso, é o ponto de chegada. Depois que ele decide, o efeito passa a ser erga omnes (slide 19).'],
+    fim:['#16181c','Terminal','Erga omnes','Eficácia contra todos e efeito vinculante: CF, art. 102, § 2º (slide 13).']
+  };
+  var board=document.querySelector('#metro .board');
+  document.querySelectorAll('#metro .st').forEach(function(g){g.addEventListener('click',function(){
+    document.querySelectorAll('#metro .st').forEach(function(x){x.classList.remove('sel')});g.classList.add('sel');
+    var d=info[g.dataset.k];board.innerHTML='<span class="line" style="background:'+d[0]+';border:2px solid #fff">'+d[1]+'</span><h3>'+d[2]+'</h3><p>'+d[3]+'</p>';
+  })});
+})();
+// Board game
+(function(){
+  var track=document.getElementById('track'),sqs=track.children,pos=-1,pawn=document.createElement('div');pawn.className='pawn';
+  var ef=document.getElementById('ef'),efd=document.getElementById('efd'),carta=document.getElementById('carta');
+  var eff=[['—','Questão levantada no caso, ainda sem decisão.'],['Inter partes','A decisão vale só para A e B.'],['Inter partes','Ainda só entre as partes (slide 18).'],['Inter partes','A caminho do STF.'],['Erga omnes','Após o STF decidir (slide 19).']];
+  function place(i,adi){pos=i;pawn.classList.toggle('adi',!!adi);sqs[i].appendChild(pawn);ef.textContent=adi?'Erga omnes':eff[i][0];efd.textContent=adi?'Via de ação, direto no STF.':eff[i][1];}
+  document.getElementById('roll').onclick=function(){carta.hidden=true;place(Math.min(pos+1,sqs.length-1));};
+  document.getElementById('adi').onclick=function(){carta.hidden=false;place(sqs.length-1,true);};
+  document.getElementById('reset').onclick=function(){carta.hidden=true;pos=-1;pawn.remove();ef.textContent='—';efd.textContent='Posicione o peão.';};
+})();
+// Transparencies
+(function(){
+  var r=document.getElementById('readout');
+  function upd(){
+    var on={};document.querySelectorAll('.toggles input').forEach(function(c){on[c.dataset.l]=c.checked;document.getElementById(c.dataset.l).classList.toggle('off',!c.checked)});
+    var t;
+    if(on.L1&&on.L2&&!on.L3)t=['Exame em abstrato','Lei diante da Constituição, sem ninguém entre elas. Sistema concentrado: via de ação, erga omnes.'];
+    else if(on.L1&&on.L2&&on.L3)t=['Exame em concreto','A mesma comparação, agora dentro de uma disputa entre A e B. Sistema difuso: questão prejudicial, inter partes.'];
+    else if(!on.L2)t=['Sem objeto','Sem a folha da lei não há o que controlar. A Constituição sozinha não gera controle.'];
+    else t=['Sem parâmetro','Sem a Constituição por baixo, a lei não tem com o que ser comparada.'];
+    r.innerHTML=t[0]+'<span>'+t[1]+'</span>';
+  }
+  document.querySelectorAll('.toggles input').forEach(function(c){c.addEventListener('change',upd)});upd();
+})();
+</script>
+</body>
+</html>

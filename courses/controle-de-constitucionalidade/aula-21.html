@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADI: requisitos de ajuizamento · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 21 — Requisitos para o ajuizamento da ADI: processamento da Lei 9.868/99, requisitos da petição inicial, causa de pedir aberta, regra da adstrição, inconstitucionalidade por arrastamento e indeferimento liminar.">
+<link rel="stylesheet" href="assets/controle.css">
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 21 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · VI.1 Ação direta de inconstitucionalidade</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">A petição decide</span><span class="split">o que fica fechado.</span></h1>
+  <p class="deck">Antes de discutir quem pode propor uma ADI, os slides tratam de como ela se propõe: o rito da Lei 9.868/99, os requisitos formais da petição inicial e um contraste central — o fundamento constitucional invocado é aberto, mas a lei ou o dispositivo impugnado é fechado, salvo uma exceção.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 150" aria-hidden="true">
+    <path class="draw" d="M0 75H380" stroke-width="2" fill="none" style="stroke:var(--ink)"/>
+    <path class="draw" d="M380 75C470 75 480 22 580 22H1060" stroke-width="3" fill="none" style="stroke:var(--dif)"/>
+    <path class="draw" d="M380 75C470 75 480 128 580 128H1060" stroke-width="3" fill="none" style="stroke:var(--conc)"/>
+    <path class="draw" d="M700 128C748 128 742 100 790 96" stroke-width="2.5" fill="none" stroke-dasharray="6 5" style="stroke:var(--mix)"/>
+    <circle cx="380" cy="75" r="6" class="late" style="fill:var(--ink)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.2">
+      <text x="0" y="62" style="fill:var(--ink-2)">PETIÇÃO INICIAL DA ADI</text>
+      <text x="600" y="12" style="fill:var(--dif)">PARÂMETRO (CAUSA DE PEDIR) · ABERTO</text>
+      <text x="600" y="148" style="fill:var(--conc)">OBJETO (PEDIDO) · FECHADO · REGRA DA ADSTRIÇÃO</text>
+      <text x="798" y="86" style="fill:var(--mix)">ARRASTAMENTO: EXCEÇÃO</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “ADI – Requisitos para ajuizamento”, 10 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 10 min</b></div>
+    <div role="listitem">Antes<b>Aula 20 · ADI: cabimento</b></div>
+    <div role="listitem">Depois<b>Aula 22 · ADI: legitimidade ativa</b></div>
+  </div>
+</header>
+
+<!-- ============ 01 · PROCESSAMENTO ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">Quatro fases, um desvio</h2>
+  <p class="lede">O slide 2 abre a aula com uma linha do tempo: ajuizamento, medida cautelar, análise do mérito, julgamento. Duas setas saem dessa linha para um mesmo bloco — a manifestação das autoridades e do PGR — e voltam.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-fases" viewBox="0 0 600 600">
+        <text x="40" y="70" class="t-small tc-muted">PROCESSAMENTO DA ADI/ADC · LEI 9.868/99</text>
+        <line x1="60" y1="300" x2="540" y2="300" class="ink grow" stroke-width="3"/>
+        <circle cx="100" cy="300" r="13" style="fill:var(--ink)"/>
+        <text x="46" y="340" class="t-small">AJUIZAMENTO</text>
+        <circle cx="240" cy="300" r="13" style="fill:var(--conc)"/>
+        <text x="180" y="340" class="t-small tc-conc">MEDIDA CAUTELAR</text>
+        <circle cx="380" cy="300" r="13" style="fill:var(--accent)"/>
+        <text x="316" y="340" class="t-small">ANÁLISE DO MÉRITO</text>
+        <circle cx="500" cy="300" r="13" style="fill:var(--mix)"/>
+        <text x="452" y="340" class="t-small tc-mix">JULGAMENTO</text>
+        <text x="60" y="450" class="t-serif tc-muted">quatro fases, na ordem em que</text>
+        <text x="60" y="476" class="t-serif tc-muted">a lei estabelece o rito</text>
+      </svg>
+      <svg class="panel fig" id="p-manif" viewBox="0 0 600 600">
+        <defs><marker id="ah-m1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker><marker id="ah-m2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--accent)"/></marker><marker id="ah-m3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <line x1="60" y1="100" x2="540" y2="100" class="thin"/>
+        <circle cx="100" cy="100" r="10" style="fill:var(--ink)"/>
+        <circle cx="240" cy="100" r="10" style="fill:var(--conc)"/>
+        <circle cx="380" cy="100" r="10" style="fill:var(--accent)"/>
+        <circle cx="500" cy="100" r="10" style="fill:var(--mix)"/>
+        <path class="c-conc grow" d="M240 110C240 200 300 220 300 260" marker-end="url(#ah-m1)"/>
+        <path d="M380 110C380 200 320 220 320 260" style="stroke:var(--accent)" stroke-width="3" fill="none" marker-end="url(#ah-m2)"/>
+        <rect x="120" y="270" width="360" height="120" class="f-paper ink" stroke-width="2"/>
+        <text x="140" y="304" class="t-small">MANIFESTAÇÃO DAS AUTORIDADES</text>
+        <text x="140" y="324" class="t-small">RESPONSÁVEIS PELA NORMA</text>
+        <text x="140" y="344" class="t-small tc-conc">+ PGR</text>
+        <text x="190" y="344" class="t-small">+ AGU</text>
+        <text x="230" y="344" class="t-small tc-muted">(MENOS ADC)</text>
+        <path class="c-dif grow" d="M120 330C60 360 60 200 100 118" marker-end="url(#ah-m3)"/>
+        <text x="40" y="440" class="t-small tc-dif">SE URGENTE,</text>
+        <text x="40" y="460" class="t-small tc-dif">MANIFESTAÇÃO FACULTATIVA</text>
+        <path d="M480 330C540 360 540 220 500 118" style="stroke:var(--mix)" stroke-width="3" fill="none" marker-end="url(#ah-m3)"/>
+        <text x="400" y="460" class="t-small tc-mix">SEGUE PARA</text>
+        <text x="400" y="480" class="t-small tc-mix">O JULGAMENTO</text>
+      </svg>
+      <figcaption><span>Fig. 1 · Processamento da ADI/ADC</span><span class="stage-count">Slide 2</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-fases" data-slides="Slide 2"><div class="card">
+      <span class="label">Visão geral</span>
+      <h3>As quatro fases do rito da Lei 9.868/99</h3>
+      <p>O processamento da ADI/ADC segue, na ordem, <strong>ajuizamento</strong>, <strong>medida cautelar</strong>, <strong>análise do mérito</strong> e <strong>julgamento</strong>. É essa sequência que organiza o restante da aula.</p>
+      <span class="src">Slide 2</span>
+    </div></div>
+    <div class="step" data-panel="p-manif" data-slides="Slide 2"><div class="card">
+      <span class="label">Onde entra a manifestação</span>
+      <h3>Um pedido de manifestação, duas portas de entrada</h3>
+      <p>Da fase de <strong class="conc">medida cautelar</strong> e da fase de <strong>análise do mérito</strong> partem setas para o mesmo bloco: a <strong>manifestação das autoridades responsáveis pela norma e do PGR</strong>, somada à <strong>AGU</strong> — <em>exceto na ADC</em>.</p>
+      <p>Duas setas de volta fecham o quadro: se a matéria é <strong class="dif">urgente</strong>, essa manifestação é <strong>facultativa</strong> antes da cautelar; colhida ou dispensada, o processo segue rumo ao <strong class="mix">julgamento</strong>.</p>
+      <span class="src">Slide 2</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 02 · REQUISITOS DA PETIÇÃO ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num" aria-hidden="true">02</span>
+  <h2 id="c2">O que a petição inicial precisa ter</h2>
+  <p class="lede">Os slides 3 e 4 tratam da petição inicial: primeiro os requisitos formais comuns, depois um princípio que qualifica um deles — o fundamento jurídico do pedido não amarra o STF.</p>
+</section>
+<div class="wide">
+  <ul class="requisitos">
+    <li><b>Indicação do dispositivo impugnado.</b> A lei ou o ato normativo impugnado ou questionado, e os fundamentos jurídicos do pedido em relação a cada impugnação, se ADI (arts. 3º e 14, Lei 9.868/99).</li>
+    <li><b>Indicação do pedido</b>, com suas especificações.</li>
+    <li><b>Forma e instrução.</b> Se subscrita por advogado, a petição vem acompanhada de instrumento de procuração, apresentada em duas vias, com cópias da lei ou ato impugnado e dos documentos que comprovem a impugnação — ou, na ADC, a procedência do pedido.</li>
+    <li><b>Sem prazo.</b> A petição inicial não está vinculada a qualquer prazo: não há decadência nem prescrição para o ajuizamento.</li>
+  </ul>
+  <span class="src">Slide 3</span>
+  <p class="prosa">Sobre o primeiro requisito — indicar os <strong>fundamentos jurídicos do pedido</strong> — os slides fazem uma ressalva importante: o STF <strong>não fica adstrito a tais fundamentos</strong> na apreciação que faz da (in)constitucionalidade dos dispositivos questionados. É dominante no STF que, na ADI/ADC, prevalece o princípio da <strong><em>causa petendi aberta</em></strong> (ADI 2.728): o Supremo pode basear-se em outros fundamentos, que não aqueles trazidos à inicial (ADI 3.576). A causa de pedir é aberta em relação ao <strong>parâmetro de análise</strong> (a Constituição) — não à norma que é objeto da ADI. O próximo capítulo mostra por que essa ressalva sobre o parâmetro contrasta com uma regra fechada sobre o objeto.</p>
+  <span class="src">Slide 4</span>
+</div>
+
+<!-- ============ 03 · CAUSA DE PEDIR ABERTA x ADSTRIÇÃO ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num" aria-hidden="true">03</span>
+  <h2 id="c3">Aberto quanto ao parâmetro, fechado quanto ao objeto</h2>
+  <p class="lede">Os slides 5 a 7 giram em torno de uma mesma variável — a Lei X — para separar duas coisas que parecem uma só: o fundamento constitucional invocado (parâmetro) e a lei impugnada (objeto). Nesta aula, <span class="dif">azul</span> marca o que é aberto e <span class="conc">vermelhão</span> marca o que é fechado; <span class="mix">roxo</span> marca a exceção.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-parametro" viewBox="0 0 600 600">
+        <defs><marker id="ah-p1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <rect x="60" y="60" width="150" height="70" class="f-paper ink" stroke-width="2"/>
+        <text x="80" y="102" class="t-mid">LEI X</text>
+        <text x="230" y="105" class="t-serif">em face do</text>
+        <rect x="330" y="60" width="150" height="70" class="w-grey ink"/>
+        <text x="350" y="102" class="t-mid">ART. Z CF</text>
+        <text x="60" y="176" class="t-small tc-muted">LEGITIMADO PEDE INCONSTITUCIONALIDADE COM FUNDAMENTO NO ART. Z</text>
+        <path class="c-dif grow" d="M300 200C300 280 300 280 300 340" marker-end="url(#ah-p1)"/>
+        <text x="80" y="270" class="t-mid tc-dif">STF PODE ACOLHER</text>
+        <text x="80" y="294" class="t-mid tc-dif">POR OUTRO FUNDAMENTO</text>
+        <rect x="330" y="360" width="150" height="70" class="w-dif ink" stroke-width="2.5" style="stroke:var(--dif)"/>
+        <text x="350" y="402" class="t-mid tc-dif">ART. Y CF</text>
+        <text x="60" y="470" class="t-small">A LEI X CONTINUA A MESMA</text>
+        <rect x="60" y="500" width="480" height="46" style="fill:var(--dif)"/>
+        <text x="80" y="530" class="t-light">PARÂMETRO (CAUSA DE PEDIR) · ABERTO</text>
+      </svg>
+      <svg class="panel fig" id="p-objeto" viewBox="0 0 600 600">
+        <defs><marker id="ah-p2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <rect x="60" y="60" width="150" height="70" class="w-conc ink" stroke-width="2.5" style="stroke:var(--conc)"/>
+        <text x="80" y="102" class="t-mid tc-conc">LEI X</text>
+        <text x="60" y="176" class="t-small tc-muted">LEGITIMADO QUESTIONA A LEI X</text>
+        <g opacity=".35"><rect x="330" y="60" width="150" height="70" class="w-grey ink"/><text x="345" y="102" class="t-mid">LEI Y</text><text x="330" y="176" class="t-small">LEI DIVERSA</text></g>
+        <path class="c-conc grow" d="M135 130C135 220 135 220 135 300" marker-end="url(#ah-p2)"/>
+        <rect x="60" y="310" width="220" height="70" class="w-conc ink" stroke-width="2"/>
+        <text x="80" y="352" class="t-mid tc-conc">STF JULGA A LEI X</text>
+        <path d="M400 130C400 220 300 260 300 320" stroke-width="2.5" stroke-dasharray="7 6" fill="none" style="stroke:var(--muted)"/>
+        <path d="M330 335l50-50M330 285l50 50" style="stroke:var(--conc)" stroke-width="4"/>
+        <text x="330" y="420" class="t-small">STF NÃO PODE, DE OFÍCIO,</text>
+        <text x="330" y="440" class="t-small">JULGAR A LEI Y</text>
+        <text x="60" y="470" class="t-small">VALE TAMBÉM ENTRE DISPOSITIVOS DE UMA MESMA LEI</text>
+        <rect x="60" y="500" width="480" height="46" style="fill:var(--conc)"/>
+        <text x="80" y="530" class="t-light">OBJETO (PEDIDO) · FECHADO · REGRA DA ADSTRIÇÃO</text>
+      </svg>
+      <svg class="panel fig" id="p-arrasta" viewBox="0 0 600 600">
+        <defs><marker id="ah-p3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--mix)"/></marker></defs>
+        <rect x="60" y="70" width="180" height="70" class="w-conc ink" stroke-width="2" style="stroke:var(--conc)"/>
+        <text x="80" y="112" class="t-mid tc-conc">DISPOSITIVO A</text>
+        <text x="60" y="160" class="t-small tc-muted">IMPUGNADO NA ADI</text>
+        <path d="M240 105h60" class="thin dash"/>
+        <rect x="300" y="70" width="200" height="70" class="w-grey ink" stroke-width="2"/>
+        <text x="320" y="104" class="t-mid">DISPOSITIVO B</text>
+        <text x="320" y="124" class="t-small tc-muted">CONEXO · NÃO IMPUGNADO</text>
+        <text x="60" y="210" class="t-serif">relação de conexão ou interdependência</text>
+        <path class="c-mix grow" style="stroke:var(--mix)" stroke-width="3" fill="none" d="M150 140C150 240 400 240 400 300" marker-end="url(#ah-p3)"/>
+        <rect x="150" y="310" width="300" height="80" fill="none" stroke-width="2.5" stroke-dasharray="8 6" style="stroke:var(--mix)"/>
+        <text x="170" y="342" class="t-mid tc-mix">STF DECLARA A</text>
+        <text x="170" y="366" class="t-mid tc-mix">INCONSTITUCIONALIDADE DE B</text>
+        <text x="170" y="386" class="t-small tc-mix">DE OFÍCIO</text>
+        <text x="60" y="440" class="t-small">EXCEÇÃO À REGRA DA ADSTRIÇÃO</text>
+        <rect x="60" y="500" width="480" height="46" style="fill:var(--mix)"/>
+        <text x="80" y="530" class="t-light">INCONSTITUCIONALIDADE POR ARRASTAMENTO</text>
+      </svg>
+      <figcaption><span>Fig. 2 · Parâmetro aberto, objeto fechado</span><span class="stage-count">Slides 5–7</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-parametro" data-slides="Slide 5"><div class="card">
+      <span class="label dif">Parâmetro</span>
+      <h3>A causa de pedir aberta, com números soltos</h3>
+      <p>A causa de pedir aberta está relacionada ao <strong>parâmetro de análise</strong>, que é a Constituição Federal. Se um legitimado ajuíza ADI para declarar a inconstitucionalidade da <strong>Lei X</strong>, em face do <strong>art. Z</strong> da Constituição, o STF pode entender que a Lei X é inconstitucional — porém não por violar o art. Z, mas sim o <strong>art. Y</strong> da Constituição.</p>
+      <p>Isso é causa de pedir aberta com base no parâmetro, ou seja, no fundamento constitucional.</p>
+      <span class="src">Slide 5</span>
+    </div></div>
+    <div class="step" data-panel="p-objeto" data-slides="Slide 6"><div class="card">
+      <span class="label conc">Objeto</span>
+      <h3>A regra da adstrição: o pedido é fechado</h3>
+      <p>Já o <strong class="conc">objeto</strong> da ADI está relacionado ao <strong>pedido</strong>. Se o objeto é a declaração de inconstitucionalidade da Lei X, vale a <strong>regra da adstrição</strong>: se o legitimado questionou a Lei X, o STF não pode, de ofício, declarar a inconstitucionalidade da Lei Y.</p>
+      <p>O mesmo vale para dispositivos de uma lei: provocado a analisar um dispositivo determinado, o STF não pode declarar inconstitucional outro dispositivo, ainda que da mesma lei.</p>
+      <span class="src">Slide 6</span>
+    </div></div>
+    <div class="step" data-panel="p-arrasta" data-slides="Slide 7"><div class="card">
+      <span class="label mix">A exceção</span>
+      <h3>Quando o STF pode ultrapassar o pedido</h3>
+      <p>Existem, contudo, <strong>exceções</strong> que afastam a regra da adstrição ao pedido: elas permitem que o STF, mesmo não provocado a declarar a inconstitucionalidade de determinado dispositivo, o faça <strong>de ofício</strong>.</p>
+      <p>É a hipótese de <strong>interdependência</strong>, que gera a chamada <strong class="mix">inconstitucionalidade por arrastamento</strong> — tratada no próximo capítulo, e desenvolvida em profundidade na Aula 14.</p>
+      <span class="src">Slide 7</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 04 · ARRASTAMENTO ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num mix" aria-hidden="true">04</span>
+  <h2 id="c4"><span class="mix">Arrastamento:</span> quando um dispositivo puxa outro</h2>
+  <p class="lede">O slide 8 fecha a exceção com uma definição e cinco precedentes citados só pelo número.</p>
+</section>
+<div class="wide">
+  <div class="chave">
+    <span class="label">Definição · slide 8</span>
+    A inconstitucionalidade por arrastamento ocorre quando a declaração de inconstitucionalidade de uma norma impugnada se estende aos dispositivos normativos que apresentam com ela uma relação de conexão ou de interdependência.
+  </div>
+  <p class="prosa">O slide cita cinco precedentes, apenas pelo número — sem relator ou data indicados nos slides, por isso não são completados aqui:</p>
+  <ul class="requisitos">
+    <li><b>ADI 4.357</b></li>
+    <li><b>ADI 2.995</b></li>
+    <li><b>ADI 2.947</b></li>
+    <li><b>ADI 2.158</b></li>
+    <li><b>ADI 1.923</b></li>
+  </ul>
+  <p class="note">A Aula 14 (<em>Inconstitucionalidade por arrastamento</em>) trata o instituto por extenso, inclusive esses precedentes.</p>
+  <span class="src">Slide 8</span>
+</div>
+
+<!-- ============ 05 · INDEFERIMENTO LIMINAR ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num" aria-hidden="true">05</span>
+  <h2 id="c5">Se a petição falha: indeferimento liminar e o prazo do agravo</h2>
+  <p class="lede">Os slides 9 e 10 fecham a aula com o que acontece quando a petição não atende aos requisitos, e com uma linha do tempo legislativa sobre o prazo do recurso cabível.</p>
+</section>
+<div class="wide">
+  <ul class="requisitos">
+    <li><b>Hipóteses de indeferimento liminar.</b> A petição inicial <strong>inepta</strong>, <strong>não fundamentada</strong> ou <strong>manifestamente improcedente</strong> será liminarmente indeferida pelo relator (arts. 4º e 15, Lei 9.868/99).</li>
+    <li><b>Recurso cabível.</b> Cabe <strong>agravo</strong> da decisão que indeferir a petição inicial.</li>
+    <li><b>Prazo, segundo o RISTF.</b> <strong>5 dias</strong>, conforme o Regimento Interno do STF.</li>
+  </ul>
+  <span class="src">Slide 9</span>
+  <p class="caso"><span class="label">Exemplo hipotético</span>Um legitimado ajuíza ADI contra a Lei X sem indicar o dispositivo impugnado nem os fundamentos jurídicos do pedido. Por faltar um dos requisitos comuns do slide 3, a petição é inepta: o relator a indefere liminarmente. Contra essa decisão cabe agravo.</p>
+
+  <div class="linha-tempo">
+    <ol>
+      <li class="dif"><time>CPC/1973</time><b>Art. 545</b>Prazo de <strong>5 dias</strong> para o agravo.</li>
+      <li class="dif"><span class="marco">RISTF</span><b>Regimento Interno do STF</b>Também fixa <strong>5 dias</strong>, na mesma linha do CPC/1973.</li>
+      <li class="conc"><time>CPC/2015</time><b>Art. 1.021</b>Não fala em prazo: remete às regras do <strong>regimento interno</strong> do respectivo tribunal quanto ao processamento do agravo interno.</li>
+      <li class="conc"><span class="marco">CPC/2015</span><b>Art. 1.003, § 5º</b>Unifica o prazo recursal em <strong>15 dias</strong> para todos os recursos, salvo embargos de declaração (5 dias).</li>
+    </ol>
+  </div>
+  <p class="note">Os slides não resolvem expressamente a tensão entre os <strong>5 dias</strong> do RISTF (slides 9 e 10) e os <strong>15 dias</strong> do art. 1.003, § 5º do CPC/2015. A conciliação entre essas normas cabe à interpretação doutrinária e jurisprudencial, e não está explicitada no material desta aula.</p>
+  <span class="src">Slide 10</span>
+</div>
+
+<!-- ============ 06 · RESUMO ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">Resumo lado a lado</h2>
+  <p class="lede">O contraste central da aula, reorganizado em tabela.</p>
+</section>
+<div class="wide">
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Quadro comparativo entre parâmetro e objeto da ADI">
+  <table class="compare">
+    <thead><tr><th scope="col"><span class="label">Critério</span></th><th scope="col" class="dif">Parâmetro (causa de pedir)</th><th scope="col" class="conc">Objeto (pedido)</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">O que é</th><td>O fundamento constitucional invocado</td><td>A lei ou o dispositivo impugnado</td></tr>
+      <tr><th scope="row">Regime</th><td>Aberto: causa de pedir aberta</td><td>Fechado: regra da adstrição</td></tr>
+      <tr><th scope="row">Pode o STF mudar?</th><td>Sim — pode julgar por outro dispositivo constitucional</td><td>Não, de ofício — salvo exceção por interdependência (arrastamento)</td></tr>
+      <tr><th scope="row">Base</th><td>ADI 2.728; ADI 3.576</td><td>ADI 4.357, 2.995, 2.947, 2.158, 1.923 (exceção)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <span class="src">Slides 4–8</span>
+  <dl class="termos">
+    <dt>Causa petendi aberta</dt><dd>O STF não fica adstrito aos fundamentos jurídicos da petição inicial; pode declarar a inconstitucionalidade com base em dispositivo constitucional diverso do invocado.</dd>
+    <dt>Regra da adstrição</dt><dd>O STF fica vinculado à lei ou ao dispositivo especificamente impugnado; não pode, de ofício, estender a declaração a outra lei ou a outro dispositivo.</dd>
+    <dt>Inconstitucionalidade por arrastamento</dt><dd>Exceção à regra da adstrição: a declaração de inconstitucionalidade de uma norma se estende aos dispositivos conexos ou interdependentes com ela.</dd>
+    <dt>Indeferimento liminar</dt><dd>O relator indefere de plano a petição inepta, não fundamentada ou manifestamente improcedente; cabe agravo.</dd>
+  </dl>
+  <span class="src">Slides 4, 6, 8, 9</span>
+</div>
+
+<!-- ============ 07 · TESTE ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">Teste rápido</h2>
+  <p class="lede">Responda antes de abrir.</p>
+</section>
+<div class="wide">
+  <div class="quiz">
+    <details><summary>Há prazo para ajuizar uma ADI?</summary><p>Não. A petição inicial não está vinculada a qualquer prazo (slide 3).</p></details>
+    <details><summary>Um legitimado ajuíza ADI contra a Lei X com fundamento no art. Z da CF. O STF pode julgá-la inconstitucional por violar o art. Y?</summary><p>Sim. A causa de pedir é aberta quanto ao parâmetro: o STF não fica adstrito ao fundamento jurídico indicado na inicial (slides 4–5).</p></details>
+    <details><summary>O legitimado impugnou apenas o art. 5º da Lei X. O STF pode, de ofício, declarar inconstitucional o art. 6º da mesma lei?</summary><p>Em regra, não — vale a <strong>regra da adstrição</strong> ao pedido (slide 6). A exceção é a hipótese de interdependência entre dispositivos, que gera a <strong>inconstitucionalidade por arrastamento</strong> (slide 7).</p></details>
+    <details><summary>Quais são as hipóteses de indeferimento liminar da petição inicial?</summary><p>Petição <strong>inepta</strong>, <strong>não fundamentada</strong> ou <strong>manifestamente improcedente</strong> (arts. 4º e 15, Lei 9.868/99 — slide 9).</p></details>
+    <details><summary>O que diz o art. 1.021 do CPC/2015 sobre o prazo do agravo contra o indeferimento liminar?</summary><p>Não fixa prazo: remete às regras do regimento interno do respectivo tribunal quanto ao processamento (slide 10). O prazo geral de 15 dias vem do art. 1.003, § 5º do CPC/2015, distinto dos 5 dias do RISTF — tensão que os slides não resolvem.</p></details>
+    <details><summary>Em que fases do processamento pode ser pedida a manifestação das autoridades e do PGR?</summary><p>Na <strong>medida cautelar</strong> e na <strong>análise do mérito</strong>; se a matéria for urgente, a manifestação é facultativa antes da cautelar (slide 2).</p></details>
+  </div>
+</div>
+
+<nav class="endnav" aria-label="Aulas vizinhas">
+  <a href="aula-20.html"><span>← Aula 20</span>ADI: cabimento</a>
+  <a href="aula-22.html" style="text-align:right"><span>Aula 22 →</span>ADI: legitimidade ativa</a>
+</nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides “ADI – Requisitos para ajuizamento”, do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 10 páginas, lidas a partir do digesto visual dos slides. Cada bloco indica os slides de onde vem. Os diagramas redesenham o que as imagens dos slides mostram (linha do tempo, setas de convergência, esquemas de Lei X/art. Z/art. Y). Nenhuma imagem dos slides é reproduzida aqui.</p>
+  <p>Acréscimos editoriais, marcados como tais: o exemplo hipotético de petição inepta, a organização do quadro comparativo e do quadro de termos, e as remissões a outras aulas (14, 20, 22). Os cinco números de ADI do slide 8 são reproduzidos exatamente como aparecem, sem relator nem data, porque o slide não os fornece. Esta página ainda não foi cruzada com a bibliografia (Barroso, Mendes &amp; Branco, Lenza). A leitura doutrinária dessas obras é uma etapa separada.</p>
+</details>
+
+<script src="assets/controle.js"></script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crítica à cumulação · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 12 — Crítica à cumulação dos sistemas de controle: por que a soma do difuso com o concentrado sobrecarrega o STF, a abstrativização do controle difuso e o art. 52, X.">
+<link rel="stylesheet" href="assets/controle.css">
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 12 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · IV.3 Análise crítica do modelo misto</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">A soma que</span><span class="split">virou fila.</span></h1>
+  <p class="deck">A Aula 11 mostrou o difuso e o concentrado como duas rotas separadas. Esta aula pergunta o que acontece quando as duas rotas correm ao mesmo tempo, dentro do mesmo país: por que 11 ministros brasileiros julgam mais que os tribunais constitucionais de Alemanha, Espanha, EUA e Itália somados, e o que isso custa em segurança jurídica.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 150" aria-hidden="true">
+    <path class="draw" d="M60 30C260 30 260 30 400 75" stroke-width="3" fill="none" style="stroke:var(--conc)"/>
+    <path class="draw" d="M60 120C260 120 260 120 400 75" stroke-width="3" fill="none" style="stroke:var(--dif)"/>
+    <path class="draw" d="M400 75H1020" stroke-width="6" fill="none" stroke-dasharray="1200" style="stroke:var(--mix)"/>
+    <circle cx="400" cy="75" r="7" class="late" style="fill:var(--mix)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.2">
+      <text x="60" y="18" style="fill:var(--conc)">CONCENTRADO</text>
+      <text x="60" y="142" style="fill:var(--dif)">DIFUSO</text>
+      <text x="440" y="60" style="fill:var(--mix)">TUDO CONVERGE PARA O STF</text>
+      <text x="700" y="102" style="fill:var(--ink-2)">11 MINISTROS · 116.170 DECISÕES EM 2025</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “Crítica à cumulação de sistemas”, 32 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 18 min</b></div>
+    <div role="listitem">Antes<b>Aula 11 · Sistemas e técnicas de controle</b></div>
+    <div role="listitem">Depois<b>Aula 13 · Estado de coisas inconstitucional</b></div>
+  </div>
+</header>
+
+<!-- ============ 01 · SEPARAR OU CUMULAR ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">Separar ou cumular as jurisdições</h2>
+  <p class="lede">A Aula 11 fixou o vocabulário: difuso = azul, concentrado = vermelho, misto = roxo. Os slides 2 a 8 usam essas cores para desenhar a diferença estrutural entre os dois modelos — não nos efeitos das decisões, mas na arquitetura do Judiciário que as produz.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-panorama" viewBox="0 0 600 600">
+        <defs><marker id="ah-c1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker><marker id="ah-c2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <rect x="40" y="60" width="180" height="70" class="w-dif ink"/><text x="58" y="102" class="t-mid tc-dif">EUA</text><text x="58" y="122" class="t-small">DIFUSO</text>
+        <rect x="380" y="60" width="180" height="70" class="w-conc ink"/><text x="398" y="102" class="t-mid tc-conc">ALEMANHA</text><text x="398" y="122" class="t-small">CONCENTRADO</text>
+        <rect x="210" y="300" width="180" height="80" class="f-ink"/><text x="248" y="342" class="t-light t-big">BRASIL</text><text x="248" y="366" class="t-light t-small">CONFUSO</text>
+        <path class="c-dif grow" d="M130 130C130 220 220 240 250 298" marker-end="url(#ah-c1)"/>
+        <path class="c-conc grow" d="M470 130C470 220 380 240 350 298" marker-end="url(#ah-c2)"/>
+        <text x="60" y="470" class="t-serif">duas setas convergem sobre o mesmo país —</text>
+        <text x="60" y="496" class="t-serif">o modelo brasileiro combina as duas heranças</text>
+      </svg>
+      <svg class="panel fig" id="p-piramide" viewBox="0 0 600 600">
+        <text x="50" y="70" class="t-small tc-conc">MODELO ALEMÃO · SEPARAÇÃO</text>
+        <path d="M120 240 300 140 480 240Z" class="w-conc ink" stroke-width="2"/><text x="230" y="210" class="t-small tc-conc">CONSTITUCIONAL</text>
+        <path d="M60 380 120 240 480 240 540 380Z" class="w-grey ink" stroke-width="2"/><text x="240" y="330" class="t-mid">ORDINÁRIA</text>
+        <line x1="60" y1="380" x2="540" y2="380" class="ink" stroke-width="2.5"/>
+        <text x="50" y="440" class="t-small tc-muted">DOIS NÍVEIS, DOIS CORPOS DE JUÍZES</text>
+        <text x="50" y="470" class="t-serif">o Tribunal Constitucional Federal</text>
+        <text x="50" y="494" class="t-serif">não integra a Justiça comum</text>
+      </svg>
+      <svg class="panel fig" id="p-triangulo" viewBox="0 0 600 600">
+        <text x="50" y="70" class="t-small tc-dif">MODELO BRASILEIRO · CUMULAÇÃO</text>
+        <path d="M100 380 300 140 500 380Z" class="w-dif ink" stroke-width="2.5"/>
+        <text x="220" y="270" class="t-mid tc-dif">JURISDIÇÕES</text>
+        <text x="240" y="296" class="t-mid tc-dif">ORDINÁRIA</text>
+        <text x="260" y="322" class="t-mid tc-dif">E</text>
+        <text x="215" y="348" class="t-mid tc-dif">CONSTITUCIONAL</text>
+        <text x="50" y="440" class="t-small tc-muted">UM SÓ TRIÂNGULO, UM SÓ CORPO DE JUÍZES</text>
+        <text x="50" y="470" class="t-serif">qualquer juiz comum também</text>
+        <text x="50" y="494" class="t-serif">é juiz constitucional</text>
+      </svg>
+      <figcaption><span>Fig. 1 · Separação × cumulação</span><span class="stage-count">Slides 2–8</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-panorama" data-slides="Slides 1–2"><div class="card">
+      <span class="label mix">Panorama</span>
+      <h3>Difuso, confuso, concentrado</h3>
+      <p>Os slides de abertura alinham três bandeiras: Estados Unidos rotulados <strong class="dif">Difuso</strong>, Alemanha rotulada <strong class="conc">Concentrado</strong> e, entre as duas, o Brasil rotulado <strong>Confuso</strong>. No mapa-múndi ao lado, duas setas grossas — uma da América do Norte, outra da Europa — convergem sobre a América do Sul.</p>
+      <p>É a mesma imagem de fundo da Aula 11 (duas heranças chegando ao Brasil), mas agora com uma etiqueta nova: a soma das duas heranças não é apresentada como uma solução, e sim como uma confusão a ser explicada.</p>
+      <span class="src">Slides 1–2</span>
+    </div></div>
+    <div class="step" data-panel="p-piramide" data-slides="Slides 3–7"><div class="card">
+      <span class="label conc">Modelo alemão</span>
+      <h3>Separação entre jurisdição ordinária e constitucional</h3>
+      <p>No sistema concentrado, uma pirâmide de duas camadas representa a arquitetura: embaixo, a <strong>jurisdição ordinária</strong>; em cima, separada, a <strong>jurisdição constitucional</strong>, a cargo de um Tribunal Constitucional próprio (o <em>Bundesverfassungsgericht</em>, fotografado nos slides 5 a 7). Uma seta reforça que essa camada superior é um nível à parte, e não uma simples instância recursal da jurisdição comum.</p>
+      <span class="src">Slides 3–7</span>
+    </div></div>
+    <div class="step" data-panel="p-triangulo" data-slides="Slide 8"><div class="card">
+      <span class="label dif">Modelo brasileiro</span>
+      <h3>Cumulação entre as duas jurisdições</h3>
+      <p>No sistema difuso brasileiro, um único triângulo substitui a pirâmide de duas camadas: dentro dele, juntas, as palavras <strong>“jurisdições ordinária e constitucional”</strong>. Não há separação orgânica — o mesmo juiz que julga um despejo também pode declarar uma lei inconstitucional no mesmo processo.</p>
+      <p>É essa cumulação, e não o difuso isoladamente, que o deck vai criticar a partir daqui.</p>
+      <span class="src">Slide 8</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 02 · CADA JUIZ, UM TRIBUNAL ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num dif" aria-hidden="true">02</span>
+  <h2 id="c2"><span class="dif">Cada juiz é um tribunal constitucional</span></h2>
+  <p class="lede">O Judiciário brasileiro terminou 2025 com 19.094 juízes, desembargadores e ministros. No sistema difuso, cada um deles pode deixar de aplicar uma lei por considerá-la inconstitucional. O slide 10 tira a conclusão sem rodeios.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-juizes" viewBox="0 0 600 600">
+        <text x="50" y="70" class="t-small tc-muted">PODER JUDICIÁRIO · 2025</text>
+        <text x="50" y="130" class="t-big tc-conc">19.094</text>
+        <text x="50" y="158" class="t-small">JUÍZES, DESEMBARGADORES E MINISTROS</text>
+        <g class="f-dif">
+          <circle cx="60" cy="220" r="7"/><circle cx="90" cy="234" r="7"/><circle cx="120" cy="216" r="7"/><circle cx="150" cy="236" r="7"/><circle cx="180" cy="218" r="7"/><circle cx="210" cy="232" r="7"/><circle cx="240" cy="214" r="7"/><circle cx="270" cy="234" r="7"/><circle cx="300" cy="220" r="7"/><circle cx="330" cy="236" r="7"/><circle cx="360" cy="216" r="7"/><circle cx="390" cy="232" r="7"/><circle cx="420" cy="218" r="7"/><circle cx="450" cy="234" r="7"/><circle cx="480" cy="220" r="7"/><circle cx="510" cy="236" r="7"/><circle cx="540" cy="216" r="7"/>
+          <circle cx="75" cy="264" r="7"/><circle cx="105" cy="250" r="7"/><circle cx="135" cy="266" r="7"/><circle cx="165" cy="252" r="7"/><circle cx="195" cy="264" r="7"/><circle cx="225" cy="250" r="7"/><circle cx="255" cy="266" r="7"/><circle cx="285" cy="252" r="7"/><circle cx="315" cy="264" r="7"/><circle cx="345" cy="250" r="7"/><circle cx="375" cy="266" r="7"/><circle cx="405" cy="252" r="7"/><circle cx="435" cy="264" r="7"/><circle cx="465" cy="250" r="7"/><circle cx="495" cy="266" r="7"/><circle cx="525" cy="252" r="7"/>
+        </g>
+        <text x="50" y="330" class="t-serif">cada ponto pode, sozinho,</text>
+        <text x="50" y="354" class="t-serif">afastar uma lei no caso concreto</text>
+        <rect x="50" y="420" width="500" height="60" style="fill:var(--dif)"/>
+        <text x="66" y="458" class="t-light t-mid">"CADA JUIZ É UM TRIBUNAL CONSTITUCIONAL"</text>
+        <text x="50" y="520" class="t-small tc-muted">O QUE ACONTECE QUANDO VÁRIOS JUÍZES</text>
+        <text x="50" y="542" class="t-small tc-muted">DECIDEM DE FORMA DIFERENTE?</text>
+      </svg>
+      <svg class="panel fig" id="p-whatsapp" viewBox="0 0 600 600">
+        <text x="50" y="60" class="t-small tc-dif">EXEMPLO REAL · BLOQUEIO DO WHATSAPP</text>
+        <path d="M300 100 240 220 360 220Z" class="w-grey ink" stroke-width="2"/><text x="270" y="180" class="t-small">BRASIL</text>
+        <rect x="60" y="270" width="200" height="90" class="w-dif ink" stroke-width="2"/><text x="80" y="308" class="t-mid tc-dif">LIBERADO</text><text x="80" y="332" class="t-small">COMARCA A</text>
+        <rect x="340" y="270" width="200" height="90" class="w-conc ink" stroke-width="2"/><text x="360" y="308" class="t-mid tc-conc">BLOQUEADO</text><text x="360" y="332" class="t-small">COMARCA B</text>
+        <rect x="60" y="390" width="200" height="90" class="w-conc ink" stroke-width="2"/><text x="80" y="428" class="t-mid tc-conc">PROIBIDO</text><text x="80" y="452" class="t-small">COMARCA C</text>
+        <rect x="340" y="390" width="200" height="90" class="w-dif ink" stroke-width="2"/><text x="360" y="428" class="t-mid tc-dif">LIBERADO</text><text x="360" y="452" class="t-small">COMARCA D</text>
+        <path class="c-dif" d="M300 220 160 270"/><path class="c-conc" d="M300 220 440 270"/><path class="c-conc" d="M300 220 160 390"/><path class="c-dif" d="M300 220 440 390"/>
+        <text x="60" y="530" class="t-serif">o mesmo aplicativo, quatro status</text>
+        <text x="60" y="554" class="t-serif">diferentes, ao mesmo tempo, no mesmo país</text>
+      </svg>
+      <figcaption><span>Fig. 2 · A cumulação em números e em um caso real</span><span class="stage-count">Slides 9–15</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-juizes" data-slides="Slides 9–10"><div class="card">
+      <span class="label dif">A estatística</span>
+      <h3>19.094 tribunais constitucionais em potencial</h3>
+      <p>Os slides cruzam um dado do CNJ (“Justiça em Números”) com um dado do STF: ao todo, o Poder Judiciário terminou 2025 com <strong>19.094 juízes de direito, desembargadores e ministros</strong>. Como no sistema difuso qualquer um deles pode deixar de aplicar uma lei no caso concreto por considerá-la inconstitucional, o slide 10 resume: <strong>“cada juiz é um tribunal constitucional” no Brasil</strong>.</p>
+      <p>A pergunta que fecha o bloco é retórica: o que acontece quando vários desses juízes decidem de forma diferente sobre a mesma lei?</p>
+      <span class="src">Slides 9–11</span>
+    </div></div>
+    <div class="step" data-panel="p-whatsapp" data-slides="Slides 12–15"><div class="card">
+      <span class="label conc">O exemplo real</span>
+      <h3>O bloqueio do WhatsApp</h3>
+      <p>Antes do exemplo real, os slides 12–13 esboçam uma hipótese: um mapa do Brasil colorido por região, ligado a duas fotos de trabalhadores remotos, com o símbolo <strong>R$</strong> e a palavra <strong>Imposto</strong> aparecendo ora proibida, ora em aberto — sugerindo tratamentos tributários divergentes para a mesma atividade, dependendo de qual juiz decide.</p>
+      <p>O slide 15 troca a hipótese por um episódio documentado: em diferentes momentos, juízes de comarcas distintas determinaram o <strong>bloqueio do WhatsApp</strong> em todo o território nacional, enquanto outros juízes revogavam essas ordens. O aplicativo aparece nos slides como “Liberado”, “Bloqueado”, proibido (com um X) e “Liberado” de novo — quatro status coexistindo por causa da cumulação difusa.</p>
+      <span class="src">Slides 12–15</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 03 · POR QUE NOS EUA NAO É PROBLEMA ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num" aria-hidden="true">03</span>
+  <h2 id="c3">Por que o difuso não pesa tanto nos Estados Unidos</h2>
+  <p class="lede">Os mesmos EUA que inventaram o controle difuso não vivem uma guerra de liminares constitucionais. O slide 16 credita a diferença não ao sistema em si, mas ao objeto que ele examina: a Constituição.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-sintetica" viewBox="0 0 600 600">
+        <text x="50" y="70" class="t-small tc-dif">CONSTITUIÇÃO AMERICANA · 1787</text>
+        <rect x="50" y="100" width="220" height="280" class="f-paper ink" stroke-width="2"/>
+        <text x="70" y="140" class="t-big">7</text><text x="70" y="164" class="t-small">ARTIGOS</text>
+        <line x1="70" y1="190" x2="250" y2="190" class="thin"/>
+        <text x="70" y="220" class="t-big">27</text><text x="70" y="244" class="t-small">EMENDAS</text>
+        <text x="70" y="290" class="t-serif">Bill of Rights:</text>
+        <text x="70" y="314" class="t-serif">10 primeiras emendas</text>
+        <text x="70" y="356" class="t-small tc-muted">A MAIS CURTA CONSTITUIÇÃO</text>
+        <text x="70" y="376" class="t-small tc-muted">ESCRITA EM VIGOR</text>
+        <path class="c-dif grow" d="M290 240C360 240 360 300 440 300" marker-end="url(#ah-fin)"/>
+        <defs><marker id="ah-fin" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <rect x="440" y="250" width="110" height="100" class="w-dif ink"/>
+        <text x="452" y="288" class="t-small">POUCO PAUTA</text>
+        <text x="452" y="308" class="t-small">O DIA A DIA</text>
+        <text x="452" y="328" class="t-small">FORENSE</text>
+        <text x="50" y="470" class="t-serif">assunto constitucional raro</text>
+        <text x="50" y="494" class="t-serif">= poucos casos difusos subindo</text>
+      </svg>
+      <svg class="panel fig" id="p-certiorari" viewBox="0 0 600 600">
+        <text x="50" y="60" class="t-small tc-dif">SUPREMA CORTE DOS EUA · OT 2024</text>
+        <text x="50" y="120" class="t-big tc-conc">+5.000</text><text x="50" y="144" class="t-small">PETIÇÕES RECEBIDAS POR ANO</text>
+        <text x="50" y="210" class="t-big tc-dif">~80</text><text x="50" y="234" class="t-small">CASOS ESCOLHIDOS A DEDO</text>
+        <g class="f-ink">
+          <circle cx="70" cy="300" r="10"/><circle cx="100" cy="300" r="10"/><circle cx="130" cy="300" r="10"/><circle cx="160" cy="300" r="10"/><circle cx="190" cy="300" r="10"/>
+          <circle cx="85" cy="326" r="10"/><circle cx="115" cy="326" r="10"/><circle cx="145" cy="326" r="10"/><circle cx="175" cy="326" r="10"/>
+        </g>
+        <text x="50" y="368" class="t-small tc-muted">9 JUÍZES · CERTIORARI SELETIVO</text>
+        <line x1="50" y1="410" x2="550" y2="410" class="thin dash"/>
+        <text x="330" y="200" class="t-small tc-conc">ALEMANHA · BVerfG</text>
+        <text x="330" y="230" class="t-big tc-conc">~6.000</text><text x="330" y="254" class="t-small">PROCESSOS/ANO</text>
+        <g class="f-conc">
+          <circle cx="350" cy="300" r="10"/><circle cx="380" cy="300" r="10"/><circle cx="410" cy="300" r="10"/><circle cx="440" cy="300" r="10"/><circle cx="470" cy="300" r="10"/><circle cx="500" cy="300" r="10"/>
+          <circle cx="365" cy="326" r="10"/><circle cx="395" cy="326" r="10"/><circle cx="425" cy="326" r="10"/><circle cx="455" cy="326" r="10"/><circle cx="485" cy="326" r="10"/><circle cx="515" cy="326" r="10"/>
+          <circle cx="380" cy="352" r="10"/><circle cx="410" cy="352" r="10"/><circle cx="440" cy="352" r="10"/><circle cx="470" cy="352" r="10"/>
+        </g>
+        <text x="330" y="390" class="t-small tc-muted">16 JUÍZES</text>
+        <text x="50" y="460" class="t-serif">mais juízes concentrados,</text>
+        <text x="50" y="484" class="t-serif">mais processos julgados — mas</text>
+        <text x="50" y="508" class="t-serif">nenhum dos dois se compara ao STF</text>
+      </svg>
+      <figcaption><span>Fig. 3 · Constituição sintética e carga seletiva</span><span class="stage-count">Slides 16–21</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-sintetica" data-slides="Slides 16–18"><div class="card">
+      <span class="label dif">Constituição sintética</span>
+      <h3>Sete artigos, 27 emendas</h3>
+      <p>A Constituição americana de 1787 tem <strong>sete artigos</strong>, tratando do Legislativo, do Executivo e do Judiciário e do federalismo, e foi alterada <strong>27 vezes</strong> — as dez primeiras emendas formam o <em>Bill of Rights</em>. É, segundo os slides, <strong>a mais curta constituição escrita em vigor</strong>.</p>
+      <p>Esse caráter <strong>sintético</strong> tem uma consequência prática: os assuntos constitucionais <strong>não pertencem ao dia a dia dos processos judiciais</strong> nos Estados Unidos. Há menos matéria constitucional para disputar, logo menos controle difuso disputando-a.</p>
+      <span class="src">Slides 16–18</span>
+    </div></div>
+    <div class="step" data-panel="p-certiorari" data-slides="Slides 19–21"><div class="card">
+      <span class="label dif">O filtro do certiorari</span>
+      <h3>De 5.000 petições a 80 julgamentos</h3>
+      <p>A Suprema Corte dos EUA recebe mais de <strong>5.000</strong> petições de <em>certiorari</em> por ano, mas seus <strong>9 juízes</strong> selecionam apenas <strong>menos de cem</strong> — cerca de <strong>80 processos</strong>. Entre os October Terms 2020 e 2024, os “casos julgados” (argumentados) oscilaram entre 68 e 73 por ano, com os <em>cases disposed of</em> (decididos após argumentação) entre 63 e 69.</p>
+      <p class="conc"><strong>Comparação alemã:</strong> o Tribunal Constitucional Federal, com <strong>16 juízes</strong>, julga cerca de <strong>6.000 processos por ano</strong> — ordem de grandeza maior que a americana, mostrando que também o desenho institucional (mais juízes, mais casos aceitos) pesa na carga de trabalho.</p>
+      <span class="src">Slides 19–21</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 04 · O STF EM NÚMEROS ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num conc" aria-hidden="true">04</span>
+  <h2 id="c4"><span class="conc">O STF em números</span></h2>
+  <p class="lede">Os slides 22 a 27 despejam a estatística central do deck: o Brasil soma Constituição analítica com controle difuso, e o resultado aparece na carga de trabalho de apenas 11 ministros.</p>
+</section>
+
+<div class="wide">
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Carga processual dos tribunais constitucionais em 2025">
+  <table class="compare">
+    <thead><tr><th scope="col"><span class="label">Tribunal</span></th><th scope="col">Juízes</th><th scope="col">Entradas</th><th scope="col">Casos julgados</th><th scope="col" class="conc">Julgados por juiz</th></tr></thead>
+    <tbody>
+      <tr><th scope="row" class="conc">STF (Brasil)</th><td>11</td><td>85.201</td><td>116.170</td><td><strong class="conc">10.561</strong></td></tr>
+      <tr><th scope="row">Espanha</th><td>12</td><td>9.155</td><td>9.894</td><td>825</td></tr>
+      <tr><th scope="row">Alemanha</th><td>16</td><td>4.939</td><td>5.208</td><td>326</td></tr>
+      <tr><th scope="row">Itália</th><td>15</td><td>338</td><td>320</td><td>21</td></tr>
+      <tr><th scope="row">Estados Unidos</th><td>9</td><td>3.856</td><td>73</td><td>8,1</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">O STF julga, por juiz, aproximadamente <strong>12,8×</strong> a carga da Espanha, <strong>32,4×</strong> a da Alemanha, <strong>495×</strong> a da Itália e <strong>1.302×</strong> a dos Estados Unidos. Os próprios slides alertam: cada país conta “casos julgados” à sua maneira (decisões, resoluções, processos concluídos), e as categorias não são rigorosamente equivalentes — a comparação serve para mostrar a <em>ordem de grandeza</em> da diferença, não um número exato.</p>
+  <span class="src">Slides 19, 21, 26–27</span>
+</div>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-stfnum" viewBox="0 0 600 600">
+        <text x="50" y="60" class="t-small tc-conc">STF EM 2025 · 11 MINISTROS</text>
+        <rect x="50" y="90" width="230" height="120" class="w-conc ink" stroke-width="2"/>
+        <text x="70" y="150" class="t-big tc-conc">85.201</text><text x="70" y="178" class="t-small">PROCESSOS RECEBIDOS</text>
+        <rect x="310" y="90" width="230" height="120" class="f-ink"/>
+        <text x="330" y="150" class="t-light t-big">116.170</text><text x="330" y="178" class="t-light t-small">DECISÕES PROFERIDAS</text>
+        <line x1="50" y1="250" x2="540" y2="250" class="thin"/>
+        <text x="50" y="290" class="t-small tc-muted">COMPOSIÇÃO DAS ENTRADAS</text>
+        <path d="M300 380 A90 90 0 1 1 214 335 L300 380Z" class="w-dif ink" stroke-width="1.5"/>
+        <path d="M300 380 A90 90 0 0 1 214 335" class="w-conc ink" stroke-width="1.5" fill="none"/>
+        <circle cx="300" cy="380" r="55" class="f-paper ink" stroke-width="1.5"/>
+        <text x="255" y="376" class="t-small">85.201</text><text x="262" y="392" class="t-small">TOTAL</text>
+        <text x="420" y="330" class="t-mid tc-conc">38%</text><text x="420" y="352" class="t-small">ORIGINÁRIOS</text><text x="420" y="370" class="t-small">32.596</text>
+        <text x="420" y="420" class="t-mid tc-dif">62%</text><text x="420" y="442" class="t-small">RECURSAIS</text><text x="420" y="460" class="t-small">52.605</text>
+      </svg>
+      <svg class="panel fig" id="p-monocratica" viewBox="0 0 600 600">
+        <text x="50" y="60" class="t-small tc-conc">TIPOS DE DECISÃO NO STF · 2025</text>
+        <circle cx="300" cy="270" r="150" class="w-dif ink" stroke-width="2"/>
+        <path d="M300 270 L300 120 A150 150 0 0 1 431 345 Z" class="w-conc ink" stroke-width="2"/>
+        <text x="360" y="200" class="t-mid tc-conc">19,5%</text>
+        <text x="150" y="330" class="t-mid tc-dif">80,5%</text>
+        <text x="150" y="356" class="t-small tc-dif">MONOCRÁTICAS</text>
+        <text x="360" y="226" class="t-small tc-conc">COLEGIADAS</text>
+        <text x="50" y="470" class="t-serif">93.559 decisões tomadas</text>
+        <text x="50" y="494" class="t-serif">por um único ministro, sozinho</text>
+      </svg>
+      <figcaption><span>Fig. 4 · O volume decisório do STF</span><span class="stage-count">Slides 22–24</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-stfnum" data-slides="Slides 22–23"><div class="card">
+      <span class="label conc">O tamanho do problema</span>
+      <h3>85.201 processos, 116.170 decisões</h3>
+      <p>Em 2025 o STF recebeu <strong>85.201 novos processos</strong> e proferiu <strong>116.170 decisões</strong>. Do total recebido, <strong>32.596 (38%)</strong> são <strong>originários</strong> — começaram no próprio STF, como ADI, ADPF, ações penais originárias — e <strong>52.605 (62%)</strong> são <strong>recursais</strong>: recursos contra decisões de outras instâncias, como o recurso extraordinário.</p>
+      <p>A maioria recursal é compatível com a tese do deck: o controle difuso, exercido em milhares de processos concretos, multiplica os recursos que acabam desaguando no STF.</p>
+      <span class="src">Slides 22–23</span>
+    </div></div>
+    <div class="step" data-panel="p-monocratica" data-slides="Slide 24"><div class="card">
+      <span class="label conc">Quem decide, de fato</span>
+      <h3>80,5% das decisões são monocráticas</h3>
+      <p>Das 116.170 decisões de 2025, apenas <strong>22.611 (19,5%)</strong> foram <strong>colegiadas</strong> (Plenário e Turmas); <strong>93.559 (80,5%)</strong> foram <strong>monocráticas</strong> — de um único ministro. O volume força a decisão individual a virar regra, não exceção.</p>
+      <span class="src">Slide 24</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 05 · AS DUAS CAUSAS ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num" aria-hidden="true">05</span>
+  <h2 id="c5">Duas causas estruturais</h2>
+  <p class="lede">O slide 29 sintetiza formalmente por que o STF julga tanto mais que os tribunais comparados: não é uma causa isolada, são duas somadas.</p>
+</section>
+
+<div class="wide">
+  <div class="par">
+    <div class="regra">
+      <span class="label">1 · Constituição analítica</span>
+      <p>A Constituição de 1988 é extensa e minuciosa: regula um número enorme de matérias e detalhes da vida social, política e econômica. <strong>Mais normas constitucionais significam mais controvérsias</strong> sobre a constitucionalidade de leis e atos.</p>
+    </div>
+    <div class="excecao">
+      <span class="label">2 · Sistema difuso de controle</span>
+      <p>Qualquer juiz ou tribunal pode afastar a aplicação de uma norma inconstitucional no caso concreto. Esse controle gera <strong>milhares de decisões e recursos</strong> que chegam ao STF, que vira, na prática, a instância recursal de revisão constitucional de todo o Judiciário.</p>
+    </div>
+  </div>
+  <div class="chave"><span class="label">Síntese do slide 29</span>Constituição detalhada + controle difuso = muitos processos chegando ao STF.</div>
+  <span class="src">Slide 29</span>
+</div>
+
+<!-- ============ 06 · A CRÍTICA E O CONTRAPONTO ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">Insegurança jurídica e o contraponto da Aula 11</h2>
+  <p class="lede">Da estatística, o deck sobe para a crítica normativa: por que o volume importa juridicamente, e não só administrativamente.</p>
+</section>
+
+<div class="wide">
+  <div class="prosa">
+    <p>Um <strong>autêntico Estado de Direito não pode se dar ao luxo de abandonar a segurança jurídica</strong>. Se uma lei é aprovada pelo Congresso Nacional, é de suma importância que se defina, o quanto antes, se ela pode viger ou não no país — não pode haver um estado de incerteza quanto a isso. Essa situação, dizem os slides, é <strong>agravada pelo sistema difuso</strong>: o sistema de controle difuso traz uma enorme insegurança jurídica para o país e fomenta uma prática nociva, a chamada <strong>“guerra de liminares”</strong>.</p>
+  </div>
+  <p class="caso"><span class="label">Exemplo hipotético (mesma lógica do episódio do WhatsApp)</span>Um estado edita uma lei sobre cobrança de um tributo sobre serviços digitais. Um juiz de primeira instância, num processo movido por uma empresa, considera a lei inconstitucional e suspende a cobrança só para aquela empresa. Em outra comarca, outro juiz aplica a mesma lei normalmente. Até o STF pacificar a questão, empresas concorrentes no mesmo mercado podem estar sob regras tributárias opostas.</p>
+  <span class="src">Slides 28, 30</span>
+</div>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-sintese" viewBox="0 0 600 600">
+        <rect x="50" y="70" width="220" height="140" class="w-conc ink" stroke-width="2.5"/>
+        <text x="70" y="120" class="t-mid tc-conc">Concentrado</text>
+        <text x="70" y="150" class="t-small">MONOPÓLIO DE UM</text>
+        <text x="70" y="170" class="t-small">SÓ ÓRGÃO</text>
+        <text x="70" y="196" class="t-small tc-conc">CONCEPÇÃO MAIS SEGURA</text>
+        <rect x="330" y="70" width="220" height="140" class="w-dif ink" stroke-width="2.5"/>
+        <text x="350" y="120" class="t-mid tc-dif">Difuso</text>
+        <text x="350" y="150" class="t-small">QUALQUER JUIZ PODE</text>
+        <text x="350" y="170" class="t-small">AFASTAR A NORMA</text>
+        <text x="350" y="196" class="t-small tc-dif">CONCEPÇÃO MENOS SEGURA</text>
+        <text x="50" y="270" class="t-serif">grande parte da insegurança jurídica</text>
+        <text x="50" y="294" class="t-serif">no Brasil vem de misturar as duas</text>
+        <path class="c-dif grow" d="M160 380C200 420 400 420 440 380" style="stroke:var(--dif)"/>
+        <text x="120" y="470" class="t-small tc-dif">A AULA 11 JÁ REGISTRAVA:</text>
+        <text x="120" y="494" class="t-serif">o difuso, com o tempo, se aproxima</text>
+        <text x="120" y="518" class="t-serif">do concentrado — art. 52, X e</text>
+        <text x="120" y="542" class="t-serif">abstrativização (retomados abaixo)</text>
+      </svg>
+      <figcaption><span>Fig. 5 · Concepção mais segura × menos segura</span><span class="stage-count">Slide 31</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-sintese" data-slides="Slide 31"><div class="card">
+      <span class="label mix">Em suma</span>
+      <h3>Duas concepções, um veredicto</h3>
+      <p>O slide 31 fecha a crítica: grande parte dos problemas de insegurança jurídica no Brasil decorre de uma <strong>opção que mistura a jurisdição ordinária com a constitucional</strong>. O deck contrapõe formalmente as duas concepções: <strong class="conc">concentrado</strong>, que confere a um único órgão o <strong>monopólio de rejeição da lei inconstitucional</strong> — a <em>concepção mais segura</em> — contra <strong class="dif">difuso</strong>, que permite a qualquer juiz deixar de aplicar uma norma no caso concreto — a <em>concepção menos segura</em>.</p>
+      <span class="src">Slide 31</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 07 · IV.4 E IV.5: O SENADO E A ABSTRATIVIZAÇÃO ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">O programa: art. 52, X e abstrativização do difuso</h2>
+  <p class="lede">O deck de 32 slides não nomeia expressamente o papel do Senado (art. 52, X) nem fala em “mutação constitucional” ou “abstrativização do controle difuso” — mas a Aula 11 já havia identificado a costura, ao registrar que “o difuso se aproxima do concentrado”, e o programa cobra esses dois pontos aqui (itens IV.4 e IV.5). Cabe fechar o raciocínio com o que ficou estabelecido lá.</p>
+</section>
+
+<div class="wide">
+  <dl class="termos">
+    <dt>Art. 52, X, CF</dt>
+    <dd>Compete privativamente ao Senado Federal <strong>suspender a execução</strong>, no todo ou em parte, de lei declarada inconstitucional por decisão definitiva do Supremo Tribunal Federal. É o mecanismo constitucional que, tradicionalmente, dá alcance <em>erga omnes</em> a uma decisão nascida em controle difuso (a Aula 11 já apontou que, antes do STF decidir, os efeitos do difuso são <em>inter partes</em>; depois, na leitura clássica do art. 52, X, o Senado amplia esse alcance).</dd>
+    <dt>Abstrativização do controle difuso</dt>
+    <dd>É o nome doutrinário da tendência que a Aula 11 já vinha descrevendo com outras palavras: com o tempo, o controle difuso — nascido para valer só <em>inter partes</em>, num caso concreto — passa a se comportar, na prática, como o concentrado. Os instrumentos citados nos slides 18–19 da Aula 11, o <strong>recurso extraordinário com repercussão geral</strong> e as <strong>súmulas vinculantes</strong>, são exatamente essa aproximação: uma decisão tomada num caso concreto acaba vinculando todos os demais.</dd>
+  </dl>
+  <p class="note">Esta seção conecta o item IV.4–IV.5 do programa ao material desta aula e da Aula 11; os slides do deck 12 em si não desenvolvem o art. 52, X nem o termo “abstrativização” com esse vocabulário exato — a ligação é uma costura editorial, não um trecho transcrito. A Aula 18 (Mutação constitucional e efeito <em>backlash</em>) retoma o tema da mutação por trás dessa abstrativização.</p>
+  <span class="src">Continuidade com Aula 11, Slides 18–19</span>
+</div>
+
+<!-- ============ 08 · RESUMO ============ -->
+<section class="chapter" aria-labelledby="c8">
+  <span class="num" aria-hidden="true">08</span>
+  <h2 id="c8">Resumo</h2>
+  <p class="lede">A crítica em uma frase: o Brasil não escolheu entre difuso e concentrado — somou os dois, e a soma cobra seu preço em carga processual e em segurança jurídica.</p>
+</section>
+<div class="wide">
+  <div class="chave"><span class="label">A tese do deck</span>Constituição analítica + sistema difuso cumulado ao concentrado = o STF, com 11 ministros, julga ordens de grandeza mais que Alemanha, Espanha, EUA e Itália — e o preço é a insegurança jurídica da “guerra de liminares”.</div>
+</div>
+
+<!-- ============ 09 · TESTE ============ -->
+<section class="chapter" aria-labelledby="c9">
+  <span class="num" aria-hidden="true">09</span>
+  <h2 id="c9">Teste rápido</h2>
+  <p class="lede">Responda antes de abrir.</p>
+</section>
+<div class="wide">
+  <div class="quiz">
+    <details><summary>Por que se diz que, no Brasil, “cada juiz é um tribunal constitucional”?</summary><p>Porque no sistema difuso qualquer um dos <strong>19.094</strong> juízes, desembargadores e ministros do país pode, sozinho, deixar de aplicar uma lei no caso concreto por considerá-la inconstitucional (slides 9–10).</p></details>
+    <details><summary>Qual episódio real os slides usam como exemplo de insegurança jurídica causada pela cumulação?</summary><p>O <strong>bloqueio do WhatsApp</strong>, determinado por alguns juízes e revogado por outros, em comarcas diferentes, ao mesmo tempo (slide 15).</p></details>
+    <details><summary>Por que o controle difuso não é um grande problema nos Estados Unidos?</summary><p>Porque a Constituição americana é <strong>sintética</strong> (7 artigos, 27 emendas) e assuntos constitucionais não pertencem ao dia a dia forense; além disso, o <em>certiorari</em> filtra as mais de 5.000 petições anuais para cerca de 80 julgamentos (slides 16–20).</p></details>
+    <details><summary>Quais são as duas causas estruturais do alto volume de processos no STF, segundo o slide 29?</summary><p><strong>Constituição analítica</strong> (extensa e minuciosa) somada ao <strong>sistema difuso de controle</strong> (qualquer juiz pode afastar uma norma).</p></details>
+    <details><summary>Que porcentagem das decisões do STF em 2025 foi monocrática, e o que isso sugere?</summary><p><strong>80,5%</strong> (93.559 de 116.170). Sugere que o volume de processos força a decisão individual a virar a regra, não a exceção (slide 24).</p></details>
+    <details><summary>Segundo o slide 31, qual concepção o deck chama de “mais segura” e qual de “menos segura”?</summary><p><strong class="conc">Concentrado</strong> (monopólio de um único órgão) é a mais segura; <strong class="dif">difuso</strong> (qualquer juiz pode afastar a norma) é a menos segura.</p></details>
+  </div>
+</div>
+
+<nav class="endnav" aria-label="Aulas vizinhas">
+  <a href="aula-11.html"><span>← Aula 11</span>Sistemas, efeitos e técnicas de controle</a>
+  <a href="aula-13.html" style="text-align:right"><span>Aula 13 →</span>Estado de coisas inconstitucional</a>
+</nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides “Crítica à cumulação de sistemas de controle de constitucionalidade”, do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 32 páginas, lidas a partir do digesto visual dos slides. Cada bloco indica os slides de onde vem. Os diagramas redesenham o que as imagens dos slides mostram (pirâmides, triângulos, mapas, gráficos e ícones). Nenhuma imagem dos slides é reproduzida aqui.</p>
+  <p>Acréscimos editoriais, marcados como tais: o exemplo hipotético do tributo sobre serviços digitais, a seção sobre art. 52, X e abstrativização do controle difuso (que costura o item IV.4–IV.5 do programa com o conteúdo já estabelecido na Aula 11, pois o deck desta aula não usa esse vocabulário), a organização do quadro comparativo e as remissões a outras aulas. Esta página ainda não foi cruzada com a bibliografia (Barroso, Mendes &amp; Branco, Lenza). A leitura doutrinária dessas obras é uma etapa separada.</p>
+</details>
+
+<script src="assets/controle.js"></script>
+</body>
+</html>

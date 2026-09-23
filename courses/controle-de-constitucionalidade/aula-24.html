@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADI: processamento e instrução · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 24 — O rito da ADI/ADC: rito ordinário e rito abreviado, o papel do PGR e da AGU, o amicus curiae, a instrução probatória excepcional, quóruns e o desfecho do julgamento.">
+<link rel="stylesheet" href="assets/controle.css">
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 24 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · VI. Ações diretas: a ADI</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">Da petição</span><span class="split">ao acórdão.</span></h1>
+  <p class="deck">Entre o ajuizamento da ADI e o julgamento pelo Plenário, a Lei 9.868/99 traça um caminho com prazos, autoridades obrigatórias e algumas válvulas de exceção: o rito pode ser abreviado, um terceiro pode entrar como amicus curiae, e o processo — em regra só de direito — pode, excepcionalmente, apurar fatos.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 150" aria-hidden="true">
+    <path class="draw" d="M0 90H1060" stroke-width="2" fill="none" style="stroke:var(--const)"/>
+    <path class="draw" d="M260 90C300 30 460 22 620 22C740 22 760 60 700 90" stroke-width="3" fill="none" style="stroke:var(--conc)"/>
+    <circle cx="120" cy="90" r="6" class="late" style="fill:var(--const)"/>
+    <circle cx="420" cy="90" r="6" class="late" style="fill:var(--const)"/>
+    <circle cx="700" cy="90" r="6" class="late" style="fill:var(--const)"/>
+    <circle cx="980" cy="90" r="6" class="late" style="fill:var(--const)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.2">
+      <text x="70" y="112" style="fill:var(--ink-2)">AJUIZAMENTO</text>
+      <text x="368" y="112" style="fill:var(--ink-2)">CAUTELAR</text>
+      <text x="655" y="112" style="fill:var(--ink-2)">MÉRITO</text>
+      <text x="935" y="112" style="fill:var(--ink-2)">JULGAMENTO</text>
+      <text x="360" y="16" style="fill:var(--conc)">RITO ABREVIADO (ART. 12) · CAUTELAR + MÉRITO FUNDIDOS</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “ADI — processamento, instrução e julgamento”, 29 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 17 min</b></div>
+    <div role="listitem">Antes<b>Aula 23 · ADI: pertinência temática</b></div>
+    <div role="listitem">Depois<b>Aula 25 · ADI: medida cautelar</b></div>
+  </div>
+</header>
+
+<!-- ============ 01 · RITO ORDINÁRIO E ABREVIADO ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">Rito ordinário e rito abreviado</h2>
+  <p class="lede">Nesta aula, o vermelhão marca a <strong class="conc">exceção</strong> dentro do rito — o atalho, a válvula, o caso-limite; o grafite marca a <strong>regra</strong> geral do processamento. Os slides abrem com a possibilidade de o relator pular a etapa isolada da cautelar e levar tudo direto ao Plenário.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-ordinario" viewBox="0 0 600 600">
+        <defs><marker id="ah-1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--ink)"/></marker></defs>
+        <text x="50" y="40" class="t-small tc-muted">RITO ORDINÁRIO</text>
+        <rect x="50" y="60" width="300" height="66" class="f-paper ink"/><text x="70" y="102" class="t-mid">Ajuizamento</text>
+        <path class="ink" d="M200 126V166" marker-end="url(#ah-1)"/>
+        <rect x="50" y="176" width="300" height="80" class="w-grey ink"/><text x="70" y="212" class="t-mid">Medida cautelar</text><text x="70" y="236" class="t-small tc-muted">DECIDIDA EM SEPARADO</text>
+        <path class="ink" d="M200 256V296" marker-end="url(#ah-1)"/>
+        <rect x="50" y="306" width="300" height="66" class="f-paper ink"/><text x="70" y="348" class="t-mid">Análise do mérito</text>
+        <path class="ink" d="M200 372V412" marker-end="url(#ah-1)"/>
+        <rect x="50" y="422" width="300" height="66" class="f-paper ink"/><text x="70" y="464" class="t-mid">Julgamento</text>
+        <text x="50" y="540" class="t-serif">Cada etapa segue seu próprio</text>
+        <text x="50" y="564" class="t-serif">calendário, uma depois da outra.</text>
+      </svg>
+      <svg class="panel fig" id="p-abreviado" viewBox="0 0 600 600">
+        <defs><marker id="ah-2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <text x="50" y="40" class="t-small tc-conc">RITO ABREVIADO · ART. 12 LEI 9.868/99</text>
+        <rect x="50" y="60" width="300" height="66" class="f-paper ink"/><text x="70" y="102" class="t-mid">Ajuizamento</text>
+        <text x="70" y="122" class="t-small tc-muted">COM PEDIDO DE CAUTELAR</text>
+        <path class="c-conc grow" d="M200 126V166" marker-end="url(#ah-2)"/>
+        <rect x="50" y="176" width="300" height="180" class="w-conc" stroke-width="2.5" style="stroke:var(--conc)"/>
+        <text x="70" y="212" class="t-mid tc-conc">Cautelar + mérito</text>
+        <text x="70" y="234" class="t-mid tc-conc">fundidos</text>
+        <text x="70" y="264" class="t-small">INFORMAÇÕES (10 DIAS)</text>
+        <text x="70" y="284" class="t-small">AGU E PGR (5 DIAS CADA)</text>
+        <text x="70" y="316" class="t-small">SUBMETIDO DIRETO</text>
+        <text x="70" y="334" class="t-small">AO TRIBUNAL PLENO</text>
+        <path class="c-conc grow" d="M200 356V396" marker-end="url(#ah-2)"/>
+        <rect x="50" y="406" width="300" height="66" class="f-paper ink"/><text x="70" y="448" class="t-mid">Julgamento definitivo</text>
+        <text x="50" y="530" class="t-serif">Se a matéria é relevante e sensível,</text>
+        <text x="50" y="554" class="t-serif">uma cautelar isolada — "única cabeça" —</text>
+        <text x="50" y="578" class="t-serif">pode ser desaconselhável.</text>
+      </svg>
+      <svg class="panel fig" id="p-condicoes" viewBox="0 0 600 600">
+        <text x="50" y="50" class="t-small tc-muted">CONDIÇÕES DO RITO ABREVIADO</text>
+        <g class="ink"><circle cx="70" cy="110" r="16"/><path d="M63 110l5 6 10-13" style="stroke:var(--conc)" stroke-width="3"/></g>
+        <text x="104" y="104" class="t-mid">Relevância da matéria e</text>
+        <text x="104" y="126" class="t-mid">especial significado social</text>
+        <g class="ink"><circle cx="70" cy="200" r="16"/><path d="M63 200l5 6 10-13" style="stroke:var(--conc)" stroke-width="3"/></g>
+        <text x="104" y="194" class="t-mid">Faculdade do relator</text>
+        <text x="104" y="216" class="t-mid">de conferir o rito</text>
+        <g class="ink"><circle cx="70" cy="290" r="16"/><path d="M63 290l5 6 10-13" style="stroke:var(--conc)" stroke-width="3"/></g>
+        <text x="104" y="284" class="t-mid">Faculdade do Plenário de</text>
+        <text x="104" y="306" class="t-mid">julgar definitivamente</text>
+        <g class="ink"><circle cx="70" cy="380" r="16"/><path d="M63 380l5 6 10-13" style="stroke:var(--conc)" stroke-width="3"/></g>
+        <text x="104" y="374" class="t-mid">Previsto só para a ADI —</text>
+        <text x="104" y="396" class="t-mid">mas cabível na ADC</text>
+        <text x="104" y="418" class="t-small tc-muted">"AÇÕES COM SINAL TROCADO"</text>
+        <line x1="50" y1="460" x2="550" y2="460" class="thin dash"/>
+        <text x="50" y="500" class="t-serif">O art. 12 fala em "relevância da</text>
+        <text x="50" y="524" class="t-serif">matéria" — por isso a lógica se</text>
+        <text x="50" y="548" class="t-serif">estende, por analogia, à ADC.</text>
+      </svg>
+      <figcaption><span>Fig. 1 · Rito ordinário e rito abreviado</span><span class="stage-count">Slides 1–5</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-ordinario" data-slides="Slide 2"><div class="card">
+      <span class="label">Trajeto padrão</span>
+      <h3>Ajuizamento, cautelar, mérito, julgamento</h3>
+      <p>O processamento da ADI/ADC segue, em regra, etapas sucessivas: ajuizamento, exame de eventual medida cautelar, análise do mérito e julgamento — cada uma no seu próprio tempo.</p>
+      <span class="src">Slide 1</span>
+    </div></div>
+    <div class="step" data-panel="p-abreviado" data-slides="Slides 2, 4"><div class="card">
+      <span class="label conc">A exceção</span>
+      <h3>Rito abreviado: cautelar e mérito fundidos</h3>
+      <p>Havendo pedido de cautelar, o relator, <strong>em face da relevância da matéria e de seu especial significado para a ordem social e a segurança jurídica</strong>, poderá submeter o processo diretamente ao Tribunal Pleno.</p>
+      <blockquote class="law"><cite>Art. 12, Lei 9.868/99</cite>"…poderá, após a prestação das informações, no prazo de dez dias, e a manifestação do Advogado-Geral da União e do Procurador-Geral da República, sucessivamente, no prazo de cinco dias, submeter o processo diretamente ao Tribunal, que terá a faculdade de julgar definitivamente a ação."</blockquote>
+      <p>Nesse caso, <strong>a cautelar não é analisada em separado</strong>: é julgada em conjunto com o mérito, e o Plenário tem a faculdade de decidir tudo de uma vez.</p>
+      <span class="src">Slides 2, 4</span>
+    </div></div>
+    <div class="step" data-panel="p-condicoes" data-slides="Slides 4–5"><div class="card">
+      <span class="label conc">Condições e alcance</span>
+      <h3>Por que evitar a cautelar isolada</h3>
+      <p>O rito abreviado tende a ocorrer quando a matéria é tão relevante que conceder a cautelar por decisão de <strong>"única cabeça"</strong> se torna desaconselhável — daí o art. 12 falar em relevância e especial significado para a ordem social e a segurança jurídica.</p>
+      <p>A previsão textual do art. 12 fala <strong>apenas em ADI</strong>. Mas nada impede que se aplique também à ADC, já que ADI e ADC são ações "com sinal trocado".</p>
+      <span class="src">Slides 4–5</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 02 · FLUXO, PGR E AGU ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num" aria-hidden="true">02</span>
+  <h2 id="c2">O fluxo processual, o PGR e a AGU</h2>
+  <p class="lede">O mesmo diagrama de linha do tempo aparece duas vezes nos slides — antes e depois do detalhamento dos papéis do PGR e da AGU — para fixar onde essas manifestações se encaixam no rito.</p>
+</section>
+
+<div class="wide">
+  <ol class="fluxo">
+    <li><b>Ajuizamento</b>A ADI ou a ADC é proposta e distribuída a um relator no STF.</li>
+    <li class="conc"><b>Medida cautelar (se houver pedido)</b>Decidida em separado no rito ordinário, ou fundida ao mérito no rito abreviado (Cap. 01).</li>
+    <li><b>Informações, AGU e PGR</b>Informações da autoridade de quem emanou a norma (30 dias, art. 6º); manifestação sucessiva do AGU e do PGR (15 dias cada, art. 8º). Se a matéria for urgente, essa manifestação é facultativa.</li>
+    <li><b>Análise do mérito</b>Aqui cabem, excepcionalmente, a instrução probatória (Cap. 04) e a manifestação do amicus curiae, se admitido (Cap. 03).</li>
+    <li><b>Julgamento</b>Sujeito aos quóruns de deliberação e de julgamento (Cap. 06); a decisão é, em regra, irrecorrível (Cap. 07).</li>
+  </ol>
+  <span class="src">Slides 3, 12</span>
+</div>
+
+<div class="wide">
+  <div class="prosa">
+    <p>A base constitucional das manifestações do PGR e da AGU está no art. 103 da Constituição — distinta da base infraconstitucional da Lei 9.868/99. Como ADI e ADC são ações ambivalentes (o pedido de uma é o inverso do pedido da outra), é comum que as duas autoridades se manifestem em ambas.</p>
+  </div>
+  <blockquote class="law"><cite>CF, art. 103, §§ 1º e 3º</cite>§ 1º O Procurador-Geral da República deverá ser previamente ouvido nas ações de inconstitucionalidade e em <strong>todos os processos</strong> de competência do Supremo Tribunal Federal.<br>§ 3º Quando o Supremo Tribunal Federal apreciar a inconstitucionalidade, em tese, de norma legal ou ato normativo, citará, previamente, o Advogado-Geral da União, que <strong>defenderá o ato ou texto impugnado</strong>.</blockquote>
+  <dl class="termos">
+    <dt>PGR</dt><dd><em>Custos legis</em>: fiscal da lei e da própria observância da Constituição.</dd>
+    <dt>AGU</dt><dd class="mix"><em>Defensor legis</em>: defensor da aplicação da lei, curador das normas infraconstitucionais e dos interesses da União.</dd>
+    <dt>Prazos</dt><dd>Informações da autoridade de origem: 30 dias (art. 6º, parágrafo único). AGU e PGR, sucessivamente: 15 dias cada (art. 8º).</dd>
+    <dt>Lei estadual</dt><dd>O AGU também se manifesta quando a norma impugnada é estadual. A defesa da presunção de constitucionalidade não se confunde com a defesa do ente que editou a norma — que pode ser a União ou um Estado-membro.</dd>
+    <dt>Veto do Presidente</dt><dd>Se o AGU opinou antes pelo veto a um projeto depois convertido em lei, e o Presidente ajuíza ADI contra essa mesma lei, o AGU está obrigado a defendê-la — a não ser que seja representado, no julgamento, pelo seu substituto na instituição.</dd>
+  </dl>
+  <span class="src">Slides 6–11</span>
+</div>
+
+<!-- ============ 03 · AMICUS CURIAE ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num conc" aria-hidden="true">03</span>
+  <h2 id="c3">Intervenção de terceiros e o <span class="conc">amicus curiae</span></h2>
+  <p class="lede">A regra da ADI e da ADC é fechar a porta a terceiros. O amicus curiae — "amigo da corte" — é a válvula que os slides abrem em seguida, com condições e limites próprios.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-vedacao" viewBox="0 0 600 600">
+        <text x="50" y="60" class="t-small tc-muted">A REGRA</text>
+        <g class="f-ink" opacity=".55"><circle cx="120" cy="140" r="16"/><path d="M120 158v42M96 176h48M120 200l-18 34M120 200l18 34"/></g>
+        <g class="f-ink" opacity=".55"><circle cx="300" cy="140" r="16"/><path d="M300 158v42M276 176h48M300 200l-18 34M300 200l18 34"/></g>
+        <g class="f-ink" opacity=".55"><circle cx="480" cy="140" r="16"/><path d="M480 158v42M456 176h48M480 200l-18 34M480 200l18 34"/></g>
+        <text x="130" y="296" class="t-small">TERCEIROS</text>
+        <line x1="50" y1="330" x2="550" y2="330" stroke-width="4" style="stroke:var(--conc)"/>
+        <path d="M270 300l60 60M330 300l-60 60" stroke-width="5" stroke-linecap="round" style="stroke:var(--conc)"/>
+        <text x="180" y="380" class="t-big tc-conc">SEM ACESSO</text>
+        <rect x="140" y="430" width="320" height="90" class="f-paper ink" stroke-width="2"/>
+        <text x="160" y="466" class="t-mid">Não cabe intervenção</text>
+        <text x="160" y="490" class="t-mid">de terceiros</text>
+        <text x="160" y="512" class="t-small tc-muted">ART. 7º ADI · ART. 18 ADC</text>
+      </svg>
+      <svg class="panel fig" id="p-amicus" viewBox="0 0 600 600">
+        <defs><marker id="ah-3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <text x="50" y="60" class="t-small tc-conc">A EXCEÇÃO</text>
+        <g opacity=".3"><line x1="50" y1="120" x2="550" y2="120" stroke-width="4" style="stroke:var(--ink)"/></g>
+        <rect x="230" y="90" width="140" height="60" class="w-conc" stroke-width="2.5" style="stroke:var(--conc)"/>
+        <text x="248" y="126" class="t-small tc-conc">PORTA ABERTA</text>
+        <g class="ink"><circle cx="300" cy="230" r="18"/><path d="M300 248v50M270 270h60M300 298l-22 40M300 298l22 40"/></g>
+        <text x="230" y="200" class="t-mid tc-conc">amicus curiae</text>
+        <path class="c-conc grow" d="M300 152V212" marker-end="url(#ah-3)"/>
+        <rect x="100" y="400" width="180" height="90" class="f-paper ink"/>
+        <text x="116" y="430" class="t-small">RELEVÂNCIA DA</text>
+        <text x="116" y="450" class="t-small">MATÉRIA</text>
+        <rect x="320" y="400" width="180" height="90" class="f-paper ink"/>
+        <text x="336" y="430" class="t-small">REPRESENTATIVIDADE</text>
+        <text x="336" y="450" class="t-small">DOS POSTULANTES</text>
+        <text x="140" y="540" class="t-serif">Por despacho irrecorrível do relator</text>
+        <text x="140" y="564" class="t-small tc-muted">ART. 7º, § 2º, LEI 9.868/99</text>
+      </svg>
+      <svg class="panel fig" id="p-prerrogativas" viewBox="0 0 600 600">
+        <text x="50" y="56" class="t-small tc-conc">ADMITIDO, O QUE PODE</text>
+        <path d="M120 300l0-140 260 0 0 140z" class="f-paper ink" stroke-width="2"/>
+        <path d="M170 210h160M170 240h160M170 270h110" class="thin"/>
+        <text x="120" y="150" class="t-small">DOCUMENTOS E MEMORIAIS</text>
+        <text x="120" y="172" class="t-small">AO RELATOR</text>
+        <rect x="120" y="360" width="360" height="16" class="ink" stroke-width="2"/>
+        <path d="M260 360v-40h40v40z" class="w-conc ink"/>
+        <text x="150" y="440" class="t-mid tc-conc">Manifestar na tribuna</text>
+        <text x="150" y="464" class="t-mid tc-conc">do Plenário</text>
+        <text x="150" y="490" class="t-small tc-muted">NO DIA DO JULGAMENTO · RISTF ART. 131, § 3º</text>
+        <line x1="50" y1="530" x2="550" y2="530" class="thin dash"/>
+        <text x="50" y="566" class="t-small">MAS, EM REGRA, SEM LEGITIMIDADE PARA RECORRER DAS DECISÕES</text>
+      </svg>
+      <svg class="panel fig" id="p-suigeneris" viewBox="0 0 600 600">
+        <text x="50" y="56" class="t-small tc-muted">MODALIDADE SUI GENERIS</text>
+        <circle cx="220" cy="260" r="90" fill="none" class="ink" stroke-width="2"/>
+        <text x="150" y="220" class="t-small">RELAÇÃO PROCESSUAL</text>
+        <circle cx="190" cy="270" r="14" class="ink"/><text x="176" y="316" class="t-small">A</text>
+        <circle cx="250" cy="270" r="14" class="ink"/><text x="236" y="316" class="t-small">B</text>
+        <circle cx="470" cy="260" r="34" class="ink" stroke-width="2" stroke-dasharray="6 6"/>
+        <text x="440" y="266" class="t-small">amicus</text>
+        <path d="M310 260H430" class="thin dash"/>
+        <text x="330" y="248" class="t-small tc-muted">ESTRANHO À LIDE</text>
+        <rect x="120" y="440" width="360" height="100" class="w-grey ink"/>
+        <text x="140" y="470" class="t-mid">Regra: não cabe recurso</text>
+        <text x="140" y="494" class="t-small">contra a decisão da lide</text>
+        <text x="140" y="518" class="t-small tc-conc">Mas cabe recurso contra o indeferimento</text>
+        <text x="140" y="536" class="t-small tc-conc">do próprio ingresso? (ver a seguir)</text>
+      </svg>
+      <figcaption><span>Fig. 2 · A porta fechada e a exceção do amicus curiae</span><span class="stage-count">Slides 13–16</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-vedacao" data-slides="Slide 13"><div class="card">
+      <span class="label">A regra</span>
+      <h3>Não cabe intervenção de terceiros</h3>
+      <p>Nas ações diretas, <strong>não se admitirá intervenção de terceiros</strong> — regra expressa tanto para a ADI (art. 7º) quanto para a ADC (art. 18), ambas da Lei 9.868/99.</p>
+      <p>O próprio slide que fixa a regra já anuncia a exceção: <strong class="conc">cabe a intervenção do amicus curiae</strong>.</p>
+      <span class="src">Slide 13</span>
+    </div></div>
+    <div class="step" data-panel="p-amicus" data-slides="Slide 14"><div class="card">
+      <span class="label conc">A exceção regulada</span>
+      <h3>O amicus curiae, "amigo da corte"</h3>
+      <p>É a possibilidade de um pedido de intervenção assistencial no controle concentrado, prevista no próprio artigo que veda terceiros.</p>
+      <blockquote class="law"><cite>Art. 7º, § 2º, Lei 9.868/99</cite>"O relator, considerando a relevância da matéria e a <strong>representatividade dos postulantes</strong>, poderá, por <strong>despacho irrecorrível</strong>, observado o prazo fixado no parágrafo anterior, admitir a manifestação de outros órgãos ou entidades."</blockquote>
+      <span class="src">Slide 14</span>
+    </div></div>
+    <div class="step" data-panel="p-prerrogativas" data-slides="Slide 15"><div class="card">
+      <span class="label conc">Uma vez admitido</span>
+      <h3>Colaborador informal, com prerrogativas próprias</h3>
+      <p>O amicus curiae atua como <strong>colaborador informal da Corte</strong> e, em regra, <strong>não tem legitimidade para recorrer das decisões</strong>. Sua participação no controle concentrado também está prevista no art. 131, § 3º, do Regimento Interno do STF.</p>
+      <p>Admitido, ele passa a figurar como <strong>parte interessada</strong> na ação, com o direito de <strong>manifestar-se na tribuna do Plenário</strong>, no dia do julgamento, e de <strong>apresentar documentos e memoriais ao relator</strong>, a serem juntados ao processo.</p>
+      <span class="src">Slide 15</span>
+    </div></div>
+    <div class="step" data-panel="p-suigeneris" data-slides="Slide 16"><div class="card">
+      <span class="label">Por que a irrecorribilidade é a regra</span>
+      <h3>Uma modalidade sui generis</h3>
+      <p>O amicus curiae é uma modalidade <em>sui generis</em> de intervenção de terceiros, de natureza <strong>estranha à relação processual</strong>. Por isso, a regra é <strong>não conferir</strong> a ele a possibilidade de recurso na lide.</p>
+      <p>Mas durante um bom tempo o STF discutiu uma questão distinta: o amicus curiae poderia <strong>recorrer contra a própria decisão que indeferia seu ingresso nos autos</strong>? É a questão dos dois slides seguintes.</p>
+      <span class="src">Slide 16</span>
+    </div></div>
+  </div>
+</div>
+
+<div class="wide">
+  <p class="lede" style="max-width:60ch;font-size:19px;margin:0 0 6px">Sobre o recurso contra o <strong>indeferimento do ingresso</strong>, os slides trazem dois precedentes lado a lado — e não os reconciliam.</p>
+  <div class="julgados">
+    <div class="julgado">
+      <header><span>ADI 3.396</span><span>Rel. Min. Celso de Mello</span><span>j. 06/8/2020</span></header>
+      <div class="corpo">
+        <p>Decisão que nega ingresso de amicus curiae (terceiro interessado) em ADI é <strong>recorrível</strong>.</p>
+        <p>A decisão frisou que, embora a jurisprudência do STF <strong>não admita o ingresso de pessoa física</strong> na condição de amicus curiae, a matéria é <strong>passível de recurso</strong> — controvérsia acentuada pelo novo CPC, cujo art. 138 passou a admitir o amicus curiae de forma geral, e não apenas no controle concentrado, o que levou até pessoas físicas a requerer ingresso.</p>
+        <p>Na prática, o STF <strong>não permitiu</strong> o ingresso da pessoa física neste caso, mas admitiu o agravo regimental contra o indeferimento — que restou <strong>desprovido</strong>.</p>
+      </div>
+      <div class="tese">Decisão que nega ingresso de amicus curiae é recorrível (Notícias STF, 06/08/2020).</div>
+    </div>
+    <div class="julgado">
+      <header><span>RE 602.584</span><span>Notícias STF</span><span>17/10/2018</span></header>
+      <div class="corpo">
+        <p><strong>Não cabe</strong> a interposição de agravo regimental para reverter decisão de relator que tenha inadmitido no processo o ingresso de amicus curiae.</p>
+      </div>
+      <div class="tese">Não cabe agravo regimental contra a inadmissão do amicus curiae (Notícias STF, 17/10/2018).</div>
+    </div>
+  </div>
+  <p class="note">Os dois precedentes convivem nos slides sem serem conciliados. ADI 3.396, mais recente (2020), afirma que a decisão de indeferimento é <em>recorrível</em>; RE 602.584, anterior (2018), afirma que <em>não cabe</em> agravo regimental contra essa mesma espécie de decisão. O digesto desta aula não resolve a tensão — é possível que a chave esteja numa distinção entre o cabimento do recurso em tese e o resultado do agravo regimental especificamente examinado na ADI 3.396, que foi desprovido — mas essa leitura não vem dos slides. Fica registrada tal como se apresenta, sem solução.</p>
+  <span class="src">Slides 17–18</span>
+</div>
+
+<!-- ============ 04 · INSTRUÇÃO PROBATÓRIA ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num" aria-hidden="true">04</span>
+  <h2 id="c4">Instrução probatória no controle abstrato</h2>
+  <p class="lede">A ADI é, tradicionalmente, um processo só de direito: compara duas normas, não apura fatos. Os arts. 9º e 20 da Lei 9.868/99 abrem uma mitigação a essa regra.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-abstrato" viewBox="0 0 600 600">
+        <defs><marker id="ah-4" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--ink)"/></marker></defs>
+        <text x="50" y="56" class="t-small tc-muted">REGRA TRADICIONAL</text>
+        <rect x="50" y="200" width="120" height="150" class="f-paper ink"/>
+        <path d="M68 232h84M68 252h84M68 272h84M68 292h60M68 312h72" class="thin"/>
+        <text x="50" y="188" class="t-small">NORMA IMPUGNADA</text>
+        <rect x="430" y="190" width="120" height="170" style="fill:var(--const)"/><rect x="438" y="198" width="104" height="154" fill="none" stroke-width=".8" style="stroke:var(--paper)"/>
+        <text x="448" y="262" class="t-light t-small">CONSTITUIÇÃO</text><text x="470" y="286" class="t-light t-small">1988</text>
+        <path class="ink grow" d="M180 270H420" marker-end="url(#ah-4)"/>
+        <text x="200" y="252" class="t-serif">contraste normativo simples</text>
+        <rect x="50" y="440" width="500" height="70" class="w-grey ink"/>
+        <text x="70" y="470" class="t-mid">Processo objetivo</text>
+        <text x="70" y="494" class="t-small tc-muted">TÉCNICA DE EXAME EM ABSTRATO · SEM APURAÇÃO DE FATOS</text>
+      </svg>
+      <svg class="panel fig" id="p-mitigacao" viewBox="0 0 600 600">
+        <text x="50" y="46" class="t-small tc-conc">MITIGAÇÃO · ARTS. 9º, § 1º E 20, § 1º</text>
+        <rect x="50" y="70" width="230" height="80" class="w-conc" stroke-width="2" style="stroke:var(--conc)"/>
+        <text x="66" y="102" class="t-small">ESCLARECIMENTO DE MATÉRIA</text>
+        <text x="66" y="122" class="t-small">OU CIRCUNSTÂNCIA DE FATO</text>
+        <rect x="310" y="70" width="230" height="80" class="w-conc" stroke-width="2" style="stroke:var(--conc)"/>
+        <text x="326" y="102" class="t-small">NOTÓRIA INSUFICIÊNCIA</text>
+        <text x="326" y="122" class="t-small">DAS INFORMAÇÕES NOS AUTOS</text>
+        <line x1="50" y1="184" x2="540" y2="184" class="thin dash"/>
+        <circle cx="110" cy="250" r="28" class="ink" stroke-width="2.5"/><path d="M129 269l24 24" stroke-width="5" stroke-linecap="round" style="stroke:var(--ink)"/>
+        <text x="160" y="244" class="t-mid">Informações</text><text x="160" y="266" class="t-mid">adicionais</text>
+        <g transform="translate(70,330)"><circle cx="0" cy="0" r="16" class="ink"/><path d="M0 16v34M-16 34h32" class="ink" stroke-width="2"/><path d="M-14 4l14 6 14-6" class="ink" stroke-width="2" fill="none"/></g>
+        <text x="110" y="338" class="t-mid">Perito ou comissão</text>
+        <text x="110" y="360" class="t-mid">de peritos</text>
+        <g class="f-ink"><circle cx="70" cy="430" r="9"/><circle cx="96" cy="440" r="9"/><circle cx="122" cy="428" r="9"/><circle cx="148" cy="440" r="9"/><circle cx="174" cy="430" r="9"/></g>
+        <text x="200" y="428" class="t-mid">Audiência pública</text>
+        <text x="200" y="450" class="t-small tc-muted">DEPOIMENTOS DE PESSOAS COM</text>
+        <text x="200" y="468" class="t-small tc-muted">EXPERIÊNCIA E AUTORIDADE</text>
+        <rect x="50" y="510" width="490" height="60" class="f-paper ink"/>
+        <text x="66" y="536" class="t-small">RELATOR TAMBÉM PODE PEDIR INFORMAÇÃO A OUTROS TRIBUNAIS</text>
+        <text x="66" y="556" class="t-small tc-muted">PRAZO COMUM DE 30 DIAS · ART. 9º, § 3º</text>
+      </svg>
+      <figcaption><span>Fig. 3 · Da regra ao contraste com fatos</span><span class="stage-count">Slides 19–21</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-abstrato" data-slides="Slide 19"><div class="card">
+      <span class="label">A regra tradicional</span>
+      <h3>Um processo só de direito</h3>
+      <p>Tradicionalmente, as ações diretas <strong>não se prestam para a apuração de questões fáticas</strong>. O controle abstrato é feito a partir do <strong>simples contraste entre a norma questionada e a norma constitucional superior</strong> — processo de <strong>natureza objetiva</strong>, com técnica de exame em abstrato.</p>
+      <span class="src">Slide 19</span>
+    </div></div>
+    <div class="step" data-panel="p-mitigacao" data-slides="Slides 20–21"><div class="card">
+      <span class="label conc">A mitigação</span>
+      <h3>Quando os fatos entram na ADI</h3>
+      <p>Os arts. 9º, § 1º, e 20, § 1º, da Lei 9.868/99 mitigam essa regra. Havendo <strong>necessidade de esclarecimento de matéria ou circunstância de fato</strong>, ou <strong>notória insuficiência das informações existentes nos autos</strong>, o relator pode:</p>
+      <blockquote class="law"><cite>Arts. 9º, § 1º, e 20, § 1º, Lei 9.868/99</cite>"…requisitar informações adicionais, designar <strong>perito ou comissão de peritos</strong> para que emita parecer sobre a questão, ou fixar data para, em <strong>audiência pública</strong>, ouvir depoimentos de pessoas com experiência e autoridade na matéria."</blockquote>
+      <p>O relator também pode solicitar informações aos Tribunais Superiores, federais e estaduais sobre a aplicação da norma impugnada em sua jurisdição (art. 9º, § 2º). Informações, perícias e audiências têm <strong>prazo comum de trinta dias</strong> (art. 9º, § 3º).</p>
+      <span class="src">Slides 20–21</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 05 · DESISTÊNCIA ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num" aria-hidden="true">05</span>
+  <h2 id="c5">Impossibilidade de desistência</h2>
+  <p class="lede">Uma regra curta, e uma ressalva igualmente curta.</p>
+</section>
+<div class="wide">
+  <div class="chave"><span class="label">Art. 5º e art. 16, Lei 9.868/99</span>Proposta a ADI ou a ADC, <strong>não se admitirá desistência</strong>. A vedação atinge o processamento da ação principal — não a medida cautelar.</div>
+  <span class="src">Slide 22</span>
+</div>
+
+<!-- ============ 06 · QUÓRUNS E PLENÁRIO VIRTUAL ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">Julgamento: dois quóruns e o plenário virtual</h2>
+  <p class="lede">Os slides distinguem dois números que se confundem com facilidade: quantos ministros precisam estar presentes, e quantos precisam votar no mesmo sentido.</p>
+</section>
+<div class="wide">
+  <div class="par">
+    <div class="regra"><span class="label">Quórum de deliberação · art. 22</span><p style="margin:0 0 8px"><strong>8 ministros, pelo menos</strong> — maioria qualificada, para simplesmente deliberar sobre a (in)constitucionalidade.</p><p style="margin:0;font-size:15px;color:var(--ink-2)">Não se aplica ao plenário virtual.</p></div>
+    <div class="excecao"><span class="label">Quórum de julgamento · art. 23</span><p style="margin:0 0 8px"><strong>6 ministros, pelo menos, num ou noutro sentido</strong> — maioria absoluta, para decidir a (in)constitucionalidade.</p><p style="margin:0;font-size:15px;color:var(--ink-2)">Vinculado à reserva de plenário (art. 97, CF).</p></div>
+  </div>
+  <div class="prosa">
+    <p><strong>Falta de quórum suspende o julgamento.</strong> Se não se alcança a maioria necessária e a ausência de ministros pode influir no resultado, o julgamento é suspenso até que compareçam os ausentes — inclusive por convocação de ministro licenciado, quando o impedimento supera trinta dias (art. 23, parágrafo único; art. 40, RISTF).</p>
+    <blockquote class="law"><cite>Art. 23, parágrafo único, Lei 9.868/99</cite>"Se não for alcançada a maioria necessária à declaração de constitucionalidade ou de inconstitucionalidade, estando ausentes Ministros em número que possa influir no julgamento, este será suspenso a fim de aguardar-se o comparecimento dos Ministros ausentes, até que se atinja o número necessário para prolação da decisão num ou noutro sentido."</blockquote>
+    <p><strong>O empate é estruturalmente impossível.</strong> Como a (in)constitucionalidade só pode ser declarada pelo voto de pelo menos 6 ministros — mais da metade do colegiado — em qualquer dos dois sentidos, não há espaço matemático para um empate estrito.</p>
+    <p><strong>O plenário virtual desloca a prática da lei.</strong> Muitas decisões em controle concentrado hoje são tomadas no plenário virtual, o que afasta o quórum de deliberação do art. 22 — mas não a cláusula de reserva de plenário do art. 97, CF. A Lei 9.868/99 é de 1999; o plenário virtual ainda não existia.</p>
+  </div>
+  <span class="src">Slides 23–26</span>
+</div>
+
+<!-- ============ 07 · DESFECHO ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">O desfecho: comunicação, irrecorribilidade, rescisória</h2>
+  <p class="lede">Os últimos slides fecham o rito: o resultado é comunicado, a decisão de mérito é irrecorrível, e nem a mudança de entendimento do STF reabre o caso.</p>
+</section>
+<div class="wide">
+  <div class="prosa">
+    <p>Julgada a ação, <strong>far-se-á a comunicação à autoridade ou ao órgão responsável</strong> pela expedição do ato normativo julgado (art. 25, Lei 9.868/99).</p>
+    <blockquote class="law"><cite>Art. 26, Lei 9.868/99</cite>"A decisão que declara a constitucionalidade ou a inconstitucionalidade da lei ou do ato normativo em ação direta ou em ação declaratória é <strong>irrecorrível</strong>, ressalvada a interposição de embargos declaratórios, não podendo, igualmente, ser objeto de <strong>ação rescisória</strong>."</blockquote>
+    <p>A regra, portanto, é a <strong>impossibilidade recursal</strong> em sede de ADI e ADC: só cabem embargos declaratórios, e não cabe ação rescisória.</p>
+  </div>
+  <div class="julgado">
+    <header><span>Tema 136 STF · RE 590.809</span><span>Rel. Min. Marco Aurélio Mello</span><span>j. 22/10/2014 · DJE 24/11/2014</span></header>
+    <div class="corpo">
+      <p><strong>Não cabe ação rescisória</strong> que vise desconstituir julgado com base em nova orientação da Corte.</p>
+      <p>Não cabe ação rescisória quando o julgado estiver em harmonia com o entendimento firmado pelo Plenário do STF à época da formalização do acórdão rescindendo, <strong>ainda que ocorra posterior superação do precedente</strong>.</p>
+    </div>
+    <div class="tese">Mudança de entendimento do STF não rescinde julgado compatível com a jurisprudência da época.</div>
+  </div>
+  <span class="src">Slides 27–29</span>
+</div>
+
+<!-- ============ 08 · RESUMO ============ -->
+<section class="chapter" aria-labelledby="c8">
+  <span class="num" aria-hidden="true">08</span>
+  <h2 id="c8">Resumo</h2>
+  <p class="lede">Um rito que parece rígido — sem terceiros, sem desistência, sem recurso — mas guarda válvulas de exceção em cada etapa.</p>
+</section>
+<div class="wide">
+  <div class="chave"><span class="label">A ideia central</span>Cada travamento do rito tem uma exceção regulada: a cautelar isolada pode ser dispensada (rito abreviado), a vedação a terceiros abre uma porta ao amicus curiae, o exame só de direito admite instrução em fatos, e a irrecorribilidade admite embargos declaratórios.</div>
+  <dl class="termos">
+    <dt>Rito abreviado</dt><dd>Cautelar e mérito julgados juntos, direto ao Plenário — art. 12, Lei 9.868/99.</dd>
+    <dt>Informações</dt><dd>Da autoridade de quem emanou a norma, 30 dias — art. 6º.</dd>
+    <dt>AGU e PGR</dt><dd>Manifestação sucessiva, 15 dias cada — art. 8º; papéis de <em>defensor legis</em> e <em>custos legis</em> — art. 103 CF.</dd>
+    <dt>Amicus curiae</dt><dd>Exceção à vedação de terceiros, por despacho irrecorrível do relator — art. 7º, § 2º.</dd>
+    <dt>Instrução probatória</dt><dd>Perícia, informações adicionais e audiências públicas mitigam o exame puramente abstrato — arts. 9º e 20.</dd>
+    <dt>Desistência</dt><dd>Vedada após o ajuizamento — arts. 5º e 16.</dd>
+    <dt>Quóruns</dt><dd>8 ministros para deliberar (art. 22); 6 para julgar, em qualquer sentido (art. 23).</dd>
+    <dt>Irrecorribilidade</dt><dd>Só cabem embargos declaratórios; não cabe ação rescisória — art. 26.</dd>
+  </dl>
+</div>
+
+<!-- ============ 09 · TESTE ============ -->
+<section class="chapter" aria-labelledby="c9">
+  <span class="num" aria-hidden="true">09</span>
+  <h2 id="c9">Teste rápido</h2>
+  <p class="lede">Responda antes de abrir.</p>
+</section>
+<div class="wide">
+  <div class="quiz">
+    <details><summary>No rito abreviado do art. 12, o que acontece com a medida cautelar?</summary><p>Ela <strong>não é analisada em separado</strong>: é julgada em conjunto com o mérito, e o Plenário tem a faculdade de decidir tudo de uma vez (slides 2 e 4).</p></details>
+    <details><summary>Qual é o papel do AGU e qual o do PGR nas ações diretas?</summary><p>O PGR é <strong><em>custos legis</em></strong>, fiscal da lei e da Constituição; o AGU é <strong><em>defensor legis</em></strong>, defensor do ato ou texto impugnado (art. 103, CF; slides 6–7).</p></details>
+    <details><summary>Por que se diz que a intervenção do amicus curiae é uma exceção regulada, e não uma porta aberta?</summary><p>Porque depende de despacho irrecorrível do relator, condicionado à relevância da matéria e à representatividade dos postulantes (art. 7º, § 2º; slide 14).</p></details>
+    <details><summary>O que os slides 17 e 18 dizem sobre recorrer da decisão que nega o ingresso do amicus curiae?</summary><p>A ADI 3.396 (2020) afirma que essa decisão é <strong>recorrível</strong>; o RE 602.584 (2018) afirma que <strong>não cabe</strong> agravo regimental contra ela. Os slides não conciliam os dois precedentes.</p></details>
+    <details><summary>Em que consiste a mitigação do exame em abstrato na ADI?</summary><p>O relator pode requisitar informações adicionais, designar perito ou comissão de peritos, ou realizar audiência pública, quando há necessidade de esclarecer matéria de fato ou notória insuficiência das informações nos autos (arts. 9º e 20; slides 20–21).</p></details>
+    <details><summary>Qual a diferença entre o quórum de deliberação e o quórum de julgamento?</summary><p>Deliberação exige 8 ministros presentes (art. 22); julgamento exige 6 votos no mesmo sentido para decidir a (in)constitucionalidade (art. 23). O primeiro não se aplica ao plenário virtual; o segundo permanece vinculado à reserva de plenário do art. 97, CF (slides 23 e 26).</p></details>
+  </div>
+</div>
+
+<nav class="endnav" aria-label="Aulas vizinhas">
+  <a href="aula-23.html"><span>← Aula 23</span>ADI: pertinência temática</a>
+  <a href="aula-25.html" style="text-align:right"><span>Aula 25 →</span>ADI: medida cautelar</a>
+</nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides "ADI — processamento, instrução e julgamento", do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 29 páginas, lidas a partir do digesto visual dos slides. Cada bloco indica os slides de onde vem. Os diagramas redesenham o que as imagens dos slides mostram (linhas do tempo, ícones, blocos de texto legal). Nenhuma imagem dos slides é reproduzida aqui.</p>
+  <p>Acréscimos editoriais, marcados como tais: a organização em ol.fluxo do diagrama processual, o quadro-resumo final e as remissões a outras aulas e ao programa. A tensão entre ADI 3.396 e RE 602.584 (slides 17–18) é apresentada tal como consta nos slides, sem solução — não é uma lacuna de pesquisa, é a forma como o material-fonte a registra. Esta página ainda não foi cruzada com a bibliografia (Barroso, Mendes &amp; Branco, Lenza). A leitura doutrinária dessas obras é uma etapa separada.</p>
+
+  <p>Os dispositivos legais citados nesta página foram conferidos no texto compilado da <a href="https://www.planalto.gov.br/ccivil_03/leis/l9868.htm">Lei 9.868/99</a>.</p>
+</details>
+
+<script src="assets/controle.js"></script>
+</body>
+</html>

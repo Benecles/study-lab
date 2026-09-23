@@ -1,0 +1,69 @@
+/* Background (paper) variants for the original drafting-sheet look.
+   Activated by <html data-fundo="…">. Everything else on the page stays as designed. */
+
+/* shared: a faint paper tooth, so plain paper still reads as paper */
+[data-fundo] body{background-image:none;background-color:var(--paper)}
+[data-fundo]:not([data-fundo=suave]) body::before{
+  content:'';position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;mix-blend-mode:multiply;opacity:.09;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .28 0 0 0 0 .22 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* 1 · SUAVE — same graph paper, pulled way back: no fine lines, major lines barely there */
+[data-fundo=suave] body{
+  background-image:linear-gradient(#1d253012 1px,transparent 1px),linear-gradient(90deg,#1d253012 1px,transparent 1px);
+  background-size:96px 96px;background-attachment:fixed}
+
+/* 2 · PONTOS — engineering dot paper: only the intersections survive */
+[data-fundo=pontos] body{
+  background-image:radial-gradient(circle,#1d253030 1px,transparent 1.4px);
+  background-size:24px 24px;background-position:12px 12px;background-attachment:fixed}
+
+/* 3 · MARGEM — plain drafting stock with a margin rule and registration crosses; no grid at all */
+[data-fundo=margem] body{
+  background-image:
+    linear-gradient(90deg,transparent calc(50% - 600px),#b4432a38 calc(50% - 600px),#b4432a38 calc(50% - 599px),transparent calc(50% - 599px)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cg stroke='%231d2530' stroke-opacity='.18' stroke-width='1'%3E%3Cpath d='M234 240h12M240 234v12'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:auto,480px 480px;background-attachment:fixed}
+
+/* 4 · FOCO — the grid only exists where drawing happens, and fades out toward the text */
+[data-fundo=foco] .scrolly{position:relative}
+[data-fundo=foco] .scrolly::before{
+  content:'';position:absolute;inset:0 45% 0 0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid) .5px,transparent .5px),linear-gradient(90deg,var(--grid) .5px,transparent .5px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-attachment:fixed;
+  -webkit-mask:linear-gradient(90deg,#000 55%,transparent),linear-gradient(transparent,#000 12%,#000 88%,transparent);-webkit-mask-composite:source-in;
+  mask:linear-gradient(90deg,#000 55%,transparent),linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-composite:intersect;opacity:.8}
+
+/* 5 · PRANCHETA — plain desk; the grid is printed only on the drawing sheet itself */
+[data-fundo=prancheta]{--paper:#ebe6da}
+[data-fundo=prancheta] .stage figure{
+  background-color:#f6f3ea;
+  background-image:
+    linear-gradient(#1d253014 1px,transparent 1px),linear-gradient(90deg,#1d253014 1px,transparent 1px),
+    linear-gradient(#1d25300a .5px,transparent .5px),linear-gradient(90deg,#1d25300a .5px,transparent .5px);
+  background-size:60px 60px,60px 60px,12px 12px,12px 12px;background-position:-1px -1px;
+  box-shadow:6px 6px 0 #d3ccba,0 18px 30px -18px #1d253055}
+[data-fundo=prancheta] .stage figcaption{background:#f6f3ea}
+[data-fundo=prancheta] .titleblock,[data-fundo=prancheta] table.compare,[data-fundo=prancheta] .quiz details,[data-fundo=prancheta] .equation .term:not(.result),[data-fundo=prancheta] blockquote.law{background:#f6f3ea}
+
+/* 6 · VEGETAL — tracing paper laid over the grid: the grid shows through, softened, and the reading column sits on the vellum */
+[data-fundo=vegetal] body{
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid) .5px,transparent .5px),linear-gradient(90deg,var(--grid) .5px,transparent .5px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-attachment:fixed}
+[data-fundo=vegetal] .steps{position:relative}
+[data-fundo=vegetal] .steps::before{
+  content:'';position:absolute;top:0;bottom:0;left:-28px;right:-60vw;z-index:-1;
+  background:#f6f3eacc;box-shadow:-1px 0 0 #1d253022,-10px 0 24px -14px #1d253033}
+[data-fundo=vegetal] .step .card{background:transparent}
+[data-fundo=vegetal] .hero,[data-fundo=vegetal] .chapter,[data-fundo=vegetal] .wide{position:relative}
+[data-fundo=vegetal] .chapter::before,[data-fundo=vegetal] .hero::before{
+  content:'';position:absolute;inset:0 -100vw;z-index:-1;background:#f2eee399}
+
+/* picker */
+.fundo-picker{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:5px;
+  background:#1d2530ee;border-radius:999px;box-shadow:0 10px 30px #0004;max-width:calc(100vw - 20px);overflow-x:auto}
+.fundo-picker a{font:11px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#f2eee3;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap}
+.fundo-picker a[aria-current]{background:#f2eee3;color:#1d2530}

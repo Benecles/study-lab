@@ -1,0 +1,135 @@
+/* Print-inspired theme variants for the drafting-sheet lessons.
+   Activated by <html data-theme="…">; with no theme the base drafting look is untouched.
+   Rules learned in earlier rounds (VISUAL_CRAFT_NOTES): never duplicate running text to fake
+   misregistration; keep halftone off body copy; no foxing/age spots; grain stays faint. */
+
+/* ---------- shared print machinery ---------- */
+[data-theme] body{background-image:none;background-color:var(--paper)}
+[data-theme] body::before{ /* ink grain / paper tooth */
+  content:'';position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;
+  background-image:var(--grain);background-size:var(--grain-size,280px);
+  mix-blend-mode:multiply;opacity:var(--grain-o,.16)}
+[data-theme] body::after{ /* soft window light */
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:49;background:var(--light,none)}
+
+/* the figure becomes a stack of sheets */
+[data-theme] .stage figure{
+  border:0;border-radius:var(--sheet-r,2px);background:var(--sheet);
+  box-shadow:var(--stack);transform:rotate(var(--tilt,0deg));isolation:isolate}
+[data-theme] .stage figcaption{border:0;background:transparent;color:var(--ink-2);top:calc(100% + 6px)}
+[data-theme] .stage figure::before{ /* halftone confined to one corner shape, behind the art */
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(circle,var(--dot) 42%,transparent 46%) 0 0/var(--dot-size,8px) var(--dot-size,8px);
+  -webkit-mask:var(--dot-mask);mask:var(--dot-mask);opacity:var(--dot-o,.55)}
+[data-theme] .panel{z-index:1}
+
+/* misregistered plates on drawn lines only (never on text) */
+[data-theme] .fig .c-conc{filter:drop-shadow(var(--mis-x,2.5px) var(--mis-y,1.5px) 0 var(--plate-b))}
+[data-theme] .fig .c-dif{filter:drop-shadow(calc(var(--mis-x,2.5px) * -1) var(--mis-y,1.5px) 0 var(--plate-a))}
+[data-theme] .fig .ink{stroke:var(--const)}
+[data-theme] .fig text:not([class*="tc-"]):not(.t-light){fill:var(--const)}
+[data-theme] .fig .w-grey{fill:var(--paper-2)}
+
+/* chapter numerals overprint: two plates, multiplied */
+[data-theme] .chapter .num{color:var(--num);-webkit-text-stroke:0;text-shadow:var(--mis-num,6px) 4px 0 var(--num-2);mix-blend-mode:multiply}
+[data-theme] .chapter .num.conc{color:var(--conc-wash);text-shadow:6px 4px 0 var(--conc)}
+[data-theme] .chapter .num.dif{color:var(--dif-wash);text-shadow:6px 4px 0 var(--dif)}
+
+/* headline: a printed highlight band under each line, not a duplicated word */
+[data-theme] .hero h1 .split{display:table;background:linear-gradient(transparent 58%,var(--band) 58%,var(--band) 90%,transparent 90%);padding-right:.08em}
+[data-theme] .hero .kicker,[data-theme] .endnav{border-top-color:var(--const)}
+
+/* reading cards become slips of paper laid on the sheet */
+[data-theme] .step .card{background:var(--card);border-left:0;padding:22px 26px 20px;border-radius:var(--card-r,2px);
+  box-shadow:var(--card-shadow);transition:transform .45s cubic-bezier(.3,1.4,.5,1),box-shadow .45s}
+[data-theme] .step.on .card{transform:translateY(-3px) rotate(var(--card-tilt,0deg));box-shadow:var(--card-shadow-on)}
+[data-theme] .caso{background:var(--caso);border:0;border-radius:var(--card-r,2px);box-shadow:inset 0 0 0 1px var(--rule)}
+[data-theme] blockquote.law{border:0;background:var(--paper-2);box-shadow:inset 3px 0 0 var(--conc)}
+[data-theme] .titleblock,[data-theme] table.compare,[data-theme] .quiz details,[data-theme] .equation .term{border-color:var(--const);background:var(--card)}
+[data-theme] .equation .result{background:var(--const);color:var(--paper)}
+[data-theme] .equation .term{box-shadow:var(--card-shadow)}
+
+/* ---------- 1 · SAKURA — fluorescent pink × medium blue riso ---------- */
+[data-theme=sakura]{
+  --paper:#f8f2ec;--paper-2:#f1e6de;--sheet:#fffaf5;--card:#fffaf5;--caso:#fdeef3;
+  --ink:#27283a;--ink-2:#5a5b6e;--muted:#8d8a95;--const:#2d3150;--rule:#2d315026;
+  --conc:#e0457f;--conc-wash:#ffd3e2;--dif:#3059b0;--dif-wash:#d4def6;--mix:#8a4fc2;--mix-wash:#eadcf8;--accent:#f4b63f;
+  --plate-a:#e0457f80;--plate-b:#3059b070;
+  --num:#ffc3d8;--num-2:#3059b0;--band:#ffd3e2;
+  --dot:#ff8fb8;--dot-mask:radial-gradient(60% 55% at 88% 86%,#000 30%,transparent 72%);--dot-o:.5;
+  --stack:10px 12px 0 -3px #d4def6,18px 22px 0 -5px #ffd3e2,0 34px 50px -24px #2d315055;--tilt:-.6deg;
+  --card-shadow:0 1px 0 #2d315014,0 14px 28px -20px #2d315066;--card-shadow-on:0 2px 0 #e0457f40,0 22px 36px -22px #2d315088;--card-tilt:-.3deg;
+  --light:radial-gradient(90% 70% at 10% 0%,#fff6e880,transparent 60%);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .18 0 0 0 0 .2 0 0 0 0 .35 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--grain-o:.18}
+
+/* ---------- 2 · WASHI — kinari paper fibre, matcha & persimmon, sumi ink, hanko ---------- */
+[data-theme=washi]{
+  --paper:#efe9da;--paper-2:#e4dcc8;--sheet:#f6f1e4;--card:#f8f4e9;--caso:#eef0e2;
+  --ink:#2e2b26;--ink-2:#5c574d;--muted:#8f8878;--const:#2e2b26;--rule:#2e2b2622;
+  --conc:#c65a36;--conc-wash:#f3d2bd;--dif:#3f7f6a;--dif-wash:#d3e6d6;--mix:#7d5a8c;--mix-wash:#e6dcea;--accent:#d9a441;
+  --plate-a:#c65a3666;--plate-b:#3f7f6a66;
+  --num:#cfe3cf;--num-2:#c65a36;--band:#c2dbc3;
+  --dot:#9dbf9f;--dot-mask:radial-gradient(40% 45% at 12% 14%,#000 25%,transparent 70%);--dot-o:.38;--dot-size:6px;
+  --stack:-8px 9px 0 -2px #e4dcc8,-15px 18px 0 -4px #d6ccb2,0 30px 44px -26px #2e2b2666;--tilt:.5deg;--sheet-r:1px;
+  --card-shadow:0 0 0 1px #2e2b2612,0 10px 22px -18px #2e2b2677;--card-shadow-on:0 0 0 1px #2e2b2618,0 18px 30px -20px #2e2b2699;--card-tilt:.25deg;
+  --light:linear-gradient(115deg,#fffdf400 30%,#fffdf466 48%,#fffdf400 62%);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .25 0 0 0 .45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3Cpath d='M235 291 q0 4 -25 1 q-20 -10 -33 19 q24 23 12 7' fill='none' stroke='%238a7a58' stroke-opacity='0.44' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M432 33 q5 14 -14 5 q-10 -25 -33 9 q22 -21 -20 15' fill='none' stroke='%238a7a58' stroke-opacity='0.26' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M293 56 q-22 -24 15 -17 q-6 10 -6 4 q-8 -9 -39 -5' fill='none' stroke='%238a7a58' stroke-opacity='0.29' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M368 6 q9 -16 1 29 q-6 -5 39 -30 q5 25 -38 -19' fill='none' stroke='%238a7a58' stroke-opacity='0.26' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M76 230 q17 -6 -34 -17 q-7 6 -30 5 q-6 6 -15 -16' fill='none' stroke='%238a7a58' stroke-opacity='0.47' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M82 327 q-6 -1 -34 -27 q-12 12 -9 -5 q1 21 38 -22' fill='none' stroke='%238a7a58' stroke-opacity='0.42' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M443 319 q-15 -24 -18 -3 q-7 4 -29 -8 q8 10 7 -22' fill='none' stroke='%238a7a58' stroke-opacity='0.53' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M247 186 q5 -21 -35 -11 q-2 -7 -36 26 q23 -8 -33 -2' fill='none' stroke='%238a7a58' stroke-opacity='0.51' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M217 411 q6 -6 7 7 q25 19 18 -7 q-3 17 -33 15' fill='none' stroke='%238a7a58' stroke-opacity='0.34' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M46 12 q14 8 -1 24 q6 1 20 -9 q-13 -5 -20 8' fill='none' stroke='%238a7a58' stroke-opacity='0.51' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M200 303 q-0 17 28 13 q-17 -2 -18 -17 q-0 -9 27 29' fill='none' stroke='%238a7a58' stroke-opacity='0.35' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M431 145 q-11 -7 12 4 q-16 13 -19 17 q-19 -20 3 8' fill='none' stroke='%238a7a58' stroke-opacity='0.54' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M356 104 q-24 -1 17 -19 q10 1 9 15 q20 -21 35 13' fill='none' stroke='%238a7a58' stroke-opacity='0.39' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M102 461 q8 0 26 -9 q-20 18 24 25 q-5 -21 -15 29' fill='none' stroke='%238a7a58' stroke-opacity='0.33' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M373 8 q-8 -4 -18 25 q-4 -23 3 11 q25 20 1 11' fill='none' stroke='%238a7a58' stroke-opacity='0.53' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M256 494 q1 -10 18 8 q3 -9 -10 21 q18 23 2 4' fill='none' stroke='%238a7a58' stroke-opacity='0.37' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M59 3 q-23 21 4 29 q-17 22 -3 25 q-13 -0 -13 24' fill='none' stroke='%238a7a58' stroke-opacity='0.41' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M56 218 q10 24 -37 -21 q11 -13 -0 -0 q6 11 16 23' fill='none' stroke='%238a7a58' stroke-opacity='0.36' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M215 275 q7 7 2 21 q-13 12 25 24 q21 -14 40 23' fill='none' stroke='%238a7a58' stroke-opacity='0.52' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M69 46 q22 2 16 -18 q-20 3 -11 19 q7 -8 40 20' fill='none' stroke='%238a7a58' stroke-opacity='0.39' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M13 396 q-1 -16 -31 -20 q9 4 -29 11 q-5 -4 -12 -17' fill='none' stroke='%238a7a58' stroke-opacity='0.25' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M365 439 q12 -5 -24 -20 q20 15 16 22 q5 0 39 18' fill='none' stroke='%238a7a58' stroke-opacity='0.33' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M60 386 q-18 -9 3 -8 q-15 -16 24 -12 q25 20 -36 -14' fill='none' stroke='%238a7a58' stroke-opacity='0.35' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M343 296 q25 7 16 16 q6 12 -19 -6 q-6 -20 -20 24' fill='none' stroke='%238a7a58' stroke-opacity='0.54' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M295 517 q-21 5 21 -27 q-1 -17 -0 7 q-4 1 8 -8' fill='none' stroke='%238a7a58' stroke-opacity='0.39' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M140 483 q-24 14 7 8 q-22 -9 -8 5 q15 -14 18 -15' fill='none' stroke='%238a7a58' stroke-opacity='0.26' stroke-width='0.6' stroke-linecap='round'/%3E%3C/svg%3E");--grain-size:520px;--grain-o:.55}
+[data-theme=washi] .chapter{position:relative}
+[data-theme=washi] .chapter::after{ /* hanko seal beside each chapter number */
+  content:'CC';position:absolute;left:calc(clamp(16px,4vw,48px) + clamp(120px,15vw,200px));top:104px;
+  width:46px;height:46px;display:grid;place-items:center;border:2.5px solid #c8453b;border-radius:6px;
+  color:#c8453b;font:700 15px/1 'Archivo',sans-serif;letter-spacing:.04em;transform:rotate(-8deg);opacity:.82;mix-blend-mode:multiply}
+
+/* ---------- 3 · YŪGURE — dusk light, layered paper-theatre depth ---------- */
+[data-theme=yugure]{
+  --paper:#f4ecf1;--paper-2:#eadfe9;--sheet:#fbf6f7;--card:#fffafa;--caso:#fdf0ea;
+  --ink:#352c46;--ink-2:#645a74;--muted:#958aa3;--const:#3a3050;--rule:#3a305022;
+  --conc:#d4555f;--conc-wash:#fbd5d0;--dif:#5566c4;--dif-wash:#dcdffa;--mix:#8c5bb0;--mix-wash:#ecdff6;--accent:#f0a860;
+  --plate-a:#d4555f55;--plate-b:#5566c455;
+  --num:#fbd5d0;--num-2:#8c9ae0;--band:#fde0cf;
+  --dot:#f0a8a0;--dot-mask:radial-gradient(70% 40% at 50% 100%,#000 20%,transparent 75%);--dot-o:.35;--dot-size:9px;
+  --stack:0 14px 0 -4px #ecdff6,0 28px 0 -9px #dcdffa,0 42px 0 -14px #fbd5d0,0 60px 60px -30px #3a305066;--sheet-r:10px;--card-r:10px;
+  --card-shadow:0 1px 2px #3a305014,0 12px 24px -14px #3a305044,0 26px 40px -30px #d4555f44;--card-shadow-on:0 2px 3px #3a30501c,0 20px 34px -16px #3a305055,0 34px 50px -30px #d4555f66;
+  --light:radial-gradient(120% 80% at 80% 0%,#ffd9b855,transparent 55%),radial-gradient(90% 70% at 0% 100%,#c9c6f455,transparent 60%);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .4 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--grain-o:.12}
+[data-theme=yugure] body{background:linear-gradient(180deg,#efe6f4 0%,#f8ece9 45%,#fbe9dc 100%) fixed}
+[data-theme=yugure] .fig .c-conc,[data-theme=yugure] .fig .c-dif{stroke-linecap:round}
+
+/* ---------- 4 · HIMAWARI — sunflower × teal duotone zine, tape corners ---------- */
+[data-theme=himawari]{
+  --paper:#fbf5e1;--paper-2:#f3e9c7;--sheet:#fffbee;--card:#fffbee;--caso:#fff1c4;
+  --ink:#16333a;--ink-2:#3f5a60;--muted:#7a8a86;--const:#153a42;--rule:#153a4226;
+  --conc:#d9661b;--conc-wash:#ffe08a;--dif:#12808a;--dif-wash:#c3ece8;--mix:#6f5aa8;--mix-wash:#e1dcf3;--accent:#ffcc2e;
+  --plate-a:#ffcc2eaa;--plate-b:#12808a66;--mis-x:3.5px;--mis-y:2.5px;
+  --num:#ffd84d;--num-2:#12808a;--band:#ffe27a;
+  --dot:#12808a;--dot-mask:radial-gradient(38% 38% at 90% 10%,#000 35%,transparent 72%);--dot-o:.28;--dot-size:7px;
+  --stack:9px 9px 0 0 #153a42;--sheet-r:0;
+  --card-shadow:4px 4px 0 #153a42;--card-shadow-on:6px 7px 0 #153a42;--card-tilt:-.4deg;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .08 0 0 0 0 .22 0 0 0 0 .25 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--grain-o:.2}
+[data-theme=himawari] .step .card{border:1.5px solid var(--const)}
+[data-theme=himawari] .stage figure::after{ /* masking tape across the top edge */
+  content:'';position:absolute;z-index:3;top:-13px;left:50%;width:128px;height:28px;margin-left:-64px;transform:rotate(-3deg);
+  background:repeating-linear-gradient(90deg,#ffcc2ecc 0 10px,#ffd95acc 10px 20px);box-shadow:0 1px 2px #0002;opacity:.9}
+
+/* ---------- 5 · SODA — mint & coral riso on pale sky, rounded and airy ---------- */
+[data-theme=soda]{
+  --paper:#eef5f3;--paper-2:#e0eeea;--sheet:#fbfefd;--card:#ffffff;--caso:#fff0ec;
+  --ink:#22343a;--ink-2:#4f6469;--muted:#86999b;--const:#24424a;--rule:#24424a1f;
+  --conc:#e2574c;--conc-wash:#ffd6cf;--dif:#16877a;--dif-wash:#c6efe6;--mix:#7d63c4;--mix-wash:#e5defa;--accent:#ffd166;
+  --plate-a:#e2574c66;--plate-b:#16877a66;
+  --num:#c6efe6;--num-2:#ff8a7a;--band:#c6efe6;
+  --dot:#7fd4c4;--dot-mask:radial-gradient(55% 55% at 15% 88%,#000 30%,transparent 72%);--dot-o:.45;--dot-size:10px;
+  --stack:0 0 0 10px #ffffff,0 0 0 11px #24424a1a,0 26px 44px -20px #24424a55;--sheet-r:22px;--card-r:18px;
+  --card-shadow:0 1px 0 #24424a10,0 16px 30px -22px #24424a66;--card-shadow-on:0 0 0 2px #7fd4c4,0 22px 36px -22px #24424a77;
+  --light:radial-gradient(70% 50% at 50% -10%,#ffffffaa,transparent 70%);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .3 0 0 0 0 .3 0 0 0 .45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--grain-o:.12}
+[data-theme=soda] .quiz details,[data-theme=soda] table.compare,[data-theme=soda] .titleblock,[data-theme=soda] .equation .term{border-radius:16px;overflow:hidden}
+
+/* ---------- theme picker ---------- */
+.tema-picker{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:5px;
+  background:#1d2530ee;border-radius:999px;box-shadow:0 10px 30px #0004;max-width:calc(100vw - 20px);overflow-x:auto}
+.tema-picker a{font:11px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#f2eee3;text-decoration:none;
+  padding:8px 12px;border-radius:999px;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.tema-picker a i{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--a) 50%,var(--b) 50%)}
+.tema-picker a[aria-current]{background:#f2eee3;color:#1d2530}
+@media (prefers-reduced-motion:reduce){[data-theme] .step.on .card{transform:none}}

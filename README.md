@@ -4,7 +4,9 @@ A paper-inspired reading collection for law-school study guides.
 
 Live: https://benecles.github.io/study-lab/
 
-## First course
+## Courses
+
+`courses/controle-de-constitucionalidade/` contains a 29-lesson guide built from 559 course slides. Its semester map links the lessons in syllabus order, and each page gives slide references, redrawn diagrams, review questions and source notes. The source slide PDFs and visual digests remain outside this public repository. Where the slides present a debated position, the guide labels it as the source's position; Aula 29 also links to official STF material on the scope of binding effect.
 
 `courses/teoria-do-delito/` contains the full selected Teoria do Delito guide: 15 study units, five doctrinal supplements, the course map and the master study guide. The index groups the reading by the six blocks in the supplied 2026/2 syllabus. Individual week divisions are editorial; they are not verified classroom dates.
 

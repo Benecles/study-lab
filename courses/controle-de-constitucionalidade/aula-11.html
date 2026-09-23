@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sistemas de controle · Controle de Constitucionalidade</title>
+<meta name="description" content="Aula 11 — Sistemas e técnicas de controle de constitucionalidade: difuso e concentrado, exame em abstrato e em concreto, efeitos, e o modelo misto brasileiro.">
+<link rel="stylesheet" href="assets/controle.css">
+</head>
+<body>
+
+<nav class="topbar"><a href="index.html">← Controle de Constitucionalidade</a><span>Aula 11 de 29</span></nav>
+
+<header class="hero">
+  <div class="kicker label"><span>Programa · IV. Sistemas de controle</span><span>Prof. Marcelo Schenk Duque</span><span>UFRGS · DIR03027 · 2026/2</span></div>
+  <h1><span class="split">Uma pergunta,</span><span class="split">duas rotas.</span></h1>
+  <p class="deck">A lei é compatível com a Constituição? O Brasil herdou duas maneiras de responder: uma que nasceu nos Estados Unidos, outra na Alemanha. Esta aula mostra cada rota, o que ela produz e por que o resultado brasileiro é uma combinação das duas.</p>
+  <svg class="hero-fork" viewBox="0 0 1080 160" aria-hidden="true">
+    <path class="draw" d="M0 75H380" stroke-width="2" fill="none" style="stroke:var(--const)"/>
+    <path class="draw" d="M380 75C470 75 480 22 580 22H1060" stroke-width="3" fill="none" style="stroke:var(--conc)"/>
+    <path class="draw" d="M380 75C470 75 480 128 580 128H1060" stroke-width="3" fill="none" stroke-dasharray="1200" style="stroke:var(--dif)"/>
+    <circle cx="380" cy="75" r="6" class="late" style="fill:var(--const)"/>
+    <g class="late" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.2">
+      <text x="0" y="62" style="fill:var(--ink-2)">A LEI SOB SUSPEITA</text>
+      <text x="600" y="12" style="fill:var(--conc)">CONCENTRADO · VIA DE AÇÃO · EM ABSTRATO · ERGA OMNES</text>
+      <text x="600" y="148" style="fill:var(--dif)">DIFUSO · VIA INCIDENTAL · EM CONCRETO · INTER PARTES</text>
+    </g>
+  </svg>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Fonte<b>Slides “Sistemas e técnicas”, 21 pp.</b></div>
+    <div role="listitem">Leitura<b>≈ 15 min</b></div>
+    <div role="listitem">Antes<b>Aula 10 · Controle repressivo</b></div>
+    <div role="listitem">Depois<b>Aula 12 · Crítica à cumulação</b></div>
+  </div>
+</header>
+
+<!-- ============ 01 · ORIGENS ============ -->
+<section class="chapter" aria-labelledby="c1">
+  <span class="num" aria-hidden="true">01</span>
+  <h2 id="c1">Duas heranças</h2>
+  <p class="lede">Os slides abrem com mapas: uma seta sai dos Estados Unidos, outra da Alemanha, e as duas terminam no Brasil. Cada seta traz um sistema de controle e uma teoria sobre o que é uma lei inconstitucional.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <!-- EUA route -->
+      <svg class="panel fig on" id="p-eua" viewBox="0 0 600 600">
+        <defs><marker id="ah-dif1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <rect x="50" y="60" width="200" height="86" class="w-dif ink"/>
+        <text x="70" y="96" class="t-big">EUA</text><text x="70" y="124" class="t-small tc-dif">SISTEMA DIFUSO</text>
+        <g opacity=".22"><rect x="350" y="60" width="200" height="86" class="w-grey ink"/><text x="370" y="96" class="t-big">ALEMANHA</text></g>
+        <path class="c-dif grow" d="M150 146C150 290 240 300 268 438" marker-end="url(#ah-dif1)"/>
+        <text x="46" y="270" class="t-mid tc-dif">difuso de controle</text>
+        <text x="46" y="296" class="t-serif">teoria da nulidade</text>
+        <rect x="190" y="444" width="220" height="92" class="f-paper ink"/>
+        <text x="210" y="482" class="t-big">BRASIL</text><text x="210" y="512" class="t-small tc-muted">RECEBE O MODELO</text>
+      </svg>
+      <!-- Germany route -->
+      <svg class="panel fig" id="p-ale" viewBox="0 0 600 600">
+        <defs><marker id="ah-conc1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <g opacity=".3"><rect x="50" y="60" width="200" height="86" class="w-grey ink"/><text x="70" y="96" class="t-big">EUA</text><path class="c-dif" d="M150 146C150 290 240 300 268 438"/></g>
+        <rect x="350" y="60" width="200" height="86" class="w-conc ink"/>
+        <text x="370" y="96" class="t-big">ALEMANHA</text><text x="370" y="124" class="t-small tc-conc">SISTEMA CONCENTRADO</text>
+        <path class="c-conc grow" d="M450 146C450 290 360 300 332 438" marker-end="url(#ah-conc1)"/>
+        <text x="352" y="238" class="t-mid tc-conc">concentrado</text>
+        <text x="352" y="264" class="t-serif">teoria da anulabilidade</text>
+        <text x="352" y="290" class="t-serif">tribunal constitucional</text>
+        <rect x="190" y="444" width="220" height="92" class="f-paper ink"/>
+        <text x="210" y="482" class="t-big">BRASIL</text><text x="210" y="512" class="t-small tc-muted">RECEBE O MODELO</text>
+      </svg>
+      <!-- tension / hybrid -->
+      <svg class="panel fig" id="p-tensao" viewBox="0 0 600 600">
+        <defs><marker id="ah-dif2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <rect x="50" y="60" width="200" height="86" class="w-dif ink"/><text x="70" y="96" class="t-big">EUA</text><text x="70" y="124" class="t-small tc-dif">DIFUSO</text>
+        <rect x="350" y="60" width="200" height="86" class="w-conc ink"/><text x="370" y="96" class="t-big">ALEMANHA</text><text x="370" y="124" class="t-small tc-conc">CONCENTRADO</text>
+        <path d="M288 58l22 34-18 4 22 38" stroke-width="3" fill="none" stroke-linejoin="bevel" style="stroke:var(--conc)"/>
+        <text x="206" y="172" class="t-small">TENSÃO E INCOMPATIBILIDADES</text>
+        <path class="c-dif" d="M150 146C150 290 240 300 268 438"/>
+        <path class="c-conc" d="M450 146C450 290 360 300 332 438"/>
+        <path class="c-dif dash grow" d="M190 300C250 250 330 250 392 282" marker-end="url(#ah-dif2)"/>
+        <text x="150" y="226" class="t-serif">o difuso se aproxima do concentrado</text>
+        <rect x="150" y="444" width="300" height="100" stroke-width="2" style="fill:var(--mix-wash);stroke:var(--mix)"/>
+        <text x="172" y="484" class="t-big tc-mix">BRASIL</text>
+        <text x="172" y="516" class="tc-mix">SISTEMA MISTO OU HÍBRIDO</text>
+      </svg>
+      <figcaption><span>Fig. 1 · Origens</span><span class="stage-count">Slides 2–3</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-eua" data-slides="Slides 2–3"><div class="card">
+      <span class="label dif">Rota americana</span>
+      <h3>Dos Estados Unidos: o sistema difuso</h3>
+      <p>Da tradição norte-americana vem o <strong class="dif">sistema difuso de controle</strong>, associado à <strong>teoria da nulidade</strong>: a lei incompatível com a Constituição é tratada como nula.</p>
+      <p>Foi o primeiro sistema que o Brasil adotou. A Aula 08 trata a teoria da nulidade em detalhe.</p>
+      <span class="src">Slides 2–3</span>
+    </div></div>
+    <div class="step" data-panel="p-ale" data-slides="Slides 4–5"><div class="card">
+      <span class="label conc">Rota alemã</span>
+      <h3>Da Alemanha: o sistema concentrado</h3>
+      <p>Da Alemanha vem o <strong class="conc">sistema concentrado de controle</strong>. Ele traz a <strong>teoria da anulabilidade</strong> e a figura de um <strong>Tribunal Constitucional</strong>, um órgão especialmente encarregado de julgar a constitucionalidade das leis.</p>
+      <p>No mapa dos slides, a seta alemã é a segunda a chegar ao Brasil.</p>
+      <span class="src">Slides 4–5</span>
+    </div></div>
+    <div class="step" data-panel="p-tensao" data-slides="Slides 6–7"><div class="card">
+      <span class="label mix">O resultado brasileiro</span>
+      <h3>Um sistema misto e as tensões dele</h3>
+      <p>O Brasil <strong>seguiu o sistema norte-americano</strong> e evoluiu para um <strong class="mix">sistema misto ou híbrido</strong>. Ele combina o critério <strong class="dif">difuso</strong>, pela via de defesa ou de exceção, com o critério <strong class="conc">concentrado</strong>, pela via das ações diretas.</p>
+      <p>O slide 6 também registra uma tendência: <strong>com o passar do tempo, o sistema difuso passou a se aproximar do concentrado</strong>. No slide 7, um raio entre as bandeiras dos EUA e da Alemanha, com a do Brasil embaixo, anuncia as <em>tensões e incompatibilidades</em> de juntar as duas lógicas. A Aula 12 trata essa crítica.</p>
+      <span class="src">Slides 6–7</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 02 · VOCABULÁRIO ============ -->
+<section class="chapter" aria-labelledby="c2">
+  <span class="num" aria-hidden="true">02</span>
+  <h2 id="c2">Dois sistemas, duas técnicas</h2>
+  <p class="lede">Antes dos detalhes, fixe o vocabulário. “Sistema” diz quem controla e por qual via. “Técnica de exame” diz como a lei é examinada: em abstrato ou dentro de um caso.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-matriz" viewBox="0 0 600 600">
+        <text x="50" y="80" class="t-small tc-muted">SISTEMAS DE CONTROLE SÃO DOIS</text>
+        <rect x="50" y="100" width="210" height="70" class="w-conc ink"/><text x="70" y="143" class="t-mid tc-conc">Concentrado</text>
+        <rect x="50" y="190" width="210" height="70" class="w-dif ink"/><text x="70" y="233" class="t-mid tc-dif">Difuso</text>
+        <path d="M280 100c22 0 22 0 22 40c0 20 10 25 22 25c-12 0-22 5-22 25c0 40 0 70-22 70" stroke-width="2" fill="none" style="stroke:var(--conc)"/>
+        <text x="340" y="160" class="t-mid tc-mix">sistema misto</text><text x="340" y="186" class="t-mid tc-mix">ou híbrido</text>
+        <text x="50" y="340" class="t-small tc-muted">AS TÉCNICAS DE EXAME SÃO DUAS</text>
+        <rect x="50" y="360" width="210" height="70" class="f-paper ink"/><text x="70" y="403" class="t-mid">Em abstrato</text>
+        <rect x="50" y="450" width="210" height="70" class="f-paper ink"/><text x="70" y="486" class="t-mid">Em concreto</text><text x="70" y="508" class="t-small tc-muted">DECLARAÇÃO INCIDENTAL</text>
+        <path class="c-conc grow" d="M260 135C420 135 420 395 262 395"/>
+        <path class="c-dif grow" d="M260 225C460 225 460 485 262 485"/>
+        <text x="444" y="300" class="t-serif">cada sistema</text><text x="444" y="326" class="t-serif">tem sua técnica</text>
+      </svg>
+      <svg class="panel fig" id="p-quem" viewBox="0 0 600 600">
+        <text x="50" y="70" class="t-mid tc-dif">Difuso</text><text x="50" y="94" class="t-small">QUALQUER JUIZ OU TRIBUNAL · CONTROLE “ABERTO”</text>
+        <g class="f-dif">
+          <circle cx="70" cy="140" r="9"/><circle cx="120" cy="160" r="9"/><circle cx="175" cy="132" r="9"/><circle cx="228" cy="170" r="9"/><circle cx="282" cy="138" r="9"/><circle cx="336" cy="165" r="9"/><circle cx="392" cy="134" r="9"/><circle cx="446" cy="168" r="9"/><circle cx="500" cy="140" r="9"/><circle cx="96" cy="205" r="9"/><circle cx="160" cy="215" r="9"/><circle cx="258" cy="212" r="9"/><circle cx="364" cy="214" r="9"/><circle cx="474" cy="210" r="9"/><circle cx="540" cy="190" r="9"/>
+        </g>
+        <text x="50" y="262" class="t-small tc-muted">ORIGEM NORTE-AMERICANA</text>
+        <line x1="50" y1="300" x2="550" y2="300" class="thin dash"/>
+        <text x="50" y="350" class="t-mid tc-conc">Concentrado</text><text x="50" y="374" class="t-small">UM OU POUCOS ÓRGÃOS · NÚMERO REDUZIDO</text>
+        <rect x="236" y="410" width="128" height="80" class="w-conc" stroke-width="3" style="stroke:var(--conc)"/>
+        <text x="276" y="458" class="t-mid tc-conc">STF</text>
+        <text x="170" y="520" class="t-small">COMPETÊNCIA ORIGINÁRIA · AÇÕES DIRETAS</text>
+        <text x="50" y="562" class="t-small tc-muted">ORIGEM GERMÂNICA</text>
+      </svg>
+      <figcaption><span>Fig. 2 · Vocabulário</span><span class="stage-count">Slide 8</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-matriz" data-slides="Slide 8"><div class="card">
+      <span class="label">Conceitos básicos</span>
+      <h3>Dois sistemas, duas técnicas</h3>
+      <p><strong>Sistemas de controle são dois:</strong> o <span class="conc">concentrado</span> e o <span class="dif">difuso</span>. No slide, uma chave junta os dois sob a rubrica <strong class="mix">sistema misto ou híbrido</strong>: é o que o Brasil tem.</p>
+      <p><strong>As técnicas de exame são duas:</strong> <em>em abstrato</em> e <em>em concreto</em>. O slide chama a segunda também de <em>declaração incidental</em>.</p>
+      <p>Cada sistema anda com uma técnica: o concentrado examina em abstrato, o difuso examina em concreto. As próximas seções mostram por quê.</p>
+      <span class="src">Slide 8</span>
+    </div></div>
+    <div class="step" data-panel="p-quem" data-slides="Slide 9"><div class="card">
+      <span class="label">Quem controla</span>
+      <h3>Qualquer juiz ou um órgão só</h3>
+      <p>No <strong class="dif">difuso</strong>, <strong>qualquer juiz ou tribunal</strong> pode realizar o controle. Por isso é um controle “aberto”, de origem norte-americana.</p>
+      <p>No <strong class="conc">concentrado</strong>, o controle se <strong>concentra</strong> em um ou mais órgãos constitucionais, <em>porém em número reduzido</em>. Ele diz respeito à <strong>competência originária</strong>, típica das ações diretas no STF. A origem é germânica.</p>
+      <span class="src">Slide 9</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 03 · CONCENTRADO ============ -->
+<section class="chapter" aria-labelledby="c3">
+  <span class="num conc" aria-hidden="true">03</span>
+  <h2 id="c3"><span class="conc">Concentrado:</span> a lei diante da Constituição, sem ninguém entre elas</h2>
+  <p class="lede">No slide 11 não aparece nenhuma pessoa: uma lei, uma lupa e a Constituição, ligadas por uma seta. O exame em abstrato é isso.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-conc" viewBox="0 0 600 600">
+        <defs><marker id="ah-conc2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker></defs>
+        <rect x="160" y="46" width="280" height="62" class="w-conc" stroke-width="2.5" style="stroke:var(--conc)"/>
+        <text x="182" y="74" class="t-mid tc-conc">STF</text><text x="182" y="96" class="t-small">COMPETÊNCIA ORIGINÁRIA</text>
+        <!-- law document -->
+        <rect x="50" y="200" width="120" height="150" class="f-paper ink"/>
+        <path d="M68 232h84M68 252h84M68 272h84M68 292h60M68 312h72" class="thin"/>
+        <text x="50" y="188" class="t-small">LEI</text>
+        <!-- lens -->
+        <circle cx="300" cy="260" r="46" class="ink" stroke-width="3"/><path d="M333 293l44 44" stroke-width="7" stroke-linecap="round" style="stroke:var(--const)"/>
+        <text x="270" y="200" class="t-small">EXAME</text>
+        <!-- constitution -->
+        <rect x="430" y="190" width="120" height="170" style="fill:var(--const)"/><rect x="438" y="198" width="104" height="154" fill="none" stroke-width=".8" style="stroke:var(--paper)"/>
+        <text x="448" y="262" class="t-light t-small">CONSTITUIÇÃO</text><text x="470" y="286" class="t-light t-small">1988</text>
+        <path class="c-conc grow" d="M110 360C140 450 420 460 482 372" marker-end="url(#ah-conc2)"/>
+        <!-- no parties -->
+        <g opacity=".45"><circle cx="100" cy="470" r="11" class="ink"/><path d="M100 481v28M86 492h28" class="ink"/><circle cx="500" cy="470" r="11" class="ink"/><path d="M500 481v28M486 492h28" class="ink"/></g>
+        <path d="M80 455l40 60M120 455l-40 60M480 455l40 60M520 455l-40 60" stroke-width="2" style="stroke:var(--conc)"/>
+        <text x="190" y="492" class="t-small">NÃO HÁ RÉU NO PROCESSO</text>
+        <rect x="50" y="530" width="500" height="44" style="fill:var(--conc)"/>
+        <text x="66" y="558" class="t-light">ERGA OMNES · EX TUNC (MODULÁVEL)</text>
+      </svg>
+      <figcaption><span>Fig. 3 · Exame em abstrato</span><span class="stage-count">Slide 10</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-conc" data-slides="Slide 10"><div class="card">
+      <span class="label conc">Via principal</span>
+      <h3>Exercido pela via de ação</h3>
+      <p>O sistema concentrado é exercido pela <strong>via principal (via de ação)</strong> e identifica-se com a <strong>técnica de exame em abstrato</strong>.</p>
+      <p>O processo tem <strong>natureza objetiva</strong>: a análise da constitucionalidade do ato normativo é o <strong>objeto principal da causa</strong>. É típico das <strong>ações diretas</strong>, cuja competência originária toca ao STF: <strong>ADI, ADC, ADPF</strong>.</p>
+      <span class="src">Slide 10</span>
+    </div></div>
+    <div class="step" data-panel="p-conc" data-slides="Slides 11–12"><div class="card">
+      <span class="label conc">Em abstrato</span>
+      <h3>Sem A, sem B</h3>
+      <p>O controle é exercido como <strong>questão principal e autônoma da ação</strong>. A declaração de inconstitucionalidade é o próprio <strong>alvo</strong> da ação.</p>
+      <p>Por isso ocorre <strong>em abstrato</strong>, independentemente de existir um processo concreto entre A e B: <strong>não há réu no processo</strong>. Os efeitos são <strong><em>erga omnes</em></strong> e, por regra, <strong><em>ex tunc</em></strong>, com possibilidade de <strong>modulação dos efeitos</strong>.</p>
+      <p class="caso"><span class="label">Exemplo hipotético</span>Um legitimado propõe no STF uma ADI contra a Lei X. Ninguém disputa uma casa, um tributo ou um contrato. O pedido é só este: declare-se que a Lei X é inconstitucional. Se o STF acolher o pedido, a decisão vale para todos.</p>
+      <span class="src">Slides 11–12</span>
+    </div></div>
+    <div class="step" data-panel="p-conc" data-slides="Slide 13"><div class="card">
+      <span class="label conc">O que a Constituição diz</span>
+      <h3>Eficácia contra todos e efeito vinculante</h3>
+      <p>O slide 13 lista os <strong>processos de competência originária do STF</strong> (ADI, ADC, ADPF e <strong>Redin</strong>, a representação interventiva) e liga a eles o texto constitucional:</p>
+      <blockquote class="law"><cite>CF, art. 102, § 2º</cite>As decisões definitivas de mérito, proferidas pelo Supremo Tribunal Federal, nas ações diretas de inconstitucionalidade e nas ações declaratórias de constitucionalidade produzirão <strong>eficácia contra todos e efeito vinculante</strong>, relativamente aos demais órgãos do Poder Judiciário e à administração pública direta e indireta, nas esferas federal, estadual e municipal.</blockquote>
+      <p>Resumo do slide: <strong>sistema concentrado → efeitos <em>erga omnes</em></strong>. A Aula 29 desenvolve a eficácia contra todos e o efeito vinculante.</p>
+      <span class="src">Slide 13</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 04 · DIFUSO ============ -->
+<section class="chapter" aria-labelledby="c4">
+  <span class="num dif" aria-hidden="true">04</span>
+  <h2 id="c4"><span class="dif">Difuso:</span> a lei como obstáculo no caminho de um pedido</h2>
+  <p class="lede">O slide 17 repete a lei, a lupa e a Constituição do slide 11, mas acrescenta duas pessoas e uma casa. O exame deixa de ser o fim da ação e passa a ser um meio para decidir quem fica com a casa.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-dif" viewBox="0 0 600 600">
+        <defs><marker id="ah-dif3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <!-- parties -->
+        <circle cx="80" cy="96" r="22" class="ink" stroke-width="2.2"/><path d="M80 118v76M50 146h60M80 194l-22 50M80 194l22 50" class="ink" stroke-width="2.2"/>
+        <text x="72" y="276" class="t-big">A</text>
+        <circle cx="520" cy="96" r="22" class="ink" stroke-width="2.2"/><path d="M520 118v76M490 146h60M520 194l-22 50M520 194l22 50" class="ink" stroke-width="2.2"/>
+        <text x="510" y="276" class="t-big">B</text>
+        <!-- the house: bem da vida -->
+        <path d="M230 170l70-56 70 56v84H230z" class="w-grey ink" stroke-width="2"/><rect x="286" y="206" width="28" height="48" class="ink"/>
+        <text x="236" y="286" class="t-small">BEM DA VIDA</text>
+        <path d="M122 160h96M478 160h-96" class="thin"/>
+        <text x="212" y="96" class="t-serif">pedido principal</text>
+        <!-- prejudicial question underneath -->
+        <rect x="50" y="320" width="500" height="178" fill="none" stroke-width="2" stroke-dasharray="7 6" style="stroke:var(--dif)"/>
+        <text x="66" y="346" class="t-small tc-dif">QUESTÃO PREJUDICIAL · PREMISSA LÓGICA</text>
+        <rect x="84" y="366" width="80" height="102" class="f-paper ink"/><path d="M96 386h56M96 402h56M96 418h40M96 434h50" class="thin"/>
+
+        <circle cx="300" cy="410" r="30" class="ink" stroke-width="2.5"/><path d="M321 431l26 26" stroke-width="5" stroke-linecap="round" style="stroke:var(--const)"/>
+        <rect x="436" y="360" width="84" height="114" style="fill:var(--const)"/><text x="446" y="420" class="t-light t-small">CF/88</text>
+        <path class="c-dif grow" d="M124 470C170 520 430 520 478 478" marker-end="url(#ah-dif3)"/>
+        <rect x="50" y="530" width="500" height="44" style="fill:var(--dif)"/>
+        <text x="66" y="558" class="t-light">INTER PARTES · EX TUNC</text>
+      </svg>
+      <figcaption><span>Fig. 4 · Exame em concreto</span><span class="stage-count">Slide 14</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-dif" data-slides="Slide 14"><div class="card">
+      <span class="label dif">Via incidental</span>
+      <h3>Pela via de defesa ou de exceção</h3>
+      <p>O sistema difuso é exercido na <strong>via incidental</strong>, também chamada de <strong>via de defesa ou de exceção</strong>. Os slides a descrevem como um <em>meio</em> de controle. Identifica-se com a <strong>técnica de exame em concreto</strong>.</p>
+      <p>A declaração de inconstitucionalidade ocorre de forma incidental (<em>incidenter tantum</em>) e pode ser feita <strong>de ofício</strong> pelo juiz.</p>
+      <span class="src">Slide 14</span>
+    </div></div>
+    <div class="step" data-panel="p-dif" data-slides="Slide 15"><div class="card">
+      <span class="label dif">Questão prejudicial</span>
+      <h3>A inconstitucionalidade como premissa, não como pedido</h3>
+      <p>O controle é exercido como <strong>questão prejudicial e premissa lógica do pedido principal</strong>. A inconstitucionalidade é <strong>subsídio à justificação</strong> do direito cuja reivindicação se discute. Ela não é o objetivo principal da ação.</p>
+      <p>Ocorre no <strong>caso concreto</strong>, num processo entre A e B, e por isso se insere no sistema <strong class="dif">difuso</strong>. Os efeitos, por regra, são <strong><em>inter partes</em> e retroativos (<em>ex tunc</em>)</strong>.</p>
+      <span class="src">Slide 15</span>
+    </div></div>
+    <div class="step" data-panel="p-dif" data-slides="Slides 16–17"><div class="card">
+      <span class="label dif">Por que “incidental”?</span>
+      <h3>Uma estratégia para vencer a ação</h3>
+      <p>Por que o difuso é um controle incidental? A questão da inconstitucionalidade <strong>não é o objetivo principal</strong> do processo. Ela incide num processo que discute <strong>determinados bens jurídicos</strong>, e a declaração é uma <strong>estratégia para alcançar o bem da vida disputado</strong>, ou seja, para vencer a ação.</p>
+      <p class="caso"><span class="label">Exemplo hipotético (mesma Lei X)</span>A pede ao juiz a casa que está com B e fundamenta o pedido na Lei X. B se defende: a Lei X é inconstitucional, então não pode dar a casa a A. Antes de decidir quem fica com a casa, o juiz precisa resolver essa premissa. Se a acolher, deixa de aplicar a Lei X <em>nesse</em> processo. A lei continua valendo para todos os outros.</p>
+      <span class="src">Slides 16–17</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 05 · SUBIDA ============ -->
+<section class="chapter" aria-labelledby="c5">
+  <span class="num dif" aria-hidden="true">05</span>
+  <h2 id="c5">A questão sobe pelas instâncias</h2>
+  <p class="lede">No slide 18 há três prédios de tribunais ligados por setas, uma ampulheta e o STF no fim do caminho. O difuso leva tempo. A decisão do Supremo divide esse tempo em antes e depois.</p>
+</section>
+
+<div class="scrolly">
+  <div class="stage" aria-hidden="true">
+    <figure>
+      <svg class="panel fig on" id="p-inst" viewBox="0 0 600 600">
+        <defs><marker id="ah-dif4" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker></defs>
+        <text x="50" y="56" class="t-small tc-dif">INSTÂNCIAS INFERIORES</text>
+        <rect x="50" y="440" width="170" height="60" class="w-dif ink"/><text x="66" y="476" class="t-small">1ª INSTÂNCIA</text>
+        <rect x="50" y="300" width="170" height="60" class="w-dif ink"/><text x="66" y="336" class="t-small">TRIBUNAL</text>
+        <rect x="50" y="160" width="170" height="60" class="w-dif ink"/><text x="66" y="196" class="t-small">TRIBUNAL SUPERIOR</text>
+        <path class="c-dif grow" d="M135 440V366M135 300V226" marker-end="url(#ah-dif4)"/>
+        <path d="M135 158C135 80 220 70 300 90" class="c-dif grow" marker-end="url(#ah-dif4)"/>
+        <!-- STF -->
+        <rect x="306" y="70" width="140" height="60" style="fill:var(--const)"/><text x="354" y="107" class="t-light t-mid">STF</text>
+        <!-- hourglass -->
+        <path d="M500 60h40M500 130h40M506 60c0 30 28 30 28 35s-28 5-28 35M534 60c0 30-28 30-28 35s28 5 28 35" class="ink"/>
+        <path d="M512 124l8-10 8 10z" style="fill:var(--accent)"/>
+        <!-- before / after divider -->
+        <line x1="376" y1="150" x2="376" y2="560" stroke-width="2.5" stroke-dasharray="8 7" style="stroke:var(--dif)"/>
+        <text x="240" y="580" class="t-small">DECISÃO DO STF</text>
+        <text x="250" y="400" class="t-small tc-dif">ANTES</text>
+        <text x="250" y="420" class="t-mid tc-dif">inter</text><text x="250" y="444" class="t-mid tc-dif">partes</text>
+        <text x="394" y="220" class="t-small tc-conc">DEPOIS</text>
+        <text x="394" y="244" class="t-mid tc-conc">erga omnes</text>
+        <g class="f-conc"><circle cx="410" cy="300" r="7"/><circle cx="440" cy="316" r="7"/><circle cx="470" cy="298" r="7"/><circle cx="500" cy="318" r="7"/><circle cx="530" cy="300" r="7"/><circle cx="420" cy="342" r="7"/><circle cx="452" cy="356" r="7"/><circle cx="486" cy="344" r="7"/><circle cx="520" cy="360" r="7"/><circle cx="548" cy="336" r="7"/></g>
+        <text x="394" y="410" class="t-small">RE COM REPERCUSSÃO</text><text x="394" y="428" class="t-small">GERAL</text>
+        <text x="394" y="456" class="t-small">SÚMULAS VINCULANTES</text>
+      </svg>
+      <figcaption><span>Fig. 5 · Antes e depois do STF</span><span class="stage-count">Slide 18</span></figcaption>
+    </figure>
+  </div>
+  <div class="steps">
+    <div class="step" data-panel="p-inst" data-slides="Slide 18"><div class="card">
+      <span class="label dif">Em todas as instâncias</span>
+      <h3>Qualquer degrau pode decidir, mas só para o caso</h3>
+      <p>No controle difuso, <strong>a questão da inconstitucionalidade é debatida em todas as instâncias</strong>. <strong>Enquanto o STF não decidir, as decisões das instâncias inferiores têm efeitos <em>inter partes</em></strong>.</p>
+      <p>A ampulheta do slide marca o tempo. Até a palavra final do Supremo, a mesma lei pode ser afastada num processo e aplicada em outro.</p>
+      <p class="note" style="font-size:15px">Os rótulos dos degraus na figura são só esquemáticos. O slide mostra fotos de prédios de tribunais sem nomeá-los.</p>
+      <span class="src">Slide 18</span>
+    </div></div>
+    <div class="step" data-panel="p-inst" data-slides="Slide 19"><div class="card">
+      <span class="label conc">Depois do Supremo</span>
+      <h3>Quando o STF decide, o efeito muda de escala</h3>
+      <p>Uma linha tracejada divide o slide 19. À esquerda: <em>enquanto o STF não decidir</em>, efeitos <strong><em>inter partes</em></strong>, sob o rótulo <strong class="dif">sistema difuso de controle</strong>. À direita: <strong>após o STF decidir, efeitos <em>erga omnes</em></strong>, ao lado de dois instrumentos: o <strong>recurso extraordinário com repercussão geral</strong> e as <strong>súmulas vinculantes</strong>.</p>
+      <p>É o mesmo movimento do slide 6: o difuso se aproximando do concentrado. O programa chama isso de <em>abstrativização do controle difuso</em> (item IV.5) e trata junto dela o papel do Senado (art. 52, X, item IV.4). A Aula 12 cobre os dois pontos.</p>
+      <span class="src">Slide 19</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============ 06 · BRASIL ============ -->
+<section class="chapter" aria-labelledby="c6">
+  <span class="num" aria-hidden="true">06</span>
+  <h2 id="c6">E o Brasil?</h2>
+  <p class="lede">O slide 20 responde com uma soma e uma piada.</p>
+</section>
+<div class="wide">
+  <div class="equation" role="img" aria-label="Concentrado mais difuso é igual a confuso">
+    <div class="term"><b class="conc">Concentrado</b><span class="label">Alemanha</span></div>
+    <div class="op" aria-hidden="true">+</div>
+    <div class="term"><b class="dif">Difuso</b><span class="label">Estados Unidos</span></div>
+    <div class="op" aria-hidden="true">=</div>
+    <div class="term result"><b>Confuso</b><span class="label">Brasil</span></div>
+  </div>
+  <p class="note">A piada do professor tem conteúdo. Somar as duas rotas cria sobreposições: a mesma lei pode estar ao mesmo tempo numa ADI no STF e em milhares de processos concretos, com efeitos de alcance diferente. A Aula 12 (<em>Crítica à cumulação de sistemas</em>) faz essa crítica por extenso.</p>
+  <span class="src">Slide 20</span>
+</div>
+
+<!-- ============ 07 · RESUMO ============ -->
+<section class="chapter" aria-labelledby="c7">
+  <span class="num" aria-hidden="true">07</span>
+  <h2 id="c7">Resumo lado a lado</h2>
+  <p class="lede">O slide 21 fecha a aula com o quadro abaixo, reorganizado em linhas comparáveis.</p>
+</section>
+<div class="wide">
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Quadro comparativo dos sistemas">
+  <table class="compare">
+    <thead><tr><th scope="col"><span class="label">Critério</span></th><th scope="col" class="dif">Sistema difuso</th><th scope="col" class="conc">Sistema concentrado</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Quem controla</th><td>Qualquer juiz ou tribunal (controle “aberto”)</td><td>Um ou poucos órgãos; no Brasil, competência originária do STF</td></tr>
+      <tr><th scope="row">Via</th><td>Incidental: via de defesa ou de exceção</td><td>Principal: via de ação</td></tr>
+      <tr><th scope="row">Técnica de exame</th><td>Em concreto: processo entre A e B</td><td>Em abstrato, independentemente de caso concreto</td></tr>
+      <tr><th scope="row">Papel da inconstitucionalidade</th><td>Questão prejudicial: premissa lógica do pedido</td><td>Questão principal e autônoma: o próprio alvo da ação</td></tr>
+      <tr><th scope="row">Natureza do processo</th><td>Subjetivo: há bem da vida em disputa</td><td>Objetivo: não há réu</td></tr>
+      <tr><th scope="row">Efeitos</th><td><em>Inter partes</em>, retroativos (<em>ex tunc</em>), até chegar ao STF</td><td><em>Erga omnes</em>, retroativos (<em>ex tunc</em>), com possibilidade de modulação</td></tr>
+      <tr><th scope="row">Instrumentos</th><td>Qualquer ação; no STF, RE com repercussão geral</td><td>ADI, ADC, ADPF (e Redin)</td></tr>
+      <tr><th scope="row">Origem</th><td>Norte-americana; teoria da nulidade</td><td>Germânica; teoria da anulabilidade; Tribunal Constitucional</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <span class="src">Slide 21 (com linhas completadas a partir dos slides 3, 5, 9, 10, 12, 13, 15 e 19)</span>
+</div>
+
+<!-- ============ 08 · TESTE ============ -->
+<section class="chapter" aria-labelledby="c8">
+  <span class="num" aria-hidden="true">08</span>
+  <h2 id="c8">Teste rápido</h2>
+  <p class="lede">Responda antes de abrir.</p>
+</section>
+<div class="wide">
+  <div class="quiz">
+    <details><summary>Num processo em que se discute a posse de uma casa, o réu alega que a lei invocada pelo autor é inconstitucional. Que sistema é esse e qual o alcance da decisão?</summary><p><strong class="dif">Difuso</strong>, pela via incidental (de defesa). A inconstitucionalidade é questão prejudicial, e a decisão vale <em>inter partes</em>.</p></details>
+    <details><summary>Por que se diz que na ADI “não há réu”?</summary><p>Porque o processo é <strong>objetivo</strong>: examina a lei em abstrato, sem disputa concreta entre A e B. A inconstitucionalidade é o objeto principal da causa.</p></details>
+    <details><summary>O juiz pode declarar a inconstitucionalidade sem que nenhuma parte tenha pedido?</summary><p>Sim. No controle difuso, a declaração pode ser feita <strong>de ofício</strong> pelo juiz (slide 14).</p></details>
+    <details><summary>Qual a regra temporal dos efeitos no concentrado, e o que a flexibiliza?</summary><p>Por regra, <em>ex tunc</em> (retroativos), <strong>com possibilidade de modulação dos efeitos</strong> (slides 12 e 21). A Aula 28 trata da modulação.</p></details>
+    <details><summary>O que muda numa questão difusa quando o STF decide?</summary><p>Segundo os slides 18–19, antes da decisão do STF os efeitos são <em>inter partes</em>. Depois dela, <em>erga omnes</em>, pela via do RE com repercussão geral e das súmulas vinculantes.</p></details>
+    <details><summary>Qual das duas heranças o Brasil adotou primeiro?</summary><p>A <strong class="dif">norte-americana (difusa)</strong>. O Brasil “seguiu o sistema norte-americano de controle e evoluiu para um sistema misto ou híbrido” (slide 6).</p></details>
+  </div>
+</div>
+
+<nav class="endnav" aria-label="Aulas vizinhas">
+  <a href="aula-10.html"><span>← Aula 10</span>Momentos do controle: repressivo</a>
+  <a href="aula-12.html" style="text-align:right"><span>Aula 12 →</span>Crítica à cumulação de sistemas</a>
+</nav>
+<details class="provenance" lang="pt-BR"><summary>Fontes e limites desta página</summary>
+  <p>Base: slides “Sistemas e técnicas de controle de constitucionalidade”, do Prof. Dr. Marcelo Schenk Duque (DIR03027, UFRGS, 2026/2), 21 páginas, lidas visualmente página por página, com a transcrição preparada conferida contra os slides. Cada bloco indica os slides de onde vem. Os diagramas redesenham o que as imagens dos slides mostram (mapas, setas, bandeiras, prédios). Nenhuma imagem dos slides é reproduzida aqui.</p>
+  <p>Acréscimos editoriais, marcados como tais: os exemplos hipotéticos da “Lei X”, a organização do quadro comparativo e as remissões a outras aulas e ao programa. Esta página ainda não foi cruzada com a bibliografia (Barroso, Mendes &amp; Branco, Lenza). A leitura doutrinária dessas obras é uma etapa separada.</p>
+</details>
+
+<script src="assets/controle.js"></script>
+</body>
+</html>
