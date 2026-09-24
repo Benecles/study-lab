@@ -88,10 +88,6 @@ strong{font-weight:600}
 .src{display:block;font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:14px}
 .src::before{content:'◻ '}
 
-/* A single diagram is a figure to study, not a long scroll sequence. */
-.scrolly:has(.step:only-child) .stage{position:relative;top:auto;height:auto;min-height:0;padding:28px 0 52px}
-.scrolly:has(.step:only-child) .steps{padding:0;display:flex;align-items:center}
-.scrolly:has(.step:only-child) .step{min-height:0;width:100%}
 
 /* panel artwork (inline SVG) */
 .fig text{font-family:var(--mono);font-size:13px;letter-spacing:.06em;fill:var(--ink)}
@@ -245,3 +241,25 @@ dl.termos dd{font-size:17px}
 .src,.stage-count,details.provenance,body:has(.src) .titleblock div:first-child{display:none!important}
 .titleblock{grid-template-columns:repeat(3,auto)}
 @media (max-width:860px){.titleblock{grid-template-columns:1fr 1fr}}
+
+/* ---------- motion vocabulary for figures (Contratos) ---------- */
+.panel.on .grow{animation-delay:var(--d,0s)}
+.fig .pop,.fig .fade{transform-box:fill-box;transform-origin:center}
+.panel.on .pop{animation:pop .6s cubic-bezier(.2,1.25,.4,1) both;animation-delay:var(--d,0s)}
+.panel.on .fade{animation:fadein .7s ease both;animation-delay:var(--d,0s)}
+.panel.on .pulse{animation:pulse 1.8s ease-in-out .9s 2}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.94)}}
+@keyframes fadein{from{opacity:0}}
+@keyframes pulse{50%{opacity:.35}}
+.fig .t-hand{font-family:var(--serif);font-style:italic;font-size:19px;letter-spacing:0}
+.fig .tag{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.fig .dot{fill:var(--ink)}
+.fig .accent{fill:var(--accent)}
+.fig .s-accent{stroke:var(--accent);fill:none;stroke-width:3}
+.fig .s-mix{stroke:var(--mix);fill:none;stroke-width:3}
+.fig .stamp-t{font-family:var(--sans);font-weight:800;font-size:22px;letter-spacing:.06em}
+.stage-step{font-variant-numeric:tabular-nums}
+.hero-fork .pop{opacity:0;animation:heroin .6s ease forwards;animation-delay:var(--d,1.4s)}
+@keyframes heroin{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.panel.on .pop,.panel.on .fade,.panel.on .pulse,.hero-fork .pop{animation:none;opacity:1}}
+.fig .c-mix{stroke:var(--mix);fill:none;stroke-width:3} .fig .w-mix{fill:var(--mix-wash)}

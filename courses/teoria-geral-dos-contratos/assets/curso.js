@@ -13,11 +13,13 @@
         var on = p.id === id;
         if (on && !p.classList.contains('on')) {
           // restart draw-on strokes each time a panel comes back
-          p.querySelectorAll('.grow').forEach(function (g) { g.style.animation = 'none'; g.getBoundingClientRect(); g.style.animation = ''; });
+          p.querySelectorAll('.grow,.pop,.fade,.pulse').forEach(function (g) { g.style.animation = 'none'; g.getBoundingClientRect(); g.style.animation = ''; });
         }
         p.classList.toggle('on', on);
       });
       if (caption) caption.textContent = step.getAttribute('data-slides') || '';
+      var counter = block.querySelector('.stage-step');
+      if (counter) counter.textContent = (steps.indexOf(step) + 1) + ' / ' + steps.length;
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) show(e.target); });
