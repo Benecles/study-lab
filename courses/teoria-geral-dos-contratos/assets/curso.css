@@ -267,25 +267,25 @@ dl.termos dd{font-size:17px}
 /* ---- modo noite: the dark drafting sheet from Bifurcação Constitucional ---- */
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --paper:#1a2536;
-  --paper-2:#223047;
-  --grid:#1f2b3e;
-  --grid-major:#2a3850;
+  --paper:#0f1828;
+  --paper-2:#172338;
+  --grid:#142033;
+  --grid-major:#1d2b43;
   --ink:#e5e3da;
   --ink-2:#a9b1bd;
   --muted:#8794a8;
   --conc:#dd8b6b;
-  --conc-wash:#3d2e33;
+  --conc-wash:#33252b;
   --dif:#7fb0dd;
-  --dif-wash:#233a57;
+  --dif-wash:#1b2f4b;
   --mix:#b99ad0;
-  --mix-wash:#302b45;
+  --mix-wash:#28253c;
   --const:#e5e3da;
   --accent:#d9b85a;
   --rule:#e5e3da33;
 }
 :root[data-theme="dark"] .caso{background:var(--paper-2)}
-:root[data-theme="dark"] .chave .label{color:#1a2536aa}
+:root[data-theme="dark"] .chave .label{color:#0f1828aa}
 :root[data-theme="dark"] img{filter:brightness(.9)}
 body{transition:background-color .35s ease,color .35s ease}
 .topbar{align-items:center}
