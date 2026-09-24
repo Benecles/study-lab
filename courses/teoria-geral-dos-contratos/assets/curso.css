@@ -263,3 +263,37 @@ dl.termos dd{font-size:17px}
 @keyframes heroin{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.panel.on .pop,.panel.on .fade,.panel.on .pulse,.hero-fork .pop{animation:none;opacity:1}}
 .fig .c-mix{stroke:var(--mix);fill:none;stroke-width:3} .fig .w-mix{fill:var(--mix-wash)}
+
+/* ---- modo noite: the dark drafting sheet from Bifurcação Constitucional ---- */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#16181a;
+  --paper-2:#212528;
+  --grid:#1e2124;
+  --grid-major:#272b2f;
+  --ink:#e5e3da;
+  --ink-2:#a0a29a;
+  --muted:#8b8d84;
+  --conc:#dd8b6b;
+  --conc-wash:#3a2721;
+  --dif:#7fb0dd;
+  --dif-wash:#1f2e3c;
+  --mix:#b99ad0;
+  --mix-wash:#2d2536;
+  --const:#e5e3da;
+  --accent:#d9b85a;
+  --rule:#e5e3da33;
+}
+:root[data-theme="dark"] .caso{background:var(--paper-2)}
+:root[data-theme="dark"] .chave .label{color:#16181aaa}
+:root[data-theme="dark"] img{filter:brightness(.9)}
+body{transition:background-color .35s ease,color .35s ease}
+.topbar{align-items:center}
+.topbar>span{margin-left:auto}
+.theme-toggle{display:inline-flex;align-items:center;gap:8px;padding:4px 2px;border:0;background:none;color:var(--ink-2);font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer}
+.theme-toggle:hover{color:var(--ink)}
+.theme-toggle:focus-visible{outline:2px solid var(--dif);outline-offset:3px}
+.tt-track{position:relative;width:30px;height:16px;border:1.5px solid currentColor;border-radius:9px}
+.tt-knob{position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:var(--conc);transition:transform .3s cubic-bezier(.2,1.25,.4,1),background-color .3s}
+.theme-toggle[aria-pressed="true"] .tt-knob{transform:translateX(14px);background:var(--dif)}
+@media (max-width:560px){.tt-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
