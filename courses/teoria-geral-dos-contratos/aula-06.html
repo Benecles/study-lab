@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Incidentes da formação · Teoria Geral dos Contratos</title>
+<meta name="description" content="Cinco mecanismos que alteram a formação ou os efeitos do contrato: estipulação em favor de terceiro, promessa de fato de terceiro, pessoa a declarar, contrato preliminar e arras.">
+<link rel="stylesheet" href="assets/curso.css?v=20260924-1">
+<style>
+.incidentes{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.incidentes .intro{max-width:70ch;color:var(--ink-2);font-size:19px}
+.incidentes .mecanismos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:28px 0}
+.incidentes .mecanismos article{padding:16px 18px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:4px 4px 0 var(--grid-major)}
+.incidentes .mecanismos h3{font:700 20px/1.2 var(--sans);margin:8px 0}
+.incidentes .mecanismos p{font-size:16px;line-height:1.5;margin:0}
+.incidentes .diagram{margin:32px 0;background:var(--paper);border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--grid-major);overflow-x:auto}
+.incidentes .diagram::before{content:"Deslize horizontalmente para ler o diagrama →";display:none}
+@media(max-width:640px){.incidentes .diagram::before{display:block;position:sticky;left:0;z-index:1;width:max-content;padding:5px 8px;background:var(--paper);font:11px var(--mono);color:var(--ink-2)}}
+.incidentes .diagram svg{display:block;width:100%;height:auto}
+.incidentes .diagram figcaption{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border-top:1px solid var(--ink);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.incidentes .diagram text{font-family:var(--mono);font-size:13px;letter-spacing:.04em;fill:var(--ink)}
+.incidentes .diagram .big{font-family:var(--sans);font-size:20px;font-weight:700;letter-spacing:0}
+.incidentes .diagram .small{font-size:11px}
+.incidentes .diagram .sub{font-family:var(--serif);font-size:14px;letter-spacing:0}
+.incidentes .diagram .box{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}
+.incidentes .diagram .pre{fill:var(--dif-wash);stroke:var(--dif);stroke-width:2}
+.incidentes .diagram .def{fill:var(--conc-wash);stroke:var(--conc);stroke-width:2}
+.incidentes .diagram .arras{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.5}
+.incidentes .diagram .line{fill:none;stroke:var(--ink);stroke-width:2}
+.incidentes .diagram .line-blue{fill:none;stroke:var(--dif);stroke-width:3}
+.incidentes .diagram .line-red{fill:none;stroke:var(--conc);stroke-width:3}
+.incidentes .diagram .txt-blue{fill:var(--dif)}
+.incidentes .diagram .txt-red{fill:var(--conc)}
+.incidentes .table-wrap{overflow-x:auto}
+.incidentes .compare{min-width:650px}
+.incidentes .compare td,.incidentes .compare th{font-size:16px}
+.incidentes .alerta{margin:24px 0;padding:15px 18px;border-left:3px solid var(--conc);background:var(--paper-2);font-size:16px}
+.incidentes .caso{margin:18px 0;padding:14px 18px;background:var(--paper-2);border:1px dashed var(--ink-2);font-size:16px;line-height:1.55}
+.incidentes .caso .label{display:block;margin-bottom:5px;color:var(--ink-2)}
+.incidentes .quiz{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.incidentes .quiz details{height:100%;background:var(--paper)}
+.incidentes .quiz summary{padding:13px 16px;background:var(--paper-2)}
+.incidentes .quiz p{padding:0 16px 12px;margin:0;font-size:16px}
+@media(max-width:640px){.incidentes .diagram svg{min-width:900px}.incidentes .diagram figcaption{min-width:900px}.incidentes .diagram text{font-size:12px}.incidentes .diagram .big{font-size:17px}.incidentes .diagram .sub{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="topbar"><a href="index.html">← Teoria Geral dos Contratos</a><span>Aula 06 · Incidentes da formação</span></nav>
+<header class="hero">
+  <div class="kicker label"><span>Formação · efeitos especiais</span><span>Três posições possíveis</span><span>Do vínculo projetado à garantia</span></div>
+  <h1><span class="split">Incidentes</span><span class="split">da formação</span></h1>
+  <p class="deck">Quatro figuras que aparecem na formação do contrato: a estipulação em favor de terceiro, a promessa de fato de terceiro, o contrato com pessoa a declarar e o contrato preliminar. E as arras, o sinal que acompanha a conclusão do negócio.</p>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Percurso<b>5 mecanismos contratuais</b></div>
+    <div role="listitem">Foco<b>Terceiro, promessa e posição</b></div>
+    <div role="listitem">Fecho<b>Contrato preliminar e arras</b></div>
+  </div>
+</header>
+<section class="chapter" aria-labelledby="c1"><span class="num" aria-hidden="true">01</span><h2 id="c1">Três formas de envolver um terceiro</h2><p class="lede">Para distinguir as figuras, pergunte: o terceiro recebe uma vantagem, deve praticar um ato ou passa a ocupar o lugar de uma das partes?</p></section>
+<div class="incidentes">
+  <p class="intro">Um contrato pode beneficiar alguém que não o assinou, pode conter a promessa de que outra pessoa fará algo, ou pode reservar a uma das partes o direito de indicar quem ficará em seu lugar. São três estruturas diferentes.</p>
+  <div class="mecanismos">
+    <article><span class="label dif">CC 436–438</span><h3>Estipulação: o terceiro recebe</h3><p>Estipulante e promitente combinam uma prestação a favor de um terceiro. O estipulante pode exigir o cumprimento, e o beneficiário também, sujeito às condições do contrato.</p></article>
+    <article><span class="label conc">CC 439–440</span><h3>Promessa de fato de terceiro: o promitente responde</h3><p>Uma parte promete à outra que um terceiro fará algo. Se o terceiro não fizer, quem prometeu paga perdas e danos.</p></article>
+    <article><span class="label">CC 467–471</span><h3>Pessoa a declarar: o nomeado assume o lugar</h3><p>Uma parte contrata e reserva o direito de indicar depois quem assumirá seus direitos e obrigações. Se a indicação não acontecer como a lei exige, o contrato fica entre os contratantes originais.</p></article>
+  </div>
+  <div class="table-wrap"><table class="compare">
+    <thead><tr><th>Estrutura</th><th>O que acontece com o terceiro?</th><th>Quem suporta a falha?</th></tr></thead>
+    <tbody>
+      <tr><th>Em favor de terceiro</th><td>Recebe a prestação e pode exigi-la, sujeito às condições do contrato.</td><td>O promitente continua obrigado perante o estipulante.</td></tr>
+      <tr><th>Promessa de fato</th><td>Não fica obrigado só porque alguém prometeu por ele.</td><td>O promitente paga perdas e danos se o terceiro não agir (art. 439).</td></tr>
+      <tr><th>Pessoa a declarar</th><td>Nomeado e aceito, assume direitos e deveres desde a celebração.</td><td>Sem nomeação eficaz, ou nos casos dos arts. 470 e 471, o contrato fica com os originais.</td></tr>
+    </tbody>
+  </table></div>
+</div>
+<div class="incidentes">
+  <div class="caso"><span class="label">Exemplo de contraste</span>Uma empresa paga a uma clínica para atender sua equipe: há prestação em favor dos trabalhadores. Se a empresa promete ao shopping que determinada loja âncora será instalada, responde pela promessa nos limites ajustados; não transforma a loja em parte do contrato. Se compra um imóvel e reserva nomear a sociedade que o adquirirá, a sociedade nomeada pode assumir a posição contratual nos termos legais.</div>
+</div>
+<section class="chapter" aria-labelledby="c2"><span class="num" aria-hidden="true">02</span><h2 id="c2">Estipulação em favor de terceiro (arts. 436 a 438)</h2><p class="lede">O acordo é entre estipulante e promitente, mas a prestação vai para o beneficiário.</p></section>
+<div class="incidentes">
+  <p class="intro">O estipulante (ou promissário) contrata em nome próprio com o promitente para que este cumpra uma prestação em favor de um terceiro, o beneficiário. O beneficiário não precisa ter participado da negociação.</p>
+  <ol class="fluxo">
+    <li><b>O estipulante pode exigir</b>O estipulante pode exigir o cumprimento da obrigação (art. 436).</li>
+    <li><b>O beneficiário também pode exigir</b>O terceiro também pode cobrar a prestação, sujeito às condições do contrato, se a ele anuir (art. 436, parágrafo único).</li>
+    <li><b>O estipulante não pode liberar o devedor</b>Se o contrato deu ao beneficiário o direito de reclamar a execução, o estipulante não pode exonerar o promitente (art. 437).</li>
+    <li><b>O beneficiário pode ser substituído</b>Se o estipulante reservou esse direito, pode trocar o beneficiário sem a anuência dele nem do promitente, por ato entre vivos ou por testamento (art. 438).</li>
+  </ol>
+  <p>Duas características da figura: a <strong>gratuidade</strong> (o beneficiário recebe uma vantagem sem dar nada em troca) e a possibilidade de o beneficiário <strong>aceitar ou recusar</strong> o benefício. Exemplo clássico: o seguro de vida.</p>
+</div>
+<section class="chapter" aria-labelledby="c3"><span class="num" aria-hidden="true">03</span><h2 id="c3">Promessa de fato de terceiro (arts. 439 e 440)</h2><p class="lede">O terceiro não fica obrigado porque alguém prometeu por ele. Quem prometeu é que responde.</p></section>
+<div class="incidentes">
+  <p class="intro">O promitente se compromete, perante o promissário, a que um terceiro realize uma prestação. Se o terceiro não a realiza, o promitente responde por perdas e danos (art. 439). Há duas exceções: não há responsabilidade se o terceiro for cônjuge do promitente, o ato depender da anuência dele e, pelo regime de bens, a indenização acabar recaindo sobre os bens do casal (art. 439, parágrafo único); e nada deve o promitente se o terceiro chegou a se obrigar e depois descumpriu (art. 440).</p>
+  <div class="par">
+    <div class="regra"><span class="label">Regra · art. 439</span>O terceiro não cumpre o fato prometido? O promitente responde por perdas e danos. Exemplo: quem assegura que uma loja âncora será instalada pode responder pela promessa assumida, conforme o conteúdo contratual e os fatos provados.</div>
+    <div class="excecao"><span class="label">Limites · arts. 439, parágrafo único, e 440</span>Há exceção restrita quando o terceiro é cônjuge do promitente, o ato depende de anuência e, pelo regime de bens, a indenização poderia recair sobre os bens do cônjuge. Além disso, se o terceiro já se obrigou diretamente e depois descumpre, o art. 440 afasta nova obrigação de quem se comprometeu por ele.</div>
+  </div>
+  <article class="julgado dif"><header><b>Promessa de fato de terceiro</b><span>Shopping e lojas âncora</span></header><div class="corpo"><p>Num caso entre um shopping center e um lojista, o empreendedor havia prometido a instalação de lojas-âncora, e isso pesou na decisão do lojista de investir. As lojas não vieram, e o lojista não foi avisado da mudança de planos. O STJ manteve a condenação do empreendedor.</p><p>O caso não significa que todo anúncio de um shopping seja promessa indenizável. Pesou que a promessa foi feita, que foi decisiva para o lojista e que a informação sobre a mudança foi omitida.</p></div><div class="tese">A responsabilidade depende do compromisso assumido e do contexto provado; a promessa feita por uma parte não vincula automaticamente o terceiro.</div></article>
+</div>
+<section class="chapter" aria-labelledby="c4"><span class="num" aria-hidden="true">04</span><h2 id="c4">Contrato com pessoa a declarar (arts. 467 a 471)</h2><p class="lede">Uma das partes contrata já sabendo que poderá se fazer substituir por outra pessoa, que assumirá o contrato como se o tivesse celebrado.</p></section>
+<div class="incidentes">
+  <p class="intro">Serve para quem quer fechar o negócio sem revelar ainda quem ficará com ele. A reserva precisa constar do contrato (art. 467). A indicação deve ser comunicada à outra parte em cinco dias, salvo outro prazo, e a aceitação do nomeado precisa ter a mesma forma do contrato (art. 468).</p>
+  <ul class="requisitos">
+    <li><b>Indicação válida:</b> o nomeado adquire os direitos e assume as obrigações desde a celebração (art. 469).</li>
+    <li><b>Sem indicação ou com recusa do nomeado:</b> o contrato vale só entre os originais (art. 470, I).</li>
+    <li><b>Nomeado insolvente, sem que o outro soubesse:</b> também fica entre os originais (art. 470, II).</li>
+    <li><b>Nomeado incapaz ou insolvente no momento da nomeação:</b> idem (art. 471).</li>
+  </ul>
+  <p>Não confunda com a estipulação em favor de terceiro. Na pessoa a declarar, o nomeado assume direitos <em>e</em> deveres; na estipulação, o terceiro só recebe uma vantagem.</p>
+</div>
+<section class="chapter" aria-labelledby="c5"><span class="num" aria-hidden="true">05</span><h2 id="c5">Contrato preliminar (arts. 462 a 466)</h2><p class="lede">É um contrato cujo objeto é outro contrato: as partes se obrigam a celebrar o definitivo depois.</p></section>
+<div class="incidentes">
+  <p class="intro">Por que fazer um preliminar? As partes não querem produzir já os efeitos do negócio, mas querem a garantia de que ele vai sair. Em vez de depender da boa vontade do outro, dão ao compromisso a "armadura de um vínculo". Por isso o preliminar deve ter todos os requisitos essenciais do definitivo, exceto a forma (art. 462). Pontos complementares podem ficar para o definitivo.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 900 265" role="img" aria-labelledby="bridge-title bridge-desc">
+      <title id="bridge-title">Da promessa ao contrato definitivo</title><desc id="bridge-desc">O contrato preliminar fixa os elementos essenciais e cria o dever de celebrar o definitivo. Se houver recusa sem direito de arrependimento, a parte pode exigir a celebração; em certos casos, o juiz supre a vontade.</desc>
+      <rect x="40" y="48" width="260" height="130" rx="2" class="pre"/><text x="64" y="83" class="big txt-blue">PRELIMINAR</text><text x="64" y="111" class="sub">Essenciais definidos</text><text x="64" y="137" class="small">forma pode ser diferente</text><text x="64" y="159" class="small">CC 462</text>
+      <path d="M300 112H590" class="line-blue"/><path d="M572 101L592 112L572 123" class="line-blue"/><text x="350" y="88" class="small txt-blue">OBRIGA A CELEBRAR</text>
+      <rect x="600" y="48" width="260" height="130" rx="2" class="def"/><text x="626" y="83" class="big txt-red">DEFINITIVO</text><text x="626" y="111" class="sub">Produz os efeitos</text><text x="626" y="137" class="small">da operação projetada</text><text x="626" y="159" class="small">cumprimento específico</text>
+      <path d="M170 184V226H731V184" class="line"/><text x="250" y="232" class="small">recusa sem arrependimento → exigir o definitivo (463)</text><text x="295" y="252" class="small">juiz pode suprir a vontade quando cabível (464)</text>
+    </svg>
+    <figcaption><span>Do preliminar ao definitivo</span><span>Deslize → · CC 462–466</span></figcaption>
+  </figure>
+  <div class="par">
+    <div class="regra"><span class="label">Sem cláusula de arrependimento</span>Qualquer parte pode exigir que a outra celebre o definitivo, fixando prazo (art. 463). Se a obrigação não for cumprida, o juiz pode suprir a vontade da parte inadimplente e conferir caráter definitivo ao contrato, quando a natureza da obrigação permitir (art. 464). A parte lesada também pode pedir resolução e perdas e danos (art. 465).</div>
+    <div class="excecao"><span class="label">Promessa unilateral</span>Quando apenas uma parte promete contratar, o credor deve manifestar aceitação no prazo previsto ou naquele razoavelmente assinado; sem isso, a promessa perde eficácia (art. 466). A cláusula de arrependimento afasta o direito de exigir a celebração específica previsto no art. 463.</div>
+  </div>
+  <p>O parágrafo único do art. 463 manda levar o preliminar a registro, mas o registro não é requisito de validade: os requisitos estão no art. 462. O registro serve para dar eficácia perante terceiros.</p>
+  <article class="julgado"><header><b>Preliminar e definitivo</b><span>Venda de empreendimento</span></header><div class="corpo"><p>Num caso, as partes assinaram uma proposta e depois um contrato definitivo com outra distribuição de responsabilidades, que declarava substituir os entendimentos anteriores. O STJ fez valer o definitivo: o art. 463 permite exigir o contrato em caso de recusa, mas não impede que as partes o celebrem com conteúdo diferente.</p><p>Ou seja, as partes podem, de comum acordo, mudar o que foi prometido no preliminar. Uma delas sozinha, não.</p></div><div class="tese">O preliminar não tem eficácia superior ao definitivo que as próprias partes depois acordam; sem esse novo consenso, subsiste a obrigação de celebrar nos termos pactuados, observados os arts. 462–465.</div></article>
+</div>
+<section class="chapter" aria-labelledby="c6"><span class="num" aria-hidden="true">06</span><h2 id="c6">Arras ou sinal (arts. 417 a 420)</h2><p class="lede">O sinal confirma o negócio. Se o contrato for cumprido, é devolvido ou abatido do preço; se for descumprido, serve de indenização. Com direito de arrependimento, sua função muda.</p></section>
+<div class="incidentes">
+  <p class="intro">Arras são dinheiro ou outro bem móvel entregue por uma parte à outra na conclusão do contrato (art. 417). Cumprido o contrato, são devolvidas ou abatidas da prestação, se do mesmo gênero. Em regra, são <strong>confirmatórias</strong>: confirmam o negócio.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 900 300" role="img" aria-labelledby="arras-title arras-desc">
+      <title id="arras-title">As duas funções das arras</title><desc id="arras-desc">No cumprimento, o sinal é restituído ou abatido do que falta pagar. No inadimplemento sem direito de arrependimento, há retenção ou devolução mais o equivalente, com possível indenização suplementar comprovada. Com arrependimento previsto, o sinal limita a indenização.</desc>
+      <rect x="338" y="20" width="224" height="62" class="arras"/><text x="390" y="48" class="big">SINAL</text><text x="370" y="68" class="small">dado ao concluir · art. 417</text>
+      <path d="M450 82V114M450 114H208V135M450 114H692V135" class="line"/>
+      <rect x="36" y="136" width="344" height="132" class="pre"/><text x="58" y="168" class="big txt-blue">CUMPRIU</text><text x="58" y="195" class="sub">restitui ou abate na prestação</text><text x="58" y="224" class="small">a prestação segue o contrato</text><text x="58" y="246" class="small">art. 417</text>
+      <rect x="520" y="136" width="344" height="132" class="def"/><text x="542" y="168" class="big txt-red">NÃO CUMPRIU</text><text x="542" y="195" class="sub">retém ou devolve + equivalente</text><text x="542" y="224" class="small">e pode haver dano suplementar</text><text x="542" y="246" class="small">arts. 418–420</text>
+      <text x="42" y="290" class="small txt-blue">SEM ARREPENDIMENTO</text><text x="264" y="290" class="small txt-red">COM ARREPENDIMENTO</text>
+    </svg>
+    <figcaption><span>O destino do sinal</span><span>CC 417–420</span></figcaption>
+  </figure>
+  <div class="par">
+    <div class="regra"><span class="label">Arras confirmatórias · regra geral</span>Se quem deu as arras deixa de cumprir, a outra parte pode desfazer o contrato e retê-las. Se o inadimplemento é de quem as recebeu, quem as entregou pode desfazer o contrato e exigir devolução mais equivalente, atualização monetária, juros e honorários advocatícios (art. 418, redação vigente). A parte inocente pode provar prejuízo maior e pedir complemento; também pode exigir o cumprimento, usando as arras como mínimo indenizatório (art. 419).</div>
+    <div class="excecao"><span class="label">Arras penitenciais · arrependimento previsto</span>Se o contrato concede a qualquer parte o direito de se arrepender, as arras têm função unicamente indenizatória: quem as deu perde o sinal; quem as recebeu devolve-o mais o equivalente. O art. 420 exclui indenização suplementar. A escolha contratual do arrependimento troca o direito de exigir a execução pela saída mediante a consequência convencionada.</div>
+  </div>
+  <p class="alerta"><strong>Arras não são cláusula penal.</strong> As arras são entregues na conclusão do contrato e valem como indenização mínima (art. 419). A cláusula penal é uma pena combinada para o caso de inadimplemento ou mora, e pode ser cobrada sem prova de prejuízo (art. 416).</p>
+</div>
+<section class="chapter" aria-labelledby="c7"><span class="num" aria-hidden="true">07</span><h2 id="c7">Teste</h2><p class="lede">Pergunte sempre: quem recebe, quem promete, quem assume o lugar e o que acontece se algo falhar.</p></section>
+<div class="incidentes">
+  <div class="quiz">
+    <details><summary>Um contrato prevê que o pagamento será feito diretamente a uma pessoa que não o assinou. Que figura é essa?</summary><p>Estipulação em favor de terceiro (arts. 436 a 438). O estipulante pode exigir o pagamento, e o beneficiário também, sujeito às condições do contrato.</p></details>
+    <details><summary>Um empreendedor promete a um lojista que lojas-âncora vão se instalar no shopping. Elas não vêm. As lojas-âncora respondem?</summary><p>Não. Promessa de fato de terceiro não obriga o terceiro. Quem responde por perdas e danos é o empreendedor, que prometeu (art. 439).</p></details>
+    <details><summary>Uma parte se recusa a assinar o contrato definitivo. O que a outra pode fazer?</summary><p>Se o preliminar tem os requisitos essenciais e não prevê arrependimento, pode exigir o definitivo, e o juiz supre a vontade de quem se recusa (arts. 463 e 464). Alternativamente, pode pedir perdas e danos (art. 465).</p></details>
+    <details><summary>O contrato prevê direito de arrependimento, e houve entrega de sinal. Uma parte desiste. O que acontece?</summary><p>As arras são penitenciais. Se desiste quem deu o sinal, perde-o; se desiste quem recebeu, devolve-o mais o equivalente. Não há indenização suplementar (art. 420).</p></details>
+  </div>
+  <div class="chave"><span class="label">Chave de leitura</span>Benefício ao terceiro, promessa de ato alheio e nomeação de parte são posições jurídicas diferentes. O preliminar dá forma ao compromisso de contratar no futuro; as arras definem a consequência patrimonial ligada ao cumprimento, ao inadimplemento ou ao arrependimento.</div>
+</div>
+<nav class="endnav" aria-label="Navegação entre aulas">
+  <a href="aula-05.html"><span>← Aula anterior</span>Oferta e aceitação</a>
+  <a href="index.html"><span>Planta do curso</span>Teoria Geral dos Contratos</a>
+  <a href="revisao-p1.html"><span>Revisão</span>Retomar os pontos-chave</a>
+  <a href="aula-07.html"><span>Próxima aula →</span>Classificação dos contratos</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classificação dos contratos II · Teoria Geral dos Contratos</title>
+<meta name="description" content="Leia os contratos por eixos distintos: formação, estrutura, execução, negociação, conexão e função da relação.">
+<link rel="stylesheet" href="assets/curso.css">
+<style>
+.class08{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.class08 .intro{max-width:70ch;color:var(--ink-2);font-size:19px}
+.class08 .diagram{margin:32px 0;background:var(--paper);border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--grid-major);overflow-x:auto}
+.class08 > .diagram::before{content:"Deslize horizontalmente para ler o diagrama →";display:none}
+@media(max-width:640px){.class08 > .diagram::before{display:block;position:sticky;left:0;z-index:1;width:max-content;padding:5px 8px;background:var(--paper);font:11px var(--mono);color:var(--ink-2)}}
+.class08 .diagram svg{display:block;width:100%;height:auto}
+.class08 .diagram figcaption{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border-top:1px solid var(--ink);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.class08 .diagram text{font-family:var(--mono);font-size:13px;letter-spacing:.035em;fill:var(--ink)}
+.class08 .diagram .big{font-family:var(--sans);font-size:22px;font-weight:700;letter-spacing:0}
+.class08 .diagram .mid{font-family:var(--sans);font-size:17px;font-weight:650;letter-spacing:0}
+.class08 .diagram .small{font-size:11px}
+.class08 .diagram .serif{font-family:var(--serif);font-size:15px;letter-spacing:0}
+.class08 .diagram .box{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}
+.class08 .diagram .wash{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.5}
+.class08 .diagram .blue{fill:var(--dif-wash);stroke:var(--dif);stroke-width:2}
+.class08 .diagram .red{fill:var(--conc-wash);stroke:var(--conc);stroke-width:2}
+.class08 .diagram .line{fill:none;stroke:var(--ink);stroke-width:1.6}
+.class08 .diagram .line-blue{fill:none;stroke:var(--dif);stroke-width:3}
+.class08 .diagram .line-red{fill:none;stroke:var(--conc);stroke-width:3}
+.class08 .diagram .txt-blue{fill:var(--dif)}
+.class08 .diagram .txt-red{fill:var(--conc)}
+.class08 .diagram .txt-muted{fill:var(--muted)}
+.class08 .diagram .dash{stroke-dasharray:6 6}
+.class08 .alerta{margin:24px 0;padding:15px 18px;border-left:3px solid var(--conc);background:var(--paper-2);font-size:16px}
+.class08 .caso{margin:18px 0;padding:14px 18px;background:var(--paper-2);border:1px dashed var(--ink-2);font-size:16px;line-height:1.55}
+.class08 .caso .label{display:block;margin-bottom:5px;color:var(--ink-2)}
+.class08 .table-wrap{overflow-x:auto;margin:26px 0}
+.class08 table.compare{min-width:680px;margin:0;font-size:16px}
+.class08 table.compare td,.class08 table.compare th{font-size:16px}
+.class08 .quiz{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.class08 .quiz details{height:100%;background:var(--paper)}
+.class08 .quiz summary{padding:13px 16px;background:var(--paper-2)}
+.class08 .quiz p{padding:0 16px 14px;margin:0;font-size:16px}
+@media(max-width:640px){
+.class08 .scrolly{min-width:0}
+.class08 > .diagram svg{min-width:900px}
+.class08 > .diagram figcaption{min-width:900px}
+.class08 .diagram text{font-size:12px}
+.class08 .diagram .big{font-size:18px}
+.class08 .diagram .mid{font-size:14px}
+.class08 .diagram .serif{font-size:12px}
+.scrolly .stage{position:relative;top:auto;height:auto;min-width:0;width:100%;padding:10px 0 34px}
+.scrolly .stage figure{width:100%;max-width:100%;min-width:0;height:min(600px,78vh);max-height:78vh;aspect-ratio:auto;display:block;overflow:auto}
+.scrolly .stage figure::before{content:"Deslize horizontalmente para ler o diagrama →";display:block;position:sticky;left:0;z-index:3;width:max-content;padding:5px 8px;background:var(--paper);font:11px var(--mono);color:var(--ink-2)}
+.scrolly .stage .panel{position:relative;inset:auto;display:none;width:600px;height:600px;opacity:1;transition:none}
+.scrolly .stage .panel.on{display:block}
+.scrolly .stage figcaption{display:none}
+}
+</style>
+</head>
+<body>
+<nav class="topbar"><a href="index.html">← Teoria Geral dos Contratos</a><span>Aula 08 · Classificação II</span></nav>
+<header class="hero">
+  <div class="kicker label"><span>Classificação dos contratos</span><span>Vários eixos, uma operação concreta</span><span>Forma · tempo · estrutura · função</span></div>
+  <h1><span class="split">Classificação</span><span class="split">dos contratos II</span></h1>
+  <p class="deck">Mais cinco critérios: como o contrato se forma, quando é cumprido, quem define as cláusulas, como se relaciona com outros contratos e que interesse atende. O contraste entre <strong class="dif">paritário</strong> e <strong class="conc">de adesão</strong> é um deles.</p>
+  <div class="titleblock label" role="list">
+    <div role="listitem">Método<b>Classificar por critério</b></div>
+    <div role="listitem">Eixo em destaque<b>Negociação do conteúdo</b></div>
+    <div role="listitem">Anterior<b>Aula 07 · Classificação I</b></div>
+  </div>
+</header>
+
+<section class="chapter" aria-labelledby="c1"><span class="num" aria-hidden="true">01</span><h2 id="c1">Os critérios</h2><p class="lede">Um mesmo contrato pode ser consensual, de execução diferida, de adesão e acessório. As classificações se acumulam porque cada uma olha para um aspecto.</p></section>
+<div class="scrolly">
+  <div class="stage" aria-hidden="true"><figure>
+    <svg class="panel fig on" id="p-eixos" viewBox="0 0 600 600" role="img" aria-label="Quatro eixos independentes para classificar um contrato">
+      <text x="40" y="48" class="t-small tc-muted">A MESMA RELAÇÃO · QUATRO CRITÉRIOS</text>
+      <rect x="40" y="72" width="520" height="60" class="ink f-paper"/><text x="62" y="109" class="t-mid">UM CONTRATO CONCRETO</text>
+      <path d="M300 132V164M300 164H118V188M300 164H482V188" class="thin"/>
+      <rect x="34" y="188" width="168" height="112" class="w-grey ink"/><text x="50" y="220" class="t-small tc-muted">FORMAÇÃO</text><text x="50" y="250" class="t-mid">consensual</text><text x="50" y="275" class="t-small">formal · real</text>
+      <rect x="216" y="188" width="168" height="112" class="w-grey ink"/><text x="232" y="220" class="t-small tc-muted">ESTRUTURA</text><text x="232" y="250" class="t-mid">principal</text><text x="232" y="275" class="t-small">acessório</text>
+      <rect x="398" y="188" width="168" height="112" class="w-grey ink"/><text x="414" y="220" class="t-small tc-muted">EXECUÇÃO</text><text x="414" y="250" class="t-mid">imediata</text><text x="414" y="275" class="t-small">diferida · contínua</text>
+      <text x="40" y="354" class="t-small tc-muted">NEGOCIAÇÃO DO CONTEÚDO</text>
+      <rect x="40" y="374" width="238" height="76" class="w-dif ink"/><text x="60" y="407" class="t-mid tc-dif">PARITÁRIO</text><text x="60" y="431" class="t-small">espaço de negociação</text>
+      <rect x="322" y="374" width="238" height="76" class="w-conc ink"/><text x="342" y="407" class="t-mid tc-conc">POR ADESÃO</text><text x="342" y="431" class="t-small">conteúdo predisposto</text>
+      <path d="M278 412H322" class="thin dash"/>
+      <text x="40" y="506" class="t-small tc-muted">OUTROS RECORTES</text>
+      <rect x="40" y="522" width="238" height="48" class="ink f-paper"/><text x="56" y="552" class="t-small">TIPICIDADE · CONEXÃO · FUNÇÃO</text>
+      <rect x="322" y="522" width="238" height="48" class="ink f-paper"/><text x="338" y="552" class="t-small">CADA UM TEM SEU CRITÉRIO</text>
+    </svg>
+    <svg class="panel fig" id="p-forma" viewBox="0 0 600 600" role="img" aria-label="A forma de celebração pode ser livre, exigida pela lei ou tornada essencial pelas partes">
+      <text x="40" y="48" class="t-small tc-muted">FORMA · COMO O CONTRATO SE APERFEIÇOA</text>
+      <rect x="40" y="82" width="520" height="76" class="w-grey ink"/><text x="62" y="116" class="t-mid">Consensual</text><text x="62" y="142" class="t-small">o acordo basta para formar o vínculo</text>
+      <path d="M300 158V198M300 198H158V222M300 198H442V222" class="thin"/>
+      <rect x="40" y="222" width="236" height="124" class="w-conc ink"/><text x="58" y="256" class="t-mid tc-conc">Formal / solene</text><text x="58" y="284" class="t-small">a lei exige forma específica</text><text x="58" y="312" class="t-small">para validade do negócio</text>
+      <rect x="324" y="222" width="236" height="124" class="w-dif ink"/><text x="342" y="256" class="t-mid tc-dif">Real</text><text x="342" y="284" class="t-small">além do consenso, exige</text><text x="342" y="312" class="t-small">entrega para se aperfeiçoar</text>
+      <text x="40" y="394" class="t-small tc-muted">DUAS FONTES POSSÍVEIS PARA A FORMA</text>
+      <rect x="40" y="416" width="236" height="96" class="w-grey ink"/><text x="58" y="447" class="t-mid">Lei</text><text x="58" y="474" class="t-small">CC 107–108 · regra e exceção</text><text x="58" y="494" class="t-small">escritura em hipótese legal</text>
+      <rect x="324" y="416" width="236" height="96" class="w-grey ink"/><text x="342" y="447" class="t-mid">Partes</text><text x="342" y="474" class="t-small">CC 109 · forma convencionada</text><text x="342" y="494" class="t-small">pode ser essencial ao ato</text>
+      <text x="40" y="554" class="t-small tc-muted">ESCRITO NÃO SIGNIFICA, POR SI SÓ, FORMA LEGAL OBRIGATÓRIA</text>
+    </svg>
+    <svg class="panel fig" id="p-tempo" viewBox="0 0 600 600" role="img" aria-label="Diferença entre execução imediata, diferida, continuada e periódica">
+      <text x="40" y="48" class="t-small tc-muted">EXECUÇÃO · QUANDO E COMO A PRESTAÇÃO SE CUMPRE</text>
+      <text x="40" y="102" class="t-mid tc-dif">IMEDIATA</text><text x="252" y="102" class="t-small">um só momento</text><line x1="62" y1="145" x2="538" y2="145" class="thin"/><circle cx="100" cy="145" r="12" class="f-dif"/>
+      <text x="40" y="220" class="t-mid tc-conc">DIFERIDA</text><text x="252" y="220" class="t-small">cumprimento deslocado para depois</text><line x1="62" y1="264" x2="538" y2="264" class="thin"/><circle cx="494" cy="264" r="12" class="f-conc"/>
+      <text x="40" y="339" class="t-mid tc-dif">CONTINUADA</text><text x="252" y="339" class="t-small">prestação se mantém no tempo</text><line x1="62" y1="382" x2="538" y2="382" class="c-dif"/><circle cx="62" cy="382" r="7" class="f-dif"/><circle cx="538" cy="382" r="7" class="f-dif"/>
+      <text x="40" y="458" class="t-mid tc-conc">PERIÓDICA</text><text x="252" y="458" class="t-small">prestações se renovam por intervalos</text><line x1="62" y1="501" x2="538" y2="501" class="thin"/><circle cx="100" cy="501" r="9" class="f-conc"/><circle cx="246" cy="501" r="9" class="f-conc"/><circle cx="392" cy="501" r="9" class="f-conc"/><circle cx="538" cy="501" r="9" class="f-conc"/>
+      <rect x="40" y="536" width="520" height="42" class="ink f-paper"/><text x="56" y="563" class="t-small">TEMPO DE EXECUÇÃO ≠ DURAÇÃO TOTAL DO CONTRATO</text>
+    </svg>
+    <svg class="panel fig" id="p-adesao" viewBox="0 0 600 600" role="img" aria-label="Contratos paritários e contratos de adesão distinguem o espaço de negociação">
+      <text x="40" y="48" class="t-small tc-muted">NEGOCIAÇÃO · QUEM DEFINIU O CONTEÚDO?</text>
+      <rect x="40" y="92" width="236" height="152" class="w-dif ink"/><text x="58" y="128" class="t-mid tc-dif">PARITÁRIO</text><text x="58" y="160" class="t-small">há espaço efetivo para</text><text x="58" y="184" class="t-small">discutir cláusulas entre</text><text x="58" y="208" class="t-small">as partes</text>
+      <rect x="324" y="92" width="236" height="152" class="w-conc ink"/><text x="342" y="128" class="t-mid tc-conc">POR ADESÃO</text><text x="342" y="160" class="t-small">conteúdo predisposto;</text><text x="342" y="184" class="t-small">aderente aceita ou recusa</text><text x="342" y="208" class="t-small">o conjunto, em regra</text>
+      <path d="M276 168H324" class="thin dash"/>
+      <text x="40" y="296" class="t-small tc-muted">O RÓTULO NÃO DEFINE, SOZINHO, O REGIME</text>
+      <rect x="40" y="320" width="520" height="78" class="w-grey ink"/><text x="58" y="351" class="t-mid">Adesão ≠ contrato de consumo</text><text x="58" y="378" class="t-small">há adesão sem consumidor; consumo pode ter negociação individual</text>
+      <rect x="40" y="424" width="520" height="78" class="w-grey ink"/><text x="58" y="455" class="t-mid">CC 423 ≠ CDC 47</text><text x="58" y="482" class="t-small">ambiguidade no CC; leitura favorável ao consumidor no CDC</text>
+      <text x="40" y="544" class="t-small tc-muted">CC 421-A · PRESUNÇÃO RELATIVA NOS CONTRATOS CIVIS E EMPRESARIAIS</text>
+      <text x="40" y="568" class="t-small tc-muted">RESPEITADOS ELEMENTOS CONCRETOS E REGIMES ESPECIAIS</text>
+    </svg>
+    <figcaption><span>Os critérios de classificação</span><span class="stage-count">Mapa de critérios</span></figcaption>
+  </figure></div>
+  <div class="steps">
+    <div class="step on" data-panel="p-eixos" data-slides="Mapa de critérios"><div class="card"><span class="label">Como usar o mapa</span><h3>Uma classificação não exclui as outras</h3><p>Classificar é escolher um critério e ver em que categoria o contrato cai. "Real" diz respeito à formação; "acessório", à dependência; "diferido", ao momento do cumprimento; "de adesão", ao modo de negociar.</p><p>Por isso, comece pela pergunta que o caso faz.</p></div></div>
+    <div class="step" data-panel="p-forma" data-slides="Forma de formação"><div class="card"><span class="label conc">Consenso e forma</span><h3>Consensuais, formais e reais</h3><p>Nos contratos <strong>consensuais</strong>, basta o acordo de vontades; a entrega da coisa já é cumprimento. Nos <strong>reais</strong>, o contrato só se forma com a entrega da coisa (ex.: comodato, mútuo, depósito). Nos <strong>formais</strong>, a lei exige uma forma específica.</p><p>A regra é a liberdade de forma (art. 107). A exceção mais importante é a escritura pública para negócios sobre direitos reais em imóveis acima de trinta salários mínimos (art. 108): é a forma <em>legal</em>. As partes também podem combinar que o contrato só vale se tiver certa forma (art. 109): é a forma <em>convencional</em>. Um contrato não é formal só porque foi escrito.</p></div></div>
+    <div class="step" data-panel="p-tempo" data-slides="Tempo de execução"><div class="card"><span class="label dif">Calendário das prestações</span><h3>Execução imediata, diferida ou continuada</h3><p>Na execução <strong>imediata</strong>, a prestação é cumprida de uma vez, logo. Na <strong>diferida</strong>, é cumprida de uma vez, mas no futuro. Na <strong>continuada</strong> (ou de trato sucessivo), é cumprida ao longo do tempo, como na locação.</p><p>A classificação importa sobretudo para a onerosidade excessiva: o art. 478 só se aplica aos contratos de execução continuada ou diferida, porque é neles que o tempo pode desequilibrar as prestações.</p></div></div>
+    <div class="step" data-panel="p-adesao" data-slides="Modo de negociação"><div class="card"><span class="label conc">Negociação e predisposição</span><h3>Paritários × de adesão</h3><p>No contrato <strong>paritário</strong>, as partes negociam as cláusulas em pé de igualdade. No <strong>de adesão</strong>, uma parte redige as cláusulas, e a outra só pode aceitar ou recusar o conjunto. Poder escolher entre algumas opções não é negociar.</p><p>Adesão não é o mesmo que consumo: há contratos de adesão entre empresas. No Código Civil, as cláusulas ambíguas ou contraditórias se interpretam a favor do aderente (art. 423), e é nula a renúncia antecipada a direito inerente ao negócio (art. 424). No CDC, as cláusulas em geral se interpretam a favor do consumidor (art. 47). O art. 421-A presume paritários os contratos civis e empresariais, até prova em contrário.</p></div></div>
+  </div>
+</div>
+
+<section class="chapter" aria-labelledby="c2"><span class="num" aria-hidden="true">02</span><h2 id="c2">Principais, acessórios, mistos e coligados</h2><p class="lede">Um contrato pode depender de outro para existir. Ou dois contratos independentes podem servir à mesma operação econômica.</p></section>
+<div class="class08">
+  <p class="intro">Para classificar, veja se há um contrato ou vários, e se um depende juridicamente do outro.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 900 350" role="img" aria-labelledby="estrutura-title estrutura-desc">
+      <title id="estrutura-title">Um contrato misto e vários contratos conectados</title><desc id="estrutura-desc">No contrato misto, um único vínculo combina elementos de diferentes tipos. Na conexão, vários contratos conservam sua identidade e se ligam por uma finalidade comum. A relação principal e acessório envolve subordinação de um contrato a outro.</desc>
+      <text x="36" y="34" class="small txt-muted">NÚMERO DE CONTRATOS E GRAU DE DEPENDÊNCIA</text>
+      <rect x="32" y="62" width="252" height="206" class="wash"/><text x="52" y="96" class="mid">UM CONTRATO</text><rect x="58" y="124" width="200" height="92" class="blue"/><text x="78" y="160" class="mid txt-blue">MISTO</text><text x="78" y="188" class="small">combina elementos de</text><text x="78" y="205" class="small">mais de um tipo</text><text x="52" y="244" class="small">uma estrutura contratual</text>
+      <rect x="324" y="62" width="252" height="206" class="wash"/><text x="344" y="96" class="mid">DOIS OU MAIS</text><rect x="350" y="124" width="86" height="62" class="box"/><text x="365" y="161" class="small">Ajuste A</text><rect x="462" y="124" width="86" height="62" class="box"/><text x="477" y="161" class="small">Ajuste B</text><path d="M436 155H462" class="line-red dash"/><text x="344" y="211" class="mid txt-red">COLIGADOS / CONEXOS</text><text x="344" y="237" class="small">ligação funcional, sem fusão</text>
+      <rect x="616" y="62" width="252" height="206" class="wash"/><text x="636" y="96" class="mid">DEPENDÊNCIA</text><rect x="648" y="122" width="188" height="56" class="blue"/><text x="670" y="157" class="mid txt-blue">PRINCIPAL</text><path d="M742 178V207" class="line"/><rect x="648" y="211" width="188" height="42" class="red"/><text x="670" y="238" class="mid txt-red">ACESSÓRIO</text>
+      <text x="36" y="314" class="small txt-muted">CONEXÃO FINALÍSTICA NÃO CRIA, SOZINHA, SUBORDINAÇÃO OU INVALIDADE AUTOMÁTICA</text>
+    </svg>
+    <figcaption><span>Contrato misto, coligação e acessoriedade</span><span>Deslize → · estrutura do vínculo</span></figcaption>
+  </figure>
+  <div class="table-wrap"><table class="compare"><thead><tr><th>Categoria</th><th>O que observar</th><th>Exemplo de leitura</th></tr></thead><tbody>
+    <tr><th>Principal / acessório</th><td>O acessório depende do principal e segue a sua sorte: extinta a dívida, extingue-se a fiança que a garante.</td><td>O segundo contrato existe para servir ao primeiro?</td></tr>
+    <tr><th>Misto</th><td>Um só contrato combina elementos de tipos diferentes.</td><td>Ex.: um contrato de hospedagem reúne locação, prestação de serviços e depósito.</td></tr>
+    <tr><th>Coligado / conexo</th><td>Vários contratos, cada um com sua individualidade, ligados por uma finalidade econômica comum.</td><td>Ex.: na compra de um carro financiado, a compra e venda e o financiamento servem à mesma operação.</td></tr>
+  </tbody></table></div>
+  <p class="intro">A doutrina usa "coligados" e "conexos" quase como sinônimos. O que importa é reconhecer vários contratos ligados entre si, sem confundir isso com acessoriedade.</p>
+  <div class="par"><div class="regra"><span class="label dif">Típico</span>Há disciplina legal que oferece um modelo para aquele tipo contratual. “Típico” não significa frequente, padronizado ou celebrado por escrito.</div><div class="excecao"><span class="label conc">Atípico</span>O contrato não se enquadra integralmente em um modelo legal específico. O art. 425 do Código Civil permite contratos atípicos, observadas as normas gerais do Código. A combinação de prestações conhecidas pode ser mista; misto e atípico não são sinônimos necessários.</div></div>
+</div>
+
+<section class="chapter" aria-labelledby="c3"><span class="num" aria-hidden="true">03</span><h2 id="c3">Relacionais, existenciais e de lucro</h2><p class="lede">Há também classificações que olham para o modo como a relação funciona e para o interesse que ela atende.</p></section>
+<div class="class08">
+  <figure class="diagram">
+    <svg viewBox="0 0 900 315" role="img" aria-labelledby="lentes-title lentes-desc">
+      <title id="lentes-title">Duas lentes diferentes sobre o mesmo contrato</title><desc id="lentes-desc">A lente relacional examina continuidade, interação e cooperação; a lente existencial examina a função do bem ou serviço para necessidades humanas essenciais. Um contrato pode ser visto pelas duas lentes.</desc>
+      <rect x="40" y="50" width="360" height="202" class="blue"/><text x="66" y="88" class="big txt-blue">LENTE DA RELAÇÃO</text><text x="66" y="128" class="mid">isolada  ←→  relacional</text><text x="66" y="162" class="small">interação ao longo do tempo</text><text x="66" y="186" class="small">cooperação e adaptação</text><text x="66" y="210" class="small">termos podem se completar na execução</text>
+      <rect x="500" y="50" width="360" height="202" class="red"/><text x="526" y="88" class="big txt-red">LENTE DO INTERESSE</text><text x="526" y="128" class="mid">não essencial  ←→  existencial</text><text x="526" y="162" class="small">bem ou serviço ligado à subsistência</text><text x="526" y="186" class="small">saúde · moradia · alimentação</text><text x="526" y="210" class="small">dignidade e necessidade no caso</text>
+      <path d="M400 150H500" class="line dash"/><rect x="390" y="132" width="120" height="38" class="box"/><text x="405" y="157" class="small">MESMO AJUSTE</text>
+      <text x="40" y="291" class="small txt-muted">DUAS LENTES INDEPENDENTES · UMA RELAÇÃO PODE SER CONTINUADA SEM SER RELACIONAL</text>
+    </svg>
+    <figcaption><span>Estrutura da relação e função da prestação</span><span>Deslize → · critérios que se cruzam</span></figcaption>
+  </figure>
+  <p class="intro">O contrato <strong>descontínuo</strong> (ou isolado) é uma troca pontual. O <strong>relacional</strong> se desenvolve numa interação contínua, deixa aspectos para definir durante a execução e exige cooperação para acomodar mudanças (ex.: franquia, fornecimento de longo prazo). Durar muito não basta: uma locação de temporada com tudo definido desde o início não é relacional.</p>
+  <p class="intro">Ruy Rosado de Aguiar distingue ainda os contratos <strong>existenciais</strong>, que atendem a necessidades ligadas à subsistência e à dignidade da pessoa (saúde, moradia, alimentação), dos contratos <strong>de lucro</strong>, celebrados por empresas no exercício da atividade ou por investidores em busca de ganho. O que decide é a função econômica do contrato, não a intenção de quem contrata.</p>
+  <p class="intro">Os critérios podem se cruzar: uma empresa lucra oferecendo plano de saúde, mas, para o paciente, o contrato é existencial. Nos existenciais, a intervenção protetiva tende a ser mais intensa.</p>
+  <div class="caso"><span class="label">Duas qualificações no mesmo exemplo</span>Um plano individual de assistência médica pode ser uma relação de execução continuada, formada por adesão e relacional pela interação duradoura e pela necessidade de administrar acontecimentos futuros. O caráter existencial depende da função efetiva da prestação e das circunstâncias. A condição de relação de consumo segue seu próprio critério jurídico. Essas respostas não se substituem.</div>
+  <div class="alerta"><strong>Não transforme a lente em atalho automático.</strong> Nem todo contrato de consumo é existencial: o objeto pode ser supérfluo. Nem todo contrato de adesão envolve consumidor: uma empresa também pode aderir a condições predispostas. E um vínculo longo pode permanecer fechado e estável, sem a dinâmica relacional descrita.</div>
+  <p class="intro">Nenhum desses rótulos decide sozinho o resultado de um caso.</p>
+</div>
+
+<section class="chapter" aria-labelledby="c4"><span class="num" aria-hidden="true">04</span><h2 id="c4">Teste</h2><p class="lede">Diga qual critério está aplicando antes de classificar.</p></section>
+<div class="class08">
+  <div class="quiz">
+    <details><summary>As partes concordaram hoje, mas a entrega da coisa ficou para o próximo mês.</summary><p>É de execução diferida. Continua consensual: a entrega é cumprimento de um contrato que já se formou com o acordo.</p></details>
+    <details><summary>O formulário de financiamento foi elaborado pelo banco e assinado por uma empresa.</summary><p>Pode ser de adesão, mesmo sendo o aderente uma empresa. Se é de consumo, é outra pergunta.</p></details>
+    <details><summary>Uma locação residencial dura doze meses e tem objeto, preço e deveres definidos desde a assinatura.</summary><p>Não é relacional por durar doze meses. Tudo foi definido na assinatura; falta a interação contínua e a necessidade de ajustes ao longo do tempo.</p></details>
+    <details><summary>Venda, crédito e seguro aparecem na aquisição de um veículo.</summary><p>São contratos distintos, provavelmente coligados, porque servem à mesma operação. Isso não os transforma num contrato só, nem os torna acessórios uns dos outros.</p></details>
+  </div>
+  <div class="chave"><span class="label">Roteiro curto</span>Nomeie o critério → localize o fato que o ativa → classifique naquele eixo → verifique se outra categoria também incide → aplique o regime pertinente sem ampliar a consequência.</div>
+</div>
+<nav class="endnav" aria-label="Navegação entre aulas">
+  <a href="aula-07.html"><span>← Aula anterior</span>Classificação I</a>
+  <a href="index.html"><span>Planta do curso</span>Teoria Geral dos Contratos</a>
+  <a href="revisao-p1.html"><span>Revisão</span>Retomar os pontos-chave</a>
+</nav>
+<script src="assets/curso.js"></script>
+</body>
+</html>

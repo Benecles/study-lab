@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teoria Geral dos Contratos · CUFRGS</title>
+<meta name="description" content="Mapa de estudo de Teoria Geral dos Contratos: conceitos, princípios, formação, classificação e percurso do semestre.">
+<link rel="stylesheet" href="assets/curso.css">
+<style>
+.course-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:clamp(20px,4vw,56px);align-items:start}
+.course-intro .deck{max-width:54ch}
+.exam-card{position:relative;border:1.5px solid var(--ink);background:var(--paper);padding:20px 22px 22px;box-shadow:6px 6px 0 var(--conc-wash)}
+.exam-card::before{content:"P1 · AGORA";display:inline-block;background:var(--conc);color:var(--paper);padding:5px 8px;font:500 10px var(--mono);letter-spacing:.1em}
+.exam-card h2{font:750 clamp(23px,3vw,31px)/1.1 var(--sans);margin:16px 0 8px}
+.exam-card p{margin:0 0 14px;color:var(--ink-2);font-size:17px;line-height:1.45}
+.exam-card .exam-date{font:500 12px var(--mono);letter-spacing:.06em;color:var(--conc);text-transform:uppercase}
+.exam-card a{display:flex;justify-content:space-between;gap:12px;align-items:center;text-decoration:none;font:600 15px var(--sans);border-top:1px solid var(--rule);padding-top:12px}
+.exam-card a:hover,.exam-card a:focus-visible{color:var(--conc);text-decoration:underline;text-underline-offset:4px}
+.course-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 8px}
+.course-nav-inner{display:flex;flex-wrap:wrap;gap:0 20px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 0}
+.course-nav .label{width:100%;color:var(--ink-2);margin-bottom:2px}
+.course-nav a{font:500 13px/1.5 var(--sans);text-decoration:none;padding:4px 0}
+.course-nav a:hover,.course-nav a:focus-visible{color:var(--conc);text-decoration:underline;text-underline-offset:3px}
+.map-section,.lessons{max-width:1180px;margin:0 auto;padding:50px clamp(16px,4vw,48px) 20px}
+.section-head{border-top:1.5px solid var(--ink);padding-top:13px;margin-bottom:20px}
+.section-head .label{color:var(--ink-2)}
+.section-head h2{font:750 clamp(30px,4vw,46px)/1.05 var(--sans);letter-spacing:-.025em;margin:8px 0}
+.section-head p{font-size:19px;line-height:1.45;color:var(--ink-2);max-width:64ch;margin:0}
+.map-key{display:flex;gap:9px 20px;flex-wrap:wrap;margin:18px 0 22px;font:11px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.map-key span{display:flex;gap:8px;align-items:center}.map-key i{width:22px;height:4px;background:var(--conc)}.map-key .future i{background:var(--ink-2);border-top:1px dashed var(--paper)}
+.pathway{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:unit}
+.unit{counter-increment:unit;position:relative;min-width:0;border:1.5px solid var(--ink);border-right:0;background:var(--paper);padding:16px 14px 17px;display:flex;flex-direction:column;min-height:190px}
+.unit:last-child{border-right:1.5px solid var(--ink)}
+.unit::before{content:"0" counter(unit);font:500 11px var(--mono);color:var(--ink-2);letter-spacing:.08em}
+.unit:not(:last-child)::after{content:"";position:absolute;z-index:1;right:-6px;top:28px;width:10px;height:10px;border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);transform:rotate(45deg);background:var(--paper)}
+.unit h3{font:700 clamp(17px,1.8vw,22px)/1.1 var(--sans);margin:12px 0 8px}
+.unit p{font-size:14px;line-height:1.4;color:var(--ink-2);margin:0 0 12px}
+.unit .unit-links{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.unit .unit-links a,.unit .unit-links span{display:inline-block;border:1px solid var(--ink);padding:5px 7px;text-decoration:none;font:500 10px var(--mono);letter-spacing:.04em}
+.unit .unit-links a:hover,.unit .unit-links a:focus-visible{background:var(--conc-wash);border-color:var(--conc);color:var(--conc);text-decoration:underline}
+.unit.current{border-top:5px solid var(--conc);padding-top:12px}
+.unit.current::before{color:var(--conc)}
+.unit.upcoming{border-top:5px solid var(--ink-2);border-top-style:dashed;padding-top:12px;background:color-mix(in srgb,var(--paper) 84%,var(--paper-2))}
+.unit.upcoming h3{color:var(--ink-2)}
+.unit.upcoming .unit-links span{border-style:dashed;color:var(--ink-2)}
+.bridge{margin:15px 0 0;border-left:3px solid var(--dif);padding:8px 0 8px 14px;font:14px/1.45 var(--sans);color:var(--ink-2);max-width:72ch}
+.lessons{padding-top:44px}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;border-top:1.5px solid var(--ink)}
+.lesson-group{padding:18px 0 22px;border-bottom:1px solid var(--ink)}
+.lesson-group h3{font:750 21px/1.15 var(--sans);margin:0 0 9px}
+.lesson-group h3 span{font:11px var(--mono);color:var(--ink-2);margin-right:8px}
+.lesson-group p{font-size:15px;line-height:1.45;color:var(--ink-2);margin:0 0 12px;max-width:58ch}
+.lesson-links{display:flex;gap:8px;flex-wrap:wrap}
+.lesson-links a{display:inline-block;background:var(--paper);border:1px solid var(--ink);padding:7px 10px;text-decoration:none;font:500 12px var(--mono);letter-spacing:.02em}
+.lesson-links a:hover,.lesson-links a:focus-visible{background:var(--conc-wash);border-color:var(--conc);color:var(--conc);text-decoration:underline;text-underline-offset:3px}
+.lesson-links .review-link{background:var(--conc);border-color:var(--conc);color:var(--paper)}
+.lesson-links .review-link:hover,.lesson-links .review-link:focus-visible{background:var(--paper);color:var(--conc)}
+.endnote{max-width:1180px;margin:0 auto;padding:22px clamp(16px,4vw,48px) 64px;color:var(--ink-2);font:12px/1.5 var(--mono);letter-spacing:.03em}
+@media(max-width:860px){.course-intro{grid-template-columns:1fr}.pathway{grid-template-columns:1fr}.unit{min-height:0;border-right:1.5px solid var(--ink);border-bottom:0;padding:15px 16px}.unit:last-child{border-bottom:1.5px solid var(--ink)}.unit:not(:last-child)::after{right:auto;left:26px;top:auto;bottom:-6px;transform:rotate(135deg)}.unit h3{margin:8px 0 6px}.unit p{max-width:58ch}.lesson-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.topbar{font-size:9px;gap:8px}.exam-card{padding:17px}.course-nav-inner{gap:0 14px}.course-nav a{font-size:12px}.map-section,.lessons{padding-top:38px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="Navegação principal"><a href="../../index.html">← CUFRGS</a><span>DIR02023 · UFRGS · 2026/2</span></nav>
+<header class="hero">
+  <div class="kicker label"><span>Guia de estudo · Direito Privado</span><span>Teoria Geral dos Contratos</span><span>Semestre 2026/2</span></div>
+  <h1><span class="split">Teoria Geral</span><span class="split">dos Contratos</span></h1>
+  <div class="course-intro">
+    <div>
+      <p class="deck">UFRGS, 2026/2, Profa. Giovana Benetti. O programa em nove unidades: do conceito de contrato à sua formação e classificação (P1), e depois à interpretação, revisão, cessão e extinção (P2).</p>
+    </div>
+    <aside class="exam-card" aria-labelledby="exam-title">
+      <span class="exam-date">Primeira prova · 25.09.2026</span>
+      <h2 id="exam-title">Revisão para a P1</h2>
+      <p>O essencial das cinco unidades da prova, com os artigos, e dez casos resolvidos.</p>
+      <a href="revisao-p1.html"><span>Abrir revisão P1</span><span aria-hidden="true">→</span></a>
+    </aside>
+  </div>
+</header>
+
+<nav class="course-nav" aria-label="Ir diretamente a uma parte do curso">
+  <div class="course-nav-inner">
+    <span class="label">Ir direto a</span>
+    <a href="#planta">Planta do semestre</a><a href="#aulas">Aulas disponíveis</a><a href="revisao-p1.html">Revisão P1</a>
+  </div>
+</nav>
+
+<main>
+<section class="map-section" id="planta" aria-labelledby="map-title">
+  <header class="section-head"><span class="label">01 / O percurso</span><h2 id="map-title">Planta do semestre</h2><p>As cinco primeiras unidades caem na P1 (25/09): conceito, princípios, formação, incidentes da formação e classificação. As quatro últimas caem na P2 (27/11).</p></header>
+  <div class="map-key" aria-label="Legenda da planta"><span><i></i>Unidades com aulas e revisão</span><span class="future"><i></i>Próximas unidades · em breve</span></div>
+  <ol class="pathway" aria-label="Nove unidades do programa em sequência">
+    <li class="unit current"><h3>Conceito e funções</h3><p>O contrato como negócio jurídico e como operação econômica. O contrato no Código Civil e no CDC.</p><div class="unit-links"><a href="aula-01.html">Aula 01</a></div></li>
+    <li class="unit current"><h3>Princípios contratuais</h3><p>Liberdade, força obrigatória, relatividade, função social, boa-fé objetiva e equilíbrio econômico.</p><div class="unit-links"><a href="aula-02.html">Aula 02</a><a href="aula-03.html">Aula 03</a></div></li>
+    <li class="unit current"><h3>Formação</h3><p>Tratativas e responsabilidade pré-contratual; proposta e aceitação.</p><div class="unit-links"><a href="aula-04.html">Aula 04</a><a href="aula-05.html">Aula 05</a></div></li>
+    <li class="unit current"><h3>Incidentes da formação</h3><p>Estipulação em favor de terceiro, promessa de fato de terceiro, pessoa a declarar, contrato preliminar e arras.</p><div class="unit-links"><a href="aula-06.html">Aula 06</a></div></li>
+    <li class="unit current"><h3>Classificação</h3><p>Bilaterais e unilaterais, onerosos e gratuitos, comutativos e aleatórios; forma, execução, adesão e contratos coligados.</p><div class="unit-links"><a href="aula-07.html">Aula 07</a><a href="aula-08.html">Aula 08</a></div></li>
+    <li class="unit upcoming"><h3>Interpretação</h3><p>Sentido e particularidades da interpretação dos contratos.</p><div class="unit-links"><span>P2</span></div></li>
+    <li class="unit upcoming"><h3>Revisão</h3><p>Cláusulas abusivas, lesão, imprevisão e quebra da base do negócio.</p><div class="unit-links"><span>P2</span></div></li>
+    <li class="unit upcoming"><h3>Cessão da posição contratual</h3><p>A transferência da posição de uma das partes no contrato.</p><div class="unit-links"><span>P2</span></div></li>
+    <li class="unit upcoming"><h3>Extinção</h3><p>Como os contratos terminam.</p><div class="unit-links"><span>P2</span></div></li>
+  </ol>
+  <p class="bridge">As aulas da P2 entram aqui ao longo do semestre.</p>
+</section>
+
+<section class="lessons" id="aulas" aria-labelledby="lessons-title">
+  <header class="section-head"><span class="label">02 / Caderno de estudo</span><h2 id="lessons-title">Aulas</h2><p>Na ordem do programa.</p></header>
+  <div class="lesson-grid">
+    <article class="lesson-group"><h3><span>UNIDADE 01</span>Conceito e funções</h3><p>O que é contrato; negócio jurídico e operação econômica; contrato de consumo.</p><div class="lesson-links"><a href="aula-01.html">Aula 01 · Ler</a></div></article>
+    <article class="lesson-group"><h3><span>UNIDADE 02</span>Princípios fundamentais</h3><p>Os seis princípios contratuais.</p><div class="lesson-links"><a href="aula-02.html">Aula 02 · Princípios I</a><a href="aula-03.html">Aula 03 · Princípios II</a></div></article>
+    <article class="lesson-group"><h3><span>UNIDADE 03</span>Formação</h3><p>Tratativas, proposta e aceitação.</p><div class="lesson-links"><a href="aula-04.html">Aula 04 · Tratativas</a><a href="aula-05.html">Aula 05 · Oferta e aceitação</a></div></article>
+    <article class="lesson-group"><h3><span>UNIDADE 04</span>Incidentes da formação</h3><p>Estipulação em favor de terceiro, promessa de fato de terceiro, pessoa a declarar, contrato preliminar e arras.</p><div class="lesson-links"><a href="aula-06.html">Aula 06 · Ler</a></div></article>
+    <article class="lesson-group"><h3><span>UNIDADE 05</span>Classificação dos contratos</h3><p>Bilaterais, onerosos, aleatórios, reais, de adesão, coligados e outros.</p><div class="lesson-links"><a href="aula-07.html">Aula 07 · Classificação I</a><a href="aula-08.html">Aula 08 · Classificação II</a></div></article>
+    <article class="lesson-group"><h3><span>P1 · 25/09/2026</span>Revisão para a P1</h3><p>O que saber de cada unidade e dez casos resolvidos.</p><div class="lesson-links"><a class="review-link" href="revisao-p1.html">Abrir revisão P1 →</a></div></article>
+  </div>
+</section>
+</main>
+<footer class="endnote">Teoria Geral dos Contratos · DIR02023 · 2026/2</footer>
+</body>
+</html>

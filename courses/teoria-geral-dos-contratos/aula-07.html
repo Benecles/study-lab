@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classificação dos contratos I · Teoria Geral dos Contratos</title>
+<meta name="description" content="Classificação dos contratos: obrigações, vantagem econômica, certeza das prestações, exceções de inadimplemento e inseguridade, evicção, vícios redibitórios e contratos aleatórios.">
+<link rel="stylesheet" href="assets/curso.css">
+<style>
+.diagram{margin:32px 0;background:var(--paper);border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--grid-major);overflow-x:auto}
+.diagram::before{content:"Deslize horizontalmente para ler o diagrama →";display:none}
+@media(max-width:640px){.diagram::before{display:block;position:sticky;left:0;z-index:1;width:max-content;padding:5px 8px;background:var(--paper);font:11px var(--mono);color:var(--ink-2)}}
+.diagram svg{display:block;width:100%;height:auto}
+.diagram figcaption{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border-top:1px solid var(--ink);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.diagram text{font-family:var(--mono);font-size:13px;letter-spacing:.04em;fill:var(--ink)}
+.diagram .small{font-size:11px}.diagram .head{font-family:var(--sans);font-size:18px;font-weight:700;letter-spacing:0}.diagram .sub{font-family:var(--serif);font-size:15px;letter-spacing:0}
+.diagram .box{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}.diagram .box-red{fill:var(--conc-wash);stroke:var(--conc);stroke-width:2}.diagram .box-blue{fill:var(--dif-wash);stroke:var(--dif);stroke-width:2}
+.diagram .red{fill:var(--conc)}.diagram .blue{fill:var(--dif)}.diagram .line{fill:none;stroke:var(--ink);stroke-width:2}.diagram .line-red{fill:none;stroke:var(--conc);stroke-width:3}.diagram .line-blue{fill:none;stroke:var(--dif);stroke-width:3}.diagram .brace{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:5 5}
+.section-title{font:700 24px/1.2 var(--sans);margin:42px 0 12px}
+@media(max-width:640px){.hero-fork{display:none}.diagram svg{min-width:960px}.diagram figcaption{min-width:960px}.diagram text{font-size:12px}.diagram .head{font-size:16px}.diagram .sub{font-size:13px}.diagram figcaption{font-size:9px}}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="Navegação principal"><a href="index.html">Teoria Geral dos Contratos</a><span>Classificação · 07</span><a href="revisao-p1.html">Revisão P1 →</a></nav>
+<header class="hero">
+  <div class="kicker"><span>Classificação dos contratos</span><span>Obrigações · vantagens · riscos</span></div>
+  <h1><span class="split">Classificação</span><span class="split">dos contratos I</span></h1>
+  <p class="deck">Três perguntas classificam o contrato. Quem se obriga? Quem tem vantagem? Alguma prestação depende de risco? Cada resposta traz consequências próprias: defesas, garantias e regras de risco.</p>
+  <svg class="hero-fork" viewBox="0 0 1000 150" role="img" aria-label="Três perguntas separam obrigações, vantagens e riscos">
+    <path class="draw" d="M30 76H310M310 76Q380 76 430 28H770M310 76H770M310 76Q380 76 430 124H770" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <circle cx="310" cy="76" r="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+    <text x="35" y="56" class="label" fill="var(--ink)">CONTRATO</text><text x="795" y="33" class="label" fill="var(--conc)">OBRIGAÇÕES</text><text x="795" y="81" class="label" fill="var(--ink)">VANTAGENS</text><text x="795" y="130" class="label" fill="var(--dif)">RISCOS</text>
+  </svg>
+</header>
+
+<section class="chapter" aria-labelledby="c1"><span class="num" aria-hidden="true">01</span><h2 id="c1">Três classificações independentes</h2><p class="lede">Uma compra e venda comum é, ao mesmo tempo, bilateral, onerosa e comutativa. Cada termo responde a uma pergunta diferente.</p></section>
+<div class="wide">
+  <figure class="diagram">
+    <svg viewBox="0 0 960 400" role="img" aria-labelledby="mapa-title mapa-desc">
+      <title id="mapa-title">Grade das três classificações</title><desc id="mapa-desc">Três linhas independentes perguntam se há obrigações para uma ou ambas as partes, se a vantagem econômica cabe a uma ou a ambas e se as prestações são certas ou expostas a risco.</desc>
+      <text x="42" y="48" class="small">CLASSIFIQUE PELA PERGUNTA FEITA</text>
+      <rect x="40" y="72" width="274" height="84" rx="2" class="box"/><text x="62" y="105" class="head">01 · OBRIGAÇÕES</text><text x="62" y="134" class="sub">quem fica juridicamente obrigado?</text>
+      <path d="M314 114H366" class="line"/><path d="M366 114V94H406M366 114V138H406" class="line"/>
+      <rect x="406" y="70" width="222" height="48" rx="2" class="box-red"/><text x="428" y="100" class="sub red">UNILATERAL</text>
+      <rect x="406" y="126" width="222" height="48" rx="2" class="box-red"/><text x="428" y="156" class="sub red">BILATERAL</text>
+      <text x="668" y="102" class="small">uma parte deve</text><text x="668" y="158" class="small">ambas devem</text>
+      <rect x="40" y="190" width="274" height="84" rx="2" class="box"/><text x="62" y="223" class="head">02 · VANTAGEM</text><text x="62" y="252" class="sub">quem obtém vantagem econômica?</text>
+      <path d="M314 232H366" class="line"/><path d="M366 232V212H406M366 232V256H406" class="line"/>
+      <rect x="406" y="188" width="222" height="48" rx="2" class="box-blue"/><text x="428" y="218" class="sub blue">GRATUITO</text>
+      <rect x="406" y="244" width="222" height="48" rx="2" class="box-blue"/><text x="428" y="274" class="sub blue">ONEROSO</text>
+      <text x="668" y="220" class="small">uma parte aufere</text><text x="668" y="276" class="small">ambas auferem</text>
+      <rect x="40" y="308" width="274" height="84" rx="2" class="box"/><text x="62" y="341" class="head">03 · INCERTEZA</text><text x="62" y="370" class="sub">o que foi prometido é certo?</text>
+      <path d="M314 350H366" class="line"/><path d="M366 350V330H406M366 350V374H406" class="line"/>
+      <rect x="406" y="306" width="222" height="48" rx="2" class="box-blue"/><text x="428" y="336" class="sub blue">COMUTATIVO</text>
+      <rect x="406" y="362" width="222" height="48" rx="2" class="box-red"/><text x="428" y="392" class="sub red">ALEATÓRIO</text>
+      <text x="668" y="338" class="small">prestações certas</text><text x="668" y="394" class="small">risco assumido</text>
+    </svg>
+    <figcaption><span>Fig. 1 · A grade de classificação</span><span>Deslize → · três perguntas independentes</span></figcaption>
+  </figure>
+  <p class="note">"Bilateral" não significa que duas pessoas assinaram, e sim que ambas assumem obrigações. "Oneroso" significa que ambas têm vantagem. "Aleatório" significa que uma das prestações depende de risco. Uma classificação não determina as outras, e cada uma importa na prática: os negócios benéficos se interpretam estritamente (art. 114); nos contratos benéficos, quem recebe a vantagem responde por culpa, e quem não é favorecido só por dolo (art. 392); na cessão de crédito a título oneroso, o cedente responde pela existência do crédito (art. 295).</p>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Exemplos de classificação pelos três eixos"><table class="compare">
+    <thead><tr><th scope="col">Exemplo</th><th scope="col">Obrigações</th><th scope="col">Vantagem</th><th scope="col">Risco</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Compra e venda comum</th><td>Bilateral: entregar e pagar.</td><td>Onerosa: bem e preço são vantagens recíprocas.</td><td>Em regra, comutativa: as prestações são certas, ainda que o valor de mercado varie depois.</td></tr>
+      <tr><th scope="row">Doação pura</th><td>Unilateral: só o doador se obriga.</td><td>Gratuita: o donatário recebe sem dar nada em troca.</td><td>Comutativa: o que se promete é certo. Gratuidade não é o mesmo que aleatoriedade.</td></tr>
+      <tr><th scope="row">Contrato de derivativo</th><td>Obrigações para ambos.</td><td>Oneroso.</td><td>Aleatório: o resultado depende da variação do índice escolhido.</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<section class="chapter" aria-labelledby="c2"><span class="num" aria-hidden="true">02</span><h2 id="c2">Bilaterais × unilaterais</h2><p class="lede">Nos contratos bilaterais, as obrigações são recíprocas. Por isso, quem ainda não cumpriu a sua parte não pode exigir a do outro.</p></section>
+<div class="wide">
+  <p class="prosa">No contrato <strong>unilateral</strong>, só uma parte se obriga (ex.: doação pura). No <strong>bilateral</strong>, ou sinalagmático, ambas se obrigam, e as obrigações são ligadas entre si (ex.: compra e venda). No <strong>plurilateral</strong>, várias partes perseguem um fim comum (ex.: contrato de sociedade). O <strong>bilateral imperfeito</strong> é um unilateral que, durante a execução, acaba gerando obrigação para quem não havia se comprometido (ex.: o depositante que deve reembolsar despesas do depositário).</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 960 340" role="img" aria-labelledby="escala-title escala-desc">
+      <title id="escala-title">A exceptio protege a correspondência entre prestações</title><desc id="escala-desc">Em um contrato bilateral, se A não cumpre ou oferece cumprimento relevante defeituoso, B pode opor a exceção e reter a prestação ligada até o cumprimento adequado. A mesma lógica vale para o outro lado.</desc>
+      <text x="42" y="46" class="small">CC 476 · PRESTAÇÕES CORRELATAS</text>
+      <rect x="42" y="76" width="236" height="94" rx="2" class="box-red"/><text x="66" y="111" class="head red">PARTE A</text><text x="66" y="143" class="sub">deve entregar / executar</text>
+      <path d="M278 123H422" class="line-red"/><path d="M404 112L424 123L404 134" class="line-red"/><text x="306" y="106" class="small">PRESTAÇÃO A</text>
+      <rect x="422" y="76" width="216" height="94" rx="2" class="box"/><text x="457" y="114" class="head">VÍNCULO</text><text x="451" y="143" class="small">troca relacionada</text>
+      <path d="M638 123H782" class="line-blue"/><path d="M764 112L784 123L764 134" class="line-blue"/><text x="663" y="106" class="small">PRESTAÇÃO B</text>
+      <rect x="782" y="76" width="136" height="94" rx="2" class="box-blue"/><text x="806" y="111" class="head blue">PARTE B</text><text x="806" y="143" class="small">paga / cumpre</text>
+      <path d="M114 192V235H842V192" class="brace"/><rect x="246" y="218" width="464" height="58" rx="2" class="box"/><text x="273" y="243" class="sub">se A não cumpre, B pode reter sua prestação</text><text x="362" y="264" class="small">até o cumprimento correspondente · art. 476</text>
+      <text x="42" y="318" class="small">INADIMPLEMENTO RECÍPROCO: A MESMA DEFESA PODE SER ALEGADA PELO OUTRO LADO</text>
+    </svg>
+    <figcaption><span>Fig. 2 · As duas exceções</span><span>Deslize → · CC 476–477</span></figcaption>
+  </figure>
+  <div class="par">
+    <div class="regra"><span class="label">Art. 476 · exceção do contrato não cumprido</span>Em contrato bilateral, quem ainda não cumpriu a própria obrigação não pode exigir a obrigação correlata da outra parte. Se B é cobrado por A, mas A não executou o que devia, B pode suspender a contraprestação e alegar a <em>exceptio non adimpleti contractus</em>. A defesa acompanha a ligação entre as prestações: não autoriza reter qualquer valor por falha sem relação com o que é cobrado.</div>
+    <div class="excecao"><span class="label">Cumprimento defeituoso · <em>exceptio non rite adimpleti</em></span>O cumprimento apenas aparente ou feito fora da qualidade, tempo ou modo contratados também pode justificar a retenção. A falha precisa ser relevante para a finalidade do ajuste; defeito pequeno pode gerar abatimento ou reparação sem permitir suspender toda a contraprestação. A mora é examinada pelos arts. 394–395, e a consequência deve guardar relação com o descumprimento.</div>
+  </div>
+  <div class="par">
+    <div class="regra"><span class="label">Art. 477 · exceção de inseguridade</span>Depois de concluído o contrato, o patrimônio de uma parte diminui a ponto de comprometer ou tornar duvidoso o cumprimento futuro. A outra pode suspender a prestação que lhe cabe até receber a prestação devida ou garantia suficiente.</div>
+    <div class="excecao"><span class="label">O que muda em relação ao art. 476</span>Aqui ainda pode não haver inadimplemento: o gatilho é a perda superveniente de segurança para a execução. A defesa evita que uma parte tenha de cumprir sem proteção quando o risco de não receber se tornou concreto; ela não converte automaticamente a suspensão em rescisão ou indenização.</div>
+  </div>
+  <div class="julgados">
+    <article class="julgado dif"><header><b>Exclusividade no centro comercial</b><span>Prestação ligada ao preço</span></header><div class="corpo"><p><strong>Exceção do contrato não cumprido</strong> (art. 476): nos contratos bilaterais, nenhuma parte pode exigir a prestação da outra antes de cumprir a sua. Exemplo: num contrato de loja em shopping, a exclusividade de venda era parte do negócio. Quando a administração deixou uma loja-âncora vender o mesmo produto, a lojista pôde se recusar a pagar o saldo.</p><p>Antes de aplicar o art. 476, identifique qual prestação corresponde à que está sendo cobrada.</p></div><div class="tese">A exceção pode alcançar inadimplemento parcial quando ele desvirtua a prestação econômica central do ajuste.</div></article>
+    <article class="julgado"><header><b>Elevador de carga com falha de projeto e material</b><span>Parcela final inexigível</span></header><div class="corpo"><p>A exceção também vale para o cumprimento defeituoso (<em>exceptio non rite adimpleti contractus</em>). Num contrato de instalação de elevador, parte do serviço foi feita, mas a perícia apontou falhas graves na cabine e no material. O STJ manteve a inexigibilidade da parcela final.</p><p>Cumprir mal equivale, para esse fim, a não cumprir, desde que a falha seja relevante.</p></div><div class="tese">Serviço parcialmente realizado pode continuar inadimplido quando a falha compromete o cumprimento contratado.</div></article>
+    <article class="julgado"><header><b>Defeito em serviço contratado</b><span>Insegurança e falha efetiva</span></header><div class="corpo"><p><strong>Exceção de inseguridade</strong> (art. 477): se, depois de celebrado o contrato, o patrimônio de uma parte diminui a ponto de pôr em dúvida a prestação que ela prometeu, a outra pode reter a sua até que aquela cumpra ou dê garantia. Exemplo: numa prestação continuada de serviços de costura, a contratante justificou a suspensão com base em obrigações essenciais pendentes e na piora da situação patrimonial da prestadora.</p><p>A diminuição patrimonial precisa ser posterior ao contrato e grave o bastante para comprometer a prestação. Uma preocupação genérica não basta.</p></div><div class="tese">Art. 477 exige risco concreto para o cumprimento, e a suspensão dura até a prestação ou garantia suficiente.</div></article>
+  </div>
+  <div class="chave"><span class="label">Pergunta de aplicação</span>Qual prestação ainda falta? Ela corresponde ao que foi cobrado? O risco surgiu depois do contrato e é bastante concreto? As respostas distinguem a exceção de inadimplemento da exceção de inseguridade.</div>
+</div>
+
+<section class="chapter" aria-labelledby="c3"><span class="num" aria-hidden="true">03</span><h2 id="c3">Onerosos × gratuitos</h2><p class="lede">A pergunta é quem tem vantagem econômica. Nos contratos onerosos, quem adquire tem garantia contra a evicção.</p></section>
+<div class="wide">
+  <p class="prosa">No contrato <strong>gratuito</strong>, só uma parte tem vantagem (ex.: doação pura). No <strong>oneroso</strong>, ambas têm (ex.: compra e venda). A contraprestação não precisa ser em dinheiro: pode ser um bem, um serviço ou uma participação societária.</p>
+  <div class="par">
+    <div class="regra"><span class="label">Troca em dinheiro ou em participação</span>Se uma sociedade recebe um imóvel para integralizar seu capital e o sócio recebe quotas ou ações em contrapartida, há onerosidade. O bem não foi entregue por liberalidade: ele foi trocado por participação societária.</div>
+    <div class="excecao"><span class="label">Consequência no laudêmio</span>Na transferência onerosa do domínio útil de terreno de marinha para integralização de capital, o laudêmio incide. A falta de preço pago em dinheiro não transforma uma operação de troca em doação.</div>
+  </div>
+  <h3 class="section-title">Caso: o imóvel usado para integralizar capital</h3>
+  <p>Uma sociedade transferiu um imóvel em terreno de marinha para integralizar o capital de outra empresa. A transferência era gratuita ou onerosa? Da resposta dependia o laudêmio, devido nas transferências onerosas. A Corte Especial do STJ decidiu que é <strong>onerosa</strong>, porque quem integraliza capital entrega o bem e recebe quotas ou ações em troca. O Tema Repetitivo 332 confirmou. Um acórdão anterior, de 2009, havia decidido em sentido contrário, mas foi superado.</p>
+  <h3 class="section-title">Evicção (arts. 447 a 457)</h3>
+  <figure class="diagram">
+    <svg viewBox="0 0 960 290" role="img" aria-labelledby="evic-title evic-desc">
+      <title id="evic-title">A cadeia da evicção</title><desc id="evic-desc">O alienante transfere um direito ao adquirente; um terceiro com causa jurídica anterior obtém reconhecimento desse direito e o adquirente perde total ou parcialmente o bem. A garantia legal recai sobre o alienante em contratos onerosos.</desc>
+      <text x="42" y="42" class="small">GARANTIA LEGAL EM CONTRATOS ONEROSOS · CC 447–457</text>
+      <rect x="40" y="76" width="240" height="104" rx="2" class="box-red"/><text x="64" y="111" class="head red">ALIENANTE</text><text x="64" y="142" class="sub">transfere o direito</text><text x="64" y="164" class="small">e garante contra evicção</text>
+      <path d="M280 128H396" class="line-red"/><path d="M378 117L398 128L378 139" class="line-red"/><text x="295" y="111" class="small">CONTRATO ONEROSO</text>
+      <rect x="396" y="76" width="240" height="104" rx="2" class="box-blue"/><text x="420" y="111" class="head blue">ADQUIRENTE</text><text x="420" y="142" class="sub">recebe o bem</text><text x="420" y="164" class="small">e pode se tornar evicto</text>
+      <path d="M516 180V226H792V180" class="line-blue"/><text x="536" y="218" class="small blue">DIREITO ANTERIOR RECONHECIDO</text>
+      <rect x="696" y="76" width="222" height="104" rx="2" class="box"/><text x="720" y="111" class="head">TERCEIRO</text><text x="720" y="142" class="sub">evictor</text><text x="720" y="164" class="small">título jurídico anterior</text>
+      <path d="M696 128H636" class="line"/><path d="M654 117L634 128L654 139" class="line"/>
+      <text x="42" y="268" class="small">A GARANTIA DEPENDE DA PERDA DO DIREITO, NÃO DE DEFEITO MATERIAL</text>
+    </svg>
+    <figcaption><span>Fig. 3 · Alienante, evicto e evictor</span><span>Deslize → · CC 447–457</span></figcaption>
+  </figure>
+  <ul class="requisitos">
+    <li><b>Evicção: perda do bem por direito de terceiro.</b> O adquirente (<strong>evicto</strong>) perde o bem, total ou parcialmente, porque um terceiro (<strong>evictor</strong>) tinha direito anterior sobre ele. Não é defeito físico: é defeito no direito transmitido. O alienante responde pela evicção nos contratos onerosos, inclusive em hasta pública (art. 447). As partes podem reforçar, diminuir ou excluir a garantia (art. 448), mas, mesmo excluída, o adquirente recupera o preço se não sabia do risco ou não o assumiu (art. 449).</li>
+    <li><b>O que se recupera.</b> Salvo acordo diferente, o evicto recebe o preço (pelo valor da coisa na época da evicção), os frutos que teve de restituir, as despesas do contrato, os prejuízos diretos e as custas e honorários (art. 450). Os arts. 451 a 454 tratam de deteriorações e benfeitorias.</li>
+    <li><b>Evicção parcial.</b> Se a perda for considerável, o evicto escolhe entre desfazer o contrato ou receber a parte do preço correspondente ao que perdeu. Se não for considerável, só cabe indenização (art. 455).</li>
+    <li><b>Limite.</b> Quem comprou sabendo que a coisa era alheia ou litigiosa não pode reclamar da evicção (art. 457). O art. 456 foi revogado pelo CPC de 2015.</li>
+  </ul>
+  <article class="julgado"><header><b>Dois lotes alcançados por execução fiscal</b><span>Perda efetiva ou iminente</span></header><div class="corpo"><p>Exemplo: alguém comprou lotes que depois foram atingidos por decisão que declarou ineficaz a venda, por fraude à execução fiscal, e determinou o arresto. O STJ reconheceu a evicção mesmo antes do trânsito em julgado, porque a perda já era efetiva ou iminente.</p><p>O que caracteriza a evicção é a causa jurídica anterior à compra, e não um problema físico no imóvel.</p></div><div class="tese">A garantia pode ser acionada diante de perda concreta ou iminente, conforme os fatos provados.</div></article>
+</div>
+
+<section class="chapter" aria-labelledby="c4"><span class="num" aria-hidden="true">04</span><h2 id="c4">Comutativos × aleatórios</h2><p class="lede">A pergunta é se as prestações são certas ou se uma delas depende de um risco que alguém assumiu. Não se trata de comparar o preço com o valor de mercado depois.</p></section>
+<div class="wide">
+  <div class="equation" aria-label="Comutatividade e aleatoriedade têm em comum a troca contratual, mas diferem quanto à certeza das prestações">
+    <div class="term"><b class="dif">Certeza</b><span>prestações identificáveis</span></div><div class="op">↔</div><div class="term"><b>Troca</b><span>contrato oneroso</span></div><div class="op">↔</div><div class="term result"><b class="conc">Risco</b><span>resultado incerto assumido</span></div>
+  </div>
+  <div class="par">
+    <div class="regra"><span class="label">Comutativo</span>As partes conseguem estimar desde a formação o conteúdo e a correspondência das prestações. Isso não exige igualdade matemática de valor e não impede que o preço de mercado varie depois.</div>
+    <div class="excecao"><span class="label">Aleatório</span>Uma parte aceita que a existência, a quantidade ou a conservação da prestação dependa de acontecimento incerto. A consequência econômica do evento fica distribuída pelo próprio contrato e pelos arts. 458–461.</div>
+  </div>
+  <figure class="diagram">
+    <svg viewBox="0 0 960 404" role="img" aria-labelledby="risco-title risco-desc">
+      <title id="risco-title">Quatro formas de alocar a incerteza</title><desc id="risco-desc">No art. 458 o risco é a existência de coisa futura; no 459, a quantidade da coisa futura; no 460, a coisa existente exposta a risco; no 461, há anulação por dolo se a outra parte conhecia a consumação do risco.</desc>
+      <text x="42" y="44" class="small">CC 458–461 · IDENTIFIQUE O EVENTO E QUEM ASSUMIU O RISCO</text>
+      <rect x="40" y="70" width="420" height="132" rx="2" class="box-blue"/><text x="62" y="104" class="head blue">458 · EXISTÊNCIA FUTURA</text><text x="62" y="136" class="sub">O adquirente assume o risco de a coisa</text><text x="62" y="160" class="sub">nem chegar a existir: preço integral.</text><text x="62" y="185" class="small">Limite: dolo ou culpa do alienante.</text>
+      <rect x="500" y="70" width="420" height="132" rx="2" class="box-red"/><text x="522" y="104" class="head red">459 · QUANTIDADE FUTURA</text><text x="522" y="136" class="sub">O preço acompanha o risco de quantidade,</text><text x="522" y="160" class="sub">mesmo se a colheita vier menor.</text><text x="522" y="185" class="small">Sem culpa do alienante; se nada existir, devolve.</text>
+      <rect x="40" y="226" width="420" height="132" rx="2" class="box-red"/><text x="62" y="260" class="head red">460 · COISA EXISTENTE, EM RISCO</text><text x="62" y="292" class="sub">O adquirente assume risco de perda</text><text x="62" y="316" class="sub">que já podia ter ocorrido na contratação.</text><text x="62" y="341" class="small">O preço é devido, conforme o risco assumido.</text>
+      <rect x="500" y="226" width="420" height="132" rx="2" class="box"/><text x="522" y="260" class="head">461 · RISCO JÁ CONSUMADO</text><text x="522" y="292" class="sub">Pode haver anulação como dolosa se</text><text x="522" y="316" class="sub">o outro sabia que a coisa já se perdeu.</text><text x="522" y="341" class="small">Conhecimento e dolo precisam ser provados.</text>
+      <text x="42" y="390" class="small">EVENTO INCERTO ≠ PREÇO AUTOMATICAMENTE DEVIDO EM TODA HIPÓTESE</text>
+    </svg>
+    <figcaption><span>Fig. 4 · As três figuras do contrato aleatório</span><span>Deslize → · CC 458–461</span></figcaption>
+  </figure>
+  <p>Nos contratos <strong>comutativos</strong>, as prestações são certas desde o início. Nos <strong>aleatórios</strong>, a prestação de uma das partes depende de risco. São três figuras. <strong>Art. 458</strong>: coisa futura, com risco de não vir a existir; o alienante recebe o preço integral mesmo que nada exista, se não agiu com dolo ou culpa. <strong>Art. 459</strong>: coisa futura, com risco quanto à quantidade; o preço é integral mesmo que venha menos, mas, se nada vier a existir, o preço é devolvido. <strong>Art. 460</strong>: coisa existente, mas exposta a risco assumido pelo adquirente; o preço é devido mesmo que a coisa já não existisse no dia do contrato, salvo se o outro sabia que o risco já tinha se realizado, caso em que a venda é anulável por dolo (<strong>art. 461</strong>).</p>
+  <div class="julgados">
+    <article class="julgado dif"><header><b>Derivativo para proteger receitas de exportação</b><span>Álea normal conhecida</span></header><div class="corpo"><p>Caso do swap: uma fabricante contratou um swap cambial para se proteger da variação do dólar. Quando o real desvalorizou e ela perdeu dinheiro, pediu revisão. O STJ manteve o contrato: a variação cambial era o próprio risco do negócio, que ambas as partes conheciam.</p><p>Nos derivativos, a oscilação do índice é a álea assumida e não justifica revisão por onerosidade excessiva. Isso não impede o controle de fraude ou de falha de informação.</p></div><div class="tese">Risco previsto e compreendido não se converte automaticamente em onerosidade imprevisível.</div></article>
+    <article class="julgado"><header><b>Remuneração ligada à arrecadação futura</b><span>Cláusula de risco</span></header><div class="corpo"><p>Caso da loteria: quem cedeu direitos sobre uma nova loteria aceitou receber só se a arrecadação superasse certo patamar em relação a outra loteria. Não atingido o patamar, nada recebe, e não há ilícito: ninguém prometeu manter a proporção.</p><p>O risco foi assumido pelo cedente. Não há descumprimento contratual.</p></div><div class="tese">Risco de remuneração é compatível com onerosidade; a incerteza não torna o ajuste gratuito.</div></article>
+  </div>
+</div>
+
+<section class="chapter" aria-labelledby="c5"><span class="num" aria-hidden="true">05</span><h2 id="c5">Vícios redibitórios (arts. 441 a 446)</h2><p class="lede">Defeito oculto numa coisa recebida por contrato comutativo, que já existia na entrega. O adquirente pode desfazer o negócio ou pedir abatimento do preço, dentro de prazos curtos.</p></section>
+<div class="wide">
+  <p class="prosa">Vício redibitório é o defeito oculto em coisa recebida por contrato comutativo (ou doação onerosa) que a torna imprópria ao uso ou diminui seu valor (art. 441). O adquirente escolhe entre rejeitar a coisa, redibindo o contrato, ou ficar com ela e pedir <strong>abatimento</strong> no preço (art. 442). A doutrina explica o instituto por três teorias: a do erro, a do inadimplemento e a da garantia.</p>
+  <ul class="requisitos">
+    <li><b>Defeito preexistente.</b> Se a coisa perecer depois da entrega por causa de vício que já existia, o alienante continua responsável (art. 444).</li>
+    <li><b>Alienante que sabia.</b> Se conhecia o vício, devolve o que recebeu e paga perdas e danos. Se não conhecia, devolve o valor recebido e as despesas do contrato (art. 443).</li>
+    <li><b>Prazos (art. 445).</b> 30 dias para móvel e 1 ano para imóvel, contados da entrega; se o adquirente já estava na posse, contam da alienação e caem pela metade. Se o vício só puder ser conhecido mais tarde, o prazo conta da ciência, até o máximo de 180 dias (móvel) ou 1 ano (imóvel).</li>
+    <li><b>Garantia contratual.</b> Enquanto vigora a garantia, os prazos legais não correm. Mas o adquirente deve avisar o defeito em 30 dias da descoberta (art. 446).</li>
+  </ul>
+  <article class="julgado"><header><b>Diferença técnica em veículo novo</b><span>Uso e valor precisam ser afetados</span></header><div class="corpo"><p>Caso do carro: um veículo novo tinha potência e capacidade um pouco abaixo das anunciadas. O STJ entendeu que as diferenças não o tornavam impróprio ao uso nem reduziam seu valor, então não havia vício redibitório. Também não havia dano moral.</p><p>Nem toda divergência justifica desfazer a compra. Compare o defeito com a finalidade e o valor do bem.</p></div><div class="tese">É preciso defeito oculto que torne a coisa imprópria ao uso ou lhe diminua o valor.</div></article>
+  <div class="chave"><span class="label">Classificação em uma linha</span>Comutatividade permite comparar prestações certas; o vício redibitório corrige uma falha oculta já presente na coisa. Aleatoriedade, por sua vez, organiza uma incerteza que as partes aceitaram assumir.</div>
+</div>
+
+<section class="chapter" aria-labelledby="c6"><span class="num" aria-hidden="true">06</span><h2 id="c6">Roteiro para resolver um caso</h2><p class="lede">Classifique antes de responder, e ache o fato que aciona a regra.</p></section>
+<div class="wide">
+  <ol class="fluxo">
+    <li class="conc"><b>Quem se obrigou?</b>Se ambos, o contrato é bilateral, e cabem as exceções dos arts. 476 e 477.</li>
+    <li><b>Quem tem vantagem?</b>Se ambos, é oneroso, e há garantia contra evicção. A contraprestação pode ser bem, serviço ou participação societária.</li>
+    <li class="dif"><b>Há risco assumido?</b>Se sim, é aleatório. Veja se o risco é de existência, de quantidade ou de coisa exposta a risco (arts. 458 a 460).</li>
+    <li><b>Qual o problema?</b>Perda do direito por título de terceiro é evicção. Defeito físico oculto é vício redibitório.</li>
+  </ol>
+  <div class="quiz">
+    <details><summary>A compradora é cobrada, mas o vendedor ainda não entregou o equipamento. Ela precisa pagar?</summary><p>Não. O contrato é bilateral, e ela pode opor a exceção do contrato não cumprido (art. 476) até que o vendedor entregue.</p></details>
+    <details><summary>A safra veio menor do que o esperado, e o comprador tinha assumido o risco de quantidade. Ele paga o preço inteiro?</summary><p>Sim, se veio alguma coisa (art. 459). Se nada tivesse vindo, não haveria venda, e o preço seria devolvido.</p></details>
+    <details><summary>Depois da compra, descobre-se que um terceiro tem direito anterior sobre parte importante do imóvel, e a perda é iminente. O que o comprador pode pedir?</summary><p>É evicção parcial considerável: ele escolhe entre desfazer o contrato ou receber a parte do preço correspondente ao que perdeu (art. 455).</p></details>
+    <details><summary>Um carro tem uma pequena diferença num dado técnico, mas funciona normalmente e não perdeu valor. Cabe redibição?</summary><p>Não. O art. 441 exige defeito que torne a coisa imprópria ao uso ou diminua seu valor.</p></details>
+  </div>
+</div>
+<nav class="endnav" aria-label="Aulas vizinhas"><a href="aula-06.html"><span>← Aula 06</span>Incidentes da formação</a><a href="index.html"><span>Mapa do curso</span>Teoria Geral dos Contratos</a><a href="aula-08.html" style="text-align:right"><span>Aula 08 →</span>Classificação II</a></nav>
+<footer class="wide" style="padding-bottom:36px"><a href="revisao-p1.html">Voltar à revisão da P1</a></footer>
+<script src="assets/curso.js"></script>
+</body>
+</html>

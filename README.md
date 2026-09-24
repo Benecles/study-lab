@@ -1,4 +1,4 @@
-# Study Lab
+# CUFRGS
 
 A paper-inspired reading collection for law-school study guides.
 
