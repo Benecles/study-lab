@@ -299,3 +299,36 @@ body{transition:background-color .35s ease,color .35s ease}
 @media (max-width:560px){.tt-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
 .read-progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--conc);transform:scaleX(0);transform-origin:0 50%;z-index:60;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.read-progress{display:none}}
+
+/* ---- print ---- */
+.print-fig{display:none}
+@media print{
+  @page{margin:14mm}
+  body{background:none!important;font-size:11pt}
+  .topbar,.theme-toggle,.endnav,.read-progress,.stage,.course-nav,.art-tools,.art-key,.deck-tools,.kbd{display:none!important}
+  .hero{padding-top:0}
+  .hero-fork .draw{animation:none!important;stroke-dashoffset:0!important;stroke-dasharray:none!important}
+  .hero-fork .pop{animation:none!important;opacity:1!important}
+  .scrolly{display:block}
+  .step .card{box-sizing:border-box}
+  .steps{padding:0!important}
+  .step{min-height:0!important;display:block;margin:0 0 10mm;break-inside:avoid;page-break-inside:avoid}
+  .step{margin:0 0 6mm}
+  .step .card{display:grid;grid-template-columns:62mm 1fr;column-gap:6mm;align-items:start;margin:0!important;width:auto!important;max-width:none!important;padding:4mm;border:1px solid #999;background:none!important;box-shadow:none!important;font-size:10.5pt}
+  .step .card>*:not(.print-fig){grid-column:2}
+  .step .card h3{margin-top:0}
+  .print-fig{display:block;grid-column:1;grid-row:1/span 30;width:100%;height:auto;margin:0;border:1px solid #bbb;opacity:1!important;background:#fff}
+  .print-fig *{animation:none!important}
+  .quiz details,.julgado,.table-wrap,.unit-map article{break-inside:avoid;page-break-inside:avoid}
+  .quiz summary::after{display:none!important}
+  a{color:inherit;text-decoration:none}
+  .chapter{break-after:avoid;page-break-after:avoid}
+  .hero-fork{display:block!important}
+  .revisao .unit-map{display:block!important}
+  .revisao .unit-map article{border-right:0!important}
+  .revisao .quiz{display:block!important}
+  .revisao .quiz details{margin:0 0 5mm;box-shadow:none!important}
+  .art-table{table-layout:fixed}
+  .art-table th{width:22%!important}
+  .art-table .aulas{width:18%!important;white-space:normal!important}
+}

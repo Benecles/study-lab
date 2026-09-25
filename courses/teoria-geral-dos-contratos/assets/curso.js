@@ -48,3 +48,28 @@
     localStorage.setItem('cufrgs-contratos-last', JSON.stringify({ n: m[1], t: t }));
   } catch (e) {}
 })();
+
+// Printing: light theme, every answer open, and each step printed next to its own figure.
+(function () {
+  var saved = null, opened = [], clones = [];
+  addEventListener('beforeprint', function () {
+    var r = document.documentElement;
+    saved = r.dataset.theme || null; delete r.dataset.theme;
+    document.querySelectorAll('details:not([open])').forEach(function (d) { d.open = true; opened.push(d); });
+    document.querySelectorAll('.scrolly .step').forEach(function (s) {
+      var p = document.getElementById(s.getAttribute('data-panel'));
+      var card = s.querySelector('.card');
+      if (!p || !card) return;
+      var c = p.cloneNode(true);
+      c.removeAttribute('id'); c.classList.remove('panel', 'on'); c.classList.add('print-fig');
+      c.querySelectorAll('[id]').forEach(function (n) { n.id = n.id + '-print'; });
+      c.querySelectorAll('[marker-end]').forEach(function (n) { n.setAttribute('marker-end', n.getAttribute('marker-end').replace(/\)$/, '-print)')); });
+      card.insertBefore(c, card.firstChild); clones.push(c);
+    });
+  });
+  addEventListener('afterprint', function () {
+    if (saved) document.documentElement.dataset.theme = saved;
+    opened.forEach(function (d) { d.open = false; }); opened = [];
+    clones.forEach(function (c) { c.remove(); }); clones = [];
+  });
+})();
