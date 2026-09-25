@@ -27,3 +27,24 @@
     steps.forEach(function (s) { io.observe(s); });
   });
 })();
+
+// Reading progress hairline + remember the last lesson opened (per-viewer convenience only).
+(function () {
+  var m = location.pathname.match(/aula-(\d\d)\.html$/);
+  if (!m) return;
+  var bar = document.createElement('div');
+  bar.className = 'read-progress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+  function upd() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+  }
+  addEventListener('scroll', upd, { passive: true });
+  addEventListener('resize', upd);
+  upd();
+  try {
+    var t = document.title.split(' · ')[0];
+    localStorage.setItem('cufrgs-contratos-last', JSON.stringify({ n: m[1], t: t }));
+  } catch (e) {}
+})();

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Teoria Geral dos Contratos · CUFRGS</title>
 <meta name="description" content="Mapa de estudo de Teoria Geral dos Contratos: conceitos, princípios, formação, classificação e percurso do semestre.">
-<link rel="stylesheet" href="assets/curso.css?v=20260925a">
+<link rel="stylesheet" href="assets/curso.css?v=20260925c">
 <style>
 .course-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:clamp(20px,4vw,56px);align-items:start}
 .course-intro .deck{max-width:54ch}
@@ -16,6 +16,8 @@
 .exam-card p{margin:0 0 14px;color:var(--ink-2);font-size:17px;line-height:1.45}
 .exam-card .exam-date{font:500 12px var(--mono);letter-spacing:.06em;color:var(--conc);text-transform:uppercase}
 .exam-card a{display:flex;justify-content:space-between;gap:12px;align-items:center;text-decoration:none;font:600 15px var(--sans);border-top:1px solid var(--rule);padding-top:12px}
+.exam-card a.resume{margin-top:8px;color:var(--dif);font-weight:500}
+.exam-card a[hidden]{display:none}
 .exam-card a:hover,.exam-card a:focus-visible{color:var(--conc);text-decoration:underline;text-underline-offset:4px}
 .course-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 8px}
 .course-nav-inner{display:flex;flex-wrap:wrap;gap:0 20px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 0}
@@ -77,7 +79,9 @@
       <h2 id="exam-title">Revisão para a P1</h2>
       <p>O essencial das cinco unidades da prova, com os artigos, e dez casos resolvidos.</p>
       <a href="revisao-p1.html"><span>Abrir revisão P1</span><span aria-hidden="true">→</span></a>
+      <a class="resume" href="#" hidden><span>Continuar de onde parou</span><span aria-hidden="true">→</span></a>
     </aside>
+<script>(function(){try{var d=JSON.parse(localStorage.getItem('cufrgs-contratos-last')||'null');if(!d||!/^\d\d$/.test(d.n))return;var a=document.querySelector('.exam-card .resume');a.href='aula-'+d.n+'.html';a.firstChild.textContent='Continuar: Aula '+d.n+' · '+String(d.t).slice(0,48);a.hidden=false}catch(e){}})()</script>
   </div>
 </header>
 
