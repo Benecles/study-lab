@@ -11,6 +11,7 @@
 .course-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:clamp(20px,4vw,56px);align-items:start}
 .course-intro .deck{max-width:54ch}
 .exam-card{position:relative;border:1.5px solid var(--ink);background:var(--paper);padding:20px 22px 22px;box-shadow:6px 6px 0 var(--conc-wash)}
+.exam-card.p2{box-shadow:6px 6px 0 var(--dif-wash)}.exam-card.p2::before{content:"P2 · AGORA";background:var(--dif)}.exam-card.p2 .exam-date{color:var(--dif)}
 .exam-card::before{content:"P1 · AGORA";display:inline-block;background:var(--conc);color:var(--paper);padding:5px 8px;font:500 10px var(--mono);letter-spacing:.1em}
 .exam-card h2{font:750 clamp(23px,3vw,31px)/1.1 var(--sans);margin:16px 0 8px}
 .exam-card p{margin:0 0 14px;color:var(--ink-2);font-size:17px;line-height:1.45}
@@ -58,6 +59,7 @@
 .lesson-links a{display:inline-block;background:var(--paper);border:1px solid var(--ink);padding:7px 10px;text-decoration:none;font:500 12px var(--mono);letter-spacing:.02em}
 .lesson-links a:hover,.lesson-links a:focus-visible{background:var(--conc-wash);border-color:var(--conc);color:var(--conc);text-decoration:underline;text-underline-offset:3px}
 .lesson-links .review-link{background:var(--conc);border-color:var(--conc);color:var(--paper)}
+.lesson-links .review-link.p2{background:var(--dif);border-color:var(--dif)}
 .lesson-links .review-link:hover,.lesson-links .review-link:focus-visible{background:var(--paper);color:var(--conc)}
 .endnote{max-width:1180px;margin:0 auto;padding:22px clamp(16px,4vw,48px) 64px;color:var(--ink-2);font:12px/1.5 var(--mono);letter-spacing:.03em}
 @media(max-width:860px){.course-intro{grid-template-columns:1fr}.pathway{grid-template-columns:1fr}.unit{min-height:0;border-right:1.5px solid var(--ink);border-bottom:0;padding:15px 16px}.unit:last-child{border-bottom:1.5px solid var(--ink)}.unit:not(:last-child):not(:nth-child(3n))::after{right:auto;left:26px;top:auto;bottom:-6px;transform:rotate(135deg)}.unit h3{margin:8px 0 6px}.unit p{max-width:58ch}.lesson-grid{grid-template-columns:1fr}}
@@ -81,6 +83,7 @@
       <a href="revisao-p1.html"><span>Abrir revisão P1</span><span aria-hidden="true">→</span></a>
       <a class="resume" href="#" hidden><span>Continuar de onde parou</span><span aria-hidden="true">→</span></a>
     </aside>
+<script>(function(){if(new Date()<new Date('2026-09-26T00:00:00-03:00'))return;var c=document.querySelector('.exam-card');if(!c)return;c.classList.add('p2');c.querySelector('.exam-date').textContent='Segunda prova · 27.11.2026';c.querySelector('h2').textContent='Revisão para a P2';c.querySelector('p').textContent='Interpretação, revisão, cessão e extinção, com os artigos, e doze casos resolvidos.';var a=c.querySelector('a:not(.resume)');a.href='revisao-p2.html';a.firstChild.textContent='Abrir revisão P2'})()</script>
 <script>(function(){try{var d=JSON.parse(localStorage.getItem('cufrgs-contratos-last')||'null');if(!d||!/^\d\d$/.test(d.n))return;var a=document.querySelector('.exam-card .resume');a.href='aula-'+d.n+'.html';a.firstChild.textContent='Continuar: Aula '+d.n+' · '+String(d.t).slice(0,48);a.hidden=false}catch(e){}})()</script>
   </div>
 </header>
@@ -88,7 +91,7 @@
 <nav class="course-nav" aria-label="Ir diretamente a uma parte do curso">
   <div class="course-nav-inner">
     <span class="label">Ir direto a</span>
-    <a href="#planta">Planta do semestre</a><a href="#aulas">Aulas disponíveis</a><a href="revisao-p1.html">Revisão P1</a>
+    <a href="#planta">Planta do semestre</a><a href="#aulas">Aulas disponíveis</a><a href="revisao-p1.html">Revisão P1</a><a href="revisao-p2.html">Revisão P2</a>
   </div>
 </nav>
 
@@ -122,6 +125,7 @@
     <article class="lesson-group"><h3><span>UNIDADE 08</span>Cessão da posição contratual</h3><p>Transferência da posição contratual e efeitos para as partes.</p><div class="lesson-links"><a href="aula-14.html">Aula 14 · Quem entra no contrato</a></div></article>
     <article class="lesson-group"><h3><span>UNIDADE 09</span>Extinção dos contratos</h3><p>Saídas consensuais, denúncia, resolução e inadimplemento.</p><div class="lesson-links"><a href="aula-15.html">Aula 15 · Cumprimento e impossibilidade</a><a href="aula-16.html">Aula 16 · Saída por vontade</a><a href="aula-17.html">Aula 17 · Inadimplemento e resolução</a></div></article>
     <article class="lesson-group"><h3><span>P1 · 25/09/2026</span>Revisão para a P1</h3><p>O que saber de cada unidade e dez casos resolvidos.</p><div class="lesson-links"><a class="review-link" href="revisao-p1.html">Abrir revisão P1 →</a></div></article>
+    <article class="lesson-group"><h3><span>P2 · 27/11/2026</span>Revisão para a P2</h3><p>Interpretação, revisão, cessão e extinção, com doze casos resolvidos.</p><div class="lesson-links"><a class="review-link p2" href="revisao-p2.html">Abrir revisão P2 →</a></div></article>
   </div>
 </section>
 </main>
