@@ -1,4 +1,4 @@
-/* CUFRGS · modo ônibus
+/* CUFRGS · modo avião
    Service worker that only does anything after a reader turns on offline mode
    (assets/offline.js). It then keeps a copy of every page listed in
    offline-manifest.json so the site works without a connection. */
@@ -112,7 +112,7 @@ self.addEventListener('fetch', (e) => {
     // Network first (so updates show up), cached copy when offline or slow.
     e.respondWith((async () => {
       try { return await Promise.race([fetch(req), timeout(NAV_TIMEOUT)]); }
-      catch (err) { return (await fromCache(req)) || new Response('<h1>Sem conexão</h1><p>Esta página ainda não foi guardada no modo ônibus.</p>', { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } }); }
+      catch (err) { return (await fromCache(req)) || new Response('<h1>Sem conexão</h1><p>Esta página ainda não foi guardada no modo avião.</p>', { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } }); }
     })());
     return;
   }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Modo ônibus build step. Run from the repo root after changing any page:
+"""Modo avião build step. Run from the repo root after changing any page:
 
     python3 tools/offline_build.py
 
