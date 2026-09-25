@@ -12,7 +12,7 @@
     '.cu-plane{position:fixed;left:10px;bottom:10px;z-index:80;width:30px;height:30px;border-radius:50%;border:1px solid currentColor;' +
     'background:var(--paper,#f2eee3);color:var(--ink-2,#4a4f55);opacity:.28;cursor:pointer;display:grid;place-items:center;padding:0;transition:opacity .2s}' +
     '.cu-plane:hover,.cu-plane:focus-visible,.cu-plane[aria-expanded="true"]{opacity:1}' +
-    '.cu-plane.on{opacity:.6;color:var(--dif,#2b5597)}' +
+    '.cu-plane.on{opacity:.9;color:#e8820c}' +
     '.cu-plane svg{width:16px;height:16px}' +
     '.cu-pop{position:fixed;left:10px;bottom:48px;z-index:81;width:min(300px,calc(100vw - 20px));background:var(--paper,#f2eee3);color:var(--ink,#1d2530);' +
     'border:1.5px solid var(--ink,#1d2530);box-shadow:4px 4px 0 var(--grid-major,#c9c1aa);padding:14px 14px 12px;font:14px/1.45 Georgia,serif}' +
