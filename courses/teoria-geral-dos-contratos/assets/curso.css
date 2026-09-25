@@ -239,7 +239,7 @@ dl.termos dd{font-size:17px}
 /* Owner decision 2026-09-23: the site shows no citations. Source pins stay in the markup
    as an internal audit trail (see the digests / build notes) but are never displayed. */
 .src,.stage-count,details.provenance,body:has(.src) .titleblock div:first-child{display:none!important}
-.titleblock{grid-template-columns:repeat(3,auto)}
+.titleblock{grid-template-columns:repeat(4,auto)}body:has(.src) .titleblock{grid-template-columns:repeat(3,auto)}
 @media (max-width:860px){.titleblock{grid-template-columns:1fr 1fr}}
 
 /* ---------- motion vocabulary for figures (Contratos) ---------- */
