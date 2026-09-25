@@ -68,4 +68,5 @@ function initial(){const n=Number(location.hash.replace('#folha-',''))-1;select(
 tabs.forEach((t,n)=>{t.addEventListener('click',()=>{history.replaceState(null,'','#folha-'+(n+1));select(n)});t.addEventListener('keydown',e=>{let target;if(e.key==='ArrowRight')target=(n+1)%4;if(e.key==='ArrowLeft')target=(n+3)%4;if(e.key==='Home')target=0;if(e.key==='End')target=3;if(target!==undefined){e.preventDefault();history.replaceState(null,'','#folha-'+(target+1));select(target,true)}})});window.addEventListener('hashchange',initial);initial();})();
 </script>
 <script src="assets/offline.js" defer></script>
+<script src="assets/highlight.js" defer></script>
 </body></html>

@@ -3,7 +3,7 @@
 
     python3 tools/offline_build.py
 
-1. Adds <script src=".../assets/offline.js" defer> to every HTML page that lacks it.
+1. Adds the offline.js and highlight.js <script defer> tags to every HTML page that lacks them.
 2. Writes offline-manifest.json: every public file, plus directory URLs for index pages,
    and a content hash as the version (so saved copies refresh when the site changes).
 """
@@ -24,14 +24,19 @@ def public_files():
             out.append(os.path.relpath(os.path.join(d, f), ROOT).replace(os.sep, '/'))
     return sorted(out)
 
+SCRIPTS = ('assets/offline.js', 'assets/highlight.js')
+
 def add_script(path):
     full = os.path.join(ROOT, path)
     s = open(full, encoding='utf-8').read()
-    if 'assets/offline.js' in s or '</body>' not in s:
+    if '</body>' not in s:
         return False
     depth = path.count('/')
-    src = '../' * depth + 'assets/offline.js'
-    s = s.replace('</body>', f'<script src="{src}" defer></script>\n</body>', 1)
+    missing = [x for x in SCRIPTS if x not in s]
+    if not missing:
+        return False
+    tags = ''.join(f'<script src="{"../" * depth}{x}" defer></script>\n' for x in missing)
+    s = s.replace('</body>', tags + '</body>', 1)
     open(full, 'w', encoding='utf-8').write(s)
     return True
 
