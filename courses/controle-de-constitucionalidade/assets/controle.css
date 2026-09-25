@@ -247,3 +247,60 @@ dl.termos dd{font-size:17px}
 @media (max-width:860px){.titleblock{grid-template-columns:1fr 1fr}}
 /* long Portuguese words (inconstitucionalidade) must wrap on phones */
 .titleblock b,.compare th,.compare td,.split{overflow-wrap:anywhere;hyphens:auto}
+
+/* ---------- motion vocabulary for figures (Contratos) ---------- */
+.panel.on .grow{animation-delay:var(--d,0s)}
+.fig .pop,.fig .fade{transform-box:fill-box;transform-origin:center}
+.panel.on .pop{animation:pop .6s cubic-bezier(.2,1.25,.4,1) both;animation-delay:var(--d,0s)}
+.panel.on .fade{animation:fadein .7s ease both;animation-delay:var(--d,0s)}
+.panel.on .pulse{animation:pulse 1.8s ease-in-out .9s 2}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.94)}}
+@keyframes fadein{from{opacity:0}}
+@keyframes pulse{50%{opacity:.35}}
+.fig .t-hand{font-family:var(--serif);font-style:italic;font-size:19px;letter-spacing:0}
+.fig .tag{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.fig .dot{fill:var(--ink)}
+.fig .accent{fill:var(--accent)}
+.fig .s-accent{stroke:var(--accent);fill:none;stroke-width:3}
+.fig .s-mix{stroke:var(--mix);fill:none;stroke-width:3}
+.fig .stamp-t{font-family:var(--sans);font-weight:800;font-size:22px;letter-spacing:.06em}
+.stage-step{font-variant-numeric:tabular-nums}
+.hero-fork .pop{opacity:0;animation:heroin .6s ease forwards;animation-delay:var(--d,1.4s)}
+@keyframes heroin{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.panel.on .pop,.panel.on .fade,.panel.on .pulse,.hero-fork .pop{animation:none;opacity:1}}
+.fig .c-mix{stroke:var(--mix);fill:none;stroke-width:3} .fig .w-mix{fill:var(--mix-wash)}
+
+
+.fig .w-mix{fill:var(--mix-wash)}
+/* ---- print ---- */
+.print-fig{display:none}
+@media print{
+  @page{margin:14mm}
+  body{background:none!important;font-size:11pt}
+  .topbar,.theme-toggle,.endnav,.read-progress,.stage,.course-nav,.art-tools,.art-key,.deck-tools,.kbd{display:none!important}
+  .hero{padding-top:0}
+  .hero-fork .draw{animation:none!important;stroke-dashoffset:0!important;stroke-dasharray:none!important}
+  .hero-fork .pop{animation:none!important;opacity:1!important}
+  .scrolly{display:block}
+  .step .card{box-sizing:border-box}
+  .steps{padding:0!important}
+  .step{min-height:0!important;display:block;margin:0 0 10mm;break-inside:avoid;page-break-inside:avoid}
+  .step{margin:0 0 6mm}
+  .step .card{display:grid;grid-template-columns:62mm 1fr;column-gap:6mm;align-items:start;margin:0!important;width:auto!important;max-width:none!important;padding:4mm;border:1px solid #999;background:none!important;box-shadow:none!important;font-size:10.5pt}
+  .step .card>*:not(.print-fig){grid-column:2}
+  .step .card h3{margin-top:0}
+  .print-fig{display:block;grid-column:1;grid-row:1/span 30;width:100%;height:auto;margin:0;border:1px solid #bbb;opacity:1!important;background:#fff}
+  .print-fig *{animation:none!important}
+  .quiz details,.julgado,.table-wrap,.unit-map article{break-inside:avoid;page-break-inside:avoid}
+  .quiz summary::after{display:none!important}
+  a{color:inherit;text-decoration:none}
+  .chapter{break-after:avoid;page-break-after:avoid}
+  .hero-fork{display:block!important}
+  .revisao .unit-map{display:block!important}
+  .revisao .unit-map article{border-right:0!important}
+  .revisao .quiz{display:block!important}
+  .revisao .quiz details{margin:0 0 5mm;box-shadow:none!important}
+  .art-table{table-layout:fixed}
+  .art-table th{width:22%!important}
+  .art-table .aulas{width:18%!important;white-space:normal!important}
+}
