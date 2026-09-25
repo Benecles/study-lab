@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Controle de Constitucionalidade — CUFRGS</title>
-<meta name="description" content="Controle de Constitucionalidade (DIR03027, UFRGS 2026/2): as 29 aulas do semestre, organizadas pelo programa e reconstruídas a partir dos slides do curso.">
-<link rel="stylesheet" href="assets/controle.css">
+<meta name="description" content="Controle de Constitucionalidade (DIR03027, UFRGS 2026/2): 36 aulas organizadas pelos nove blocos do programa, com explicações, diagramas e exercícios.">
+<link rel="stylesheet" href="assets/controle.css?v=20260923-2">
 <style>
 .syllabus{max-width:1180px;margin:0 auto;padding:10px clamp(16px,4vw,48px) 80px}
 .block{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(16px,4vw,56px);border-top:1.5px solid var(--ink);padding:22px 0 30px}
@@ -44,18 +44,31 @@
 .map a:hover text,.map a:focus text{text-decoration:underline}
 .map a:focus{outline:none}
 .map a:focus-visible rect,.map a:focus-visible circle{stroke-width:3}
+.course-jumps{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 8px}
+.course-jumps-inner{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.course-jumps .jump-label{grid-column:1/-1;margin:0;padding:9px 0 5px;color:var(--ink-2)}
+.course-jumps a{display:block;padding:9px 8px 11px 0;text-decoration:none;font:500 12px/1.35 var(--sans);color:var(--ink-2)}
+.course-jumps a:hover{color:var(--conc);text-decoration:underline;text-underline-offset:3px}
+.course-jumps a:focus-visible,.sheet:focus-visible{outline:2px solid var(--conc);outline-offset:3px}
+.map-scroll-note{display:none}
+.block[id],.planta[id]{scroll-margin-top:16px}
 @media(max-width:860px){.block,.intro{grid-template-columns:1fr}.block li a{font-size:19px;gap:12px}}
+@media(max-width:860px){
+ .course-jumps-inner{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .course-jumps a{padding:9px 8px 10px 0}
+ .map-scroll-note{display:block;margin:-7px 0 12px;font:11px/1.5 var(--mono);letter-spacing:.02em;color:var(--ink-2)}
+}
 </style>
 </head>
 <body>
 <nav class="topbar"><a href="../../index.html">← CUFRGS</a><span>DIR03027 · UFRGS · 2026/2</span></nav>
 
 <header class="hero">
-  <div class="kicker label"><span>Guia de estudo · Direito Constitucional</span><span>Prof. Marcelo Schenk Duque</span><span>29 aulas · 559 slides</span></div>
+  <div class="kicker label"><span>Guia de estudo · Direito Constitucional</span><span>Prof. Marcelo Schenk Duque</span><span>36 aulas · blocos I a IX do programa</span></div>
   <h1><span class="split">Controle de</span><span class="split">Constitu&shy;cionalidade.</span></h1>
   <div class="intro">
     <div>
-      <p class="deck">Quem guarda a Constituição, por qual via e com que efeitos. O semestre inteiro em aulas para ler, na ordem do programa. Cada aula foi reconstruída a partir dos slides do professor, com os diagramas redesenhados e os slides de origem indicados em cada bloco.</p>
+      <p class="deck">Quem guarda a Constituição, por qual via e com que efeitos. O semestre inteiro em aulas para ler, na ordem do programa, com diagramas que desenham cada mecanismo.</p>
       <a class="start" href="aula-01.html">COMEÇAR PELA AULA 01 →</a>
     </div>
     <div class="legend">
@@ -67,11 +80,28 @@
   </div>
 </header>
 
-<section class="planta" aria-labelledby="planta-t">
+<nav class="course-jumps" aria-label="Ir para uma parte do curso">
+  <div class="course-jumps-inner">
+    <span class="jump-label label">Ir direto a</span>
+    <a href="#planta">Planta do semestre</a>
+    <a href="#bloco-i">I · Fundamentos</a>
+    <a href="#bloco-ii">II · Teorias</a>
+    <a href="#bloco-iii">III · Momentos</a>
+    <a href="#bloco-iv">IV · Sistemas</a>
+    <a href="#bloco-v">V · Técnicas</a>
+    <a href="#bloco-vi">VI · ADI</a>
+    <a href="#bloco-vii">VII · Decisões</a>
+    <a href="#bloco-viii">VIII · Estados</a>
+    <a href="#bloco-ix">IX · Tribunais</a>
+  </div>
+</nav>
+
+<section class="planta" id="planta" aria-labelledby="planta-t">
   <h2 id="planta-t">Planta do semestre</h2>
-  <p class="lede">O curso como um único desenho. Os fundamentos se apoiam na Constituição, e as teorias e os momentos do controle levam à bifurcação dos sistemas. Da rota concentrada saem a ADI, passo a passo, e as técnicas atuais de decisão. Clique em qualquer peça para abrir a aula.</p>
-  <div class="sheet">
-  <svg class="map" viewBox="0 0 1100 690" role="img" aria-labelledby="planta-t">
+  <p class="lede">O curso como um único desenho. Os fundamentos se apoiam na Constituição, e as teorias e os momentos do controle levam à bifurcação dos sistemas. Da rota concentrada saem a ADI, passo a passo, as demais ações diretas e as técnicas atuais de decisão; da rota difusa, o controle nos tribunais. Clique em qualquer peça para abrir a aula.</p>
+  <p class="map-scroll-note">No celular, deslize a planta para o lado para percorrê-la.</p>
+  <div class="sheet" tabindex="0" role="region" aria-label="Planta do semestre; use as setas para percorrer o mapa horizontal">
+  <svg class="map" viewBox="0 0 1100 790" role="img" aria-labelledby="planta-t">
     <defs>
       <marker id="m-c" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--conc)"/></marker>
       <marker id="m-d" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--dif)"/></marker>
@@ -80,8 +110,8 @@
     </defs>
 
     <!-- foundation -->
-    <rect x="40" y="612" width="1020" height="48" style="fill:var(--const)"/>
-    <text x="60" y="642" class="sm" style="fill:var(--paper)">CONSTITUIÇÃO · PARÂMETRO DE TODO O CONTROLE</text>
+    <rect x="40" y="712" width="1020" height="48" style="fill:var(--const)"/>
+    <text x="60" y="742" class="sm" style="fill:var(--paper)">CONSTITUIÇÃO · PARÂMETRO DE TODO O CONTROLE</text>
 
     <!-- I · Fundamentos -->
     <text x="40" y="78" class="hdr">I · FUNDAMENTOS</text>
@@ -92,7 +122,7 @@
     <a href="aula-05.html"><rect x="40" y="332" width="220" height="52" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/><text x="56" y="363">05 Tratados</text></a>
     <a href="aula-06.html"><rect x="40" y="392" width="220" height="52" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/><text x="56" y="423">06 Natureza do vício</text></a>
     <a href="aula-07.html"><rect x="40" y="452" width="220" height="52" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/><text x="56" y="483">07 Recepção</text></a>
-    <path d="M150 504V612" style="stroke:var(--ink);stroke-width:1.5" stroke-dasharray="4 4"/>
+    <path d="M150 504V712" style="stroke:var(--ink);stroke-width:1.5" stroke-dasharray="4 4"/>
 
     <!-- II · Teorias -->
     <text x="320" y="78" class="hdr">II · TEORIAS</text>
@@ -120,9 +150,20 @@
     <path d="M595 560C660 560 650 200 722 160" style="stroke:var(--conc);stroke-width:3.5;fill:none" marker-end="url(#m-c)"/>
     <path d="M595 560C660 560 660 585 740 585H1060" style="stroke:var(--dif);stroke-width:3.5;fill:none"/>
     <text x="640" y="250" class="sm" style="fill:var(--conc)" transform="rotate(-78 640 250)">CONCENTRADO · VIA DE AÇÃO</text>
-    <text x="760" y="578" class="sm" style="fill:var(--dif)">DIFUSO · VIA INCIDENTAL → PROGRAMA VII–IX</text>
+    <text x="760" y="578" class="sm" style="fill:var(--dif)">DIFUSO · VIA INCIDENTAL</text>
     <a href="aula-12.html"><rect x="664" y="466" width="88" height="50" style="fill:var(--mix-wash);stroke:var(--mix);stroke-width:1.5"/><text x="672" y="487" class="sm" style="fill:var(--mix)">12 CRÍTICA</text><text x="672" y="504" class="sm" style="fill:var(--mix)">À CUMULAÇÃO</text></a>
     <path d="M648 520C654 504 658 496 664 492M708 516C710 560 714 575 720 585" style="stroke:var(--mix);stroke-width:1.5;fill:none" stroke-dasharray="4 4"/>
+
+    <!-- VI–IX · other actions, decisions, states, courts -->
+    <text x="40" y="606" class="hdr">VI–IX · OUTRAS AÇÕES DIRETAS, DECISÕES, ESTADOS E TRIBUNAIS</text>
+    <a href="aula-30.html"><rect x="40" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--conc);stroke-width:1.8"/><text x="50" y="649" class="sm">30 ADC</text></a>
+    <a href="aula-31.html"><rect x="188" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--conc);stroke-width:1.8"/><text x="198" y="649" class="sm">31 ADO E MI</text></a>
+    <a href="aula-32.html"><rect x="336" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--conc);stroke-width:1.8"/><text x="346" y="649" class="sm">32 ADPF</text></a>
+    <a href="aula-33.html"><rect x="484" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--conc);stroke-width:1.8"/><text x="494" y="649" class="sm">33 INTERVENTIVA</text></a>
+    <a href="aula-34.html"><rect x="632" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--conc);stroke-width:1.8"/><text x="642" y="649" class="sm">34 DECISÕES E RCL</text></a>
+    <a href="aula-35.html"><rect x="780" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--conc);stroke-width:1.8"/><text x="790" y="649" class="sm">35 ADI ESTADUAL</text></a>
+    <a href="aula-36.html" class="d"><rect x="928" y="620" width="140" height="48" style="fill:var(--paper);stroke:var(--dif);stroke-width:1.8"/><text x="938" y="649" class="sm">36 DIFUSO/TRIBUNAIS</text></a>
+    <path d="M1060 585C1076 585 1076 600 1056 618" style="stroke:var(--dif);stroke-width:3;fill:none"/>
 
     <!-- VI · ADI chain (snake) -->
     <text x="720" y="46" class="hdr">VI · A ADI, PASSO A PASSO</text>
@@ -153,11 +194,11 @@
     <path d="M662 400C690 400 720 420 754 420" style="stroke:var(--mix);stroke-width:1.5;fill:none" stroke-dasharray="4 4" marker-end="url(#m-m)"/>
   </svg>
   </div>
-  <div class="caption"><span>Planta · 29 aulas</span><span>Programa DIR03027 · blocos I–VI</span></div>
+  <div class="caption"><span>Planta · 36 aulas</span><span>Programa DIR03027 · blocos I–IX</span></div>
 </section>
 
 <main class="syllabus">
-  <section class="block"><div><span class="roman">I</span><h2>Fundamentos do controle</h2><p class="blurb">O que é controlar, o que precisa existir para haver controle, quem guarda a Constituição e qual é o parâmetro.</p></div><ol>
+  <section class="block" id="bloco-i"><div><span class="roman">I</span><h2>Fundamentos do controle</h2><p class="blurb">O que é controlar, o que precisa existir para haver controle, quem guarda a Constituição e qual é o parâmetro.</p></div><ol>
     <li><a href="aula-01.html"><span class="no">01</span>Conceito</a></li>
     <li><a href="aula-02.html"><span class="no">02</span>Pressupostos</a></li>
     <li><a href="aula-03.html"><span class="no">03</span>Natureza do Tribunal Constitucional</a></li>
@@ -166,18 +207,18 @@
     <li><a href="aula-06.html"><span class="no">06</span>Natureza do vício de inconstitucionalidade</a></li>
     <li><a href="aula-07.html"><span class="no">07</span>Recepção e não recepção</a></li>
   </ol></section>
-  <section class="block"><div><span class="roman">II</span><h2>Teorias do controle</h2><p class="blurb">A lei inconstitucional é nula ou anulável?</p></div><ol>
+  <section class="block" id="bloco-ii"><div><span class="roman">II</span><h2>Teorias do controle</h2><p class="blurb">A lei inconstitucional é nula ou anulável?</p></div><ol>
     <li><a href="aula-08.html"><span class="no">08</span>Nulidade e nulificabilidade</a></li>
   </ol></section>
-  <section class="block"><div><span class="roman">III</span><h2>O controle no Brasil: momentos</h2><p class="blurb">Antes ou depois de a norma existir.</p></div><ol>
+  <section class="block" id="bloco-iii"><div><span class="roman">III</span><h2>O controle no Brasil: momentos</h2><p class="blurb">Antes ou depois de a norma existir.</p></div><ol>
     <li><a href="aula-09.html"><span class="no">09</span>Controle preventivo</a></li>
     <li><a href="aula-10.html"><span class="no">10</span>Controle repressivo</a></li>
   </ol></section>
-  <section class="block"><div><span class="roman">IV</span><h2>Sistemas de controle</h2><p class="blurb">Difuso e concentrado, e o sistema misto brasileiro.</p></div><ol>
+  <section class="block" id="bloco-iv"><div><span class="roman">IV</span><h2>Sistemas de controle</h2><p class="blurb">Difuso e concentrado, e o sistema misto brasileiro.</p></div><ol>
     <li><a href="aula-11.html"><span class="no">11</span>Sistemas, efeitos e técnicas de controle</a></li>
     <li><a href="aula-12.html"><span class="no">12</span>Crítica à cumulação de sistemas</a></li>
   </ol></section>
-  <section class="block"><div><span class="roman">V</span><h2>Técnicas atuais de controle</h2><p class="blurb">As ferramentas com que o STF decide hoje.</p></div><ol>
+  <section class="block" id="bloco-v"><div><span class="roman">V</span><h2>Técnicas atuais de controle</h2><p class="blurb">As ferramentas com que o STF decide hoje.</p></div><ol>
     <li><a href="aula-13.html"><span class="no">13</span>Estado de coisas inconstitucional</a></li>
     <li><a href="aula-14.html"><span class="no">14</span>Inconstitucionalidade por arrastamento</a></li>
     <li><a href="aula-15.html"><span class="no">15</span>Interpretação conforme</a></li>
@@ -186,7 +227,7 @@
     <li><a href="aula-18.html"><span class="no">18</span>Mutação constitucional e efeito backlash</a></li>
     <li><a href="aula-19.html"><span class="no">19</span>Presunção de constitucionalidade e reação legislativa</a></li>
   </ol></section>
-  <section class="block"><div><span class="roman">VI</span><h2>Ações diretas: a ADI</h2><p class="blurb">Do cabimento à eficácia da decisão, passo a passo.</p></div><ol>
+  <section class="block" id="bloco-vi"><div><span class="roman">VI</span><h2>Ações diretas</h2><p class="blurb">A ADI passo a passo, e depois as demais ações do controle concentrado.</p></div><ol>
     <li><a href="aula-20.html"><span class="no">20</span>Cabimento</a></li>
     <li><a href="aula-21.html"><span class="no">21</span>Requisitos de ajuizamento</a></li>
     <li><a href="aula-22.html"><span class="no">22</span>Legitimidade ativa</a></li>
@@ -197,8 +238,21 @@
     <li><a href="aula-27.html"><span class="no">27</span>Plenário virtual</a></li>
     <li><a href="aula-28.html"><span class="no">28</span>Modulação dos efeitos</a></li>
     <li><a href="aula-29.html"><span class="no">29</span>Eficácia contra todos e efeito vinculante</a></li>
+    <li><a href="aula-30.html"><span class="no">30</span>Ação declaratória de constitucionalidade (ADC)</a></li>
+    <li><a href="aula-31.html"><span class="no">31</span>ADO e mandado de injunção</a></li>
+    <li><a href="aula-32.html"><span class="no">32</span>Arguição de descumprimento de preceito fundamental (ADPF)</a></li>
+    <li><a href="aula-33.html"><span class="no">33</span>Intervenção federal e representação interventiva</a></li>
   </ol></section>
-  <p class="note" style="font-size:16px">A ordem segue o programa da disciplina (DIR03027, 2026/2). A posição da aula 19 no bloco V é uma escolha editorial, porque o programa não a nomeia. Os blocos VII a IX do programa (mecanismos processuais, controle nos tribunais de segunda instância, controle difuso nos tribunais) ainda não têm slides disponíveis.</p>
+  <section class="block" id="bloco-vii"><div><span class="roman">VII</span><h2>Mecanismos processuais relevantes</h2><p class="blurb">Como o STF decide, e como se garante o que decidiu.</p></div><ol>
+    <li><a href="aula-34.html"><span class="no">34</span>Técnicas de decisão, efeito vinculante e reclamação</a></li>
+  </ol></section>
+  <section class="block" id="bloco-viii"><div><span class="roman">VIII</span><h2>Controle concentrado nos estados</h2><p class="blurb">A ADI estadual e o caminho até o STF.</p></div><ol>
+    <li><a href="aula-35.html"><span class="no">35</span>ADI estadual e normas de reprodução obrigatória</a></li>
+  </ol></section>
+  <section class="block" id="bloco-ix"><div><span class="roman">IX</span><h2>Controle difuso nos tribunais</h2><p class="blurb">Incidente, reserva de plenário e repercussão geral.</p></div><ol>
+    <li><a href="aula-36.html"><span class="no">36</span>Controle difuso nos tribunais</a></li>
+  </ol></section>
+
 </main>
 </body>
 </html>
